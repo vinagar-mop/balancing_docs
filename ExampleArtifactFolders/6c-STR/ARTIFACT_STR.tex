@@ -1,0 +1,45 @@
+\documentclass[letterpaper,showtpg,showtoc,showlof,showlot,makeoneptfivespace]{KNEADdocument}
+%%% SVN stuff
+\svnid{$Id: ARTIFACT_STR.tex 128 2024-07-14 20:00:16Z KneadProject $}
+
+%%% include acronyms and other definitions
+\input{KNEAD_GlobalDefs.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectDefs.tex} % from project's zProjectWide common folder
+\input{./KNEAD_ArtifactDefs.tex} % from local folder for this artifact
+
+%%% include formatting stuff used in artifact layouts, not ``definitions''
+\input{KNEAD_GlobalFormatting.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectFormatting.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactFormatting.tex}% from local folder for this artifact
+
+%%% include stuff for multi-part bibliographies using Biber
+\input{KNEAD_GlobalBiber.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectBiber.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactBiber.tex}% from local folder for this artifact, rarely used; maybe for seprated appendicies maybe?
+
+\begin{document}
+
+\KNEADtitlepage{KNEAD_DefaultTitlePage.tex}% from $TEXINPUTS folder, copy locally and roll your own if needed
+
+%Approval page for this document, format as needed
+%\docapprovalpage{../zSystemWideData/ApprovalPage.tex}% copy from $TEXINPUTS folder and edit as needed
+
+\dochistory{STR_doc_history}
+
+%Chapters for this document
+\newchapter{STR_Chapter_01}
+\newchapter{STR_Chapter_02}
+\newchapter{STR_Chapter_03}
+\newchapter{STR_Chapter_04}
+\newchapter{STR_Chapter_05}
+\newchapter{STR_Chapter_06}
+
+
+% Appendice for this document
+\newappendix{STR_Appendix_A}
+\newappendix{STR_Appendix_B}
+
+%Index for this document
+\KNEADPrintTheIndexHere
+ 
+\end{document}

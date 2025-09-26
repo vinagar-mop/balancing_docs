@@ -1,0 +1,57 @@
+%%% SVN stuff
+\svnid{$Id: SPS-SSS_SpecificationFormatting_NoRefToHowToSections.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+The system specifications are listed in a common table format as shown in Requirement~\ref{rqt:TableFormat}.
+%%%This format allows for easy auto-generation from a database if the applicable fields are supplied.
+%%%The regular structure of this format also allows for the {\em ParseRequirements.exe} tool to read all requirements and list them in a \CSV formatted file for analysis and review.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \ONERQMTV[9] (MULTIRQMTV[10]) is macro for consistently formatted requirements
+\MULTIRQMTV
+% #1 is requirement Number
+{1.3.1}
+% #2 is Title
+{Specification Table Format}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:TableFormat}
+% #4 is Text of the specification
+{The system requirements are listed in a common table format with the following parts:}
+% #4a (#5 in multirqmt) is Multiple parts of the specification
+{\small
+ \item The first row of a table provides a unique number and a title for the requirement.
+
+ \item The second row of the table provides the text of the requirement. This may extend to the next row for multi-part requirements. See the notes for more information on this practice. This line delineates \KPP or \KSA requirements, by adding ``\KPP'' or ``\KSA'' to the left side of this row.
+
+ \item The next row of the table provides a list of the requirement specifics for multi-part requirements, or is omitted for single-part requirements.   
+ 
+ \item The next row of the table provides the status for the items in the table. 
+
+ \item The next row of the table provides the acceptance criteria. This row follows the form of ``This requirement shall be verified by V $\in$ \{inspection, demonstration, test, analysis\}''.
+
+ \item The next row of the table provides the traceability of the requirement, which is a higher level document that calls out the need for a requirement. The structure of traceability is expected to be of the form ``This requirement is derived from MIL-STD-498~\cite{ref__MIL_STD_498} and ISO-12207~\cite{ref__ISO_12207}''. Note that the source is expected to be listed in the reference documents section.
+
+ \item The final row of the table provides, if applicable, notes for the requirement that are not a formal part of the requirement but provide supporting information regarding the feature.
+}
+% #5 (#6 in multirqmt) is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [All] This format is active for all requirements in this document.
+}
+% #6  (#7 in multirqmt) is is Acceptance methodology
+{This specification is not a testable requirement for the system; it is for demonstration purposes only.}
+% #7 (#8 in multirqmt) is Traceability
+{
+\item [N/A] There is no traceability for this requirement.
+}
+% #8 (#9 in multirqmt) is Notes; listed as enumeration \item ...
+{\small
+	\item This table is generated using a \LaTeX command.
+  \item The multi-part form is used here so that all of the rows are displayed.
+  \item This formatting is not a testable requirement on the system, but rather, shows how the requirements are depicted in the document.
+	\item The multi-part format allows for common items to be grouped together for conciseness and clarity. Each line of the multiple-parts is to be considered as a separate requirement, with a unique identifier (ID) that includes the point number added to the base requirements number. For example, requirement X.Y.Z with 3 parts would be unique IDs X.Y.Z.1, and so forth.
+	\item The multi-part format is useful for tightly-coupled items. For example, a display monitor has specifications for diagonal size, resolution, brightness, contrast ratio, etc. By placing all such requirements into a single spot helps ensure that all of the closely related requirements are considered together.
+}
+% #9 (#10 in multirqmt) is changebar version
+{P0}
+
+
+

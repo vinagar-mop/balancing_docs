@@ -1,0 +1,29 @@
+%%% SVN stuff
+\svnid{$Id: About_STR_Artifacts.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Artifact Format}
+\label{loc:DocOverview_ArtifactFormat}
+\DIDINFO{This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.}
+
+This document format is based upon the guidance in the \STR{} \DID~\cite{ref__STR_DID}.
+The test results are documented following the guidelines of ISO-12207~\cite{ref__ISO_12207} and MIL-STD-498~\cite{ref__MIL_STD_498} (from which ISO-12207 originated).
+This document follows the listed \STR sub-section order.
+\begin{description}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	\item[Section 1] provides an overview of the system and this document.
+	\item[Section 2] lists general and application-specific reference documents as well as glossary terms and acronyms. 
+	\item[Section 3] summarizes the test results.
+	\item[Section 4] details the tests results. 
+	\item[Section 5] documents, as applicable, the test parameters beyond those recorded in the test itself and provides a log of the detailed test and test case description and results.
+	\item[Section 6] if needed, lists any general notes as may be applicable.
+	\item[Appendices] if needed, provide additional information regarding the test results.
+\end{description}
+
+
+This document also is structured to allow the \STS artifact to serve as the basis for the system test report (\STR).
+Each test is supplied with spaces for capturing pertinent hardware, software, and other log information.
+Each test is divided into one or more test cases, each with detailed steps, expected results for each step, and a verification mark for each test step.
+All tests steps also provide space to fill in the results and to write notes and comments about each test step.
+The goal of this style is to generate this \STR by scanning in the resultant \STS artifact with comments to provide a log of the test results.
+In this manner, a ``written'' record of the testing is generated, thus saving money by not requiring a completely separate recording document for the \STR.
+
+\input{DIDINFO_Snippets/DIDINFOoverview.tex}

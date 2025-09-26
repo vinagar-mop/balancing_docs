@@ -1,0 +1,47 @@
+%%% SVN stuff
+\svnid{$Id: IconNotes.tex 137 2025-06-08 22:46:45Z KneadProject $}
+
+% icon notes configrues for use in Check Lists and Operation Procedures
+\ifpdf
+\newcommand{\IconNoteBANG}[1]{\IconNoteBase{MarginIcons/BANG_Icon.pdf}{#1}}
+\newcommand{\IconNoteBRAIN}[1]{\IconNoteBase{MarginIcons/BRAIN_Icon.pdf}{#1}}
+\newcommand{\IconNoteBULLSEYE}[1]{\IconNoteBase{MarginIcons/BULLSEYE_Icon.pdf}{#1}}
+\newcommand{\IconNoteCLOCK}[1]{\IconNoteBase{MarginIcons/CLOCK_Icon.pdf}{#1}}
+\newcommand{\IconNoteHAND}[1]{\IconNoteBase{MarginIcons/HAND_Icon.pdf}{#1}}
+\newcommand{\IconNoteINFO}[1]{\IconNoteBase{MarginIcons/INFO_Icon.pdf}{#1}}
+\newcommand{\IconNoteKEY}[1]{\IconNoteBase{MarginIcons/KEY_Icon.pdf}{#1}}
+\newcommand{\IconNoteMAGNIFY}[1]{\IconNoteBase{MarginIcons/MAGNIFY_Icon.pdf}{#1}}
+\newcommand{\IconNotePLAYARROW}[1]{\IconNoteBase{MarginIcons/PLAYARROW_Icon.pdf}{#1}}
+\newcommand{\IconNoteRADIATION}[1]{\IconNoteBase{MarginIcons/RADIATION_Icon.pdf}{#1}}
+\newcommand{\IconNoteSHOCK}[1]{\IconNoteBase{MarginIcons/SHOCK_Icon.pdf}{#1}}
+\newcommand{\IconNoteQUESTION}[1]{\IconNoteBase{MarginIcons/QUESTION_Icon.pdf}{#1}}
+\else
+\newcommand{\IconNoteBANG}[1]{\IconNoteBase{MarginIcons/BANG.eps}{#1}}
+\newcommand{\IconNoteBULLSEYE}[1]{\IconNoteBase{MarginIcons/BULLSEYE.eps}{#1}}
+\newcommand{\IconNoteCLOCK}[1]{\IconNoteBase{MarginIcons/CLOCK.eps}{#1}}
+\newcommand{\IconNoteHAND}[1]{\IconNoteBase{MarginIcons/HAND.eps}{#1}}
+\newcommand{\IconNoteINFO}[1]{\IconNoteBase{MarginIcons/INFO.eps}{#1}}
+\newcommand{\IconNoteKEY}[1]{\IconNoteBase{MarginIcons/KEY.eps}{#1}}
+\newcommand{\IconNoteMAGNIFY}[1]{\IconNoteBase{MarginIcons/MAGNIFY.eps}{#1}}
+\newcommand{\IconNotePLAYARROW}[1]{\IconNoteBase{MarginIcons/PLAYARROW.eps}{#1}}
+\newcommand{\IconNoteRADIATION}[1]{\IconNoteBase{MarginIcons/RADIATION.eps}{#1}}
+\newcommand{\IconNoteSHOCK}[1]{\IconNoteBase{MarginIcons/SHOCK.eps}{#1}}
+\newcommand{\IconNoteQUESTION}[1]{\IconNoteBase{MarginIcons/QUESTION.eps}{#1}}
+\fi
+
+%%
+%% warning, danger, information, etc. commands for notes with an ICON
+%% bsae upon a tabular answer given in https://tex.stackexchange.com/questions/312118/a-note-with-the-dangerous-bend-symbol-how-to-vertically-center-text-and-symbol
+\usepackage{array}
+
+%\linespread{0.8}\selectfont{\noindent{#2}\par}}
+
+\newcommand{\IconNoteBase}[2]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.1\textwidth}@{}m{0.9\textwidth}@{}}%
+			&\\\cmidrule{2-2}
+			\includegraphics[width=0.6in]{#1} & \linespread{0.9}\bf#2\\\cmidrule{2-2}
+    \end{tabular}
+		\vspace*{12pt}%
+    %\par % ... and this too.
+}

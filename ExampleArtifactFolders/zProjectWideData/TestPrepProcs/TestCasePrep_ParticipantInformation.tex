@@ -1,0 +1,32 @@
+%%% SVN stuff
+\svnidlong
+{$HeadURL: https://svn.riouxsvn.com/kneadlatxinputs/ExampleArtifactFolders/zProjectWideData/TestPrepProcs/TestCasePrep_ParticipantInformation.tex $}
+{$LastChangedDate: 2024-05-21 20:41:47 -0400 (Tue, 21 May 2024) $}
+{$LastChangedRevision: 111 $}
+{$LastChangedBy: KneadProject $}
+\svnid{$Id: TestCasePrep_ParticipantInformation.tex 111 2024-05-22 00:41:47Z KneadProject $}
+
+\TestProcedure %\TestProcedure[6] Test Procedure Container
+% #1 is the test description number, usually built from section number + description within the section
+{\TestProcNumber.1}
+% #2 is the test description name
+{\StdTestNameX Participant Information}
+% #3 is the test description LaTeX label
+{lab:tproc_\StdTestName_TestParticipantInformation_\TestProcNumber}
+% #4 is the list of requirements covered by this test
+{
+\tpRqmt{N/A}
+}
+% #5 is the list of test steps
+{
+\tpStep{Record the starting date and time for this test.}{Date and time are recorded.}{36pt}
+\tpStep{Record the name and agency of the test engineer.}{Test engineer name and agency are recorded.}{24pt}
+\tpStep{Record the name and agency of the internal Q/A witness.}{Q/A witness name and agency are recorded.}{24pt}
+\tpStep{Record the name and agency of the external (customer/government/prime contractor, if applicable) witness(es).}{External witness name and agency are recorded if applicable, else N/A is recorded}{48pt}
+}
+% #6 is the list notes
+{
+\tpNote{Mark any sections that do not apply to this test as ``N/A'' and add a short note as to why.}
+\tpNote{Feel free to add information as needed on blank pages with numbers followed by letters (e.g. 79-A, 79-B, etc.).}
+}
+%%% end \TestProcedure[6] test description container

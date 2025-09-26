@@ -1,0 +1,17 @@
+%%% SVN stuff
+\svnid{$Id: STR_Appendix_A.tex 128 2024-07-14 20:00:16Z KneadProject $}
+
+\chapter{Test Results One}
+\label{loc:TestResultsOne}
+\input{DIDINFO_Snippets/ALL/ALL_APPENDIX_DIDINFO.tex}
+
+This section provides additional information, as necessary, to augment the \STR.
+
+In general, a scan of the completed \STS test pages is expected to be included.
+This can be included as 
+
+\ifpdf
+\includepdf[pages={1-}]{TestOneResults.pdf}
+\else
+% manually adjust page numbes in ATRIFACT_STR.tex bases on test report sizes
+\fi

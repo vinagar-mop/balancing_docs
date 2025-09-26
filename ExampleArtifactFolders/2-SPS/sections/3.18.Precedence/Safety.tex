@@ -1,0 +1,29 @@
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.1}
+% #2 is Title
+{Safety Requirements Precedence}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SafetyRequirementsPrecedence}
+% #4 is Text of the specification
+{All \ThisSystem variants shall meet safety requirements listed in Section~\ref{lab:sec_Safety} before all other requirements.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item Obviously safety is of utmost importance.
+	\item The inspection is of design notes and rationale whereby design decisions relating to precedence are recorded.
+}
+% #9 is version for changebars
+{P1}
+%%%%% end \ONERQMTV[9] macro
+

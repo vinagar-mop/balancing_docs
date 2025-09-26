@@ -1,0 +1,43 @@
+%%% SVN stuff
+\svnid{$Id: About_CMPLAN_Artifacts.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Artifact Format}
+\label{loc:DocOverview_ArtifactFormat}
+\DIDINFO{This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.}
+
+This document format is based upon the guidance in the \CMPLAN \DID~\citeIEEEstdCM, but may be tailored to reflect current quality management system (\QMS) or other program requirements.
+This \CMPLAN also follows the guidelines of ISO-12207~\cite{ref__ISO_12207} and MIL-STD-498~\cite{ref__MIL_STD_498} (from which ISO-12207 originated).
+It is expected that significant content of the \CMPLAN may be references to external \QMS, \CMMI, or other related documentation.
+Thus, agencies using this artifact may formalize it to serve as a checklist for tailoring each effort per their own processes and procedures.
+
+This tailoring also includes planning for \CM aspects as may be needed for the complete system development efforts.
+The \CMPLAN \DID mainly covered \CM of software.
+This artifact includes sections that cover the development of hardware as well as software, firmware, and the environment itself.
+Integration and testing are also included, since the tools and environment need to be under \CM.
+The organization is such that unneeded sections can be omitted as needed.
+
+This document follows a tailored \CMPLAN sub-section order of:
+\begin{description}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	\item[Section 1] provides an overview of the system and this document.
+	\item[Section 2] lists general and application-specific reference documents as well as glossary terms and acronyms. 
+	\item[Section 3] summarizes the required planning for teh \CM effort for the project.
+	\item[Section 4] defines the organization, roles, and responsibilities.
+	\item[Section 5] identifies the configuration items for the
+		\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+			\item Development Environment,
+			\item Documentation, and
+			\item System Components.
+		\end{itemize}
+	\item[Section 6] defines the Change Management steps of the
+		\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+			\item Baseline Process,
+			\item Change Process,
+			\item Process Accounting,
+			\item Process Auditing, and
+			\item Process Tools.
+		\end{itemize}
+	\item[Section 7] if needed, lists any general notes as may be applicable.
+	\item[Appendices] if needed, provide additional information as may be needed.
+\end{description}
+
+\input{DIDINFO_Snippets/DIDINFOoverview.tex}

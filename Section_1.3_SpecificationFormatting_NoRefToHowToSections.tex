@@ -1,0 +1,95 @@
+%%% SVN stuff
+\svnid{$Id: Section_1.3_SpecificationFormatting_NoRefToHowToSections.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Specification Formatting}
+\label{ssec:Intro_SpecFormatting}
+
+The specification are listed and numbered by document sections. 
+The fully qualified specification numbers include the sub-section in which it is contained. 
+These specification numbers are tied to the document level thus they are numbered from 1 to N for each sub-section of the requirements section. 
+This is done to allow for additions within a sub-system without affecting the numbering in other sub-systems.
+
+This document allows for marking changes to specifications.
+All specifications may be marked with a changebar.
+This generally implies that one or more parts of a specification changed from the prior revision.
+A note should be provided to indicate the reason for the change and when so that future versions of the document, which do not include the changebar, still have rationale included for the current value.
+ 
+Once a specification has been added, it cannot be deleted, only its status may be changed to ``inactive'' or ``deleted'' to preserve numbering.
+The table format also allows for grouping of related specifications.
+These grouped specification are also numbered sequentially and are also not removed if made inactive. 
+Rather, they are marked in a ``strike-though'' font to denote that they are inactive.
+
+The system specifications are listed in a common table format as shown in Requirement~\ref{rqt:TableFormat}.
+%%%This format allows for easy auto-generation from a database if the applicable fields are supplied.
+%%%The regular structure of this format also allows for the {\em ParseRequirements.exe} tool to read all requirements and expectations and list them in a \CSV formatted file for analysis and review.
+%%% \NRQTM[9] is macro for consistnely formatted requirements
+\NRQMT
+% #0 is the requirement number
+{1.3.1}
+% #1 is title
+{Specification Table Format}
+% #2 is requirement label (expected to be of form rqt:XXX)
+{rqt:TableFormat}
+% #3 is synopsis
+{The system requirements and expectations are listed in a common table format.}
+% #4 is specifics (must be a list of \items
+{\small
+ \item The first row of a table provides a unique number and a title for the requirement or expectation.
+
+ \item The second row of the table provides a synopsis of the requirement or expectation.
+
+ %%%\item The third row of the table provides a list of the requirement or expectation specifics. Each item is marked according to its inclusion level which is L $\in$ \{(T)hreshold, (O)bjective, (I)nactive, (B)usiness\}.
+ \item The third row of the table provides a list of the requirement or expectation specifics. Each item is marked according to its inclusion level which is L $\in$ \{(T)hreshold, (O)bjective, (I)nactive\}.  
+ 
+
+ \item The next row of the table provides the acceptance criteria and is omitted for expectations. This row follows the form of ``This requirement shall be verified by V $\in$ \{inspection, demonstration, test, analysis\}''.
+
+ \item The next row of the table provides the status for the items in the table. This includes the applicable versions in which the required feature is supported.  
+
+ \item The next row of the table provides the traceability of the requirement, which is a higher level document that calls out the need for a requirement. This is omitted for expectations. The structure of traceability is expected to be of the form ``This requirement is derived from MIL-STD-498~\cite{ref__MIL_STD_498} and ISO-12207~\cite{ref__ISO_12207}''. Note that the source is expected to be listed in the reference documents section.
+
+ \item The final row of the table provides, if applicable, notes for the requirement or expectation that are not a formal part of the requirement or expectation but provide supporting information regarding the feature.
+}
+% #5 is acceptance
+{This specification is not a testable requirement for the system; it is for demonstration purposes only.}
+% #6 is status (active, inactive, etc.)
+{This format is active for all requirements and expectations in this document.}
+% #7 is traceability
+{There is no traceability for this requirement.}
+% #8 is notes
+{
+\begin{enumerate}
+	\item This table is generated using a \LaTeX command.
+   \item The requirement form is used here so that all of the rows are displayed.
+   \item This formatting is not a testable requirement on the system, but rather, shows how the requirements and expectations are depicted in the document.
+\end{enumerate}
+}
+%%%%% end \NRQTM[9] macro
+
+%%%The level markings for each specification item L $\in$ \{(T)hreshold, (O)bjective, (I)nactive, (B)usiness\} are based on the following criteria.
+The level markings for each specification item L $\in$ \{(T)hreshold, (O)bjective, (I)nactive\} are based on the following criteria.
+Items driven by the customer threshold needs that are marked (T) must be met.
+Items marked (O) are objective goals of the system.
+Requirements that are no longer to be met by the system are marked by (I) to denote inactive so as to not change the numbering of subsequent requirements and to note that the requirement once was invoked. 
+%%%The overall requirement configuration management system should track the rationale for the deletion. 
+%%%Those items marked (B) are deemed necessary by the business not the customer so management approval is needed to not meet these items.
+Taken together, these levels define the second-level precedence for all requirements.
+
+
+%%%%%%%This table approach offers other advantages besides automated parsing for import into tools.
+%%%%%%%As can be seen in Table~\ref{rqt:TableFormat}, and in all the specifications, this format groups similar specifications into a separable and easily viewed structure.
+%%%%%%%The document sections and subsections still provide a logical grouping of the specifications but the table allows all pertinent items to be grouped.
+%%%%%%%This grouping allows for easier presentation since each grouping is similar to a ``PowerPoint" presentation slide.
+%%%%%%%% And, as will be seen in Section~\ref{ssec:Intro_HowToRead}, it can help the writer organize specifications.
+%%%%%%%The approach also allows for a ``List of Specifications" to be generated.
+%%%%%%%Each table is listed in this section of the document so that each high level grouping can be quickly located from the list.
+%%%%%%%% Of course, the tables are located in the appropriate sections as noted in Section~\ref{ssec:Intro_DocSections} so they can be found in that manner as well.
+
+\if@showreqnotes
+Another major advantage of the table format is the ``Notes" section.
+As specifications are developed, there will be many issues to be resolved.
+And, once issues are clarified, tracking the rationale for the decision is just as important as recording the answer~\cite{ref__Brooks_MMM}.
+Thus the notes section helps the reader and the writer.
+The writer has a logically grouped place to put notes for a specification set and the reader can easily find them without having to refer to footnotes, separated sections, or external documentation.
+A side benefit of the \LaTeX{} formatting is that the notes can be easily omitted in document generation for presentation of the specifications to customers and other external readers, thus protecting possibly sensitive information.
+\fi% end show notes

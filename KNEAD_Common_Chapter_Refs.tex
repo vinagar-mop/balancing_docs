@@ -1,0 +1,45 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_Common_Chapter_Refs.tex 139 2025-06-13 20:26:50Z KneadProject $}
+
+\chapter{References}
+\label{loc__References}
+% \input{DIDINFO_Snippets/ALL/ALL_2.0.0_DIDINFO.tex}
+
+This section provides a list of referenced items for this document.
+
+%\KNEADSECTIONNEWPAGE
+\section{Acronyms and Abbreviations}
+\label{loc__refs_AcronymsandAbbreviations}
+% \input{DIDINFO_Snippets/ALL/ALL_2.1.0_DIDINFO.tex}
+
+This section defines acronyms and abbreviations used in this and related documents.
+
+%Since this is a common acronym list for all \OurCompanyName \QMS documents, some acronyms may be included in this list that are not referenced within this specific document.
+\IfFileExists{./KNEAD_Artifact_Acronyms.tex}{
+\KNEADChapTwoAcronymTable{./KNEAD_Artifact_Acronyms.tex}% longtable formatting (from KNEAD_GlobalFormatting.tex)
+}{
+\KNEADChapTwoAcronymTable{../zProjectWideData/KNEAD_Project_Acronyms.tex}% longtable formatting (from KNEAD_GlobalFormatting.tex)
+}
+
+
+\KNEADSECTIONNEWPAGE
+\section{Glossary and Definitions}
+\label{loc__refs_GlossaryandDefinitions}
+% \input{DIDINFO_Snippets/ALL/ALL_2.2.0_DIDINFO.tex}
+
+This section defines glossary terms used in this and related documents.
+%Since this is a common acronym list for all \OurCompanyName \QMS documents, some glossary terms may be included in this list that are not referenced within this specific document.
+
+\IfFileExists{./KNEAD_Artifact_Glossary.tex}{
+\KNEADChapTwoGlossaryTable{./KNEAD_Artifact_Glossary.tex}% longtable formatting (from KNEAD_GlobalFormatting.tex)
+}{
+\KNEADChapTwoGlossaryTable{../zProjectWideData/KNEAD_Project_Glossary.tex}% longtable formatting (from KNEAD_GlobalFormatting.tex)
+}
+
+
+\KNEADSECTIONNEWPAGE
+\section{Referenced Documents}
+\label{loc__Refs_Documents}
+% \input{DIDINFO_Snippets/ALL/ALL_2.3.0_DIDINFO.tex}
+
+\KNEADChapTwoReferences% standard formatted text for Biber references (from  KNEAD_GlobalFormatting.tex)

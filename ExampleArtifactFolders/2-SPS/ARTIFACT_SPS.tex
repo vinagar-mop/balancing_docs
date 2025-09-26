@@ -1,0 +1,47 @@
+\documentclass[letterpaper,showtpg,showtoc,showlof,showlot,makeoneptfivespace]{KNEADdocument}
+%%% SVN stuff
+\svnid{$Id: ARTIFACT_SPS.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+%%% include acronyms and other definitions
+\input{KNEAD_GlobalDefs.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectDefs.tex} % from project's zProjectWide common folder
+\input{./KNEAD_ArtifactDefs.tex} % from local folder for this artifact
+
+%%% include formatting stuff used in artifact layouts, not ``definitions''
+\input{KNEAD_GlobalFormatting.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectFormatting.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactFormatting.tex}% from local folder for this artifact
+
+%%% include stuff for multi-part bibliographies using Biber
+\input{KNEAD_GlobalBiber.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectBiber.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactBiber.tex}% from local folder for this artifact, rarely used; maybe for seprated appendicies maybe?
+
+\begin{document}
+
+%Approval page for this document, format as needed
+%\docapprovalpage{../zSystemWideData/ApprovalPage.tex}% copy from $TEXINPUTS folder and edit as needed
+
+\KNEADtitlepage{KNEAD_DefaultTitlePage.tex}% from $TEXINPUTS folder, copy locally and roll your own if needed
+
+\dochistory{SPS_doc_history}
+
+\newchapter{SPS_Chapter_01}
+\newchapter{SPS_Chapter_02}
+\newcommand{\ThisSegment}{UNDEFINED}%used to automate segment text
+\newcommand{\ThisSubSegment}{UNDEFINED}%used to automate segment text
+\newcommand{\RqtNumberBase}{UNDEFINED}% used locally to allow for files to be included
+\newchapter{SPS_Chapter_03}
+\newchapter{SPS_Chapter_04}
+\newchapter{SPS_Chapter_05}
+
+%% Include any appendices.
+\newappendix{SPS_Appendix_A}
+\newappendix{SPS_Appendix_B}
+
+%Index for this document
+\KNEADPrintTheIndexHere
+
+\end{document}
+
+

@@ -1,0 +1,52 @@
+\newpage
+%\KNEADSECTIONNEWPAGE
+\section{External Interfaces}
+\label{loc:ExternalInterfaces}
+\RequirementNumberAM{section}{3.2}
+\input{DIDINFO_Snippets/SPS-SSS/SPS-SSS_3.2.0_DIDINFO.tex}
+
+The external interfaces for this system are shown in Figure~\ref{fig:DFD-C}.
+The requirements for these interfaces are described in more detail in the following sections.
+\begin{description}
+	\item[User] The operator(s) that control the \ThisSys, \S~\ref{loc:ExtIF_Operator}
+	\item[Network] The network(s) that connect to the \ThisSys, \S~\ref{loc:ExtIF_Network}
+	\item[Power] The network(s) that connect to the \ThisSys, \S~\ref{loc:ExtIF_Network}
+\end{description}
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=6.5in]{../zProjectWideData/images/DFD-C_300dpi_6.5inchesWide.eps}
+	\caption[System Context Diagram]{System Context Diagram (DFD-C)}
+	\label{fig:DFD-C}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\KNEADSUBSECTIONNEWPAGE
+\subsection{Operator Interfaces}
+\RequirementNumberAM{subsection}{3.2.1}
+\label{loc:ExtIF_Operator}
+
+\input{sections/3.02.ExternalInterfaces/Operator/_ExtIF_Operator.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\KNEADSUBSECTIONNEWPAGE
+\subsection{Network Interfaces}
+\RequirementNumberAM{subsection}{3.2.2}
+\label{loc:ExtIF_Network}
+
+\input{sections/3.02.ExternalInterfaces/Network/_ExtIF_Network.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\KNEADSUBSECTIONNEWPAGE
+\subsection{Power Interfaces}
+\RequirementNumberAM{subsection}{3.2.3}
+\label{loc:ExtIF_Power}
+
+\input{sections/3.02.ExternalInterfaces/Power/_ExtIF_Power.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

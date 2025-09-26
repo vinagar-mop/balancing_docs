@@ -1,0 +1,17 @@
+%%% SVN stuff
+\svnid{$Id: STS_Chapter_04.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\chapter{Test Specifications}
+\label{loc:TestSpecifications}
+\input{DIDINFO_Snippets/STS/STS_4.0.0_DIDINFO.tex}
+
+This section specifies the tests to be performed.
+\newcommand{\StsTestCaseID}{UndefinedCase}%define here so all test case files are \renewcommands
+
+\newcommand{\StsTestSpecID}{Test1}% used in file for unique labels
+\input{STS_Chapter_04.x_TestSpecBase}%Copy this file, rename, and update for each test.
+
+\renewcommand{\StsTestSpecID}{Test2}% used in file for unique labels
+\input{STS_Chapter_04.x_TestSpecBase}%Copy this file, rename, and update for each test.
+
+\DIDINFOON%turn them back on since they were turned off after first test case

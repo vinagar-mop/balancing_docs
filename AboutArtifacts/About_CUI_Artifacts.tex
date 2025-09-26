@@ -1,0 +1,14 @@
+%%% SVN stuff
+\svnid{$Id: About_CUI_Artifacts.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Security and Privacy Considerations}
+\label{loc:DocOverview_CUI}
+
+%include CUI info if CUI is defined
+\ifthenelse{\equal{\KNEADcuiStatus}{}}
+{
+	This document is not subject to \CUI restrictions.
+}%endif not CUI
+{% it is CUI so print CUI file info
+	\input{AboutArtifacts/About_CUI_Artifacts_Base.tex}
+}

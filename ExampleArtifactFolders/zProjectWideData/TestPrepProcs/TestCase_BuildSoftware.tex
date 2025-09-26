@@ -1,0 +1,33 @@
+%%% SVN stuff
+\svnidlong
+{$HeadURL: https://svn.riouxsvn.com/kneadlatxinputs/ExampleArtifactFolders/zProjectWideData/TestPrepProcs/TestCase_BuildSoftware.tex $}
+{$LastChangedDate: 2024-05-21 20:41:47 -0400 (Tue, 21 May 2024) $}
+{$LastChangedRevision: 111 $}
+{$LastChangedBy: KneadProject $}
+\svnid{$Id: TestCase_BuildSoftware.tex 111 2024-05-22 00:41:47Z KneadProject $}
+
+\TestProcedure  %\TestProcedure[6] test description container
+% #1 is the test description number, usually built from section number + description within the section
+{\TestProcNumber.1}
+% #2 is the test description name
+{\StdTestNameX Build Software}
+% #3 is the test description LaTeX label
+{lab:tproc_\StdTestName_BuildSoftware_\TestProcNumber}
+% #4 is the list of requirements covered by this test
+{
+\tpRqmt{3.10.2.1}%Linux support
+\tpRqmt{3.10.2.2}%Windows support
+}
+% #5 is the list of test steps
+{
+\tpStep{Record the operating system(s) supported by this software.}{Supported operating systems are recorded.}{12pt}
+\tpStep{Verify that all source files, build files, and instructions are supplied for all supported operating systems.}{Names of files for makefiles, project files, and build instructions for supported operating systems are recorded.}{36pt}
+\tpStep{Follow the instructions supplied for all supported operating systems to build the software.}{Following build instructions  produces a library to be used with the bridge code and executable test driver program(s) with no errors or warnings for all supported operating systems.}{24pt}
+\tpStep{Verify that the executable test driver program(s) generated for all supported operating systems run.}{The executable program(s) is(are) listed and run under the associated operating systems.}{36pt}
+}
+% #6 is the list notes
+{
+\tpNote{The goal of this test case is to verify that the build instructions for all executable code result in operational code; this does not check the validity of the operations of the code.}
+\tpNote{The names of the source code do not need to be recorded here since the makefile and/or project file contains this information.}
+}
+%%% end \TestProcedure[6] test description container

@@ -1,0 +1,65 @@
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.1}
+% #2 is Title
+{Labeling}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:CableLabeling}
+% #4 is Text of the specification
+{
+This system shall provide labels for all cables that designate the cable number and overall system connection number.
+}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item Formal cable number labels that call out the cable part number should be affixed either in the middle or on both ends.
+	\item Connector labels are expected to be of the form ``Cnn'' where 'C' stands for connection and ``nn'' is the overall system connection number.
+	\item In some cases a single part number can be used for multiple places. For example the acoustic array staves can be used in any of the seven stave locations. In cases like this, the labels can/should provide some means for in-situ marking for convenience. 
+}
+% #9 is the version of the spec in which this requirement was added
+{Av3}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.2}
+% #2 is Title
+{Header Labeling}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:HeaderLabeling}
+% #4 is Text of the specification
+{
+This system shall provide labels for all headers that designate a connector number that is unique across the entire system.
+}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item Header labels are expected to be of the form ``Hnn'' where 'H' stands for header and ``nn'' is the overall system connection number.
+
+}
+% #9 is the version of the spec in which this requirement was added
+{Av3}
+%%%%% end \ONERQMTV[9] macro
+
+

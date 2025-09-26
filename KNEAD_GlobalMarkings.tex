@@ -1,0 +1,72 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_GlobalMarkings.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: KNEAD CUI DEFINITIONS
+% see https://www.dodcui.mil/Home/Training/ for latest info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%uncomment this one if NOT CUI, uncomment second one (or redefine in project/artifact Defs file}
+\newcommand{\KNEADcuiStatus}{}
+%\newcommand{\KNEADcuiStatus}{CUI}
+%
+%%% CUI Dissemination Block info, DO NOT INCLUDE Lables, just the info
+\newcommand{\KNEADcuiCOMPONENT}{CUICOMPNENTUNDEFINED}
+\newcommand{\KNEADcuiOFFICE}{CUICREATIONOFFICEUNDEFINED}
+\newcommand{\KNEADcuiCATEGORIES}{CUICATEGORIESUNDEFINED}
+\newcommand{\KNEADcuiDISTRIBUTION}{CUIDISTRIBUTIONUNDEFINED}
+\newcommand{\KNEADcuiPOC}{CUIPOCUNDEFINED}
+\newcommand{\KNEADcuiTitlepageDistributionStatement}{Distribution Statement D: Distribution authorized to Department of Defense and U.S. DoD contractors only. Other requests for this document shall be referred to the controlling DoD office.}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: KNEAD CUI DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Header/Footer commands
+%
+% redefine these in KNEAD_ProjectMarkings.tex as needed 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\KneadMarkingFont}{\bf}
+\newcommand{\HeadFootU}{UNCLASSIFIED} %unclassified
+\newcommand{\HeadFootC}{CONFIDENTIAL} %confidential (gov't classification , not corporate)
+\newcommand{\HeadFootS}{SECRET} %seecrett no forn (gov't classification , not corporate)
+\newcommand{\HeadFootSNF}{SECRET-NOFORN} %seecrett (gov't classification , not corporate)
+\newcommand{\HeadFootTS}{TOP-SECRET} %topsy seecrett no forn (gov't classification , not corporate)
+\newcommand{\HeadFootSCI}{TOP-SECRET/SCI} %topsy seecrett/SCI no forn (gov't classification , not corporate)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Marking commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Marking commands
+% Usage would be something like
+%
+% \MarkitU This paragraph is unclassified.
+%
+% \MarkitCUI This paragraph is CtrlUncInfo. %names not not spelled out to avoid trapping in auto-scan systems.
+% add any needed levels, following same format, in KNEAD_ProjectMarkings.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\MarkitU}{{\GlobalAcnyFont (U)}\xspace} %unclassified
+\newcommand{\MarkitC}{{\GlobalAcnyFont (C)}\xspace} %confidential (gov't classification , not corporate)
+\newcommand{\MarkitS}{{\GlobalAcnyFont (S)}\xspace} %seecrett (gov't classification , not corporate)
+\newcommand{\MarkitSNF}{{\GlobalAcnyFont (S-NoForn)}\xspace} %seecrett no forn (gov't classification , not corporate)
+\newcommand{\MarkitTS}{{\GlobalAcnyFont (TS)}\xspace} %topsy seecrett (gov't classification , not corporate)
+\newcommand{\MarkitSCI}{{\GlobalAcnyFont (TS/SCI)}\xspace} %topsy seecrett/SCI (gov't classification , not corporate)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Marking commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+%-%
+%%% Classification stuff
+%
+\newcommand{\TSSCI}{\index{Classification Level!Top Secret Sensitive Compartmentalized Information}{\GlobalAcnyFont TS-SCI}\xspace}
+\newcommand{\TS}{\index{Classification Level!Top Secret}{\GlobalAcnyFont TS}\xspace}
+\newcommand{\Secret}{\index{Classification Level!Secret}{\GlobalAcnyFont Secret}\xspace}
+\newcommand{\Confidential}{\index{Classification Level!Confidential}{\GlobalAcnyFont Confidential}\xspace}
+\newcommand{\CUI}{\index{Classification Level!Cntrl-Unclass-Info}{\GlobalAcnyFont CUI}\xspace}% remove exact words to avoid filtering
+\newcommand{\FOUO}{\index{Classification Level!For Official Use Only}{\GlobalAcnyFont FOUO}\xspace}

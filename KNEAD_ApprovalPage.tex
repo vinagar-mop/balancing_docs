@@ -1,0 +1,54 @@
+%%% SVN stuff
+\svnidlong
+{$HeadURL: https://bah5cg139011h.resource.ds.bah.com/svn/RRSVSBU/RRSVSBU/zProjectWideData/ApprovalPage.tex $}
+{$LastChangedDate: 2025-03-18 16:17:09 -0400 (Tue, 18 Mar 2025) $}
+{$LastChangedRevision: 140 $}
+{$LastChangedBy: Lewis $}
+\svnid{$Id: ApprovalPage.tex 140 2025-03-18 20:17:09Z Lewis $}
+
+
+%Expects \KNEADincludeSignatuireField to be blank to ignore signatures, any non-empty value causes PDF signature blocks to be inserted
+
+%Control to ignore or insert PDF signature fields since they cause file to ask to save file even if not signed :( 
+\renewcommand{\KNEADincludeSignatureField}{yes}%uncomment this line to include PDF signature block on Approval Page
+
+\begin{center}
+\singlespace
+\begin{tabular}{p{\textwidth}}
+
+\KNEADSignatureField{Stakeholder Program Office Approving Authority :} 
+Signature / Date\\
+Name, Title/Role\\
+fname.mi.lname@domain.name, (area) XCH-NUMB\
+
+%\\%blank line for spacing
+\\%blank line for spacing
+\\%blank line for spacing
+
+\KNEADSignatureField{Stakeholder Program Technical Approving Authority :}
+Signature / Date\\
+Name, Title/Role\\
+fname.mi.lname@domain.name, (area) XCH-NUMB\
+
+%\\%blank line for spacing
+\\%blank line for spacing
+\\%blank line for spacing
+
+\KNEADSignatureField{Customer Program Approving Authority :}
+Signature / Date\\
+Name, Title/Role\\
+fname.mi.lname@domain.name, (area) XCH-NUMB\
+
+%\\%blank line for spacing
+\\%blank line for spacing
+\\%blank line for spacing
+
+\KNEADSignatureField{Customer Project Technical Approving Authority :}
+Signature / Date\\
+Signature / Date\\
+Name, Title/Role\\
+fname.mi.lname@domain.name, (area) XCH-NUMB\
+
+\end{tabular}
+\end{center}
+

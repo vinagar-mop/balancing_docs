@@ -1,0 +1,32 @@
+%%% SVN stuff
+\svnidlong
+{$HeadURL: https://svn.riouxsvn.com/kneadlatxinputs/ExampleArtifactFolders/zProjectWideData/TestPrepProcs/TestPrep_HardwareInformation.tex $}
+{$LastChangedDate: 2024-05-21 20:41:47 -0400 (Tue, 21 May 2024) $}
+{$LastChangedRevision: 111 $}
+{$LastChangedBy: KneadProject $}
+\svnid{$Id: TestPrep_HardwareInformation.tex 111 2024-05-22 00:41:47Z KneadProject $}
+
+\TestProcedure  %\TestProcedure[6] test description container
+% #1 is the test description number, usually built from section number + description within the section
+{\TestProcNumber.2}
+% #2 is the test description name
+{\StdTestNameX Hardware Information}
+% #3 is the test description LaTeX label
+{lab:tproc_\StdTestName_HardwarePreparation_\TestProcNumber}
+% #4 is the list of requirements covered by this test
+{
+\tpRqmt{N/A}
+}
+% #5 is the list of test steps
+{
+\tpStep{Record the configuration, including model and serial numbers, of all test support hardware (e.g. power supplies, \DMM, etc.) used in this test.}{Support hardware configuration is recorded.}{450pt}
+%\tpStep{Record the configuration, including serial numbers, of all hardware under test.}{Hardware under test configuration is recorded.}{200pt}
+%\tpStep{Record the free disk space is.}{Free disk space is recorded.}{30pt}
+%\tpStep{Record the internet download speed in Mbps at all test locations.}{Internet download speed at all test locations is recorded.}{50pt}
+%\tpStep{Record the internet upload speed in Mbps at all test locations.}{Internet upload speed at all test locations is recorded.}{50pt}
+}
+% #6 is the list notes
+{
+\tpNote{N/A}
+}
+%%% end \TestProcedure[6] test description container

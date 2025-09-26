@@ -1,0 +1,100 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_STP_Chapter_04_2_4.tex 153 2025-03-24 15:02:14Z Lewis $}
+
+\input{DIDINFO_Snippets/STP/STP_4.2.0_DIDINFO.tex}
+
+This section defines the plans for the \TestIdNameX validation efforts.
+
+\subsubsection{Test Objective}
+\label{loc:TestObjective\TestIdName}
+
+The test objective for \TestIdNameX is to demonstrate operations within a system or sub-system.
+For example, a networking sub-system may be validated to ensure configurations are correct and expected throughput capacities are met.
+Specialized software or test harnesses may be developed and/or used to perform these tests.
+This level of testing ensures that the sub-system meets its external interface definitions and functions as expected before being integrated into a larger system of systems.
+
+\subsubsection{Test Level}
+\label{loc:TestLevels\TestIdName}
+
+The test level for \TestIdNameX is \StageFour as defined by \citeStageTestingSTD.
+
+\subsubsection{Test Type or Class}
+\label{loc:TestType\TestIdName}
+
+The test type or class for \TestIdNameX is development testing.
+Note that in this case, this testing may also include validation of sub-system external interfaces.
+
+\subsubsection{Qualification Method}
+\label{loc:TestQualificationMethod\TestIdName}
+
+The test qualification method for \TestIdNameX generally is performed via test, but analysis may be performed as necessary to ensure each subsystem meets the design specifications.
+
+\subsubsection{Traceability}
+\label{loc:TestTraceability\TestIdName}
+
+The test traceability for \TestIdNameX generally is included in the overall \RTVM.
+For ``Form, Fit, or Function'' testing, the results are expected to map to related operational or interface specifications.
+These trace classes are expected to map System/Subsystem Specification (\SSS) implementation requirements to specific tests and/or test cases within a System Test Specification (\STS).
+
+\subsubsection{Special Requirements}
+\label{loc:TestSpecialRequirements\TestIdName}
+
+The test special requirements for \TestIdNameX are defined as necessary in test procedures.
+Test procedures within an \STS may include references to overall assembly or operational set-up documentation to prevent duplication of information.
+
+\subsubsection{Data Recoding}
+\label{loc:TestDataRecoding\TestIdName}
+
+The test data recoding for \TestIdNameX is to record all inspection results in hard copy or electronic form.
+Electronic form (e.g., a database application with bar code scanning capability) is preferred, but not required, to minimize labor effort and data entry errors.
+
+\subsubsection{Assumptions or Constraints}
+\label{loc:TestAssumptionsOrConstraints\TestIdName}
+
+The test assumptions or constraints for \TestIdNameX are defined in the associated inspection or test procedures.
+
+\subsubsection{Safety, Security, and Privacy}
+\label{loc:TestSafetySecurityPrivacy\TestIdName}
+
+The test safety, security, and privacy for \TestIdNameX are defined in the associated inspection or test procedures.
+Special care must be taken when test results indicate issues with security measured for the system.
+
+\subsubsection{Tests and Test Cases}
+\label{loc:TestsAndTestCases\TestIdName}
+
+Tests and test cases for this test stage are:
+\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	
+	\item {\bf Power} Functional assessment of power distribution and \UPS capabilities.
+	\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item {\bf Power Distribution} Validation of power distribution in \ThisSys.
+		\item {\bf \UPS} Validation of \UPS in \ThisSys.
+	\end{enumerate}
+	
+	\item {\bf Networking} Functional assessment of network topology and configuration.
+	\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item {\bf \IP Addressing} Validation of \IPvFour and \IPvSix addressing and routing.
+		\item {\bf \NTP Services} Validation of \NTP services.
+	\end{enumerate}
+	
+	\item {\bf Authentication} Functional assessment of user authentication services.
+	\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item {\bf Setup} Validation of user and group setup from SysAdmin workstations.
+		\item {\bf Operations} Validation of operational access from all workstations.
+	\end{enumerate}
+	
+	\item {\bf Radios} Functional assessment of radio configuration and operation.
+	\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item {\bf Configuration} Validation of configuration control from Maintainer workstations.
+		\item {\bf Communication} Validation of operational control from Operator workstations.
+		\item {\bf Arbitration} Validation of arbitration control (operator assignment) from Operator workstations.
+	\end{enumerate}
+	
+	\item {\bf Recording} Functional assessment of recording, playback, and offloading capabilities.
+	\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item {\bf Recording} Validation of voice recording from Operator workstations.
+		\item {\bf Playback} Validation of voice playback from Maintainer workstation (\KVM connected to recorder).
+		\item {\bf Offloading} Validation of voice offloading from Maintainer workstation (\KVM connected to recorder).
+	\end{enumerate}
+	
+\end{enumerate}

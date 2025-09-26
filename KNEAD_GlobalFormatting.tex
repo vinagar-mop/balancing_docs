@@ -1,0 +1,662 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_GlobalFormatting.tex 142 2025-08-03 20:42:20Z KneadProject $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: KNEAD \usepackage section
+%          MUST BE FIRST
+%          list all globally needed packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+%%
+%% This seems to NEED to be first, else it collides with lots of other stuff.
+%% These colisions cause TOC,LOT, LOF to be wonky and paragraph spacing to be narrower than expected.
+%% As of 05 July 2024, this placement seems to work ;) 
+%
+%https://tex.stackexchange.com/questions/42520/apparent-conflict-when-using-hyperref-and-pdfcomment-together
+%\hypersetup{pdfborder={0 0 0},plainpages=false,pdfpagelabels,breaklinks,hyperfootnotes=true}
+%%%
+%%%%% This makes the pdf file contain active links for all references,
+%%%%% urls, the table of contents, etc., and creates a pdf menu.
+%\usepackage[pdfborder={0 0 0},plainpages=false,pdfpagelabels,breaklinks,hyperfootnotes=true,pdfa=true]{hyperref} 
+\usepackage[pdfborder={0 0 0},plainpages=false,pdfpagelabels,breaklinks,hyperfootnotes=true]{hyperref} 
+
+\newcommand\KNEADlabel[2][]{\phantomsection\def\@currentlabelname{#1}\label{#2}}
+\newcommand{\KNEADref}{\nameref}
+
+%%%
+%%% These were called out by pdfcomment, but do not seem to be needed explicitly.
+%%%
+%%%\usepackage{zref}
+%%%\usepackage{xkeyval}
+%%%\usepackage{etoolbox}
+%%%\usepackage{luatex85}
+%%%\usepackage{ifpdf}
+%%%\usepackage{iflatex}
+%%%\usepackage{ifthen}
+%%%\usepackage{calc}
+%%%\usepackage{marginnote}
+%%%\usepackage{datetime2}
+%%%\usepackage{refcount}
+%%%\usepackage{soulpos}
+%%%
+\usepackage{pdfcomment}% needs to be after \usepackage{hyperref} to prevent a rogue comma above the line with the \pdftooltip
+
+\usepackage{ifthen}
+
+\usepackage{etoolbox}% added 20210913 for the toggle capability
+
+\usepackage{eforms}
+%https://tex.stackexchange.com/questions/447484/adobe-reader-always-asks-for-saving-when-using-eforms-and-hyperref-packages :: pdfa=true
+\OpenAction{/S/JavaScript/JS(this.dirty=false;)}
+
+%https://ctan.mirrors.hoobly.com/macros/latex/contrib/etoolbox/etoolbox.pdf
+\newcommand{\KNEADshowSignatureFieldIfEmpty}{}
+
+\newcommand{\KNEADSignatureField}[1]{
+\ifdefempty{\KNEADshowSignatureFieldIfEmpty}
+%isEmpty
+{\bf{#1}\\ \sigField{#1}{\textwidth}{1.5cm}\break\rule{\textwidth}{0.5pt}\\}%true case to SHOW the signature block
+%else
+{\bf{#1}\\%true case to NOT show the signature block
+\begin{center}
+\em PDF Signature Field To Be Included in Final Draft
+\end{center}
+\break\rule{\textwidth}{0.5pt}\\}
+}
+
+%from MILSTD498.sty
+
+%
+% Circled Number and Letter Icons
+%
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height=12pt] (char) {\vphantom{1g}#1};}}
+
+
+
+%at bottom of file
+\usepackage{indentfirst}%WLC20210315 -- added to get 1st lines in sections and below to be indented.
+%% This is needed to prevent odd reading when sentences occur after lists and other formatting issues.
+
+
+
+%%% from MILSTD498document.tex
+\usepackage[shortlabels]{enumitem}%allows [] options for spacing, [shortlabels] allows ``a)'' as in \begin{enumerate}[a),itemsep=-1ex,topsep=0pt]
+\usepackage{etoolbox}% added 20210913 for the toggle capability
+\usepackage[nodayofweek]{datetime}
+\newdateformat{mydate}{\twodigit{\THEDAY}{ }\shortmonthname[\THEMONTH], \THEYEAR}
+\mydate
+
+
+
+\usepackage{titlesec}
+
+%%%
+%%% Set default of showing all 5 levels in TOC
+%%% %part,ch,sec,ssec,sssec,para,subpara
+%%%   -1,  0,  1,  2,    3,   4,    5
+\setcounter{secnumdepth}{5} 
+\setcounter{tocdepth}{5}    
+
+\usepackage{csvsimple,longtable,booktabs}
+
+
+
+
+
+\usepackage{makeidx}
+%\usepackage{showidx}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{dtklogos}
+% \usepackage{setspace}
+\usepackage[normalem]{ulem}
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%%% 20141212WLC - had issues so I edited the text instead
+\usepackage{longtable}
+\setcounter{LTchunksize}{100}
+
+\usepackage{graphicx}
+% \usepackage[space]{grffile} %to get file names with spaces to work
+%https://tex.stackexchange.com/questions/8422/how-to-include-graphics-with-spaces-in-their-path
+
+
+
+\usepackage{afterpage}
+\usepackage{booktabs}
+
+\usepackage{color}
+\definecolor{MILSTD498BLUE}{RGB}{0, 96, 192}
+\definecolor{GREEN}{RGB}{0, 176, 80}
+\definecolor{YELLOW}{RGB}{192, 192, 0}
+\definecolor{ORANGE}{RGB}{237,125,49}
+\definecolor{BROWN}{RGB}{131, 60, 11}
+\definecolor{RED}{RGB}{255, 0, 0}
+\definecolor{DARKRED}{RGB}{160, 0, 0}
+\definecolor{BLUE}{RGB}{0, 112, 192}
+\definecolor{DARKBLUE}{RGB}{0, 32, 96}
+\definecolor{PURPLE}{RGB}{112, 48, 160}								  
+\definecolor{CYAN}{RGB}{0, 176, 240}								  
+\definecolor{BLACK}{RGB}{0, 0, 0}								  
+\definecolor{GREY}{RGB}{127, 127, 127}								  
+%usage is \color{GREEN}, etc.
+
+%%%%%
+%%%%% collides with pdfcomment
+%%%%%
+%%%%%\usepackage{listings}
+%%%%%\lstset{ %
+%%%%%lineskip=-2pt,
+%%%%%xleftmargin=.2in,               % slide left margin to the right to keep line numbers inside margin
+%%%%%language=C++,                   % choose the language of the code
+%%%%%alsolanguage=C,                 % choose an alternative language of the code
+%%%%%basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%%%%%numbers=left,                   % where to put the line-numbers
+%%%%%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%%%%%stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+%%%%%numbersep=5pt,                  % how far the line-numbers are from the code
+%%%%%backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+%%%%%showspaces=false,               % show spaces adding particular underscores
+%%%%%showstringspaces=false,         % underline spaces within strings
+%%%%%showtabs=false,                 % show tabs within strings adding particular underscores
+%%%%%frame=single,                   % adds a frame around the code
+%%%%%tabsize=2,                      % sets default tabsize to 2 spaces
+%%%%%captionpos=b,                   % sets the caption-position to bottom
+%%%%%breaklines=true,                % sets automatic line breaking
+%%%%%breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%%%%%escapeinside={\%*}{*)}          % if you want to add a comment within your code
+%%%%%}
+
+%%% tell LaTeX to allow for line breaks at underscores since we have lots oflong names with them
+\renewcommand\_{\textunderscore\allowbreak}
+
+\usepackage{xspace}%so we don't have to put braces at end of commands
+%%% make sure font changing commands have double braces to encapsulate the font area
+%%% e.g. see TBD macro below
+
+%%%
+%%% commands to mark text so it can be included showing notes or other such things but be marked as being "marked" as special.
+%%% following command provides a common way to show marked text is "special".
+
+\usepackage{framed}
+\newcommand{\MarkThisText}[1]{\begin{framed} #1 \end{framed}}
+\newcommand{\MarkedTextStatement}[1]{\MarkThisText{Text in the same mode as this sentence is #1.}}
+
+
+%%%%%
+%%%%% add in a new TOC style list for requirements
+%%%%% http://texblog.org/2008/07/13/define-your-own-list-of/
+%%%%%
+\usepackage{subfig}
+\usepackage[titles,subfigure]{tocloft}% to define requirements list for TOC,F,T
+\usepackage{glossaries}
+\usepackage{lmodern}
+%\usepackage{changebar}
+%\usepackage[color,DVIps]{changebar}% not applicable with LaTeX=>PDF
+\usepackage[color]{changebar}
+\cbcolor{blue}
+
+
+\usepackage{footnote}%https://texblog.org/2012/02/03/using-footnote-in-a-table/
+
+
+
+%%%
+%%% stuff for bibliographty in multiple parts
+%%%
+%defernumbers=true %% means numbers are by bibliograph order, not citation order
+%defernumbers=false %% means numbers are by citation order
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[ngerman]{babel}
+\usepackage[hyperref=true, defernumbers=false, backend=biber,natbib=true,style=numeric,sorting=none]{biblatex}
+
+
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+
+
+%letterpaper depricated (WLC20211009)
+\usepackage{url}
+%\def\UrlBigBreaks{\do\/\do-\do?}
+
+\usepackage{breakurl}% MUST follow package hyperref
+
+%%% fancy header stuff
+\usepackage{fancyhdr}
+
+%%% to fix spacing after punctuation such as with footnotes.[WLC20220719]
+%%% it tightens it up but doesn't seem to put footnote marker before the period as it should :(
+%%% https://tex.stackexchange.com/questions/492192/unwanted-space-after-footnote-mark
+%%% https://tex.stackexchange.com/questions/474362/two-problems-with-fnpct-package
+\usepackage{fnpct}
+
+
+%\usepackage[landscape]{geometry}
+\usepackage{pdflscape}
+
+%
+%%% WLC 2024.03.14
+%%% got errors with \begin{document} so I gave up
+%
+%\usepackage{epstopdf}% for use by LaTeX->PDF to convert EPS images to PDF for inclusion
+										 % need to use LaTeX->PDF to insert PDF files, mainly in STR documents
+										% not needed if PDFs are made in GIMP from PNGs
+\usepackage{pdfpages}% to include scans in STRs
+
+%%% Gets current counter based on chapter, section, subsection, subsubsection, paragraph, subparagraph, ... name
+%%% Used to get current reference so when sections are cut from a master document, the \RqtNumberBase can be automatically set
+\newcommand{\getcurrentref}[1]{%
+  \ifnum\value{#1}=0 ??\else\csname the#1\endcsname\fi
+}
+
+% macro for handling multiple requirements and use cases from a common set of files
+\newcommand{\AUTONUMRQTVAR}{AUTO}
+\newcommand{\AUTONUMUSECASEVAR}{AUTO}
+%arg 1 is section level
+%arg 2 is manually provided requirement number
+\newcommand{\RequirementNumberAM}[2]{\ifthenelse{\equal{\AUTONUMRQTVAR}{AUTO}}{\renewcommand{\RqtNumberBase}{\getcurrentref{#1}}}{\renewcommand{\RqtNumberBase}{#2}}}
+\newcommand{\UseCaseNumberAM}[2]{\ifthenelse{\equal{\AUTONUMUSECASEVAR}{AUTO}}{\renewcommand{\UseCaseNumberBase}{\getcurrentref{#1}}}{\renewcommand{\UseCaseNumberBase}{#2}}}
+
+%%%%%% old use packages
+%%%
+%%%\usepackage{xspace}%so we don't have to put braces at end of commands
+%%%
+%%%\usepackage{svn-multi}
+%%%
+%%%\usepackage{textcomp}
+%%%
+%%%\usepackage{fancyhdr}
+%%%\usepackage{afterpage}
+%%%%\usepackage{ifthen}
+%%%
+%%%%% This makes the pdf file contain active links for all references,
+%%%%% urls, the table of contents, etc., and creates a pdf menu.
+%%%\usepackage[pdfborder={0 0 0},plainpages=false,pdfpagelabels]{hyperref} %letterpaper depricated (WLC20211009)
+%%%
+%%%\usepackage{breakurl}% MUST follow package hyperref
+%%%
+%%%\usepackage{url}
+%%%%\def\UrlBigBreaks{\do\/\do-\do?}
+%%%
+%%%\usepackage{indentfirst}%WLC20210315 -- added to get 1st lines in sections and below to be indented.
+%%%%% This is needed to prevent odd reading when sentences occur after lists and other formatting issues.
+%%%
+%%%
+%%%%%% 20141212WLC - had issues so I edited the text instead
+%%%\usepackage{longtable}
+%%%\setcounter{LTchunksize}{100}
+%%%
+%%%\usepackage{csvsimple,longtable,booktabs}
+%%%
+%%%\usepackage{ifthen}
+%%%\usepackage{makeidx}
+%%%
+%%%\usepackage{titlesec}
+%%%
+%%%\usepackage{enumerate}
+%%%%https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-items-with-usepackageenumerate
+%%%\usepackage[shortlabels]{enumitem}% to allow set spaces on enumerations, etc.
+%%%
+%%%
+%%%
+%%%
+%%%%%%
+%%%%%% stuff for bibliographty in multiple parts
+%%%%%%
+%%%%defernumbers=true,backend=biber,
+%%%\usepackage[backend=biber,natbib=true,style=numeric,sorting=none]{biblatex}
+%%%
+%%%\setcounter{biburlnumpenalty}{100}
+%%%\setcounter{biburlucpenalty}{100}
+%%%\setcounter{biburllcpenalty}{100}
+%%%
+%%%\usepackage{graphicx}
+%%%
+%%%\usepackage[nodayofweek]{datetime}
+%%%\newdateformat{mydate}{\twodigit{\THEDAY}{ }\shortmonthname[\THEMONTH], \THEYEAR}
+%%%\mydate
+%%%
+%%%\usepackage{float}
+%%%\usepackage{subfig}
+%%%\usepackage[titles,subfigure]{tocloft}% to define requirements list for TOC,F,T
+%%%
+%%%\usepackage{pifont}% http://ctan.org/pkg/pifont
+%%%\newcommand{\cmark}{\ding{51}}%
+%%%\newcommand{\xmark}{\ding{55}}%
+
+%%%%%% icon notes configrues for use in Check Lists and Operation Procedures
+\input{IconNotes.tex}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: KNEAD \usepackage section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newenvironment{my_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{itemize}
+}
+
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+\newenvironment{tds_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{6pt}
+  \setlength{\parsep}{6pt}}{\end{enumerate}
+}
+
+\newenvironment{my_description}{
+\begin{description}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+	\setlength{\baselineskip}{0pt}%
+  \setlength{\parsep}{0pt}}{\end{description}
+}
+
+\newenvironment{traceability_description}%
+{\begin{description}{%
+  \setlength{\itemsep}{1pt}%
+  \setlength{\parskip}{0pt}%
+	\setlength{\baselineskip}{0pt}%
+  \setlength{\parsep}{0pt}}}%
+{\end{description}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this actually sets the headers and footers, but can be overridden by user before this actually gets instantiated.
+%
+\lhead{\KNEADleftHeader}
+\chead{\KNEADcenterHeader}
+\rhead{\KNEADrightHeader}
+
+\lfoot{\KNEADleftFooter}
+\cfoot{\KNEADcenterFooter}
+\rfoot{\KNEADrightFooter}
+
+% set width of lines below header and above header
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%
+%%%%% tell it to make the index page(s)
+%%%%%
+\makeindex
+
+
+%%%
+%%% common command to hide all the details about making the index page print as needed
+%%%
+\newcommand{\KNEADPrintTheIndexHere}
+{
+	%%%http://tex.stackexchange.com/questions/23499/incorrect-bookmarks-and-page-number-in-table-of-contents
+	\cleardoublepage%%%neeeded to make PDF bookmarks come out correctly
+	\phantomsection%%%neeeded to make PDF bookmarks come out correctly
+	\addcontentsline{toc}{chapterx}{Index}
+	\printindex
+}
+
+
+
+
+%%%%%
+%%%%% add section formats for paragraph and subparagraph headings
+%%%%%
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}%https://tex.stackexchange.com/questions/56072/vertical-spacing-after-paragraph-heading
+%%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}%original
+%{0pt}{2.5ex plus 1ex minus .2ex}{-3.25ex plus .2ex}% (-) to undo space added by ~// 
+
+
+%{WLC-20160210}
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}
+{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}%https://tex.stackexchange.com/questions/56072/vertical-spacing-after-paragraph-heading
+%{0pt}{-12pt plus 4pt minus 2pt}{-15 pt plus 2pt minus 2pt}%https://tex.stackexchange.com/questions/56072/vertical-spacing-after-paragraph-heading
+%%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}%original
+%{0pt}{2.5ex plus 1ex minus .2ex}{-3.25ex plus .2ex} % (-) to undo space added by ~//
+
+%%%%% command to print DID info at beginning of each section
+\newcommand\DIDINFOBASE[1]{{
+\linespread{0.8}\selectfont  
+  {
+     \noindent \textsc{#1}  \par
+  }
+}}
+\newcommand\DIDINFO{}% make sure it's off by default
+\newcommand\DIDINFOON{\renewcommand\DIDINFO[1]{\DIDINFOBASE{##1}}}
+%{##1} needed per https://tex.stackexchange.com/questions/367918/how-to-fix-illegal-parameter-number-in-definition-of-a-new-tikz-command
+\newcommand\DIDINFOOFF{\renewcommand\DIDINFO[1]{}}
+\DIDINFOON% make sure it's on by default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands to define an \hline that won't allow a page break, ala \\* in longtable
+% http://tex.stackexchange.com/questions/6350/how-to-disable-pagebreak-on-hline-in-longtable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\makeatletter
+\def\nobreakhline{%
+\noalign{\ifnum0=`}\fi
+ \penalty\@M
+\futurelet\@let@token\LT@@nobreakhline}
+\def\LT@@nobreakhline{%
+\ifx\LT@next\hline
+  \global\let\LT@next\@gobble
+ \ifx\CT@drsc@\relax
+   \gdef\CT@LT@sep{%
+     \noalign{\penalty\@M\vskip\doublerulesep}}%
+ \else
+   \gdef\CT@LT@sep{%
+     \multispan\LT@cols{%
+       \CT@drsc@\leaders\hrule\@height\doublerulesep\hfill}\cr}%
+ \fi
+\else
+ \global\let\LT@next\empty
+ \gdef\CT@LT@sep{%
+   \noalign{\penalty\@M\vskip-\arrayrulewidth}}%
+\fi
+\ifnum0=`{\fi}%
+\multispan\LT@cols
+ {\CT@arc@\leaders\hrule\@height\arrayrulewidth\hfill}\cr
+\CT@LT@sep
+\multispan\LT@cols
+ {\CT@arc@\leaders\hrule\@height\arrayrulewidth\hfill}\cr
+\noalign{\penalty\@M}%
+\LT@next}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end \nobreakhline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Longtable for Chapter 2 Acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\KNEADacronymDefinitionArrayStretch}{1.2}
+\newlength{\KNEADacronymDefinitionColumnWidth}
+\setlength{\KNEADacronymDefinitionColumnWidth}{4.8in}% adjust as necessary based on definitions
+
+\newcommand{\KNEADacronymEntryStart}{\begin{minipage}{\KNEADacronymDefinitionColumnWidth}\vspace{2.5pt}}
+\newcommand{\KNEADacronymEntryClose}{\vspace{2.5pt}\end{minipage}\\	\hline}
+\newcommand{\KNEADacronymEntryCloseLast}{\end{minipage}} % no \\ \hline allowed on final line so last active entry MUST use \KNEADacronymEntryCloseLast
+
+
+\newcommand{\KNEADChapTwoAcronymTable}[1]
+{
+\begin{singlespace}
+\renewcommand{\arraystretch}{\KNEADacronymDefinitionArrayStretch}%increase as needed for fine tuning line spacing
+
+\begin{center}
+
+\begin{longtable}[H]{|l|l|} %{|@{}l|l@{}|}
+\caption{Acronym Definitions}\\
+%
+\hline \hline
+\multicolumn{1}{|l|}{\textbf{Acronym}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\KNEADacronymDefinitionColumnWidth}{\textbf{Definition}}\end{minipage}}\\\hline \hline 
+\endfirsthead
+%
+\hline \hline
+\multicolumn{2}{|c|}%
+{{\bfseries Acronym definitions -- continued from previous page}}\\ \hline \hline 
+\multicolumn{1}{|l|}{\textbf{Acronym}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\KNEADacronymDefinitionColumnWidth}{\textbf{Definition}}\end{minipage}}\\
+\hline \hline 
+\endhead
+%
+\hline \hline 
+\multicolumn{2}{|c|}{{\bfseries Acronym definitions continue on next page}}\\ 
+\hline \hline
+\endfoot
+%
+\hline\hline 
+\multicolumn{2}{|c|}{{\bfseries End of acronym definition table}}\\ 
+\hline \hline
+\endlastfoot
+%
+%%% include the project-wide acronyms
+\input{#1}%
+%
+\end{longtable}
+\end{center}
+\end{singlespace}
+}% end \ChapTwoAcronymTable[1]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Longtable for Chapter 2 Acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Longtable for Chapter 2 Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\KNEADglossaryTermArrayStretch}{1.2}
+\newlength{\KNEADglossaryTermColumnWidth}
+\setlength{\KNEADglossaryTermColumnWidth}{4.8in}% adjust as necessary based on definitions
+\newlength{\KNEADglossaryBottomSpace}
+\setlength{\KNEADglossaryBottomSpace}{6.0pt}
+
+\newcommand{\KNEADglossaryEntryStart}{\begin{minipage}{\KNEADglossaryTermColumnWidth}\vspace{3pt}}
+\newcommand{\KNEADglossaryEntryClose}{\vspace{3pt}\end{minipage}\\[\KNEADglossaryBottomSpace]\hline}
+\newcommand{\KNEADglossaryEntryCloseLast}{\end{minipage}}% no \\ \hline allowed on final line so last active entry MUST use \KNEADglossaryEntryCloseLast
+
+%
+\newcommand{\KNEADChapTwoGlossaryTable}[1]
+{
+\begin{singlespace}
+\renewcommand{\arraystretch}{\KNEADglossaryTermArrayStretch}%increase as needed for fine tuning line spacing
+
+\begin{center}
+
+\renewcommand*{\arraystretch}{\KNEADglossaryTermArrayStretch}%increase as needed for fine tuning line spacing
+\begin{longtable}[H]{|l|l|} %{|@{}l|l@{}|}
+\caption{Glossary Terms and Definitions} \\
+%
+\hline \hline
+\multicolumn{1}{|l|}{\textbf{Glossary Term}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\KNEADglossaryTermColumnWidth}{\textbf{Definition}}\end{minipage} } \\
+\hline \hline 
+\endfirsthead
+%
+\hline \hline
+\multicolumn{2}{|c|}%
+{{\bfseries Glossary terms -- continued from previous page}}\\ \hline \hline 
+\multicolumn{1}{|l|}{\textbf{Glossary Term}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\KNEADglossaryTermColumnWidth}{\textbf{Definition}}\end{minipage}}\\\hline \hline 
+\endhead
+%
+\hline \hline \multicolumn{2}{|c|}{{\bfseries Glossary terms continue on next page}}\\ \hline \hline
+\endfoot
+%
+\hline\hline \multicolumn{2}{|c|}{{\bfseries End of glossary terms table}}\\ \hline \hline
+\endlastfoot
+%
+%%% include the project-wide acronyms
+\input{#1}
+%
+\end{longtable}
+\end{center}
+\end{singlespace}
+}% end \ChapTwoGlossaryTable[1]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End :: Longtable for Chapter 2 Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Standard Bibliography command for Chapter 2 reference citations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% standard macro to include all three levels of references in Chapter 2.
+% redefine this at Project or Artifact level as needed to change levels, etc.
+\newcommand{\KNEADChapTwoReferences}
+{
+This section lists the referenced documents for this document.
+The references are categorized into two categories:
+
+\begin{description}
+	\item[External] Documents not directly associated with this project.
+	\item[Project] Documents that are directly associated with this project.
+	%\item[Artifact] Documents that are directly associated with just this artifact. This maybe would include items such as separated appendices.
+\end{description}
+
+\subsection{External Documents}
+\label{loc__Refs_ExternalDocuments}
+
+\printbibliography[heading=none,keyword=KNEAD_BiberGlobal]
+
+
+\subsection{Project Specific Documents}
+\label{loc__Refs_ProjectDocuments}
+
+\printbibliography[heading=none,keyword=KNEAD_BiberProject]
+
+%%https://tex.stackexchange.com/questions/18191/defining-custom-labels
+%\usepackage[nameinlink]{cleveref} 
+%\newcommand{\KNEADlabel}[2]{%
+%\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}}}}
+
+
+%\subsection{Artifact Specific Documents}
+%\label{loc:Refs_ArtifactDocuments}
+%
+%\printbibliography[heading=none,keyword=KNEAD_BiberArtifact]
+}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Standard Bibliography command for Chapter 2 reference citations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: include specification macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{KNEAD_UseCaseCommands.tex}
+\input{KNEAD_RqmtSpecificationCommands.tex}
+\input{KNEAD_TestSpecificationCommands.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: include specification macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

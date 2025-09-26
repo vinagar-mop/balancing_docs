@@ -1,0 +1,42 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_STP_Chapter_04_1.tex 153 2025-03-24 15:02:14Z Lewis $}
+
+\input{DIDINFO_Snippets/STP/STP_4.1.0_DIDINFO.tex}
+
+This section provides general and/or common information for all tests.
+
+\subsection{Test Levels}
+\label{loc:TestLevels}
+
+\input{SevenStageTestDescriptions.tex}
+
+\subsection{Test Classes}
+\label{loc:TestClasses}
+
+Following the seven test stage paradigm, the testing is divided into four classes:
+\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	\item {\bf Development Testing} validation of the system components, sub-systems, and system in the development environment, following stages 1-5 above.
+	\item {\bf Environmental} validation of the system environmental constraints, following stage 6 above.
+	\item {\bf Design Testing} (\StageDT) validation of the system meeting the design specifications, following stage 7 above.
+	\item {\bf Operational Testing} (\StageOT) validation of the system meeting the operational goals and mission needs, following stage 7 above.
+\end{enumerate}
+
+\subsection{Test Conditions}
+\label{loc:TestConditions}
+
+Test conditions will be defined in each test specification (procedure).
+
+
+\subsection{Test Progression}
+\label{loc:TestProgression}
+
+The tests will progress in the general order specified above for the stages.
+This is not to say that all stage-1 tests will be completed before any stage-2 testing begins, and so forth.
+Additionally, sub-system testing may proceed based on procurement and assembly constraints rather than an order that follows the design hierarchy.
+It is expected, however, that all developmental, environmental, and design testing will be completed before the final operational testing commences.
+
+\subsection{Data recording, reduction, and analysis}
+\label{loc:DataRecordingReductionAndAnalysis}
+
+Each test will define the data to be recorded.
+The test specifications will define the information needed to perform any analysis needed to validate the specifications covered by each test or test case.

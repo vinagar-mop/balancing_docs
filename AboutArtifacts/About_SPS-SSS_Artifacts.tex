@@ -1,0 +1,53 @@
+%%% SVN stuff
+\svnid{$Id: About_SPS-SSS_Artifacts.tex 140 2025-07-16 23:51:21Z KneadProject $}
+
+\subsection{Artifact Format}
+\label{loc:DocOverview_ArtifactFormat}
+\DIDINFO{This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.}
+
+%%%This section provides information about the format of this document.
+%%%Some information provides general details about the format of this specification document.
+%%%This information, such as formatting details, is common across all levels of specification documents.
+%%%Other information is specific to this particular document.
+%%%This information is provided to assist the reader in understanding the format and layout of the information contained in this document.
+%%%
+%%%\subsubsection{Document Sections}
+%%%\label{loc:DocOverview_ArtifactFormat_DocSections}
+
+This document format is based upon the guidance in the \SRD template from MIL-HDBK-520A~\cite{ref__MIL_HDBK_520}.
+The specifications and associated acceptance criteria are documented following the guidelines of ISO-12207~\cite{ref__ISO_12207} and MIL-STD-498~\cite{ref__MIL_STD_498} (from which ISO-12207 originated).
+The document follows the \SSS DID~\cite{ref__SSS_DID}, with a few minor tailoring changes.
+
+The first format tailoring change, if allowed by the customer or sponsor, allows for the system interfaces to be specified before the system capabilities. 
+This follows standard structured design practice (e.g. Yourdon's Structured Method) whereby the system context is provided before the design itself.
+The net result of this change is that system capabilities are presented in section 3.3 instead of 3.2, as prescribed in the \SSS template, and external system interfaces are described in section 3.2 instead of section 3.3 as prescribed in the \SSS template.
+This allows the data inputs to the system to be defined {\em before} they are used in the capabilities section.
+If this artifact does not swap these sections, it is recommended to the reader that they read the external interfaces section before the capabilities section in order to have a better understanding of the system context and external interfaces before delving into the capabilities, which act upon the data received from and provided to the external interfaces.
+
+%% 16 Jul 2025 -- updated in case 3.2 is Capabilities and 3.3 is External Interfaces, per HNBK-520 :(
+%%The first format tailoring change allows for the system interfaces to be specified before the system capabilities. 
+%%This follows standard structured design practice (e.g. Yourdon's Structured Method) whereby the system context is provided before the design itself.
+%%The net result of this change is that system capabilities are presented in section 3.3 instead of 3.2, as prescribed in the \SSS template, and external system interfaces are described in section 3.2 instead of section 3.3 as prescribed in the \SSS template.
+%%This allows the data inputs to the system to be defined {\em before} they are used in the capabilities section.
+
+The second format tailoring change relates to placement of general material within the document. 
+The qualification provisions and traceability details, if applicable, are listed with each requirement.
+This formatting, which is allowed in the \SSS DID~\cite{ref__SSS_DID}, allows the reader to view all relevant information for each requirement in a single location, rather than requiring constant page turning.
+This information may be duplicated in Sections 4 and 5, respectively, but if done this way, it can be generated automatically to prevent manual duplication errors.
+The table of acronyms is also listed in chapter two, versus the notes section, so that it may be parsed by readers before encountering most of the acronyms.
+
+Otherwise, this document follows the listed \SSS sub-section order.
+\begin{description}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	\item[Section 1] provides an overview of the system and this document.
+	\item[Section 2] lists general and application-specific reference documents as well as glossary terms and acronyms. 
+	\item[Section 3] details the specifications for the system.
+                    %See section~\ref{ssec:Intro_SpecFormatting} for more information regarding the traceability issues.
+	\item[Section 4] maps the specifications to quality provisions. 
+                    %See section~\ref{ssec:Intro_SpecTrace} for more information regarding the traceability issues.
+	\item[Section 5] traces specifications to the original source.
+                    %See section~\ref{ssec:Intro_SpecTrace} for more information regarding the traceability issues.
+	%\item[Section 6] if needed, lists any general notes as may be applicable beyond any notes provided in the requirement and expectation tables in section 3.
+	\item[Appendices] if needed, provide additional information as may be needed.
+\end{description}
+
+\input{DIDINFO_Snippets/DIDINFOoverview.tex}

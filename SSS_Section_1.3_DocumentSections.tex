@@ -1,0 +1,46 @@
+%%% SVN stuff
+\svnid{$Id: SSS_Section_1.3_DocumentSections.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Document Sections}
+\label{ssec:Intro_DocSections}
+
+This document content is based upon the guidance in the \TRD template from MIL-HDBK-520A (2010)~\cite{ref__MIL_HDBK_520}.
+The specifications and associated acceptance criteria are documented following the guidelines of ISO-12207~\cite{ref__ISO_12207} and MIL-STD-498~\cite{ref__MIL_STD_498}, from which ISO-12207 originated.
+
+The document name follows from the \DID DI-IPSC-81431A~\cite{ref__SSS_DID} naming convention where the content level of the document is used in the name.
+Since this document includes both the system and subsystem specifications, the name System / Subsystem Specification is used to convey the complete scope of coverage of this system engineering life cycle artifact.
+Depending upon the target audience, the nomenclature of Technical Requirements Document (\TRD) may also be used as the title. 
+
+Regardless of the title, the detailed document formatting follows the \SSS \DID~\cite{ref__SSS_DID}, with a few minor tailoring changes intended to aid the readability of the content when traversing the document from front to back, with minimal disruption to the ``well-known'' locations of material.
+Following the overall MIL-STD-498~\cite{ref__MIL_STD_498} documentation schema of providing material before it is needed, these changes allow for information to be found either before it is needed, or in conjunction with the associated information.
+The following paragraphs detail the formatting changes provided for enhanced readability and, hopefully, for increased comprehension, to further ensure that this document clearly represents the desired specifications for the system.
+
+The first format tailoring change allows for the system interfaces to be specified before the system capabilities. 
+This follows standard structured design practice, e.g. Yourdon's Structured Method~\cite{ref__JESA}, whereby the system context is provided before the design itself.
+The net result of this change is that system capabilities are presented in section 3.3 and external system interfaces are described in section 3.2, instead of in sections 3.2 and 3.3, respectively, as listed in the \SSS template.
+This minor reordering allows the data inputs to, and outputs from, the system to be defined {\em before} they are used in, or generated from, the overall system capabilities, much as functional programming requires inputs and outputs to be defined before use within the body of the function.
+
+The second format tailoring change relates to placement of general material within the document. 
+The qualification provisions and traceability details, if applicable, are listed with each requirement.
+This formatting option, which is listed in the \SSS \DID~\cite{ref__SSS_DID}, allows the reader to view all relevant information for each requirement in a single location, rather than requiring constant page turning.
+This information may be duplicated in Sections 4 and 5, respectively, and if done this way, it can be generated automatically to prevent manual duplication errors.
+In addition, the key performance parameters (\KPP's), the key system attributes (\KSA's), and in fact, all specifications, can be listed separately, without the additional information, in an appendix, should this representation be desired.
+If any specifications are denoted by the author as either a \KPP or a \KSA, then these will be listed in Appendix B, which is colloquially known as a ``B-Spec''.
+
+The final format tailoring change involves the placement of the table of acronyms and glossary terms.
+Instead of residing in Chapter 6, ``Notes'', these reading reference items are also provided in Chapter 2, with the bibliography references.
+This change, also made for readability of the document, allows these reference items to be parsed by readers before encountering most of the acronyms and glossary terms.
+
+Otherwise, this document follows the listed \SSS sub-section order.
+\begin{description}
+	\item[Section 1] provides an overview of the system and this document.
+	\item[Section 2] lists general and application-specific reference documents as well as glossary terms and acronyms. 
+	\item[Section 3] details the specifications for the system.
+                    %See section~\ref{ssec:Intro_SpecFormatting} for more information regarding the traceability issues.
+	\item[Section 4] maps the specifications to quality provisions. 
+                    %See section~\ref{ssec:Intro_SpecTrace} for more information regarding the traceability issues.
+	\item[Section 5] traces specifications to the original source.
+                    %See section~\ref{ssec:Intro_SpecTrace} for more information regarding the traceability issues.
+	\item[Section 6] if needed, lists any general notes as may be applicable beyond any notes provided in the requirement and expectation tables in section 3.
+	\item[Appendices] if needed, provide additional information as may be needed.
+\end{description}

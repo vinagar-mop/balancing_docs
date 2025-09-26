@@ -1,0 +1,42 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_GlobalGloassary.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\newcommand{\DefineGlossary}[1]
+{% opening brace to group \baselineskip to tighten up rows in the table
+\singlespace
+%\renewcommand{\baselinestretch}{1.25}%
+\renewcommand{\arraystretch}{1.25}%increase as needed
+
+\newlength{\GlossaryColumnWidth}
+\setlength{\GlossaryColumnWidth}{4.5in}% adjust as necessary based on definitions
+	
+\begin{center}
+
+\begin{longtable}[H]{|l|l|} %{|@{}l|l@{}|}
+\caption{Glossary Terms and Definitions} \\
+
+\hline \hline
+\multicolumn{1}{|l|}{\textbf{Glossary Term}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\GlossaryColumnWidth}{\textbf{Definition}}\end{minipage} } \\
+\hline \hline 
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \hline 
+\multicolumn{1}{|l|}{\textbf{Glossary Term}} & 
+\multicolumn{1}{|l|}{\begin{minipage}{\GlossaryColumnWidth}{\textbf{Definition}}\end{minipage} } \\
+\hline \hline 
+\endhead
+
+\hline \hline \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\input{#1}
+
+\end{longtable}
+\end{center}
+}% close brace to enclose singlespace parameters

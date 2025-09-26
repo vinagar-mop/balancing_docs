@@ -1,0 +1,62 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_ProjectFormatting.tex 128 2024-07-14 20:00:16Z KneadProject $}
+
+%
+% Project-wide Header and Footer information
+% comment out to use higher level defaults
+%
+% left header to show how this works in the ProjectsDef file
+%Adjust phantom spaces to align top and bottom lines of the header
+%
+% comment thsi out to use the logo in left header that is defined in KNEAD_ProjectDefs
+%\renewcommand{\KNEADleftHeader}{\phantom{\hspace{0.0pt}}The KNEAD\phantom{\hspace{0.0pt}}\\\phantom{\hspace{15.0pt}}Project\phantom{\hspace{0.0pt}}}
+%
+% center header, with CUI check
+%
+\ifthenelse{\equal{\KNEADcuiStatus}{}}
+{
+	\renewcommand{\KNEADcenterHeader}{UNCLASSIFIED\\{\textsc{\footnotesize{Distribution Restrictions on Title Page}}}}
+}
+{
+	\renewcommand{\KNEADcenterHeader}{\KNEADcuiStatus\\{\textsc{\footnotesize{Distribution Restrictions on Title Page}}}}
+}
+%
+% right header, usually the doucment type, e.g., KNEADRHDROCD
+%
+\renewcommand{\KNEADrightHeader}{Project Undefined\\Right Header}
+%
+% left footer
+%
+\renewcommand{\KNEADleftFooter}  {\phantom{\hspace{5.0pt}}KNEAD\\\phantom{\hspace{0.0pt}}PROJECT}
+%
+% center foot, with CUI check
+%
+\ifthenelse{\equal{\KNEADcuiStatus}{}}
+{
+	\renewcommand{\KNEADcenterFooter}{\thepage\phantom{\hspace{0.0pt}}\\ UNCLASSIFIED} %phantom needed to prevent error on title pg when pg# is gobbled
+}
+{
+	\renewcommand{\KNEADcenterFooter}{\thepage\phantom{\hspace{0.0pt}}\\ \KNEADcuiStatus} %phantom needed to prevent error on title pg when pg# is gobbled
+}
+%
+% right footer
+%
+\renewcommand{\KNEADrightFooter} {\phantom{\hspace{0.0pt}}\KNEADdocumentNum-\KNEADdocumentRevision\phantom{\hspace{0.0pt}}\\ Revision Date : \KNEADrevisionDate\phantom{\hspace{0.0pt}}}
+
+
+%%
+%% define project wide title page stuff here
+%%
+
+
+\renewcommand{\KNEADcuiTitlepageDistributionStatement}{Distribution Statement D: Distribution authorized to Department of Defense and U.S. DoD contractors only. All other requests for this document shall be referred to the controlling DoD office.}
+
+
+\renewcommand{\KNEADtitlepageCompanyHeader}{Prepared by:}
+\renewcommand{\KNEADtitlepageCompanyInfo}{
+		Vinay Agarwal\\
+		Balance Project\\
+	}
+	             
+%%%\renewcommand{\KNEADtitlepageDistributionStatement}{
+%%%Distribution Statement: Distribution limited to US Federal Government, US DoD, US Federal Government Contractors, and US DoD Contractors only.}

@@ -1,0 +1,62 @@
+%%% SVN stuff
+\svnid{$Id: SPS-SSS_HowToReadSpecifications.tex 139 2025-06-13 20:26:50Z KneadProject $}
+
+\subsection{How To Read Specifications}
+\label{loc:Intro_HowToReadSpecifications}
+
+System Performance Specification (\SPS) documents, by their very nature, are a collection of independent but interconnected facts.
+Systems require interfaces from which inputs are consumed and to which outputs are produced.
+These input data are transformed by the capabilities to produce the outputs.
+The entire system has myriad other requirements ranging from data formatting through physical limits on things like the enclosure and packaging.
+Finally, at the system level, specifications need to dictate {\em what, and, how well} a system must perform.
+Likewise, in order to separate documentation functionality, the \SPS should not state explicitly {\em how} the system is to be formed, except in very special circumstances.
+Given the disparate nature of the requirements, system performance specifications can be hard to digest.
+
+
+System / Sub-system Specification (\SSS) and Software Requirements Specification (\SRS) documents suffer from many of the same issues as do \SPS documents.
+An \SSS turns the performance specification into a first level design.
+Where the \SPS has disparate performance requirements, the \SSS has disjoint hardware and software configuration items listed as well as a mapping of the two items on to, and in to, each other.
+For the requirement management function, each element of the system design in the \SSS traces back to the overall \SPS specifications.
+Only at the \SRS level do the requirements start to focus on a single item.
+Thus, the \SSS and \SRS level documents describe share a common contextual issue with the \SPS document.
+
+
+An understanding of the documents' structures is needed to help parse the information.
+The developers of MIL-STD-498~\cite{ref__MIL_STD_498}, however, understood this and devised a format that can help manage the information overload.
+The method by which this is accomplished is to organize requirements into eighteen specific groupings.
+By understanding these groupings, a reader can improve their understanding of the system described by the requirements by understanding that specific information is listed in specified sections.
+
+
+These documents follow a {\em read-forward} mentality so that base information is provided before it is actually needed.\footnote{In fact, the read-forward philosophy extends across the documents as well but that topic is beyond the scope of this discussion.}
+For example, the referenced documents (and in this document the list of acronyms and glossary terms) are provided in the second chapter, before most items are actually cited.
+By presenting this information to the reader before citation, the format allows the reader to glean upfront information about the kind of things that will be covered later on in the document.
+Presentation of the referenced material ahead of the document body also allows the reader to have a priori information before encountering the symbol in the text.
+By understanding these formatting clues, the reader is able to be prepared for what is coming further down the road in the document.
+
+
+Another reason for this organization is that different readers process information differently.
+There is no one format that will be best for all readers.
+By having the information in standardized sections across all such performance specifications, however, readers can use the document as a reference as needed.
+As an example, Section 3.1 of these documents will always define the system states and modes.
+If a reader wants to look up this information, it is always in that section.
+And, since it is listed first, all ensuing sections can reference states and modes in order to qualify their requirements.
+Likewise, having external interfaces presented {\em before} the capabilities means that the capabilities can define the transformations without having to worry about how the data is ingested into the system; the data is already ``in the system'' from a reader's point of view when the data is needed to define the transformation.
+
+
+This separation between, and the presentation order of, the data and processing is important when the same data supports multiple capabilities.
+A hierarchical description of ``derived'' requirements often would have a capability definition leading to the requirements for the data needed by the capability.
+In the case, which occurs often, where the data is used in two different transformation capabilities, a hierarchical approach of capability leading to external interfaces is met with the problem of which capability gets to have the data interface in its tree.
+This approach also leads to the dilemma of what to do when that first capability is no longer needed by the system but the second capability, and thus the data defined under the first capability tree, still {\em is} needed by the system.
+Just as loosely coupled software is more maintainable, so are loosely coupled requirements.
+
+
+A final note about reading actually comes from ideas about how to write a requirement document.
+The document format dictates a linear flow from start to finish.
+A reader often reads a document the first time from front to back; this is why the {\em read-forward} approach works.
+
+The writer, however, is {\em not} constrained in the same linear manner.
+Thus, while writing requirements about a capability, the idea for a new state or mode may arise.
+The writer can easily jump to the states and modes section in order to add in the information and then return to complete the capability that led to the new state or mode, safe in his knowledge that when the reader sees this new specification, they should have already seen the newly defined state or mode that is used to qualify the requirement since the state or mode was already presented in an earlier section.
+
+Readers can use this information to enjoy the fact that the writer jumped around in the writing phase to save the reader the same effort when trying to read the document.
+By understanding the sections and the expected contents of the sections, which are defined in the \SSS DID~\cite{ref__SSS_DID} and the related MIL-STD-498~\cite{ref__MIL_STD_498} document templates, a reader can read cover-to-cover, or jump to the needed information quickly, knowing that the writer put the information in the specified sections to make finding the information easier for the reader.

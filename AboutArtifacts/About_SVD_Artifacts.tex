@@ -1,0 +1,59 @@
+%%% SVN stuff
+\svnid{$Id: About_SVD_Artifacts.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+subsection{Artifact Format}
+\label{loc:DocOverview_ArtifactFormat}
+\DIDINFO{This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.}
+
+This document format is based upon the guidance in the \SDP \DID~\cite{ref__SVD_DID}, but is tailored to reflect current quality management system (\QMS) requirements for many of the items described in the \DID.
+The system development plan information also follows the guidelines of ISO-12207~\cite{ref__ISO_12207} and MIL-STD-498~\cite{ref__MIL_STD_498} (from which ISO-12207 originated).
+It is expected that significant coverage of the \SDP \DID items will simply be references to external \QMS or \CMMI documentation.
+Thus, agencies using this artifact will formalize it to serve as a checklist for tailoring each effort per their own processes and procedures.
+
+This tailoring also includes planning for hardware aspects as may be needed for the complete system development efforts.
+The \SDP \DID mainly covered integration of software onto hardware.
+This artifact includes sections that cover the development of hardware as well as development of the software.
+Integration and testing are also included.
+But, as noted above, all apsects of development are expected to illustrate the existing \QMS steps to be followed based on organizational processes and the project's operational needs.
+
+This document follows a tailored \SVD sub-section order of:
+\begin{description}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+	\item[Section 1] provides an overview of the system and this document.
+	\item[Section 2] lists general and application-specific reference documents as well as glossary terms and acronyms. 
+	\item[Section 3] summarizes the required work, with references to existing \QMS processes and procedures as applicable:
+	\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+		\item program status / acquisition strategy,
+		\item \SDLC Situation,
+		\item plans for development of requirement artifacts,
+		\item plans for overall documentation development,
+		\item schedule / resource constraints, and
+		\item other requirements/constraints.
+	\end{itemize}
+	\item[Section 4] Plans for system development
+		\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+			\item Hardware development processes and plans,
+			\item Firmware development processes and plans,
+			\item Software development processes and plans,
+			\item Integration plans,
+			\item Testing plans, and
+			\item Other development activities per organizational processes.
+		\end{itemize}
+		\item[Section 5] Plans for system transistion
+		\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+			\item Configuration Management plans,
+			\item Release plans,
+			\item User Support plans, and
+			\item Other system transition activities per organizational processes.
+		\end{itemize}
+	\item[Section 6] Management and control activities
+		\begin{itemize}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
+			\item SETR events (internal previews and with customer),
+			\item Skills and resources needed,
+			\item Schedule Development and Monitoring, and
+			\item Other management and control activities per organizational processes.
+		\end{itemize}
+	\item[Section 7] if needed, lists any general notes as may be applicable.
+	\item[Appendices] if needed, provide additional information as may be needed.
+\end{description}
+
+\input{DIDINFO_Snippets/DIDINFOoverview.tex}

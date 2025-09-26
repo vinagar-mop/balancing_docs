@@ -1,0 +1,17 @@
+%%% SVN stuff
+\svnid{$Id: SSDD_3.0.0_DIDINFO.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\DIDINFO{SSDD-3.0.0 :: System-wide design decisions. 
+This section shall be divided into paragraphs as needed to present system-wide design decisions, that is, decisions about the system’s behavioral design (how it will behave, from a user’s point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting the selection and design of system components. 
+If all such decisions are explicit in the requirements or are deferred to the design of the system components, this section shall so state. 
+Design decisions that respond to requirements designated critical, such as those for safety, security, or privacy, shall be placed in separate subparagraphs. 
+If a design decision depends upon system states or modes, this dependency shall be indicated. Design conventions needed to understand the design shall be presented or referenced. 
+Examples of system-wide design decisions are the following:
+\begin{enumerate}[itemindent=5pt,topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt, label=(\alph*)]
+\item Design decisions regarding inputs the system will accept and outputs it will produce, including interfaces with other systems, configuration items, and users (4.3.x of this DID identifies topics to be considered in this description). If part or all of this information is given in Interface Design Descriptions (IDDs), they may be referenced.
+\item Design decisions on system behavior in response to each input or condition, including actions the system will perform, response times and other performance characteristics, description of physical systems modeled, selected equations/algorithms/ rules, and handling of unallowed inputs or conditions.
+\item Design decisions on how system databases/data files will appear to the user (4.3.x of this DID identifies topics to be considered in this description). If part or all of this information is given in Database Design Descriptions (DBDDs), they may be referenced.
+\item Selected approach to meeting safety, security, and privacy requirements.
+\item Design and construction choices for hardware or hardware-software systems, such as physical size, color, shape, mass, materials, and markings.
+\item Other system-wide design decisions made in response to requirements, such as selected approach to providing required flexibility, availability, and maintainability.
+\end{enumerate}}

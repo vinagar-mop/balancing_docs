@@ -1,0 +1,115 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_RqmtSpecificationCommands.tex 130 2024-08-14 11:47:59Z KneadProject $}
+
+%%%%% Manually numbered requirement
+%%%%% table for requirements
+
+\newboolean{boKNEADshowUseCaseNotes}
+\setboolean{boKNEADshowUseCaseNotes}{true}
+
+
+\newcommand{\UseCaseNumberBase}{UNDEFINED}
+
+\newcounter{usecase}
+\newlistof[usecase]{UseCase}{Use_Case}{\listusecasename}
+
+\newcommand{\numberedusecase}[2]{%
+\refstepcounter{usecase}
+\par\noindent\textbf{Use Case {#1} {#2}}
+\addcontentsline{aux_usecase}{usecase}{\protect\numberline{#1}#2}\par}
+
+\newlength{\UseCaseMiniPageWidth}
+\if@dobindprt % set margins to 1.5" on left (leave room for binding) and 1.0" right
+\setlength{\UseCaseMiniPageWidth}{4.7in}
+\else%!dobindprt so set margins to 1.0" on left and right sides
+\setlength{\UseCaseMiniPageWidth}{5.2in}
+\fi%dobindprt
+
+
+%%%%
+%%%%
+%%%% Simple table for listing single requirements with all applicable stuff
+%%%%
+%%%% #1 is use case number
+%%%% #2 is use case name
+%%%% #3 is use case label (expected to be of form usecase:XXX)
+%%%% #4 is Synopsis of the use case
+%%%% #5 is list of actors (must be a list of \items of form [name] role
+%%%% #6 is list of steps (must be a list of \items of form action (Actor ... action)
+%%%% #7 is traceability (must be a list of \items of form [\cite{}] item number within that citation
+%%%% #8 is notes {must be a list of \items}, 
+%%%% #9 is version that defines this item, for changebar use
+%%%%
+%%%%
+
+\newcommand{\USECASE}[9]{
+\renewcommand{\theusecase}{#1}
+\begin{table}[H]%\usepackage{booktabs} for \toprule, \midrule, \bottomrule
+\ifthenelse{\equal{\CBVERSION}{#9}}{\cbstart}{}
+\begin{tabular}{@{}r|l@{}}
+\toprule
+\toprule            
+%Use Case Name name for list of use cases    
+    \multicolumn{2}{@{}c@{}}{%this c only centers the minipage
+	   \begin{minipage}{\textwidth}% to allow for it to wrap
+	    \centering% to make contents of minipage to be centered
+			 \numberedusecase{#1}{#2}
+	      \label{#3}
+	   \end{minipage}} \\
+\midrule            
+% SYNPOSIS
+			{\bf Synopsis}  & 
+			\begin{minipage}{\UseCaseMiniPageWidth}
+			   {#4} % e.g. The use case where yada yada yada.  
+			\end{minipage} \\
+\midrule
+% ACTORS
+			{\bf Actors} &
+			\begin{minipage}{\UseCaseMiniPageWidth} %%% minipage to allow for multiple actors in one cell
+			 \begin{description}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+			    {#5} % MUST BE a list of decription items -- of form \item [name] role				 
+			 \end{description}  
+			\end{minipage} \\			
+\midrule
+% STEPS	 
+			{\bf Steps}   & 
+			\begin{minipage}{\UseCaseMiniPageWidth} %%% minipage to allow for longer step descriptions	
+			   \begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+            {#6} % MUST BE a list of decription items -- of form \item [step] description	
+		     \end{enumerate}  
+			\end{minipage} \\ %% inside ifthenelse...
+\midrule 
+% TRACEABILITY	 
+			{\bf Traceability}   & 
+			\begin{minipage}{\UseCaseMiniPageWidth} %%% minipage to allow for longer step descriptions	
+			   \begin{description}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+            {#7} % MUST BE a list of decription items -- of form [\cite{}] item number within that citation
+		     \end{description}  
+			%\end{minipage} \\ %% inside ifthenelse...
+%\midrule 
+%print out the notes if we're supposed to
+% NOTES	are NOT part of the Use Case, just a place for comments about the use case
+\ifthenelse{\boolean{boKNEADshowUseCaseNotes}}{%	
+\end{minipage}\\% end Traceability minipage in the ifthenelse to keep \midrule after the break			
+\midrule% seems to need to be right after the break, thus the placement of end{minipage}\\ in the ifthenelse					
+			{\bf Notes}        & 
+			\begin{minipage}{\UseCaseMiniPageWidth} %%% minipage to allow for multiple lines of notes
+			 \begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+			    {#8} % MUST BE a list of enumerated items -- of form \item Note 1...
+				       % even if there is just one, e.g. \item No notes for this use case.		 
+			 \end{enumerate}			    
+			\end{minipage}\\	
+\bottomrule% end table with double bottomrule right after the final end{minipage} and break
+\bottomrule
+}%end ifthen clause
+{%else just end the table by ending TRACEABILITY minipage, break, and double bottomrules
+\end{minipage}\\				
+\bottomrule 
+\bottomrule}%end ifthenelse		
+\end{tabular}
+\ifthenelse{\equal{\CBVERSION}{#9}}{\index{\textunderscore\textunderscore~Changes This Version}\cbend}{}	
+\end{table}
+} %end of USECASE[9]
+
+
+

@@ -1,0 +1,72 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_STP_Chapter_04_2_2.tex 153 2025-03-24 15:02:14Z Lewis $}
+
+\input{DIDINFO_Snippets/STP/STP_4.2.0_DIDINFO.tex}
+
+This section defines the plans for the \TestIdNameX validation efforts.
+
+\subsubsection{Test Objective}
+\label{loc:TestObjective\TestIdName}
+
+The test objective for \TestIdNameX is to demonstrate that the received material operates as expected and includes all necessary components that can best be verified through tests where the equipment is in a powered-on state.
+These tests ensure that all ordered parts are present and functioning.
+For example, memory capacity is best verified through a powered-on test.
+A packing list may state the proper memory is installed, but the memory may not be present or may not be functioning.
+These tests also ensure that all such items and configurations are accounted for.
+
+Test procedures for these tests may be generic or customized, depending upon the items.
+Standard parts or equipment, such as \COTS items, may follow a standardized inspection procedure for each type of equipment, with discrepancies noted as needed for the specific parts.
+For example, all displays may utilize a common inspection form, with allowances for recording attributes such as display resolution, etc.
+Custom items, such as a fully assembled printed wiring board (\PWB) may also use a standardized inspection form, with discrepancies noted against a specific drawing number or other specification artifact.
+If needed, however, the \TestIdNameX may utilize custom inspection procedures to facilitate the necessary level of bench testing to ensure quality in the final \ThisSys.
+
+\subsubsection{Test Level}
+\label{loc:TestLevels\TestIdName}
+
+The test level for \TestIdNameX is \StageTwo as defined by \citeStageTestingSTD.
+
+\subsubsection{Test Type or Class}
+\label{loc:TestType\TestIdName}
+
+The test type or class for \TestIdNameX is development testing.
+
+\subsubsection{Qualification Method}
+\label{loc:TestQualificationMethod\TestIdName}
+
+The test qualification method for \TestIdNameX generally is performed via demonstration, but detailed measurements (tests) may be made as necessary for items such as \PWB  assemblies to ensure they meet the design specifications.
+
+\subsubsection{Traceability}
+\label{loc:TestTraceability\TestIdName}
+
+The test traceability for \TestIdNameX often is not included in the overall \RTVM.
+Some artifacts of the \TestIdNameX inspections may, however, be utilized in higher-level tests.
+For example, the test results for \PWBs may be referenced to complete validation of system-level requirements to meet operational constraints.
+
+\subsubsection{Special Requirements}
+\label{loc:TestSpecialRequirements\TestIdName}
+
+The test special requirements for \TestIdNameX are defined as necessary in test procedures.
+Test procedures may include references to overall assembly or operational set-up documentation to prevent duplication of information.
+
+
+\subsubsection{Data Recoding}
+\label{loc:TestDataRecoding\TestIdName}
+
+The test data recoding for \TestIdNameX is to record all inspection results in hard copy or electronic form.
+Electronic form (e.g., a database application with bar code scanning capability) is preferred, but not required, to minimize labor effort and data entry errors.
+
+\subsubsection{Assumptions or Constraints}
+\label{loc:TestAssumptionsOrConstraints\TestIdName}
+
+The test assumptions or constraints for \TestIdNameX are defined in the associated inspection or test procedures.
+
+\subsubsection{Safety, Security, and Privacy}
+\label{loc:TestSafetySecurityPrivacy\TestIdName}
+
+The test safety, security, and privacy for \TestIdNameX are defined in the associated inspection or test procedures.
+Special care must be taken when test results indicate issues with security measured for the system.
+
+
+\subsubsection{Tests and Test Cases}
+\label{loc:TestsAndTestCases\TestIdName}
+\input{KNEAD_STP_Stage1and2_TestsAndTestCases.tex}% same list for both stage 1 and 2, just different activities (PO check vs bench power on test)

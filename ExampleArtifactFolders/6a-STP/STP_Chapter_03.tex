@@ -1,0 +1,24 @@
+%%% SVN stuff
+\svnid{$Id: STP_Chapter_03.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\chapter{Test Environments}
+\label{loc:TestEnvironments}
+\input{DIDINFO_Snippets/STP/STP_3.0.0_DIDINFO.tex}
+
+This section describes the test environments to be used for testing the system.
+
+\section{Test Environment One}
+\label{loc:TestEnvironmentOne}
+\newcommand{\TestEnvName}{TEone}%used for label uniqueness
+\input{STP_Chapter_03.x.tex}
+
+\DIDINFOOFF% turn them off since we've seen them all by now
+
+\section{Test Environment Two}
+\label{loc:TestEnvironmentTwo}
+\renewcommand{\TestEnvName}{TEtwo}%used for label uniqueness
+\input{STP_Chapter_03.x.tex}
+
+\DIDINFOON%turn them back on since they were turned off after first test case
+
+

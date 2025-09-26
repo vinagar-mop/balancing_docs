@@ -1,0 +1,17 @@
+%%% SVN stuff
+\svnid{$Id: STS_Chapter_04.x_TestSpecBase.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\section{\StsTestSpecID}
+\label{loc:Test\StsTestSpecID}
+\input{DIDINFO_Snippets/STS/STS_4.x.0_DIDINFO.tex}
+
+Test \StsTestSpecID{}  is \TBD.
+
+\renewcommand{\StsTestCaseID}{Case1}% used in file for unique labels
+\input{STS_Chapter_04.x.y_TestCaseBase}%Copy this file, rename, and update for each test.
+
+\DIDINFOOFF% turn them off since we've seen them all by now
+
+\renewcommand{\StsTestCaseID}{Case2}% used in file for unique labels
+\input{STS_Chapter_04.x.y_TestCaseBase}%Copy this file, rename, and update for each test.
+

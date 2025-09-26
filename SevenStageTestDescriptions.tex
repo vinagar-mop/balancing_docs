@@ -1,0 +1,16 @@
+%%% SVN stuff
+\svnid{$Id: SevenStageTestDescriptions.tex 139 2025-06-13 20:26:50Z KneadProject $}
+
+The test strategy follows a seven-stage test process, which is defined in the Department of Defense Design Criteria Standard -- Development of Shipboard Industrial Test Procedures~\cite{ref__DOD_STD_2106_NAVY}.
+The first three stages occur at the component level and the second three stages occur at the assembly, sub-system, and system level.
+The final stage is complete system testing in its deployed configuration.
+The test stages are defined as:
+\begin{enumerate}
+	\item {\bf Material Receipt Inspection :: } to ensure material received from vendor have received no damage during shipping and parameters match expectations, e.g., part numbers match purchase order information and paperwork matches content.  A Return Materiel Authorization (\RMA) would be started, if required.
+	\item {\bf Bench Functional Test :: } of components expected configuration (e.g., correct memory, licenses, etc.) and operation as expected in a stand-alone manner (e.g., power-up and basic operational testing).
+	\item {\bf Installation / Installed Equipment Test :: } of special requirements at the installed component level (e.g., shock, vibration, \EMI, etc. of \LRUs).
+	\item {\bf Intra-system Test  :: } of sub-systems basic operation as expected in a stand-alone manner (e.g., \SWaP, limited functionality, etc.).
+	\item {\bf Total System Test :: } of the entire system in a test environment that may impart some restrictions on final functionality (e.g. limited communications connections or dummy loads instead of antennas).
+	\item {\bf System Special Test :: } of special requirements at the sub-system level (e.g., shock, vibration, \EMI, \EMC, etc. of entire rack(s) of \LRUs).
+	\item {\bf Total Integrated System Tests :: } of the entire system in a deployed environment that imparts no restrictions on final functionality.
+\end{enumerate}

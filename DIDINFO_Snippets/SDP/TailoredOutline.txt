@@ -1,0 +1,26 @@
+1: normal + reference to other plans (1.4)
+2: normal
+
+3: overview of required work
+3.1 program status / acquisition strategy
+3.2 position in general SDLC
+3.3 plans for development of requirement artifacts
+3.4 plans for overall documentation development
+3.5 schedule / resource constraints
+3.6 other requirements/constraints
+
+4: Plans for system development
+4.1: Hardware development processes and plans
+4.2: Software development processes and plans 
+4.2.1: (follow 3.6 of DI-IPSC-81427B as applicable)
+4.3: Integration plans
+4.4: Testing plans
+
+5: Management and control activities
+5.1: SETR events (internal previews and with customer)
+5.2: Skills and resources needed
+5.3: WBS/IMS Development and monitoring
+
+
+
+

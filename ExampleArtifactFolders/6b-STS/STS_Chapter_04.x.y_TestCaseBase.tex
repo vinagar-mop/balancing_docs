@@ -1,0 +1,147 @@
+%%% SVN stuff
+\svnid{$Id: STS_Chapter_04.x.y_TestCaseBase.tex 128 2024-07-14 20:00:16Z KneadProject $}
+
+\subsection{\StsTestCaseID}
+\label{loc:Test\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.0_DIDINFO.tex}
+
+Test \StsTestSpecID{} case \StsTestCaseID{} is \TBD.
+
+\subsubsection{Requirements Addressed}
+\label{loc:TestCaseRequirementsAddressed\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.1_DIDINFO.tex}
+
+This requirements validated by test \StsTestSpecID{} case \StsTestCaseID{} are listed in \S~\ref{loc:TestCaseProcedure\StsTestSpecID\StsTestCaseID}.
+
+\subsubsection{Prerequisite Conditions}
+\label{loc:TestCasePrerequisiteConditions\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.2_DIDINFO.tex}
+
+This prerequisite conditions for test \StsTestSpecID{} case \StsTestCaseID{} are \TBD.
+
+\subsubsection{Inputs}
+\label{loc:TestCaseInputs\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.3_DIDINFO.tex}
+
+This inputs for test \StsTestSpecID{} case \StsTestCaseID{} are listed in \S~\ref{loc:TestCaseProcedure\StsTestSpecID\StsTestCaseID}.
+
+\subsubsection{Expected Outputs}
+\label{loc:TestCaseExpectedOutputs\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.4_DIDINFO.tex}
+
+This expected outputs for test \StsTestSpecID{} case \StsTestCaseID{} are listed in \S~\ref{loc:TestCaseProcedure\StsTestSpecID\StsTestCaseID}.
+
+\subsubsection{Evaluation Criteria}
+\label{loc:TestCaseEvaluationCriteria\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.5_DIDINFO.tex}
+
+This evaluation criteria for test \StsTestSpecID{} case \StsTestCaseID{} are listed in \S~\ref{loc:TestCaseProcedure\StsTestSpecID\StsTestCaseID}.
+
+\subsubsection{Assumptions and Constraints}
+\label{loc:TestCaseAssumptions\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.6_DIDINFO.tex}
+
+This procedure for test \StsTestSpecID{} case \StsTestCaseID{} is \TBD.
+
+\subsubsection{Procedure}
+\label{loc:TestCaseProcedure\StsTestSpecID\StsTestCaseID}
+\input{DIDINFO_Snippets/STS/STS_4.x.y.7_DIDINFO.tex}
+
+This procedure for test \StsTestSpecID{} case \StsTestCaseID{} is \TBD.
+
+See step~\ref{loc:Step2} for how to reference specific steps.
+
+\TestProcedure%[6] arguments, denoted %N%-NAME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arg-1 is test procedure number, normally made from section#.X
+{%1%-PROCNUM
+\getcurrentref{subsubsection}.1
+}%1%-PROCNUM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arg-2 is test procedure name
+{%2%-PROCNUM
+Test Procedure 1
+}%2%-PROCNUM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arg-3 is test procedure label, for use in references to the test procedure
+{loc:TestProc1}
+%
+%arg-4 is list of requirements validated in this test procedure label
+{%4%-RQMTS
+\tpRqmt{Fake Rqmt 1}
+\tpRqmt{Fake Rqmt 2}
+}%4%-RQMTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arg-5 is list of notes for this test procedure label
+{%5%-NOTES
+\tpNote{Note 1}
+\tpNote{Note 2}
+}%5%-NOTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%arg-6 is list of steps for this test procedure label
+% provided as a list of special commands tpStepXYZ[2], tpStep[3], or tpStepLabeled[4]
+{%6%-STEPS
+%
+%RECORD PRE-TEST INFORMATION
+\input{KNEAD_PreTestInfo.tex}%from $TEXINPUTS; make a local copy and adjust as appropriate.
+%
+% use these as section delineators as needed; pick image that best fits the need
+\tpStepCLOCK{CLOCK TEXT -- good to show that some time must elapse} 
+\tpStepHAND{HAND TEXT -- use, with text, when tester needs to pause and double check things} 
+\tpStepINFO{INFO TEXT -- good to provide information needed at this point in the test}
+\tpStepKEY{KEY TEXT -- good to make a key point, or if something needs to be locked/unlocked}
+\tpStepMAGNIFY{MAGNIFY TEXT -- note info that magnifies what is happening} 
+\tpStepPLAYARROW{PLAYARROW TEXT -- denote a starting point, such as when test stations change.
+This is just more text to see what happens when there are 3 or 4 lines of text w.r.t. centering of icon.
+These text blocks should be short, but, could be long, so this checks to see what happens with 5 or 6 lines of text.}
+\tpStepBANG{BANG TEXT -- denote a WARNING}% 
+\tpStepSHOCK{SHOCK TEXT -- denote a HAZARD}
+\tpStepRADIATION{RADIATION TEXT -- denote an EXTREME HAZARD} 
+\tpStepONOFF{ON/OFF TEXT -- denote a POWER ON or OFF action} 
+\tpStepFOOTSTEPS{FOOTSTEPS TEXT -- denote a MOVEMENT action} 
+\tpStepREPEAT{REPEAT TEXT -- denote a repeat cycle or action} 
+\tpStepQUESTION{QUESTION TEXT -- ensure a question is answered} 
+\tpStepBULLSEYE{BULLSEYE TEXT -- denote the end of a mini-sequence}
+\tpStepFILES{FILES TEXT -- denote storage of data or records}
+%
+\tpStep%{Action}{Expected Result}{Space to record results}
+{Do Step 1}
+{Step 1 works!}
+{20pt}
+%
+\tpStepLabeled%{Action}{Expected Result}{Space to record results}{label for use in \reference{}}
+{Do Labeled Step 2}
+{Step 2 works!}
+{20pt}
+{loc:Step2}
+%
+% This one shows how to insert an image in the test step;
+% most like to show expected results, but can be used as test step to show the step if it makes sense
+\tpStepLabeled%{Action}{Expected Result}{Space to record results}{label for use in \reference{}}
+{Do stuff so the system looks like the expected image below.}
+{\ifpdf
+\tpStepFigure{images/KNEAD_UnderConstruction_Image.pdf}{1.0in}
+\else
+\tpStepFigure{images/KNEAD_UnderConstruction_100dpi_6.5inchesWide.eps}{1.0in}
+\fi}{20pt}
+{loc:Step3}
+%
+% This one shows how to insert an image in the test step;
+% most like to show expected results, but can be used as test step to show the step if it makes sense
+\tpStepLabeled%{Action}{Expected Result}{Space to record results}{label for use in \reference{}}
+{\ifpdf
+\tpStepFigure{images/KNEAD_UnderConstruction_Image.pdf}{1.0in}
+\else
+\tpStepFigure{images/KNEAD_UnderConstruction_100dpi_6.5inchesWide.eps}{1.0in}
+\fi}
+{Labeled step 4 works!}
+{20pt}
+{loc:Step4}
+%
+%RECORD POST-TEST INFORMATION
+\input{KNEAD_PostTestInfo.tex}%from $TEXINPUTS; make a local copy and adjust as appropriate.
+%
+}%6%-STEPS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

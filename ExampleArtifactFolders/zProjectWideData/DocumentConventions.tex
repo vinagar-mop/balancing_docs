@@ -1,0 +1,50 @@
+%%% SVN stuff
+\svnid{$Id: DocumentConventions.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+This document uses the following icons as necessary to highlight various points about \ThisSys.
+Their meanings are described below.
+Note that not all of these icons may be used in this document.
+
+\newcommand{\opStepINDEPTH}[2]{\opStepMAGNIFY{#1}{#2}}
+\newcommand{\IconNoteINDEPTH}[1]{\IconNoteMAGNIFY{#1}}
+\IconNoteINDEPTH{Denotes a point of in depth detail regarding the system or its operation. 
+These details may not be necessary for basic operation of the system but a further understanding may be helpful to the operator.}
+
+%\newcommand{\opStepKEY}[2]{opStepMAGNIFY{#1}{2}}% no redefinition needed
+\IconNoteKEY{Denotes a KEY POINT of understanding regarding the system or its operation.}
+
+\newcommand{\opStepINFORMATION}[2]{\opStepINFO{#1}{#2}}
+\newcommand{\IconNoteINFORMATION}[1]{\IconNoteINFO{#1}}
+\IconNoteINFORMATION{Denotes an INFORMATIONAL point regarding the system or its operation.}
+
+\newcommand{\opStepIMPORTANT}[2]{\opStepBANG{#1}{#2}}
+\newcommand{\IconNoteIMPORTANT}[1]{\IconNoteBANG{#1}}
+\IconNoteIMPORTANT{Denotes an IMPORTANT point regarding the system or its operation.}
+
+\newcommand{\opStepWARNING}[2]{\opStepSHOCK{#1}{#2}}
+\newcommand{\IconNoteWARNING}[1]{\IconNoteSHOCK{#1}}
+\IconNoteWARNING{Denotes a point of WARNING regarding the system or its operation.}
+
+\newcommand{\opStepDANGER}[2]{\opStepRADIATION{#1}{#2}}
+\newcommand{\IconNoteDANGER}[1]{\IconNoteRADIATION{#1}}
+\IconNoteDANGER{Denotes a point of potential DANGER regarding the system or its operation.}
+
+\newcommand{\opStepSTARTPROC}[2]{\opStepPLAYARROW{#1}{#2}}
+\newcommand{\IconNoteSTARTPROC}[1]{\IconNotePLAYARROW{#1}}
+\IconNoteSTARTPROC{Denotes a starting point for a procedure or sub-procedure.}
+
+\newcommand{\opStepBULLSEYETARGET}[2]{\opStepBULLSEYE{#1}{#2}}
+\newcommand{\IconNoteBULLSEYETARGET}[1]{\IconNoteBULLSEYE{#1}}
+\IconNoteBULLSEYETARGET{Denotes a starting or follow-on point for a list of steps; that is, this is a TARGET destination in a series of steps.}
+
+\newcommand{\opStepWAIT}[2]{\opStepCLOCK{#1}{#2}}
+\newcommand{\IconNoteWAIT}[1]{\IconNoteCLOCK{#1}}
+\IconNoteWAIT{Denotes a point of potential DELAY regarding the system or its operation.}
+
+\newcommand{\opStepCOMINGATTRACTION}[2]{\opStepHAND{#1}{#2}}
+\newcommand{\IconNoteCOMINGATTRACTION}[1]{\IconNoteHAND{#1}}
+\IconNoteCOMINGATTRACTION{Denotes a COMING FEATURE or other information.}
+
+\newcommand{\opStepQUERY}[2]{\opStepQUESTION{#1}{#2}}
+\newcommand{\IconNoteQUERY}[1]{\IconNoteQUESTION{#1}}
+\IconNoteQUERY{Denotes a potential QUESTION regarding the system or its operation.}

@@ -1,0 +1,57 @@
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.1}
+% #2 is Title
+{Security Requirements Precedence}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SecurityRequirementsPrecedence}
+% #4 is Text of the specification
+{All \ThisSystem variants shall meet security requirements listed in Section~\ref{lab:ssec_Security} before all other requirements with the exception of safety.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item Security trumps privacy since good security should help ensure privacy.
+	\item The inspection is of design notes and rationale whereby design decisions relating to precedence are recorded.
+}
+% #9 is version for changebars
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.2}
+% #2 is Title
+{Privacy Requirements Precedence}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:PrivacyRequirementsPrecedence}
+% #4 is Text of the specification
+{All \ThisSystem variants shall meet privacy requirements listed in Section~\ref{lab:ssec_Privacy} before all other requirements with the exception of safety and security.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item Privacy is trumped by security since good security should help ensure privacy.
+	\item The inspection is of design notes and rationale whereby design decisions relating to precedence are recorded.	
+}
+% #9 is version for changebars
+{P1}
+%%%%% end \ONERQMTV[9] macro

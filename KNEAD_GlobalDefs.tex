@@ -1,0 +1,1479 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_GlobalDefs.tex 142 2025-08-03 20:42:20Z KneadProject $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS FILE CONTAINS KNEAD GLOBAL DEFINITIONS
+%
+%
+% PUT ALL AGENCY SPECIFIC GLOBAL DEFINITIONS IN THE FILE KNEAD_ThisAgencySpecifics.tex
+% THAT IS INPUT AT THE BOTTOM OF THIS FILE TO ALLOW FOR REDEFINING KNEAD BASE GLOBAL DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: KNEAD GLOBAL DEFINITIONS
+%          MUST BE FIRST
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\GlobalAcnyFont}{}
+\newcommand{\AcronymColumnWidth}{5.5in}
+\newcommand{\GlossaryColumnWidth}{5.0in}
+\newcommand{\GlobalAcnyFontHRL}{\bf}% for acronyms with HyperRef links added in
+%command to define cronyms with pdftooltips
+% #1 is acronym
+% #2 is definition of acronym
+% #3 is index key
+\newcommand{\GlobalTooltipFont}{\bf}
+\newcommand{\KNEADdefineAcronym}[3]{\index{#3}\pdftooltip{{\GlobalTooltipFont#1}}{#2}\xspace}%Acronym;Def;Index
+%
+\newcommand{\KNEADfirstUse}{\index{Kneadable Nimble Engineering Artifact Design}{{\GlobalAcnyFont Kneadable Nimble Engineering Artifact Design ({\GlobalAcnyFontHRL KNEAD})}}\xspace}
+\newcommand{\KNEAD}{\KNEADdefineAcronym{KNEAD}{Kneadable Nimble Engineering Artifact Design}{KNEAD}}%Acronym;Def;Index
+
+\newcommand{\SPATULA}{\KNEADdefineAcronym{SPATULA}{Spend Plan, Actuals Tracking, & Utilization Level Analyzer}{KNEAD:SPATULA}}%Acronym;Def;Index
+
+%
+\newcommand{\KNEADtm}{$^{TM}$}
+\newcommand{\LaTeXx}{\LaTeX\xspace}%adds \xpsace to do nice spacing after the fancy LaTeX logo.
+\newcommand{\Biberx}{{\em BibLaTeX/Biber}\xspace}%adds \xpsace to do nice spacing after the ``fancy'' Biber logo.
+\newcommand{\MikTex}{{\em MikTex}\xspace}%adds \xpsace to do nice spacing after the fancy LaTeX logo.
+\newcommand{\TeXnicCenter}{{\em TeXnicCenter}\xspace}%adds \xpsace to do nice spacing after the fancy LaTeX logo.
+
+\newcommand{\KNEADProjectAcronymsFile}{KNEADGlobalAcronyms.tex}
+\newcommand{\KNEADProjectGlossaryFile}{KNEADGlobalGlossary.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: KNEAD GLOBAL DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Keep these in a searate file since they can trigger Protection and Governance Filters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{KNEAD_GlobalMarkings.tex}
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: System full and short names
+% is generally overridden in the Project-wide folder
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\ThisSystem}{\index{This System}{\GlobalAcnyFont The Balance System}\xspace}
+\newcommand{\ThisSys}{\index{This System}{\GlobalAcnyFont The Balance System}\xspace}
+\newcommand{\ThisSysUC}{\index{This System}{\GlobalAcnyFont The Balance System}\xspace}
+\newcommand{\ThisSubSys}{\index{This System}{\GlobalAcnyFont The Balance System}\xspace}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: System full and short names
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Change bar stuff
+% Used in UseCases and Specs to show when they change based on document verison.
+% Also keeps track of w 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\CBVERSION}{UNDEFINED}
+\newcommand{\ChangedText}[2]{\ifthenelse{\equal{\CBVERSION}{#1}}{\cbstart #2 \cbend}{#2}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: System full and short names
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Generally used artifact name, number, and status definitions
+% is generally overridden in the artifact folder
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\KNEADdocumentRevision}{KNEAD-Px}
+\newcommand{\KNEADdocumentNum}{KNEAD-DCN}
+\newcommand{\KNEADrevisionDate}{KNEAD REV DATE}% set to {\today}to get Auto dating for preliminary releases
+\newcommand{\KNEADeffectiveDate}{KNEAD Effective DATE}% usually a fixed data, often date of first approved release, mainly for QMS documents
+\newcommand{\KNEADreleasedBy}{KNEAD RELEASED BY}% Author list or agency, as needed
+\newcommand{\KNEADrevisionStatus}{KNEAD UNDEF REV STATUS}
+\newcommand{\KNEADdocumentCopyRightYear}{YYYY}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: page header and footer definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: ALL page base header and footer definitions
+% (to be mostly overridden by user in the main file, or a common file for a set of artifacts for a project
+% use phantom spaces to align top and bottom lines of each section
+%
+% left segments are expected to be left justified so space is to the right
+% right segments are expected to be right justified so space is to the left
+% both sides have phantom spaces in template since either line could need to move either way based on content
+% no space is needed in centers since they are centered, except for bottom with page number as noted below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\KNEADleftHeader}  {\phantom{\hspace{8.0pt}}KNEAD TOP\phantom{\hspace{0.0pt}}\\ \phantom{\hspace{0.0pt}}LEFT HEADER  \phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADcenterHeader}{KNEAD TOP\\CENTER HEADER}
+\newcommand{\KNEADrightHeader} {\phantom{\hspace{0.0pt}}KNEAD TOP\phantom{\hspace{9.0pt}}\\ \phantom{\hspace{0.0pt}}RIGHT HEADER\phantom{\hspace{0.0pt}}}
+%
+\newcommand{\KNEADleftFooter}  {\phantom{\hspace{8.0pt}}KNEAD BTM\\LEFT FOOTER\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADcenterFooter}{\thepage\phantom{\hspace{0.0pt}}\\KNEAD BTM CENTER} %phantom needed to prevent error on title pg when pg# is gobbled
+\newcommand{\KNEADrightFooter} {\phantom{\hspace{0.0pt}}KNEAD BTM\phantom{\hspace{8.0pt}}\\ \phantom{\hspace{0.0pt}}RIGHT FOOTER\phantom{\hspace{0.0pt}}}
+%
+% example of how to include an image in a header section
+%
+%%%\KNEADleftHeader{\setlength{\unitlength}{.01in}
+%%%\begin{picture}(0,0)
+%%%\put(0,0){\includegraphics[height=.5in]{KNEAD_UnderConstruction_300dpi_6.5inchesWide.eps}}
+%%%\end{picture}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%
+%%%%% macros to define headers for Standard artifacts (e.g. MIL-STD-498 DIDs), etc.
+%%%%%
+\newcommand{\KNEADRHDRCMPlan}{Configuration\phantom{\hspace{10pt}}\\Management Plan\phantom{\hspace{0.0pt}}}
+
+\newcommand{\KNEADRHDRSDP}{System\phantom{\hspace{30.0pt}}\\Development Plan\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADRHDROCD}{Operational Concept\phantom{\hspace{0.0pt}}\\Description\phantom{\hspace{22pt}}}
+\newcommand{\KNEADRHDRSPS}{System Performance\phantom{\hspace{0.0pt}}\\Specification\phantom{\hspace{18.0pt}}}
+\newcommand{\KNEADRHDRSSS}{System / Subsystem\phantom{\hspace{0.0pt}}\\Specification\phantom{\hspace{20.0pt}}}
+\newcommand{\KNEADRHDRSSDD}{System / Subsystem\phantom{\hspace{0.0pt}}\\Design Description\phantom{\hspace{4.0pt}}}
+\newcommand{\KNEADRHDRSUM}{System\phantom{\hspace{16.0pt}}\\Usage Manual\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADRHDRSRS}{Subsystem\phantom{\hspace{23.0pt}}\\Rqmts Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRHRS}{Hardware\phantom{\hspace{23.0pt}}\\Rqmts Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTP}{System\phantom{\hspace{6.0pt}}\\Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRETP}{Engineering\phantom{\hspace{0.0pt}}\\Test Plan\phantom{\hspace{6pt}}}
+\newcommand{\KNEADRHDREITP}{Engineering and\phantom{\hspace{15.0pt}}\\Integration Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTD}{System\phantom{\hspace{27.0pt}}\\Test Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTS}{System\phantom{\hspace{27.0pt}}\\Test Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRATP}{System Acceptance\phantom{\hspace{0pt}}\\Test Procedure\phantom{\hspace{9.5pt}}}
+\newcommand{\KNEADRHDRSTR}{System\phantom{\hspace{12.0pt}}\\Test Report\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSVD}{System\phantom{\hspace{32.0pt}}\\Version Description\phantom{\hspace{0pt}}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: page header and footer definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Title page base definitions
+% (to be mostly overridden by user in the main file, or, by convention, in a file named zPROJECTtitlepageInfo.tex
+% which is so named to list at the bottom of the directory listing below the important artifact files.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\KNEADagencyName}{The Balance Project - UNKNOWN Sector\xspace}
+
+
+\ifpdf
+\newcommand{\KNEADtitlepageLogoFile}{images/KNEADlogo_Image.pdf}
+\else
+\newcommand{\KNEADtitlepageLogoFile}{images/KNEADlogo_300dpi_6000milsWide.eps}
+\fi
+\newcommand{\KNEADtitlepageLogoWidth}{6.5in}
+%
+\newcommand{\KNEADartifactTitle}{Undefined\break Title\break Page\break Title}%can't use variable with an index for some reason
+%
+\newcommand{\KNEADtitlepageTitle}
+{
+\KNEADartifactTitle\break
+DCN: \KNEADdocumentNum-\KNEADdocumentRevision\break
+Revision Date: \KNEADrevisionDate
+}
+
+%
+\newcommand{\KNEADtitlepageCompanyHeader}{Prepared by:}
+\newcommand{\KNEADtitlepageCompanyInfo}
+	{
+		The Undefined Corporation\\
+		Unknown Address\\
+		Unknown City, State, Zip, and Country\\
+		Unknown Contact Info\\
+		CAGE : Unknown \hspace{6pt} DUNS : Unknown
+	}
+%
+\newcommand{\KNEADtitlepageReleasedBy}{}
+%
+\newcommand{\KNEADtitlepageDistributionStatement}{Distribution is not limited but is governed by the under the conditions of the \LaTeXx Project Public License.}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Title page base definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Force each Section level to start on a newpage
+%          Comment out at lower levels to NOT force new pages
+%          Override at project, or most probably at the artifact level, as applicable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\KNEADSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBSUBSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADPARAGRAPHNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBPARAGRAPHNEWPAGE}{\newpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Force each Section level to start on a newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Defintion of globally used glossary definitions
+%          Define globally for consistency, override as needed at lower levels
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-%
+%% Glossary terms
+%
+\newcommand{\Customer}{\index{Glossary!Customer}{\GlobalAcnyFont Customer}\xspace}
+\newcommand{\Customers}{\index{Glossary!Customer}{\GlobalAcnyFont Customers}\xspace}
+\newcommand{\Operator}{\index{Glossary!Operator}{\GlobalAcnyFont Operator}\xspace}
+\newcommand{\Operators}{\index{Glossary!Operator}{\GlobalAcnyFont Operators}\xspace}
+\newcommand{\Sponsor}{\index{Glossary!Sponsor}{\GlobalAcnyFont Sponsor}\xspace}
+\newcommand{\Sponsors}{\index{Glossary!Sponsor}{\GlobalAcnyFont Sponsors}\xspace}
+\newcommand{\Stakeholder}{\index{Glossary!Stakeholder}{\GlobalAcnyFont Stakeholder}\xspace}
+\newcommand{\Stakeholders}{\index{Glossary!Stakeholder}{\GlobalAcnyFont Stakeholders}\xspace}
+
+
+\newcommand{\OurCorporateName}{Our Corporate Name\xspace}
+
+
+\newcommand{\LaTeXcmd}[1]{\textcolor{blue}{\textbackslash{#1}}}
+
+\newcommand{\MT}{{\textsc{Intentionally Left Blank}}\xspace}
+\newcommand{\NoNotes}{{\textsc{There Are No Notes for This Item}}\xspace}
+
+%command to put cookie crumbs in text and in index for things to be checked
+\newcommand{\CHECKME}{\index{All Check Me Items}{\textcolor{blue}{\em --CHECK-ME--}}\xspace}
+%commands for standard TBD/TBD items with index key near top of list
+\newcommand{\TBD}{\KNEADdefineAcronym{\textcolor{red}{...TBD...}}{To Be Determined}{All To Be Determined Items}}%Acronym;Def;Index
+\newcommand{\TBS}{\KNEADdefineAcronym{\em TBS\line(1,0){50} }{...To Be Specified...}{All To Be Specified Items}}%Acronym;Def;Index
+
+\newcommand{\UID}{\KNEADdefineAcronym{UID}{Unique Identifier}{Identifier:UID}}%Acronym;Def;Index
+\newcommand{\UIDs}{\KNEADdefineAcronym{UIDs}{Unique Identifier}{Identifier:UID}}%Acronym;Def;Index
+\newcommand{\UUID}{\KNEADdefineAcronym{UUID}{Universally Unique Identifier}{Identifier:UUID}}%Acronym;Def;Index
+\newcommand{\UUIDs}{\KNEADdefineAcronym{UUIDs}{Universally Unique Identifier}{Identifier:UUID}}%Acronym;Def;Index
+\newcommand{\GUID}{\KNEADdefineAcronym{GUID}{Globally Unique Identifier}{Identifier:GUID}}%Acronym;Def;Index
+\newcommand{\GUIDs}{\KNEADdefineAcronym{GUIDs}{Globally Unique Identifier}{Identifier:GUID}}%Acronym;Def;Index
+
+\newcommand{\TLA}{\KNEADdefineAcronym{TLA}{Three Letter Acronym}{Acronyms:TLA}}%Acronym;Def;Index
+\newcommand{\TLAs}{\KNEADdefineAcronym{TLAs}{Three Letter Acronym}{Acronyms:TLA}}%Acronym;Def;Index
+
+%command for generic overcome by events acronym
+%
+\newcommand{\OBE}{\KNEADdefineAcronym{OBE}{Overcome By Events}{All Overcome By Events Items}}%Acronym;Def;Index
+
+%-%
+% Biometrics Acronyms
+%
+% \newcommand{\TWIX}{\GlobalAcnyFont TWIX}\xspace}%https://www.turnstile-systems.com/wp-content/uploads/2014/10/datasheet-twix-2018.pdf
+\newcommand{\MBSS}{\KNEADdefineAcronym{MBSS}{Multi-Biometric Search Services}{Multi-Biometric Search Services}}%Acronym;Def;Index
+\newcommand{\ABIS}{\KNEADdefineAcronym{ABIS}{Automated Biometric Identification System}{Automated Biometric Identification System}}%Acronym;Def;Index
+\newcommand{\BEWL}{\KNEADdefineAcronym{BEWL}{Biometric Enabled Watch List}{Biometric Enabled Watch List}}%Acronym;Def;Index
+\newcommand{\TCN}{\KNEADdefineAcronym{TCN}{Transaction Control Number}{Transaction Control Number}}%Acronym;Def;Index
+\newcommand{\NMEC}{\KNEADdefineAcronym{NMEC}{National Media Exploitation Center}{National Media Exploitation Center}}%Acronym;Def;Index
+\newcommand{\EBTS}{\KNEADdefineAcronym{EBTS}{Electronic Biometric Transmission Specification}{Electronic Biometric Transmission Specification}}%Acronym;Def;Index
+\newcommand{\FbiAppendixF}{\KNEADdefineAcronym{FBI Appendix F}{FBI Appendix F}{FBI Appendix F}}%Acronym;Def;Index
+\newcommand{\BioAPI}{\KNEADdefineAcronym{BioAPI}{BioAPI}{BioAPI}}%Acronym;Def;Index
+\newcommand{\BIP}{\KNEADdefineAcronym{BIP}{Biometric Interworking Protocol}{Biometric Interworking Protocol}}%Acronym;Def;Index
+\newcommand{\BFP}{\KNEADdefineAcronym{BFP}{Biometric Function Providers}{Biometric Function Providers}}%Acronym;Def;Index
+\newcommand{\BSP}{\KNEADdefineAcronym{BSP}{Biometric Service Providers}{Biometric Service Providers}}%Acronym;Def;Index
+\newcommand{\WSBD}{\KNEADdefineAcronym{WSBD}{Web Services Biometric Devices}{Web Services Biometric Devices}}%Acronym;Def;Index
+\newcommand{\MISO}{\KNEADdefineAcronym{MISO}{Military Information Support Operations}{Military Information Support Operations}}%Acronym;Def;Index
+\newcommand{\MPC}{\KNEADdefineAcronym{MPC}{Media Production Center}{Media Production Center}}%Acronym;Def;Index
+\newcommand{\IPD}{\KNEADdefineAcronym{IPD}{InterPupillary Distance}{InterPupillary Distance}}%Acronym;Def;Index
+\newcommand{\PittPatt}{\KNEADdefineAcronym{PittPatt}{Pitt Patt Facial Recognition}{Pitt Patt}}%Acronym;Def;Index
+
+
+%-%
+% Military Class Designators
+%
+\newcommand{\SSN}{\KNEADdefineAcronym{SSN}{Submarine Ship Nuclear}{USN:SSN}}%Acronym;Def;Index
+\newcommand{\SSBN}{\KNEADdefineAcronym{SSBN}{Submarine Ship Ballistic Nuclear}{USN:SSBN}}%Acronym;Def;Index
+\newcommand{\UAS}{\KNEADdefineAcronym{UAS}{Uncrewed Aerial System}{UAS:UAS}}%Acronym;Def;Index
+\newcommand{\UASUCS}{\KNEADdefineAcronym{UCS}{UAS Control System}{UAS:UCS}}%Acronym;Def;Index
+\newcommand{\UASUAV}{\KNEADdefineAcronym{UAV}{Uncrewed Aerial Vehicle}{UAS:UAV}}%Acronym;Def;Index
+\newcommand{\AreaOps}{\KNEADdefineAcronym{AO}{Area of Operations}{Area of Operations}}%Acronym;Def;Index
+\newcommand{\AreaOR}{\KNEADdefineAcronym{AOR}{Area of Responsibility}{Area of Responsibility}}%Acronym;Def;Index
+\newcommand{\TOC}{\KNEADdefineAcronym{TOC}{Tactical Operations Center}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\TOCs}{\KNEADdefineAcronym{TOCs}{Tactical Operations Centers}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\TOCL}{\KNEADdefineAcronym{TOC-L}{Tactical Operations Center - Light}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\TOCLs}{\KNEADdefineAcronym{TOC-Ls}{Tactical Operations Centers - Light}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\TOCM}{\KNEADdefineAcronym{TOC-M}{Tactical Operations Center - Medium}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\TOCFixed}{\KNEADdefineAcronym{TOC-Fixed}{Tactical Operations Center - Fixed}{Tactical Operations Center}}%Acronym;Def;Index
+\newcommand{\RORO}{\KNEADdefineAcronym{RORO}{Roll-On / Roll-Off}{Roll-On / Roll-Off}}%Acronym;Def;Index
+
+\newcommand{\LEOfficer}{\KNEADdefineAcronym{LEO}{Law Enforcement Officer}{Police:LEO}}%Acronym;Def;Index
+\newcommand{\LEOfficers}{\KNEADdefineAcronym{LEOs}{Law Enforcement Officers}{Police:LEO}}%Acronym;Def;Index
+
+%-%
+% CM tools
+%
+\newcommand{\Git}{\KNEADdefineAcronym{Git}{Get It Together}{CM:Git}}%Acronym;Def;Index
+\newcommand{\Jira}{\KNEADdefineAcronym{Jira\texttrademark}{JIRA: I'd Rather Avoid}{CM:Jira}}%Acronym;Def;Index
+\newcommand{\Subversion}{\KNEADdefineAcronym{Subversion\texttrademark}{SubVersioN}{CM:Subversion}}%Acronym;Def;Index
+\newcommand{\MinViableProd}{\KNEADdefineAcronym{MVP}{Minimum Viable Product}{CM:MVP}}%Acronym;Def;Index
+
+
+
+%-%
+% DoD and Military Branches 
+%
+\newcommand{\DoD}{\KNEADdefineAcronym{DoD}{Department of Defense}{DoD}}%Acronym;Def;Index
+\newcommand{\USN}{\KNEADdefineAcronym{USN}{United States Navy}{DoD!USN}}%Acronym;Def;Index
+\newcommand{\USAF}{\KNEADdefineAcronym{USAF}{United States Air Force}{DoD!USAF}}%Acronym;Def;Index
+\newcommand{\USSF}{\KNEADdefineAcronym{USSF}{United States Space Force}{DoD!USSF}}%Acronym;Def;Index
+\newcommand{\USMC}{\KNEADdefineAcronym{USMC}{United States Marine Corp}{DoD!USMC}}%Acronym;Def;Index
+\newcommand{\USArmy}{\KNEADdefineAcronym{USArmy}{United States Army}{DoD!USArmy}}%Acronym;Def;Index
+
+\newcommand{\AFB}{\KNEADdefineAcronym{AFB}{Air Force Base}{DoD!AFB}}%Acronym;Def;Index
+
+
+%-%
+% Agencies and Companies 
+%
+\newcommand{\Garmin}{\KNEADdefineAcronym{Garmin}{Garmin Inc.}{Garmin}}%Acronym;Def;Index
+\newcommand{\JIDA}{\KNEADdefineAcronym{JIDA}{Joint Improvised-threat Detection Agency}{Joint Improvised-threat Detection Agency}}%Acronym;Def;Index
+\newcommand{\APLJHU}{\KNEADdefineAcronym{JHUAPL}{Johns Hopkins University Applied Physics Laboratory}{JHU:APL}}%Acronym;Def;Index
+\newcommand{\JHUAPL}{\KNEADdefineAcronym{JHUAPL}{Johns Hopkins University Applied Physics Laboratory}{JHU:APL}}%Acronym;Def;Index
+\newcommand{\LANL}{\KNEADdefineAcronym{LANL}{Los Alamos National Laboratory}{Los Alamos National Laboratory}}%Acronym;Def;Index
+\newcommand{\NASC}{\KNEADdefineAcronym{NASC}{NAVMAR Applied Sciences Corporation}{NAVMAR Applied Sciences Corporation}}%Acronym;Def;Index
+\newcommand{\NRL}{\KNEADdefineAcronym{NRL}{Navy Research Lab}{Navy Research Lab}}%Acronym;Def;Index
+\newcommand{\FCC}{\KNEADdefineAcronym{FCC}{Federal Communications Commission}{Federal Communications Commission}}%Acronym;Def;Index
+\newcommand{\SNL}{\KNEADdefineAcronym{SNL}{Sandia National Laboratory}{Sandia National Laboratory}}%Acronym;Def;Index
+\newcommand{\SRI}{\KNEADdefineAcronym{SRI}{Stanford Research Institute}{Stanford Research Institute}}%Acronym;Def;Index
+\newcommand{\RDA}{\KNEADdefineAcronym{RDA}{Richard Dator Associates}{Richard Dator Associates}}%Acronym;Def;Index
+\newcommand{\SLAt}{\KNEADdefineAcronym{SLAt}{Sea Land Aire Technologies}{Sea Land Aire Technologies}}%Acronym;Def;Index
+\newcommand{\DHS}{\KNEADdefineAcronym{DHS}{Department of Homeland Security}{Department of Homeland Security}}%Acronym;Def;Index
+\newcommand{\FBI}{\KNEADdefineAcronym{FBI}{Federal Bureau of Investigation}{Federal Bureau of Investigation}}%Acronym;Def;Index
+\newcommand{\NSA}{\KNEADdefineAcronym{NSA}{National Security Agency}{National Security Agency}}%Acronym;Def;Index
+\newcommand{\NGA}{\KNEADdefineAcronym{NGA}{National Geo-spatial Intelligence Agency}{National Geo-spatial Intelligence Agency}}%Acronym;Def;Index
+\newcommand{\NIST}{\KNEADdefineAcronym{NIST}{National Institute of Standards and Technology}{National Institute of Standards and Technology}}%Acronym;Def;Index
+\newcommand{\ISO}{\KNEADdefineAcronym{ISO}{International Organization for Standardization}{International Organization for Standardization}}%Acronym;Def;Index
+\newcommand{\SAE}{\KNEADdefineAcronym{SAE}{Society of Automotive Engineers}{SAE International}}%Acronym;Def;Index
+\newcommand{\DISA}{\KNEADdefineAcronym{DISA}{Defense Information Systems Agency}{DISA}}%Acronym;Def;Index
+\newcommand{\IEEE}{\KNEADdefineAcronym{IEEE}{Institute of Electrical and Electronic Engineers}{IEEE}}%Acronym;Def;Index
+\newcommand{\ACM}{\KNEADdefineAcronym{ACM}{Association of Computing Machinery}{ACM}}%Acronym;Def;Index
+\newcommand{\BLS}{\KNEADdefineAcronym{BLS}{Bureau of Labor and Statistics}{Bureau of Labor and Statistics}}%Acronym;Def;Index
+\newcommand{\ITU}{\KNEADdefineAcronym{ITU}{International Telecommunication Union}{International Telecommunication Union}}%Acronym;Def;Index
+\newcommand{\FAA}{\KNEADdefineAcronym{FAA}{Federal Aviation Administration}{FAA}}%Acronym;Def;Index
+
+\newcommand{\NAWC}{\KNEADdefineAcronym{NAWC}{Naval Air Warfare Center}{Naval Air Warfare Center}}%Acronym;Def;Index
+\newcommand{\NAWCAD}{\KNEADdefineAcronym{NAWCAD}{Naval Air Warfare Center - Aircraft Division}{NAWCAD}}%Acronym;Def;Index
+\newcommand{\NAWCADWOLF}{\KNEADdefineAcronym{NAWCADWOLF}{Naval Air Warfare Center - Aircraft Division, Webster Outlying Field}{NAWCAD:WOLF}}%Acronym;Def;Index
+\newcommand{\NIWC}{\KNEADdefineAcronym{NIWC}{Naval Information Warfare Center}{NIWC}}%Acronym;Def;Index
+\newcommand{\NUWC}{\KNEADdefineAcronym{NUWC}{Naval Undersea Warfare Center}{NUWC}}%Acronym;Def;Index
+\newcommand{\NSWC}{\KNEADdefineAcronym{NSWC}{Naval Surface Warfare Center}{NSWC}}%Acronym;Def;Index
+\newcommand{\SOCOM}{\KNEADdefineAcronym{SOCOM}{Special Operations Command}{SOCOM}}%Acronym;Def;Index
+
+\newcommand{\PEO}{\KNEADdefineAcronym{PEO}{Program Executive Office}{PMOffices:PEO}}%Acronym;Def;Index
+\newcommand{\PEOs}{\KNEADdefineAcronym{PEOs}{Program Executive Offices}{PMOffices:PEO}}%Acronym;Def;Index
+\newcommand{\PMA}{\KNEADdefineAcronym{PMA}{Project Management Administration}{PMOffices:PMO}}%Acronym;Def;Index
+\newcommand{\PMAs}{\KNEADdefineAcronym{PMAs}{Project Management Administrations}{PMOffices:PMO}}%Acronym;Def;Index
+\newcommand{\PMO}{\KNEADdefineAcronym{PMO}{Program Management Office}{PMOffices:PMO}}%Acronym;Def;Index
+\newcommand{\PMOs}{\KNEADdefineAcronym{PMOs}{Program Management Offices}{PMOffices:PMO}}%Acronym;Def;Index
+
+
+%-%
+% General Design Acronyms
+%
+\newcommand{\BOM}{\KNEADdefineAcronym{BOM}{Bill Of Materials}{Bill Of Materials}}%Acronym;Def;Index
+\newcommand{\MEL}{\KNEADdefineAcronym{MEL}{Master Equipment List}{Master Equipment List}}%Acronym;Def;Index
+\newcommand{\MPL}{\KNEADdefineAcronym{MPL}{Master Parts List}{Master Parts List}}%Acronym;Def;Index
+\newcommand{\MRL}{\KNEADdefineAcronym{MRL}{Master Replaceables List}{Master Replaceables List}}%Acronym;Def;Index
+\newcommand{\TDP}{\KNEADdefineAcronym{TDP}{Technical Data Package}{Technical Data Package}}%Acronym;Def;Index
+\newcommand{\PKO}{\KNEADdefineAcronym{PKO}{Project Kick-Off}{Project Kick-Off}}%Acronym;Def;Index
+\newcommand{\PWU}{\KNEADdefineAcronym{PWU}{Project Wrap-Up}{Project Wrap-Up}}%Acronym;Def;Index
+\newcommand{\ECO}{\KNEADdefineAcronym{ECO}{Engineering Change Order}{Engineering Change Order}}%Acronym;Def;Index
+\newcommand{\ECOs}{\KNEADdefineAcronym{ECOs}{Engineering Change Orders}{Engineering Change Order}}%Acronym;Def;Index
+\newcommand{\ECP}{\KNEADdefineAcronym{ECP}{Engineering Change Proposal}{Engineering Change Proposal}}%Acronym;Def;Index
+\newcommand{\ECPs}{\KNEADdefineAcronym{ECPs}{Engineering Change Proposals}{Engineering Change Proposal}}%Acronym;Def;Index
+\newcommand{\SME}{\KNEADdefineAcronym{SME}{Subject Matter Expert}{Subject Matter Expert}}%Acronym;Def;Index
+\newcommand{\SMEs}{\KNEADdefineAcronym{SMEs}{Subject Matter Experts}{Subject Matter Expert}}%Acronym;Def;Index
+\newcommand{\FoS}{\KNEADdefineAcronym{FoS}{Family of Systems}{Family of Systems}}%Acronym;Def;Index
+\newcommand{\TechOrder}{\KNEADdefineAcronym{TO}{Technical Order}{Technical Order}}%Acronym;Def;Index
+\newcommand{\TechOrders}{\KNEADdefineAcronym{TOs}{Technical Orders}{Technical Order}}%Acronym;Def;Index
+
+%-%
+% Test Stages
+%
+\newcommand{\StageOne}{\KNEADdefineAcronym{Stage-1}{Test Stage One}{Test Stages!One}}%Acronym;Def;Index
+\newcommand{\StageTwo}{\KNEADdefineAcronym{Stage-2}{Test Stage Two}{Test Stages!Two}}%Acronym;Def;Index
+\newcommand{\StageThree}{\KNEADdefineAcronym{Stage-3}{Test Stage Three}{Test Stages!Three}}%Acronym;Def;Index
+\newcommand{\StageFour}{\KNEADdefineAcronym{Stage-4}{Test Stage Four}{Test Stages!Four}}%Acronym;Def;Index
+\newcommand{\StageFive}{\KNEADdefineAcronym{Stage-5}{Test Stage Five}{Test Stages!Five}}%Acronym;Def;Index
+\newcommand{\StageSix}{\KNEADdefineAcronym{Stage-6}{Test Stage Six}{Test Stages!Six}}%Acronym;Def;Index
+\newcommand{\StageSeven}{\KNEADdefineAcronym{Stage-7}{Test Stage Seven}{Test Stages!Seven}}%Acronym;Def;Index
+
+\newcommand{\StageDT}{\KNEADdefineAcronym{DT}{Development Testing}{Test Stages!DT}}%Acronym;Def;Index
+\newcommand{\StageOT}{\KNEADdefineAcronym{OT}{Operational Testing}{Test Stages!OT}}%Acronym;Def;Index
+
+
+%-%
+% Agile, SAFe, and Nimble
+%
+\newcommand{\AGILE}{\KNEADdefineAcronym{Agile}{Agile Development}{Agile Development}}%Acronym;Def;Index
+\newcommand{\Agile}{\KNEADdefineAcronym{Agile}{Agile Development}{Agile Development}}%Acronym;Def;Index
+
+\newcommand{\SAFe}{\KNEADdefineAcronym{SAFe}{Scaled Agile Framework}{Scaled Agile Framework!SAFe}}%Acronym;Def;Index
+\newcommand{\SAFePI}{\KNEADdefineAcronym{SAFePI}{Scaled Agile Framework Program Increment}{Scaled Agile Framework!Program Increment}}%Acronym;Def;Index
+\newcommand{\SAFePIs}{\KNEADdefineAcronym{SAFePIs}{Scaled Agile Framework Program Increments}{Scaled Agile Framework!Program Increment}}%Acronym;Def;Index
+\newcommand{\SAFeART}{\KNEADdefineAcronym{SAFeART}{Scaled Agile Framework Agile Release Train}{Scaled Agile Framework!Agile Release Train}}%Acronym;Def;Index
+\newcommand{\SAFeARTs}{\KNEADdefineAcronym{SAFeARTs}{Scaled Agile Framework Agile Release Train}{Scaled Agile Framework!Agile Release Train}}%Acronym;Def;Index
+\newcommand{\Nimble}{\KNEADdefineAcronym{Nimble}{Nimble Development}{Nimble Development}}%Acronym;Def;Index
+\newcommand{\NimblePI}{\KNEADdefineAcronym{NimblePI}{Nimble Development Project Increment}{Nimble Development!Project Increment}}%Acronym;Def;Index
+\newcommand{\NimblePIs}{\KNEADdefineAcronym{NimblePIs}{Nimble Development Project Increments}{Nimble Development!Project Increment}}%Acronym;Def;Index
+\newcommand{\NimbleRT}{\KNEADdefineAcronym{NimbleRT}{Nimble Development Release Train}{Nimble Development!Release Train}}%Acronym;Def;Index
+\newcommand{\NimbleRTs}{\KNEADdefineAcronym{NimbleRTs}{Nimble Development Release Trains}{Nimble Development!Release Train}}%Acronym;Def;Index
+
+\newcommand{\SysML}{\KNEADdefineAcronym{SysML}{System Modeling Language}{System Modeling Language}}%Acronym;Def;Index
+
+%-%
+% process-related measures and metrics
+%
+\newcommand{\KPP}{\KNEADdefineAcronym{KPP}{Key Performance Parameter}{SETR!KPP}}%Acronym;Def;Index
+\newcommand{\KPPs}{\KNEADdefineAcronym{KPPs}{Key Performance Parameters}{SETR!KPP}}%Acronym;Def;Index
+\newcommand{\KSA}{\KNEADdefineAcronym{KSA}{Key System Attribute}{SETR!KSA}}%Acronym;Def;Index
+\newcommand{\KSAs}{\KNEADdefineAcronym{KSAs}{Key System Attributes}{SETR!KSA}}%Acronym;Def;Index
+\newcommand{\MOE}{\KNEADdefineAcronym{MOE}{Measure of Effectiveness}{SETR!MOE}}%Acronym;Def;Index
+\newcommand{\MOEs}{\KNEADdefineAcronym{MOEs}{Measures of Effectiveness}{SETR!MOE}}%Acronym;Def;Index
+\newcommand{\MOP}{\KNEADdefineAcronym{MOP}{Measure of Performance}{SETR!MOP}}%Acronym;Def;Index
+\newcommand{\MOPs}{\KNEADdefineAcronym{MOPs}{Measures of Performance}{SETR!MOP}}%Acronym;Def;Index
+\newcommand{\TPM}{\KNEADdefineAcronym{TPM}{Technical Performance Measure}{SETR!TPM}}%Acronym;Def;Index
+\newcommand{\TPMs}{\KNEADdefineAcronym{TPMs}{Technical Performance Measures}{SETR!TPM}}%Acronym;Def;Index
+
+%-%
+% general process-related 
+%
+\newcommand{\CMMI}{\KNEADdefineAcronym{CMMI}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+\newcommand{\CMMIONE}{\KNEADdefineAcronym{CMMI-1}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+\newcommand{\CMMITWO}{\KNEADdefineAcronym{CMMI-2}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+\newcommand{\CMMITHREE}{\KNEADdefineAcronym{CMMI-3}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+\newcommand{\CMMIFOUR}{\KNEADdefineAcronym{CMMI-4}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+\newcommand{\CMMIFIVE}{\KNEADdefineAcronym{CMMI-5}{Capability Model Maturity Index}{Capability Model Maturity Index}}%Acronym;Def;Index
+
+\newcommand{\OPEXP}{\KNEADdefineAcronym{OPEXP}{Operational Experimentation}{Operational Experimentation}}%Acronym;Def;Index
+\newcommand{\EXECSPEC}{\KNEADdefineAcronym{EXECSPEC}{Executable Specification}{Executable Specification}}%Acronym;Def;Index
+
+
+
+%-%
+% Systems Engineering 
+%
+\newcommand{\OOAD}{\KNEADdefineAcronym{OOAD}{Object-Oriented Analysis \& Design}{OOAD}}%Acronym;Def;Index
+
+
+\newcommand{\SDLC}{\KNEADdefineAcronym{SDLC}{System Development Life Cycle}{System Development Life Cycle}}%Acronym;Def;Index
+\newcommand{\DigitalEngineering}{\KNEADdefineAcronym{DigEng}{DigitalEngineering}{DigitalEngineering}}%Acronym;Def;Index
+\newcommand{\MBSE}{\KNEADdefineAcronym{MBSE}{Model-Based Systems Engineering}{Model-Based Systems Engineering}}%Acronym;Def;Index
+\newcommand{\UPM}{\KNEADdefineAcronym{UPM}{Unified Process Model}{Unified Process Model}}%Acronym;Def;Index
+\newcommand{\YSM}{\KNEADdefineAcronym{YSM}{Yourdon's Structured Method}{Yourdon's Structured Method}}%Acronym;Def;Index
+\newcommand{\Waterfall}{\KNEADdefineAcronym{Waterfall}{Waterfall Development Model}{Waterfall Model}}%Acronym;Def;Index
+\newcommand{\Kanban}{\KNEADdefineAcronym{Kanban}{Kanban Project Management Methodology}{Kanban}}%Acronym;Def;Index
+\newcommand{\SE}{\KNEADdefineAcronym{SE}{Systems Engineering}{Systems Engineering}}%Acronym;Def;Index
+\newcommand{\RACI}{\KNEADdefineAcronym{RACI}{Responsible, Accountable, Consulted, Informed}{RACI}}%Acronym;Def;Index
+\newcommand{\WBS}{\KNEADdefineAcronym{WBS}{Work Breakdown Structure}{Work Breakdown Structure}}%Acronym;Def;Index
+\newcommand{\IMS}{\KNEADdefineAcronym{IMS}{Integrated Master Schedule}{Integrated Master Schedule}}%Acronym;Def;Index
+\newcommand{\SLOC}{\KNEADdefineAcronym{SLOC}{Source Lines of Code}{Source Lines of Code}}%Acronym;Def;Index
+\newcommand{\SSOT}{\KNEADdefineAcronym{SSOT}{Single Source of Truth}{Single Source of Truth}}%Acronym;Def;Index
+\newcommand{\BDD}{\KNEADdefineAcronym{BDD}{Block Definition Diagram}{Block Definition Diagram}}%Acronym;Def;Index
+\newcommand{\BDDs}{\KNEADdefineAcronym{BDDs}{Block Definition Diagrams}{Block Definition Diagram}}%Acronym;Def;Index
+
+
+
+\newcommand{\SETR}{\KNEADdefineAcronym{SETR}{Systems Engineering Technical Review}{Process Review!Systems Engineering Technical Review}}%Acronym;Def;Index
+\newcommand{\SRR}{\KNEADdefineAcronym{SRR}{System Requirements Review}{Process Review!System Requirements Review}}%Acronym;Def;Index
+\newcommand{\PDR}{\KNEADdefineAcronym{PDR}{Preliminary Design Review}{Process Review!Preliminary Design Review}}%Acronym;Def;Index
+\newcommand{\CDR}{\KNEADdefineAcronym{CDR}{Comprehensive Design Review}{Process Review!Comprehensive Design Review}}%Acronym;Def;Index
+\newcommand{\ERR}{\KNEADdefineAcronym{ERR}{Engineering Release Review}{Process Review!Engineering Release Review}}%Acronym;Def;Index
+\newcommand{\IRR}{\KNEADdefineAcronym{IRR}{Integration Readiness Review}{Process Review!Integration Readiness Review}}%Acronym;Def;Index
+\newcommand{\TRR}{\KNEADdefineAcronym{TRR}{Test Readiness Review}{Process Review!Test Readiness Review}}%Acronym;Def;Index
+\newcommand{\PRR}{\KNEADdefineAcronym{PRR}{Production Readiness Review}{Process Review!Production Readiness Review}}%Acronym;Def;Index
+\newcommand{\DRR}{\KNEADdefineAcronym{DRR}{Delivery Readiness Review}{Process Review!Delivery Readiness Review}}%Acronym;Def;Index
+\newcommand{\NRR}{\KNEADdefineAcronym{NRR}{iNstallation Readiness Review}{Process Review!iNstallation Readiness Review}}%Acronym;Def;Index
+
+\newcommand{\PCA}{\KNEADdefineAcronym{PCA}{Physical Configuration Audit}{Process Review!Physical Configuration Audit}}%Acronym;Def;Index
+\newcommand{\PCAs}{\KNEADdefineAcronym{PCAs}{Physical Configuration Audits}{Process Review!Physical Configuration Audit}}%Acronym;Def;Index
+\newcommand{\FCA}{\KNEADdefineAcronym{FCA}{Functional Configuration Audit}{Process Review!Functional Configuration Audit}}%Acronym;Def;Index
+\newcommand{\FCAs}{\KNEADdefineAcronym{FCAs}{Functional Configuration Audits}{Process Review!Functional Configuration Audit}}%Acronym;Def;Index
+\newcommand{\TIM}{\KNEADdefineAcronym{TIM}{Technical Interchange Meeting}{Process Review!Technical Interchange Meeting}}%Acronym;Def;Index
+\newcommand{\TIMs}{\KNEADdefineAcronym{TIMs}{Technical Interchange Meetings}{Process Review!Technical Interchange Meeting}}%Acronym;Def;Index
+\newcommand{\SOVAT}{\KNEADdefineAcronym{SOVAT}{System Operational Verification Acceptance Test}{Process Review!System Operational Verification Acceptance Test}}%Acronym;Def;Index
+\newcommand{\SOVATs}{\KNEADdefineAcronym{SOVAsT}{System Operational Verification Acceptance Tests}{Process Review!System Operational Verification Acceptance Test}}%Acronym;Def;Index
+
+\newcommand{\CM}{\KNEADdefineAcronym{CM}{Configuration Management}{Configuration Management}}%Acronym;Def;Index
+\newcommand{\CCB}{\KNEADdefineAcronym{CM}{Configuration Control Board}{Configuration Control Board}}%Acronym;Def;Index
+
+
+\newcommand{\FMS}{\KNEADdefineAcronym{FMS}{Foreign Military Sales}{Foreign Military Sales}}%Acronym;Def;Index
+
+\newcommand{\ASNINETYONE}{\KNEADdefineAcronym{AS-9100}{AS QMS Requirements 9100}{AS-9100}}%Acronym;Def;Index
+\newcommand{\ISONINEKONE}{\KNEADdefineAcronym{ISO-9001}{ISO QMS Requirements 9001}{ISO-9001}}%Acronym;Def;Index
+
+\newcommand{\NATO}{\KNEADdefineAcronym{NATO}{North Atlantic Treaty Organization}{NATO}}%Acronym;Def;Index
+\newcommand{\STANAG}{\KNEADdefineAcronym{STANAG}{Standardization Agreement}{STANAG}}%Acronym;Def;Index
+
+\newcommand{\GFE}{\KNEADdefineAcronym{GFE}{Government Furnished Equipment}{GFE}}%Acronym;Def;Index
+\newcommand{\EntryControlPoint}{\KNEADdefineAcronym{EntryControlPoint}{EntryControlPoint}{EntryControlPoint}}%Acronym;Def;Index
+\newcommand{\FOB}{\KNEADdefineAcronym{FOB}{Forward Operating Base}{Forward Operating Base}}%Acronym;Def;Index
+\newcommand{\ISR}{\KNEADdefineAcronym{ISR}{Intelligence, Surveillance, and Reconnaissance}{ISR}}%Acronym;Def;Index
+\newcommand{\LEP}{\KNEADdefineAcronym{LEP}{Locally Employed Person}{Locally Employed Person}}%Acronym;Def;Index
+
+
+\newcommand{\Ctwo}{\KNEADdefineAcronym{C2}{Command and Control}{Cn!C2}}%Acronym;Def;Index
+\newcommand{\Cthree}{\KNEADdefineAcronym{C3}{Command, Control, and Communications}{Cn!C3}}%Acronym;Def;Index
+\newcommand{\Cfour}{\KNEADdefineAcronym{C4}{Command, Control, Communications, and Computers}{Cn!C4}}%Acronym;Def;Index
+\newcommand{\Cfive}{\KNEADdefineAcronym{C5}{Command, Control, Communications, Computers, and Cyber-defense}{Cn!C5}}%Acronym;Def;Index
+\newcommand{\Csix}{\KNEADdefineAcronym{C6}{Command, Control, Communications, Computers, Cyber-defense, and Combat Systems}{Cn!C6}}%Acronym;Def;Index
+
+\newcommand{\CfourISR}{\KNEADdefineAcronym{C4ISR}{Command, Control, Communications, and Computers Intelligence, Surveillance and Reconnaissance}{Cn!C4ISR}}%Acronym;Def;Index
+\newcommand{\CfiveISR}{\KNEADdefineAcronym{C5ISR}{Command, Control, Communications, Computers, and Cyber-defense Intelligence, Surveillance and Reconnaissance}{Cn!C5ISR}}%Acronym;Def;Index
+\newcommand{\CsixISR}{\KNEADdefineAcronym{C6ISR}{Command, Control, Communications, Computers, Cyber-defense, and Combat Systems Intelligence, Surveillance and Reconnaissance}{Cn!C6ISR}}%Acronym;Def;Index
+
+
+%-%
+% Certification acronyms
+%
+\newcommand{\CTS}{\KNEADdefineAcronym{CTS}{Certified Technology Specialist}{Certified Technology Specialist}}%Acronym;Def;Index
+\newcommand{\PMP}{\KNEADdefineAcronym{PMP}{Project Management Professional}{Project Management Professional}}%Acronym;Def;Index
+\newcommand{\PMI}{\KNEADdefineAcronym{PMI}{Project Management Institute}{Project Management Institute}}%Acronym;Def;Index
+\newcommand{\RCDD}{\KNEADdefineAcronym{RCDD}{Registered Communications Distribution Designer}{RCDD}}%Acronym;Def;Index
+\newcommand{\BICSI}{\KNEADdefineAcronym{BICSI}{Building Industry Consulting Service International}{BICSI}}%Acronym;Def;Index
+\newcommand{\CSfC}{\KNEADdefineAcronym{CSfC}{Commercial Solutions for Classified}{CSfC}}%Acronym;Def;Index
+
+
+%-%
+% ILS acronyms
+%
+\newcommand{\ILS}{\KNEADdefineAcronym{ILS}{Integrated Logistics Support}{Integrated Logistics Support}}%Acronym;Def;Index
+\newcommand{\CPSR}{\KNEADdefineAcronym{CPSR}{Contractor Purchasing System Review}{Contractor Purchasing System Review}}%Acronym;Def;Index
+\newcommand{\PALT}{\KNEADdefineAcronym{PALT}{Procurement Action Lead Time}{Procurement Action Lead Time}}%Acronym;Def;Index
+\newcommand{\PHST}{\KNEADdefineAcronym{PHST}{Packaging, Handling, Storage, and Transportation}{Packaging, Handling, Storage, and Transportation}}%Acronym;Def;Index
+\newcommand{\MICS}{\KNEADdefineAcronym{MICS}{Material Inventory Control System}{Material Inventory Control System}}%Acronym;Def;Index
+\newcommand{\RMA}{\KNEADdefineAcronym{RMA}{Return Material Authorization}{Return Material Authorization}}%Acronym;Def;Index
+\newcommand{\EOL}{\KNEADdefineAcronym{EOL}{End of Life}{End of Life}}%Acronym;Def;Index
+
+
+%-%
+% C/C++/Java Keywords
+%
+
+\newcommand{\keypublic}{\KNEADdefineAcronym{keypublic}{C++/Java public keyword}{keyword!public}}%Acronym;Def;Index
+\newcommand{\keyprotected}{\KNEADdefineAcronym{keyprotected}{C++/Java protected keyword}{keyword!protected}}%Acronym;Def;Index
+\newcommand{\keyprivate}{\KNEADdefineAcronym{keyprivate}{C++/Java private keyword}{keyword!private}}%Acronym;Def;Index
+\newcommand{\keyvirtual}{\KNEADdefineAcronym{keyvirtual}{C++/Java virtual keyword}{keyword!virtual}}%Acronym;Def;Index
+\newcommand{\keyconst}{\KNEADdefineAcronym{keyconst}{C++/Java const keyword}{keyword!const}}%Acronym;Def;Index
+\newcommand{\keytypedef}{\KNEADdefineAcronym{keytypedef}{C++/Java typedef keyword}{keyword!typedef}}%Acronym;Def;Index
+\newcommand{\Doxygen}{\KNEADdefineAcronym{doxygen}{Doxygen}{Doxygen}}%Acronym;Def;Index
+\newcommand{\doxygen}{\KNEADdefineAcronym{doxygen}{Doxygen}{Doxygen}}%Acronym;Def;Index
+
+\newcommand{\XML}{\KNEADdefineAcronym{Xml}{eXtensible Markup Language}{XML}}%Acronym;Def;Index
+\newcommand{\Xml}{\KNEADdefineAcronym{Xml}{eXtensible Markup Language}{XML}}%Acronym;Def;Index
+\newcommand{\DHCP}{\KNEADdefineAcronym{DHCP}{Dynamic Host Configuration Protocol}{DHCP}}%Acronym;Def;Index
+\newcommand{\TCP}{\KNEADdefineAcronym{TCP}{Transmission Control Protocol}{TCP}}%Acronym;Def;Index
+\newcommand{\Tcp}{\KNEADdefineAcronym{TCP}{Transmission Control Protocol}{TCP}}%Acronym;Def;Index
+\newcommand{\IP}{\KNEADdefineAcronym{IP}{Internet Protocol}{IP}}%Acronym;Def;Index
+\newcommand{\IPvFour}{\KNEADdefineAcronym{IPv4}{Internet Protocol}{IP}}%Acronym;Def;Index
+\newcommand{\IPvSix}{\KNEADdefineAcronym{IPv6}{Internet Protocol}{IP}}%Acronym;Def;Index
+\newcommand{\IPTV}{\KNEADdefineAcronym{IPTV}{Internet Protocol Television}{IPTV}}%Acronym;Def;Index
+\newcommand{\TCPIP}{\KNEADdefineAcronym{TCPIP}{Transmission Control Protocol / Internet Protocol}{TCPIP}}%Acronym;Def;Index
+\newcommand{\UDP}{\KNEADdefineAcronym{UDP}{User Datagram Protocol}{UDP}}%Acronym;Def;Index
+\newcommand{\Udp}{\KNEADdefineAcronym{UDP}{User Datagram Protocol}{UDP}}%Acronym;Def;Index
+\newcommand{\ICMP}{\KNEADdefineAcronym{ICMP}{Internet Control Message Protocol}{ICMP}}%Acronym;Def;Index
+\newcommand{\Icmp}{\KNEADdefineAcronym{ICMP}{Internet Control Message Protocol}{ICMP}}%Acronym;Def;Index
+\newcommand{\SNMP}{\KNEADdefineAcronym{SNMP}{Simple Network Management Protocol}{SNMP}}%Acronym;Def;Index
+\newcommand{\Snmp}{\KNEADdefineAcronym{SNMP}{Simple Network Management Protocol}{SNMP}}%Acronym;Def;Index
+\newcommand{\ACK}{\KNEADdefineAcronym{Ack}{ACKnowledge}{ACK}}%Acronym;Def;Index
+\newcommand{\NACK}{\KNEADdefineAcronym{Nack}{Negative ACKnowledge}{NACK}}%Acronym;Def;Index
+\newcommand{\Nack}{\KNEADdefineAcronym{Nack}{Negative ACKnowledge}{NACK}}%Acronym;Def;Index
+\newcommand{\ASNone}{\KNEADdefineAcronym{ASNone}{Abstract Syntax Notation One}{ASNone}}%Acronym;Def;Index
+\newcommand{\ROI}{\KNEADdefineAcronym{ROI}{Region of Interest}{Region of Interest}}%Acronym;Def;Index
+\newcommand{\DMM}{\KNEADdefineAcronym{DMM}{Digital Multi-Meter}{Digital Multi-Meter}}%Acronym;Def;Index
+\newcommand{\DSS}{\KNEADdefineAcronym{DSS}{Digital Spread Spectrum}{Digital Spread Spectrum}}%Acronym;Def;Index
+\newcommand{\ECUnit}{\KNEADdefineAcronym{ECU}{Environmental Control Unit}{Environmental Control Unit}}%Acronym;Def;Index
+\newcommand{\ECUnits}{\KNEADdefineAcronym{ECUs}{Environmental Control Units}{Environmental Control Unit}}%Acronym;Def;Index
+\newcommand{\HVAC}{\KNEADdefineAcronym{HVAC}{Heating, Ventilation, and Cooling}{Heating, Ventilation, and Cooling}}%Acronym;Def;Index
+\newcommand{\VTC}{\KNEADdefineAcronym{VTC}{Video Tele-Conference}{Video Tele-Conference}}%Acronym;Def;Index
+\newcommand{\KVM}{\KNEADdefineAcronym{KVM}{Keyboard, Video monitor, and Mouse}{Keyboard, Video monitor, and Mouse}}%Acronym;Def;Index
+\newcommand{\NTP}{\KNEADdefineAcronym{NTP}{Network Time Protocol}{Network Time Protocol}}%Acronym;Def;Index
+\newcommand{\VM}{\KNEADdefineAcronym{VM}{Virtual Machine}{Virtual Machine}}%Acronym;Def;Index
+\newcommand{\VMs}{\KNEADdefineAcronym{VMs}{Virtual Machine}{Virtual Machine}}%Acronym;Def;Index
+\newcommand{\RackUnit}{\KNEADdefineAcronym{RU}{Rack Unit}{RackUnit}}%Acronym;Def;Index
+\newcommand{\RackUnits}{\KNEADdefineAcronym{RUs}{Rack Unit}{RackUnit}}%Acronym;Def;Index
+\newcommand{\EIA}{\KNEADdefineAcronym{EIA}{Electronic Industries Association}{Electronic Industries Association}}%Acronym;Def;Index
+\newcommand{\CG}{\KNEADdefineAcronym{CG}{Center of Gravity}{Center of Gravity}}%Acronym;Def;Index
+\newcommand{\QoS}{\KNEADdefineAcronym{QOS}{Quality of Service}{Quality of Service}}%Acronym;Def;Index
+\newcommand{\RTPacket}{\KNEADdefineAcronym{RTP}{Real Time Packet}{Real Time Packet}}%Acronym;Def;Index
+\newcommand{\RTPackets}{\KNEADdefineAcronym{RTPs}{Real Time Packets}{Real Time Packet}}%Acronym;Def;Index
+
+
+\newcommand{\SVN}{\KNEADdefineAcronym{SVN}{SubVersioN}{CM!Subversion}}%Acronym;Def;Index
+\newcommand{\GIT}{\KNEADdefineAcronym{GIT}{Get It Together}{CM!GIT}}%Acronym;Def;Index
+
+
+
+%-%
+% telephony acronyms
+%
+
+\newcommand{\ATM}{\KNEADdefineAcronym{ATM}{Asynchronous Transfer Mode}{ATM}}%Acronym;Def;Index
+\newcommand{\Cellular}{\KNEADdefineAcronym{Cellular}{Cellular}{Cellular}}%Acronym;Def;Index
+\newcommand{\DSL}{\KNEADdefineAcronym{DSL}{Digital Subscriber Line}{Digital Subscriber Line}}%Acronym;Def;Index
+\newcommand{\EDGE}{\KNEADdefineAcronym{EDGE}{Enhanced Data for GSM Evolution}{Enhanced Data for GSM Evolution}}%Acronym;Def;Index
+\newcommand{\ETWS}{\KNEADdefineAcronym{ETWS}{Earthquake Tsunami Warning System}{Earthquake Tsunami Warning System}}%Acronym;Def;Index
+\newcommand{\GSM}{\KNEADdefineAcronym{GSM}{Global System for Mobile Communications}{Global System for Mobile Communications}}%Acronym;Def;Index
+\newcommand{\GPRS}{\KNEADdefineAcronym{GPRS}{General Packet Radio Service}{General Packet Radio Service}}%Acronym;Def;Index
+\newcommand{\IMSI}{\KNEADdefineAcronym{IMSI}{International Mobile Subscriber Identity}{International Mobile Subscriber Identity}}%Acronym;Def;Index
+\newcommand{\ISDN}{\KNEADdefineAcronym{ISDN}{Integrated Services Digital Network}{Integrated Services Digital Network}}%Acronym;Def;Index
+\newcommand{\LTE}{\KNEADdefineAcronym{LTE}{Long-Term Evolution}{Long-Term Evolution}}%Acronym;Def;Index
+\newcommand{\MIMO}{\KNEADdefineAcronym{MIMO}{Multiple Input Multiple Output}{Multiple Input Multiple Output}}%Acronym;Def;Index
+\newcommand{\POTS}{\KNEADdefineAcronym{POTS}{Plain Old Telephone System}{Plain Old Telephone System}}%Acronym;Def;Index
+\newcommand{\VOIP}{\KNEADdefineAcronym{VoIP}{Voice over Internet Protocol}{Voice over Internet Protocol}}%Acronym;Def;Index
+\newcommand{\VoIP}{\KNEADdefineAcronym{VoIP}{Voice over Internet Protocol}{Voice over Internet Protocol}}%Acronym;Def;Index
+\newcommand{\ROIP}{\KNEADdefineAcronym{RoIP}{Radio over Internet Protocol}{Radio over Internet Protocol}}%Acronym;Def;Index
+\newcommand{\RoIP}{\KNEADdefineAcronym{RoIP}{Radio over Internet Protocol}{Radio over Internet Protocol}}%Acronym;Def;Index
+\newcommand{\PSTN}{\KNEADdefineAcronym{PSTN}{Public Switched Telephone Network}{Public Switched Telephone Network}}%Acronym;Def;Index
+\newcommand{\SIM}{\KNEADdefineAcronym{SIM}{Subscriber Identity Module}{Subscriber Identity Module}}%Acronym;Def;Index
+\newcommand{\SISO}{\KNEADdefineAcronym{SISO}{Single Output Single Input}{Single Output Single Input}}%Acronym;Def;Index
+\newcommand{\UMTS}{\KNEADdefineAcronym{UMTS}{Universal Mobile Telecommunication System}{Universal Mobile Telecommunication System}}%Acronym;Def;Index
+\newcommand{\DSN}{\KNEADdefineAcronym{DSN}{Defense Switched Network}{Defense Switched Network}}%Acronym;Def;Index
+
+
+%-%
+% VLSI and PCB acronyms
+%
+\newcommand{\VLSI}{\KNEADdefineAcronym{VLSI}{Very Large Scale Integrated-circuit}{VLSI}}%Acronym;Def;Index
+\newcommand{\LCoS}{\KNEADdefineAcronym{LCoS}{Liquid Crystal on Silicon}{VLSI!LCoS}}%Acronym;Def;Index
+\newcommand{\nMOS}{\KNEADdefineAcronym{nMOS}{n-Type Metal Oxide Silicon}{VLSI!nMOS}}%Acronym;Def;Index
+\newcommand{\pMOS}{\KNEADdefineAcronym{pMOS}{p-Type Metal Oxide Silicon}{VLSI!pMOS}}%Acronym;Def;Index
+\newcommand{\cMOS}{\KNEADdefineAcronym{cMOS}{complementary Metal Oxide Silicon}{VLSI!cMOS}}%Acronym;Def;Index
+\newcommand{\DMD}{\KNEADdefineAcronym{DMD}{Digital Micromirror Device}{VLSI!DMD}}%Acronym;Def;Index
+\newcommand{\DLP}{\KNEADdefineAcronym{DLP}{Digital Light Projection}{VLSI!DLP}}%Acronym;Def;Index
+
+\newcommand{\AOI}{\KNEADdefineAcronym{AOI}{Automated Optical Inspection}{Automated Optical Inspection}}%Acronym;Def;Index
+
+
+
+%-%
+% RMF and IA acronyms
+%
+\newcommand{\RMF}{\KNEADdefineAcronym{RMF}{Risk Management Framework}{RMF}}%Acronym;Def;Index
+\newcommand{\PIT}{\KNEADdefineAcronym{PIT}{Platform Information Technology}{RMF!Platform Information Technology}}%Acronym;Def;Index
+\newcommand{\ATO}{\KNEADdefineAcronym{ATO}{Authority to Operate}{RMF!Authority to Operate}}%Acronym;Def;Index
+\newcommand{\IATO}{\KNEADdefineAcronym{IATO}{Interim Authority to Operate}{RMF!Interim Authority to Operate}}%Acronym;Def;Index
+\newcommand{\IA}{\KNEADdefineAcronym{IA}{Information Assurance}{RMF!Information Assurance}}%Acronym;Def;Index
+\newcommand{\IATT}{\KNEADdefineAcronym{IATT}{Interim Authority To Test}{RMF!Interim Authority To Test}}%Acronym;Def;Index
+\newcommand{\STIG}{\KNEADdefineAcronym{STIG}{Security Technical Implementation Guide}{RMF!Security Technical Implementation Guide}}%Acronym;Def;Index
+\newcommand{\STIGs}{\KNEADdefineAcronym{STIGs}{Security Technical Implementation Guides}{RMF!Security Technical Implementation Guide}}%Acronym;Def;Index
+
+
+%-%
+% CDS acronyms
+%
+\newcommand{\CDS}{\KNEADdefineAcronym{CDS}{Cross Domain Solution}{CDS!CDS}}%Acronym;Def;Index
+\newcommand{\TCDS}{\KNEADdefineAcronym{TCDS}{Tactical Cross Domain Solution}{CDS!Tactical CDS}}%Acronym;Def;Index
+\newcommand{\ACDS}{\KNEADdefineAcronym{ACDS}{Access Cross Domain Solution}{CDS!Access CDS}}%Acronym;Def;Index
+\newcommand{\MLS}{\KNEADdefineAcronym{MLS}{Multi-Level Security Cross Domain Solution}{CDS!MLS CDS}}%Acronym;Def;Index
+\newcommand{\LBSA}{\KNEADdefineAcronym{LBSA}{Lab Based Security Assessment}{CDS!LBSA}}%Acronym;Def;Index
+\newcommand{\SBSA}{\KNEADdefineAcronym{SBSA}{Site Based Security Assessment}{CDS!SBSA}}%Acronym;Def;Index
+\newcommand{\CDSOWT}{\KNEADdefineAcronym{OWT}{One Way Transfer}{CDS!OWT}}%Acronym;Def;Index
+\newcommand{\CDSADP}{\KNEADdefineAcronym{ADP}{Acceptable Design Pattern}{CDS!ADP}}%Acronym;Def;Index
+\newcommand{\CDSRAIN}{\KNEADdefineAcronym{RAIN}{Redundant, Always Invoked, Independent Implementation, and Non-bypassable}{CDS!RAIN}}%Acronym;Def;Index
+\newcommand{\CDSRTB}{\KNEADdefineAcronym{RTB}{Raise The Bar}{CDS!RTB}}%Acronym;Def;Index
+\newcommand{\FXD}{\KNEADdefineAcronym{FXD}{Flexible Cross Domain}{CDS!FXD}}%Acronym;Def;Index
+\newcommand{\CDSPDC}{\KNEADdefineAcronym{PDC}{Pitcher-Diode-Catcher}{CDS!PDC}}%Acronym;Def;Index
+\newcommand{\CDSJAL}{\KNEADdefineAcronym{JAL}{Journal, Audit, and Logging}{CDS!JAL}}%Acronym;Def;Index
+
+%-%
+% Hardware acronyms
+%
+\newcommand{\FPGA}{\KNEADdefineAcronym{FPGA}{Field Programmable Gate Array}{FPGA}}%Acronym;Def;Index
+\newcommand{\PCIe}{\KNEADdefineAcronym{PCIe}{Peripheral Component Interconnect Express}{Busses!PCIe}}%Acronym;Def;Index
+\newcommand{\NVRAM}{\KNEADdefineAcronym{NVRAM}{Non-Volatile RAM}{Memory!Non-Volatile}}%Acronym;Def;Index
+\newcommand{\RAM}{\KNEADdefineAcronym{RAM}{Random Access Memory}{Memory!Random Access}}%Acronym;Def;Index
+
+%-%
+% IT acronyms
+%
+\newcommand{\SIEM}{\KNEADdefineAcronym{SIEM}{Security Information and Event Management}{SIEM}}%Acronym;Def;Index
+\newcommand{\IT}{\KNEADdefineAcronym{IT}{Information Technology}{Information Technology}}%Acronym;Def;Index
+\newcommand{\HBSS}{\KNEADdefineAcronym{HBSS}{Host Based Security System}{Host Based Security System}}%Acronym;Def;Index
+\newcommand{\HTML}{\KNEADdefineAcronym{HTML}{Hyper Text Markup Language}{HTML}}%Acronym;Def;Index
+\newcommand{\HTMLFIVE}{\KNEADdefineAcronym{HTMLFIVE}{Hyper Text Markup Language}{HTML}}%Acronym;Def;Index
+
+%-%
+% Crypto acronyms
+%
+\newcommand{\COMSEC}{\KNEADdefineAcronym{COMSEC}{Communications Security}{Cryptography:COMSEC}}%Acronym;Def;Index
+\newcommand{\CTEXT}{\KNEADdefineAcronym{CTEXT}{Cipher Text}{Cryptography:Cipher Text}}%Acronym;Def;Index
+\newcommand{\PTEXT}{\KNEADdefineAcronym{PTEXT}{Plain Text}{Cryptography:Plain Text}}%Acronym;Def;Index
+\newcommand{\SKL}{\KNEADdefineAcronym{SKL}{Secure Key Loader}{Cryptography:SKL}}%Acronym;Def;Index
+
+\newcommand{\AESTwoFiveSix}{\KNEADdefineAcronym{AES-256}{Advanced Encryption Standard 256 bit}{AES!256}}%Acronym;Def;Index
+
+
+%-%
+% RF terms
+%
+\newcommand{\Qfactor}{\KNEADdefineAcronym{Qfactor}{RF Quality Factor}{RF Quality Factor}}%Acronym;Def;Index
+\newcommand{\RF}{\KNEADdefineAcronym{RF}{Radio Frequency}{Radio Frequency}}%Acronym;Def;Index
+\newcommand{\ERP}{\KNEADdefineAcronym{ERP}{Effective Radiated Power}{Effective Radiated Power}}%Acronym;Def;Index
+\newcommand{\PA}{\KNEADdefineAcronym{PA}{Power Amplifier}{Power Amplifier}}%Acronym;Def;Index
+\newcommand{\PAs}{\KNEADdefineAcronym{PAs}{Power Amplifiers}{Power Amplifier}}%Acronym;Def;Index
+\newcommand{\RFPA}{\KNEADdefineAcronym{RFPA}{Radio Frequency Power Amplifier}{Radio Frequency Power Amplifier}}%Acronym;Def;Index
+\newcommand{\HERP}{\KNEADdefineAcronym{HERP}{Hazards of Electromagnetic Radiation to Personnel}{HERP}}%Acronym;Def;Index
+\newcommand{\HERO}{\KNEADdefineAcronym{HERO}{Hazards of Electromagnetic Radiation to Ordinance}{HERO}}%Acronym;Def;Index
+\newcommand{\HERF}{\KNEADdefineAcronym{HERF}{Hazards of Electromagnetic Radiation to Fuel}{HERF}}%Acronym;Def;Index
+\newcommand{\LNA}{\KNEADdefineAcronym{LNA}{Low Noise Amplifier}{Low Noise Amplifier}}%Acronym;Def;Index
+\newcommand{\OTH}{\KNEADdefineAcronym{OTH}{Over-The-Horizon}{Over-The-Horizon}}%Acronym;Def;Index
+\newcommand{\LOS}{\KNEADdefineAcronym{LOS}{Line Of Sight}{Line Of Sight}}%Acronym;Def;Index
+\newcommand{\BLOS}{\KNEADdefineAcronym{BLOS}{Beyond Line Of Sight}{Beyond Line Of Sight}}%Acronym;Def;Index
+\newcommand{\NVIS}{\KNEADdefineAcronym{NVIS}{Near-Vertical Incident Skywave}{Near-Vertical Incident Skywave}}%Acronym;Def;Index
+\newcommand{\OTArf}{\KNEADdefineAcronym{OTArf}{Over The Air}{Over The Air}}%Acronym;Def;Index
+\newcommand{\SSBrf}{\KNEADdefineAcronym{SSBrf}{Single Side Band}{Single Side Band}}%Acronym;Def;Index
+\newcommand{\LPILPD}{\KNEADdefineAcronym{LPILPD}{Low Probability of Intercept/Detect}{Low Probability of Intercept/Detect}}%Acronym;Def;Index
+
+\newcommand{\SDR}{\KNEADdefineAcronym{SDR}{Software Defined Radio}{Software Defined Radio}}%Acronym;Def;Index
+
+\newcommand{\LRU}{\KNEADdefineAcronym{LRU}{Line Replaceable Unit}{Line Replaceable Unit}}%Acronym;Def;Index
+\newcommand{\LRUs}{\KNEADdefineAcronym{LRUs}{Line Replaceable Units}{Line Replaceable Unit}}%Acronym;Def;Index
+\newcommand{\WiFi}{\KNEADdefineAcronym{WiFi}{Wi-Fi}{Wi-Fi}}%Acronym;Def;Index
+\newcommand{\Ethernet}{\KNEADdefineAcronym{Ethernet}{Ethernet}{Ethernet}}%Acronym;Def;Index
+\newcommand{\POE}{\KNEADdefineAcronym{POE}{Power Over Ethernet}{Power Over Ethernet}}%Acronym;Def;Index
+\newcommand{\UPoEPP}{\KNEADdefineAcronym{UPoE$++$}{Ultra Power Over Ethernet}{Power Over Ethernet}}%Acronym;Def;Index
+\newcommand{\WSDL}{\KNEADdefineAcronym{WSDL}{Web Services Description Language}{Web Services Description Language}}%Acronym;Def;Index
+\newcommand{\HTTP}{\KNEADdefineAcronym{HTTP}{Hyper-Text Transfer Protocol}{Hyper-Text Transfer Protocol}}%Acronym;Def;Index
+\newcommand{\HTTPS}{\KNEADdefineAcronym{HTTPS}{Hyper-Text Transfer Protocol Secure}{Hyper-Text Transfer Protocol}}%Acronym;Def;Index
+
+\newcommand{\RoHS}{\KNEADdefineAcronym{RoHS}{Reduction of Hazardous Substances}{Reduction of Hazardous Substances}}%Acronym;Def;Index
+\newcommand{\ITAR}{\KNEADdefineAcronym{ITAR}{International Traffic in Arms Regulations}{Regulations:ITAR}}%Acronym;Def;Index
+\newcommand{\TAA}{\KNEADdefineAcronym{TAA}{Trade Agreements Act}{Regulations:TAA}}%Acronym;Def;Index
+
+
+\newcommand{\BitLocker}{\KNEADdefineAcronym{BitLocker}{BitLocker}{BitLocker\texttrademark}}%Acronym;Def;Index
+\newcommand{\Bluetooth}{\KNEADdefineAcronym{Bluetooth}{Bluetooth}{Bluetooth\texttrademark}}%Acronym;Def;Index
+
+
+\newcommand{\consumer}{\KNEADdefineAcronym{consumer}{consumer}{Consumer Task}}%Acronym;Def;Index
+\newcommand{\Consumer}{\KNEADdefineAcronym{Consumer}{Consumer}{Consumer Task}}%Acronym;Def;Index
+\newcommand{\producer}{\KNEADdefineAcronym{producer}{producer}{Producer Task}}%Acronym;Def;Index
+\newcommand{\Producer}{\KNEADdefineAcronym{Producer}{producer}{Producer Task}}%Acronym;Def;Index
+
+\newcommand{\CmdLine}{\KNEADdefineAcronym{CmdLine}{Command Line Arguments}{Command Line Arguments}}%Acronym;Def;Index
+\newcommand{\EventMsg}{\KNEADdefineAcronym{EventMsg}{Event Message}{Event Message}}%Acronym;Def;Index
+\newcommand{\PubSub}{\KNEADdefineAcronym{PubSub}{Publish-Subscribe}{Publish-Subscribe}}%Acronym;Def;Index
+\newcommand{\ReqRep}{\KNEADdefineAcronym{ReqRep}{Request-Reply}{Request-Reply}}%Acronym;Def;Index
+\newcommand{\ReqIng}{\KNEADdefineAcronym{ReqIng}{Request-Ingest}{Request-Ingest}}%Acronym;Def;Index
+\newcommand{\SvcRes}{\KNEADdefineAcronym{SvcRes}{Service-Response}{Service-Response}}%Acronym;Def;Index
+\newcommand{\SOA}{\KNEADdefineAcronym{SOA}{Service Oriented Architecture}{Service Oriented Architecture}}%Acronym;Def;Index
+
+\newcommand{\MOSA}{\KNEADdefineAcronym{MOSA}{Modular Open Systems Approach}{Modular Open Systems Approach}}%Acronym;Def;Index
+\newcommand{\Adobe}{\KNEADdefineAcronym{Adobe\texttrademark}{Adobe}{Adobe\texttrademark}}%Acronym;Def;Index
+\newcommand{\Acrobat}{\KNEADdefineAcronym{Acrobat\texttrademark}{Adobe Acrobat}{Acrobat\texttrademark}}%Acronym;Def;Index
+\newcommand{\Reader}{\KNEADdefineAcronym{Reader}{\Adobe \PDF Reader}{Reader\texttrademark}}%Acronym;Def;Index
+\newcommand{\PostScript}{\KNEADdefineAcronym{PostScript\texttrademark}{PostScript}{PostScript}}%Acronym;Def;Index
+\newcommand{\GhostScript}{\KNEADdefineAcronym{GhostScript}{GhostScript \Postscript to \PDF Converter}{GhostScript}}%Acronym;Def;Index
+\newcommand{\Android}{\KNEADdefineAcronym{Android\texttrademark}{Android Operating System}{Android\texttrademark}}%Acronym;Def;Index
+\newcommand{\Linux}{\KNEADdefineAcronym{Linux\texttrademark}{Linux Operating System}{Linux\texttrademark}}%Acronym;Def;Index
+\newcommand{\MacOS}{\KNEADdefineAcronym{MacOS\texttrademark}{Macintosh Operating System}{MacOS\texttrademark}}%Acronym;Def;Index
+\newcommand{\IOS}{\KNEADdefineAcronym{IOS\texttrademark}{iPhone Operating System}{IOS\texttrademark}}%Acronym;Def;Index
+\newcommand{\Matlab}{\KNEADdefineAcronym{Matlab}{Matlab}{Matlab\texttrademark}}%Acronym;Def;Index
+\newcommand{\Windows}{\KNEADdefineAcronym{Windows\texttrademark}{\Microsoft Windows Operating System}{Windows\texttrademark}}%Acronym;Def;Index
+\newcommand{\IE}{\KNEADdefineAcronym{IE}{Internet Explorer}{Internet Explorer\texttrademark}}%Acronym;Def;Index
+\newcommand{\Chrome}{\KNEADdefineAcronym{ChromeOS}{Chrome Operating System}{Chrome\texttrademark}}%Acronym;Def;Index
+\newcommand{\WebEx}{\KNEADdefineAcronym{WebEx}{WebEx}{WebEx\texttrademark}}%Acronym;Def;Index
+\newcommand{\CNTK}{\KNEADdefineAcronym{CNTK}{Computational Network ToolKit}{Computational Network ToolKit}}%Acronym;Def;Index
+\newcommand{\Zip}{\KNEADdefineAcronym{Zip}{Zip}{Zip\texttrademark}}%Acronym;Def;Index
+\newcommand{\SevenZip}{\KNEADdefineAcronym{7-Zip\texttrademark}{SevenZip}{SevenZip\texttrademark}}%Acronym;Def;Index
+\newcommand{\ARM}{\KNEADdefineAcronym{ARM}{ARM}{ARM\texttrademark}}%Acronym;Def;Index
+\newcommand{\xEightySix}{\KNEADdefineAcronym{xEightySix}{xEightySix}{xEightySix\texttrademark}}%Acronym;Def;Index
+\newcommand{\wxWidgets}{\KNEADdefineAcronym{wxWidgets}{wxWidgets}{wxWidgets\texttrademark}}%Acronym;Def;Index
+
+
+%-%
+% Microsoft TM stuff
+%
+\newcommand{\Microsoft}{\KNEADdefineAcronym{Microsoft\texttrademark}{Microsoft Corporation}{Microsoft\texttrademark}}%Acronym;Def;Index
+\newcommand{\MSExcel}{\KNEADdefineAcronym{Excel\texttrademark}{\Microsoft Excel Spreadheet Program}{MSExcel\texttrademark}}%Acronym;Def;Index
+\newcommand{\Excel}{\KNEADdefineAcronym{Excel\texttrademark}{\Microsoft Excel Spreadheet Program}{MSExcel\texttrademark}}%Acronym;Def;Index
+\newcommand{\MSProject}{\KNEADdefineAcronym{Project\texttrademark}{\Microsoft Project Planning Program}{MSProject\texttrademark}}%Acronym;Def;Index
+\newcommand{\MSPowerPoint}{\KNEADdefineAcronym{PowerPoint\texttrademark}{\Microsoft PowerPoint Presentation Program}{MSPowerPoint\texttrademark}}%Acronym;Def;Index
+\newcommand{\PowerPoint}{\KNEADdefineAcronym{PowerPoint\texttrademark}{\Microsoft PowerPoint Presentation Program}{MSPowerPoint\texttrademark}}%Acronym;Def;Index
+\newcommand{\MSWord}{\KNEADdefineAcronym{Word\texttrademark}{\Microsoft Word Processing Program}{Word\texttrademark}}%Acronym;Def;Index
+\newcommand{\Word}{\KNEADdefineAcronym{Word\texttrademark}  {\Microsoft Word Processing Program}{Word\texttrademark}}%Acronym;Def;Index
+\newcommand{\MSVisio}{\KNEADdefineAcronym{Visio\texttrademark}{\Microsoft Visio Diagramming Program}{MSVisio\texttrademark}}%Acronym;Def;Index
+\newcommand{\Visio}{\KNEADdefineAcronym{Visio\texttrademark}  {\Microsoft Visio Diagramming Program}{MSVisio\texttrademark}}%Acronym;Def;Index
+
+\newcommand{\SharePoint}{\KNEADdefineAcronym{SharePoint\texttrademark}{SharePoint}{SharePoint\texttrademark}}%Acronym;Def;Index
+\newcommand{\SPO}{\KNEADdefineAcronym{SharePoint\texttrademark}{SharePoint}{SharePoint\texttrademark}}%Acronym;Def;Index
+\newcommand{\OneDrive}{\KNEADdefineAcronym{OneDrive\texttrademark}{OneDrive}{OneDrive\texttrademark}}%Acronym;Def;Index
+
+\newcommand{\FileExplorer}{\KNEADdefineAcronym{FileExplorer}{FileExplorer}{FileExplorer}}%Acronym;Def;Index
+
+\newcommand{\Gantt}{\KNEADdefineAcronym{Gantt}{Gantt Chart}{Gantt Chart}}%Acronym;Def;Index
+
+
+\newcommand{\API}{\KNEADdefineAcronym{API}{Application Programmer's Interface}{Application Programmer's Interface}}%Acronym;Def;Index
+\newcommand{\APIs}{\KNEADdefineAcronym{APIs}{Application Programmer's Interfaces}{Application Programmer's Interface}}%Acronym;Def;Index
+
+\newcommand{\IPC}{\KNEADdefineAcronym{IPC}{Inter Process Communication}{Inter Process Communication}}%Acronym;Def;Index
+
+% \newcommand{\YMM}{{\GlobalAcnyFont YMM}\xspace}
+% \newcommand{\HMT}{\index{Hybrid Messaging Transport}{\GlobalAcnyFont HMT}\xspace}
+%%% how to format index entries. BUT, it makes this show up first
+%%%\newcommand{\IPM}{\index{{Inter Process Messaging}@\texttt{Inter Process Messaging}}{\GlobalAcnyFont IPM}\xspace}
+% \newcommand{\IPM}{\index{Inter Process Messaging}{\GlobalAcnyFont IPM}\xspace}
+% \newcommand{\LPB}{{\GlobalAcnyFont LPB}\xspace}
+%\newcommand{\SDK}{\index{Software Development Kit}{\GlobalAcnyFont SDK}\xspace}
+\newcommand{\SDK}{\KNEADdefineAcronym{SDK}{Software Development Kit}{Software Development Kit}}%Acronym;Def;Index
+
+\newcommand{\GPS}{\KNEADdefineAcronym{GPS}{Global Positioning System}{GPS}}%Acronym;Def;Index
+\newcommand{\GPSSAASM}{\KNEADdefineAcronym{SAASM}{GPS Selective Availability Anti-Spoofing Module}{GPS:SAASM}}%Acronym;Def;Index
+\newcommand{\GPSMCODE}{\KNEADdefineAcronym{M-Code}{GPS Military Code}{GPS:M-Code}}%Acronym;Def;Index
+\newcommand{\RADAR}{\KNEADdefineAcronym{RADAR}{Radio Detection and Ranging}{RADAR}}%Acronym;Def;Index
+\newcommand{\Iridium}{\KNEADdefineAcronym{Iridium}{Iridium}{Iridium}}%Acronym;Def;Index
+\newcommand{\BT}{\KNEADdefineAcronym{BT}{Bathythermograph}{Bathythermograph}}%Acronym;Def;Index
+\newcommand{\OTAR}{\KNEADdefineAcronym{OTAR}{Over The Air Re-keying}{Over The Air Re-keying}}%Acronym;Def;Index
+
+\newcommand{\SQL}{\KNEADdefineAcronym{SQL}{Structured Query Language}{Structured Query Language}}%Acronym;Def;Index
+
+\newcommand{\GUI}{\KNEADdefineAcronym{GUI}{Graphical User Interface}{Graphical User Interface}}%Acronym;Def;Index
+\newcommand{\GUIs}{\KNEADdefineAcronym{GUIs}{Graphical User Interfaces}{Graphical User Interface}}%Acronym;Def;Index
+\newcommand{\PMFL}{\KNEADdefineAcronym{PMFL}{Performance Monitoring and Fault Localization}{PMFL}}%Acronym;Def;Index
+
+\newcommand{\CRUD}{\KNEADdefineAcronym{CRUD}{Create, Replace, Update, and Delete}{CRUD}}%Acronym;Def;Index
+\newcommand{\UI}{\KNEADdefineAcronym{UI}{User Interface}{User Interface}}%Acronym;Def;Index
+\newcommand{\UX}{\KNEADdefineAcronym{UX}{User Experience}{User Experience}}%Acronym;Def;Index
+\newcommand{\CPU}{\KNEADdefineAcronym{CPU}{Central Processor Unit}{Central Processor Unit}}%Acronym;Def;Index
+\newcommand{\CPUs}{\KNEADdefineAcronym{CPUs}{Central Processor Units}{Central Processor Unit}}%Acronym;Def;Index
+\newcommand{\GPU}{\KNEADdefineAcronym{GPU}{Graphics Processor Unit}{Graphics Processor Unit}}%Acronym;Def;Index
+\newcommand{\CAD}{\KNEADdefineAcronym{CAD}{Computer Aided Design}{Computer Aided Design}}%Acronym;Def;Index
+\newcommand{\ADC}{\KNEADdefineAcronym{ADC}{Analog to Digital Conversion}{Analog to Digital Conversion}}%Acronym;Def;Index
+\newcommand{\DAC}{\KNEADdefineAcronym{DAC}{Digital to Analog Conversion}{Digital to Analog Conversion}}%Acronym;Def;Index
+
+%-%
+%%% Network stuff
+%
+\newcommand{\VPN}{\KNEADdefineAcronym{VPN}{Virtual Private Network}{Virtual Private Network}}%Acronym;Def;Index
+\newcommand{\LAN}{\KNEADdefineAcronym{LAN}{Local Area Network}{Local Area Network}}%Acronym;Def;Index
+\newcommand{\WAN}{\KNEADdefineAcronym{WAN}{Wide Area Network}{Wide Area Network}}%Acronym;Def;Index
+\newcommand{\VLAN}{\KNEADdefineAcronym{VLAN}{Virtual Local Area Network}{Virtual Local Area Network}}%Acronym;Def;Index
+\newcommand{\VLANs}{\KNEADdefineAcronym{VLANs}{Virtual Local Area Networks}{Virtual Local Area Network}}%Acronym;Def;Index
+\newcommand{\NIPR}{\KNEADdefineAcronym{NIPR}{Non-classified Internet Protocol Router}{Non-classified Internet Protocol Router}}%Acronym;Def;Index
+\newcommand{\SIPR}{\KNEADdefineAcronym{SIPR}{Secret Internet Protocol Router}{Secret Internet Protocol Router}}%Acronym;Def;Index
+\newcommand{\JWICS}{\KNEADdefineAcronym{JWICS}{Joint Worldwide Intelligence Communications System}{Joint Worldwide Intelligence Communications System}}%Acronym;Def;Index
+
+
+%-%
+%%% units and such
+%
+\newcommand{\CPA}{\KNEADdefineAcronym{CPA}{Closest Point of Approach}{Closest Point of Approach}}%Acronym;Def;Index
+\newcommand{\MRA}{\KNEADdefineAcronym{MRA}{Main Response Axis}{Main Response Axis}}%Acronym;Def;Index
+\newcommand{\PSI}{\KNEADdefineAcronym{PSI}{Pounds per Square Inch}{Pounds per Square Inch}}%Acronym;Def;Index
+\newcommand{\nmi}{\KNEADdefineAcronym{nmi}{Nautical Mile}{Nautical Mile}}%Acronym;Def;Index
+\newcommand{\nm}{\KNEADdefineAcronym{nm}{Nanometer}{Nanometer}}%Acronym;Def;Index
+
+\newcommand{\kbps}{\KNEADdefineAcronym{kbps}{Kilo-Bits Per Second}{Data Speeds!kbps}}%Acronym;Def;Index
+\newcommand{\kBps}{\KNEADdefineAcronym{kBps}{Kilo-Bytes Per Second}{Data Speeds!kBps}}%Acronym;Def;Index
+\newcommand{\Mbps}{\KNEADdefineAcronym{Mbps}{Mega-Bits Per Second}{Data Speeds!Mbps}}%Acronym;Def;Index
+\newcommand{\MBps}{\KNEADdefineAcronym{MBps}{Mega-Bytes Per Second}{Data Speeds!MBps}}%Acronym;Def;Index
+\newcommand{\Gbps}{\KNEADdefineAcronym{Gbps}{Giga-Bits Per Second}{Data Speeds!Gbps}}%Acronym;Def;Index
+\newcommand{\FPS}{\KNEADdefineAcronym{FPS}{Frames Per Second}{Frames Per Second}}%Acronym;Def;Index
+
+\newcommand{\GByte}{\KNEADdefineAcronym{GB}{Giga-Bytes}{Data Amounts!GB}}%Acronym;Def;Index
+\newcommand{\GBytes}{\KNEADdefineAcronym{GB}{Giga-Bytes}{Data Amounts!GB}}%Acronym;Def;Index
+\newcommand{\MByte}{\KNEADdefineAcronym{MB}{Mega-Bytes}{Data Amounts!MB}}%Acronym;Def;Index
+\newcommand{\MBytes}{\KNEADdefineAcronym{MB}{Mega-Bytes}{Data Amounts!MB}}%Acronym;Def;Index
+
+
+
+%-%
+% Display Technology macros
+%
+\newcommand{\CRT}{\KNEADdefineAcronym{CRT}{Cathode Ray Tube}{Displays!CRT}}%Acronym;Def;Index
+\newcommand{\CRTs}{\KNEADdefineAcronym{CRTs}{Cathode Ray Tube}{Displays!CRT}}%Acronym;Def;Index
+\newcommand{\LCD}{\KNEADdefineAcronym{LCD}{Liquid Crystal Display}{Displays!LCD}}%Acronym;Def;Index
+\newcommand{\LCDs}{\KNEADdefineAcronym{LCDs}{Liquid Crystal Displays}{Displays!LCD}}%Acronym;Def;Index
+\newcommand{\LED}{\KNEADdefineAcronym{LED}{Light Emitting Diode}{Displays!LED}}%Acronym;Def;Index
+\newcommand{\LEDs}{\KNEADdefineAcronym{LEDs}{Light Emitting Diodes}{Displays!LED}}%Acronym;Def;Index
+\newcommand{\OLED}{\KNEADdefineAcronym{OLED}{Organic Light Emitting Diode}{Displays!OLED}}%Acronym;Def;Index
+\newcommand{\OLEDs}{\KNEADdefineAcronym{OLEDs}{Organic Light Emitting Diode}{Displays!OLED}}%Acronym;Def;Index
+
+%-%
+% misc standard term macros
+%
+\newcommand{\AWG}{\KNEADdefineAcronym{AWG}{Average Wire Gauge}{Average Wire Gauge}}%Acronym;Def;Index
+\newcommand{\BestOfBreed}{\KNEADdefineAcronym{Best-Of-Breed}{Best-Of-Breed}{Best-Of-Breed}}%Acronym;Def;Index
+\newcommand{\JSON}{\KNEADdefineAcronym{JSON}{JavaScript Object Notation}{JavaScript Object Notation}}%Acronym;Def;Index
+\newcommand{\FTP}{\KNEADdefineAcronym{FTP}{File Transfer Protocol}{File Transfer Protocol}}%Acronym;Def;Index
+\newcommand{\DAQ}{\KNEADdefineAcronym{DAQ}{Data AcQuisition}{Data Acquisition}}%Acronym;Def;Index
+\newcommand{\KVP}{\KNEADdefineAcronym{KVP}{Key Value Pairs}{Key Value Pairs}}%Acronym;Def;Index
+\newcommand{\APR}{\KNEADdefineAcronym{APR}{Apache Portable Runtime}{Apache Portable Runtime}}%Acronym;Def;Index
+
+
+\newcommand{\POSIX}{\KNEADdefineAcronym{POSIX}{Portable Operating System Interface}{Portable Operating System Interface}}%Acronym;Def;Index
+\newcommand{\COTS}{\KNEADdefineAcronym{COTS}{Commercial-Off-The-Shelf}{Commercial-Off-The-Shelf}}%Acronym;Def;Index
+\newcommand{\GOTS}{\KNEADdefineAcronym{GOTS}{Government-Off-The-Shelf}{Government-Off-The-Shelf}}%Acronym;Def;Index
+\newcommand{\SITSUM}{\KNEADdefineAcronym{SITSUM}{Situational Summary}{Situational Summary}}%Acronym;Def;Index
+\newcommand{\SEI}{\KNEADdefineAcronym{SEI}{Software Engineering Institute}{Software Engineering Institute}}%Acronym;Def;Index
+\newcommand{\CMU}{\KNEADdefineAcronym{CMU}{Carnegie Mellon University}{Carnegie Mellon University}}%Acronym;Def;Index
+\newcommand{\OSJTF}{\KNEADdefineAcronym{OSJTF}{Open Systems Joint Task Force}{Open Systems Joint Task Force}}%Acronym;Def;Index
+\newcommand{\ARCI}{\KNEADdefineAcronym{ARCI}{Acoustic Rapid COTS Insertion}{Acoustic Rapid COTS Insertion}}%Acronym;Def;Index
+\newcommand{\IIPL}{\KNEADdefineAcronym{IIPL}{Iris Image Processing Library}{Iris Image Processing Library}}%Acronym;Def;Index
+\newcommand{\Proto}{\KNEADdefineAcronym{Proto}{Prototype}{Prototype}}%Acronym;Def;Index
+\newcommand{\Demo}{\KNEADdefineAcronym{Demo}{Demonstration}{Demonstration}}%Acronym;Def;Index
+\newcommand{\RHIB}{\KNEADdefineAcronym{RHIB}{Rigid-Hull Inflatable Boat}{Rigid-Hull Inflatable Boat}}%Acronym;Def;Index
+\newcommand{\CONUS}{\KNEADdefineAcronym{CONUS}{Continental US}{CONUS}}%Acronym;Def;Index
+\newcommand{\OCONUS}{\KNEADdefineAcronym{OCONUS}{Outside Continental US}{OCONUS}}%Acronym;Def;Index
+\newcommand{\HMI}{\KNEADdefineAcronym{HMI}{Human-Machine Interface}{Human-Machine Interface}}%Acronym;Def;Index
+\newcommand{\EUD}{\KNEADdefineAcronym{EUD}{End-User Device}{End-User Device}}%Acronym;Def;Index
+\newcommand{\EUDs}{\KNEADdefineAcronym{EUDs}{End-User Devices}{End-User Device}}%Acronym;Def;Index
+
+
+%-%
+% RS-xxx terms
+%
+\newcommand{\RSTwoThreeTwo}{\KNEADdefineAcronym{RS-232}{RS-232}{RS!RS232}}%Acronym;Def;Index
+\newcommand{\RSFourTwoTwo}{\KNEADdefineAcronym{RS-422}{RS-422}{RS!RS422}}%Acronym;Def;Index
+\newcommand{\RSFourEightFive}{\KNEADdefineAcronym{RS-485}{RS-485}{RS!RS485}}%Acronym;Def;Index
+\newcommand{\UART}{\KNEADdefineAcronym{UART}{Universal Asynchronous Receiver Transmitter}{RS!UART}}%Acronym;Def;Index
+
+
+%-%
+% Connector terms
+%
+\newcommand{\RJeleven}{\KNEADdefineAcronym{RJ-11}{Registered Jack 11}{RJ!RJ11}}%Acronym;Def;Index
+\newcommand{\RJfortyfive}{\KNEADdefineAcronym{RJ-45}{Registered Jack 45}{RJ!RJ45}}%Acronym;Def;Index
+
+%-%
+% Power Plugs terms
+%
+% see below for a nice list
+\newcommand{\NEMAfivefifteen}{\KNEADdefineAcronym{NEMA 5-15 Plug}{ National Electrical Manufacturers Association5-15 plug}{NEMA!NEMA 5-15}}%Acronym;Def;Index
+
+
+%-%
+% Cybersecurity terms
+%
+\newcommand{\HTN}{\KNEADdefineAcronym{HTN}{High-Threat Network}{Cyber!HTN}}%Acronym;Def;Index
+\newcommand{\MFA}{\KNEADdefineAcronym{MFA}{Multi-Factor Authentication}{Cyber!MFA}}%Acronym;Def;Index
+\newcommand{\NSS}{\KNEADdefineAcronym{NSS}{National Security System}{Cyber!NSS}}%Acronym;Def;Index
+\newcommand{\CyberCIA}{\KNEADdefineAcronym{CIA}{Confidentiality, Integrity, and Availability}{Cyber!CIA}}%Acronym;Def;Index
+
+%-%
+% Battery technology terms
+%
+\newcommand{\LiFePOFour}{\KNEADdefineAcronym{LiFePO4}{Lithium Iron Phosphate}{Batteries!LiFePO4}}%Acronym;Def;Index
+\newcommand{\LiION}{\KNEADdefineAcronym{LiION}{Lithium-Ion}{Batteries!Li-Ion}}%Acronym;Def;Index
+\newcommand{\LiIon}{\KNEADdefineAcronym{LiION}{Lithium-Ion}{Batteries!Li-Ion}}%Acronym;Def;Index
+
+%-%
+% Printed Circuit Board terms
+%
+\newcommand{\PCB}{\KNEADdefineAcronym{PCB}{Printed Circuit Board}{Printed Circuit Board}}%Acronym;Def;Index
+\newcommand{\PCBs}{\KNEADdefineAcronym{PCBs}{Printed Circuit Boards}{Printed Circuit Board}}%Acronym;Def;Index
+\newcommand{\PWB}{\KNEADdefineAcronym{PWB}{Printed Wiring ``Circuit'' Board}{Printed Wiring Board}}%Acronym;Def;Index
+\newcommand{\PWBs}{\KNEADdefineAcronym{PWBs}{Printed Wiring ``Circuit'' Boards}{Printed Wiring Board}}%Acronym;Def;Index
+
+
+%-%
+% Contracting terms
+%
+\newcommand{\ARO}{\KNEADdefineAcronym{ARO}{After Receipt of Order}{After Receipt of Order}}%Acronym;Def;Index
+\newcommand{\GPL}{\KNEADdefineAcronym{GPL}{Government Project Lead}{Government Project Lead}}%Acronym;Def;Index
+\newcommand{\DARO}{\KNEADdefineAcronym{DARO}{Days After Receipt of Order}{Days After Receipt of Order}}%Acronym;Def;Index
+\newcommand{\FOIA}{\KNEADdefineAcronym{FOIA}{Freedom Of Information Act}{Freedom Of Information Act}}%Acronym;Def;Index
+\newcommand{\RFI}{\KNEADdefineAcronym{RFI}{Request For Information}{Request For Information}}%Acronym;Def;Index
+\newcommand{\RFQ}{\KNEADdefineAcronym{RFQ}{Request For Quotation}{Request For Quotation}}%Acronym;Def;Index
+\newcommand{\CDRL}{\KNEADdefineAcronym{CDRL}{Contract Deliverable Requirements List}{Contract Deliverable Requirements List}}%Acronym;Def;Index
+\newcommand{\CDRLs}{\KNEADdefineAcronym{CDRLs}{Contract Deliverable Requirements Lists}{Contract Deliverable Requirements List}}%Acronym;Def;Index
+\newcommand{\CPM}{\KNEADdefineAcronym{CPM}{Contract Program Manager}{Contract Program Manager}}%Acronym;Def;Index
+\newcommand{\PM}{\KNEADdefineAcronym{PM}{Project Manager}{Project Manager}}%Acronym;Def;Index
+\newcommand{\PMs}{\KNEADdefineAcronym{PMs}{Project Managers}{Project Manager}}%Acronym;Def;Index
+\newcommand{\POM}{\KNEADdefineAcronym{POM}{Program Objective Memorandum}{Program Objective Memorandum}}%Acronym;Def;Index
+\newcommand{\POP}{\KNEADdefineAcronym{POP}{Period of Performance}{Period of Performance}}%Acronym;Def;Index
+\newcommand{\POPs}{\KNEADdefineAcronym{POPs}{Periods of Performance}{Period of Performance}}%Acronym;Def;Index
+\newcommand{\MSR}{\KNEADdefineAcronym{MSR}{Monthly Status Report}{Monthly Status Report}}%Acronym;Def;Index
+\newcommand{\MSRs}{\KNEADdefineAcronym{MSRs}{Monthly Status Reports}{Monthly Status Report}}%Acronym;Def;Index
+\newcommand{\ROM}{\KNEADdefineAcronym{ROM}{Rough Order of Magnitude}{Rough Order of Magnitude}}%Acronym;Def;Index
+\newcommand{\ROMs}{\KNEADdefineAcronym{ROMs}{Rough Order of Magnitude}{Rough Order of Magnitude}}%Acronym;Def;Index
+\newcommand{\TDL}{\KNEADdefineAcronym{TDL}{Technical Direction Letter}{Technical Direction Letter}}%Acronym;Def;Index
+\newcommand{\TDLs}{\KNEADdefineAcronym{TDLs}{Technical Direction Letters}{Technical Direction Letter}}%Acronym;Def;Index
+\newcommand{\TIDS}{\KNEADdefineAcronym{TIDS}{TDL Initiation Data Sheet}{TDL Initiation Data Sheet}}%Acronym;Def;Index
+\newcommand{\POC}{\KNEADdefineAcronym{POC}{Point of Contact}{Point of Contact}}%Acronym;Def;Index
+\newcommand{\POCs}{\KNEADdefineAcronym{POC}{Points of Contact}{Point of Contact}}%Acronym;Def;Index
+\newcommand{\PTL}{\KNEADdefineAcronym{PTL}{Project Technical Lead}{Project Technical Lead}}%Acronym;Def;Index
+\newcommand{\PTLs}{\KNEADdefineAcronym{PTLs}{Project Technical Leads}{Project Technical Lead}}%Acronym;Def;Index
+\newcommand{\ODC}{\KNEADdefineAcronym{ODC}{Other Direct Charge}{Other Direct Charge}}%Acronym;Def;Index
+\newcommand{\ODCs}{\KNEADdefineAcronym{ODCs}{Other Direct Charges}{Other Direct Charge}}%Acronym;Def;Index
+\newcommand{\FFP}{\KNEADdefineAcronym{FFP}{Firm Fixed Price}{Firm Fixed Price}}%Acronym;Def;Index
+\newcommand{\TandM}{\KNEADdefineAcronym{TandM}{Time and Material}{Time and Material}}%Acronym;Def;Index
+\newcommand{\IDIQ}{\KNEADdefineAcronym{IDIQ}{Indefinite Delivery / Indefinite Quantity}{Indefinite Delivery / Indefinite Quantity}}%Acronym;Def;Index
+
+
+\newcommand{\CAC}{\KNEADdefineAcronym{CAC}{Common Access Card}{Common Access Card}}%Acronym;Def;Index
+\newcommand{\EMI}{\KNEADdefineAcronym{EMI}{Electro-Magnetic Interference}{Electro-Magnetic Interference}}%Acronym;Def;Index
+\newcommand{\EMC}{\KNEADdefineAcronym{EMC}{Electro-Magnetic Compatibility}{Electro-Magnetic Compatibility}}%Acronym;Def;Index
+\newcommand{\FFT}{\KNEADdefineAcronym{FFT}{Fast Fourier Transform}{Fast Fourier Transform}}%Acronym;Def;Index
+\newcommand{\FFTs}{\KNEADdefineAcronym{FFTs}{Fast Fourier Transforms}{Fast Fourier Transform}}%Acronym;Def;Index
+\newcommand{\PPS}{\KNEADdefineAcronym{PPS}{Pulse Per Second}{Pulse Per Second}}%Acronym;Def;Index
+\newcommand{\Hz}{\KNEADdefineAcronym{Hz}{Hertz}{Hertz}}%Acronym;Def;Index
+\newcommand{\kHz}{\KNEADdefineAcronym{kHz}{KiloHertz}{KiloHertz}}%Acronym;Def;Index
+\newcommand{\MHz}{\KNEADdefineAcronym{MHz}{Mega-Hertz}{Mega-Hertz}}%Acronym;Def;Index
+\newcommand{\dB}{\KNEADdefineAcronym{dB}{Decibels}{Decibels}}%Acronym;Def;Index
+\newcommand{\dBm}{\KNEADdefineAcronym{dBm}{Decibel-Milliwatts}{Decibel-Milliwatts}}%Acronym;Def;Index
+\newcommand{\dBV}{\KNEADdefineAcronym{dBV}{Decibels Voltage(RMS)}{Decibels Voltage}}%Acronym;Def;Index
+\newcommand{\IREMS}{\KNEADdefineAcronym{IREMS}{IREMS}{IREMS}}%Acronym;Def;Index
+\newcommand{\USB}{\KNEADdefineAcronym{USB}{Universal Serial Bus}{Universal Serial Bus}}%Acronym;Def;Index
+\newcommand{\UPS}{\KNEADdefineAcronym{UPS}{Uninterrupted Power Supply}{Uninterrupted Power Supply}}%Acronym;Def;Index
+\newcommand{\URL}{\KNEADdefineAcronym{URL}{Universal Resource Locator}{Universal Resource Locator}}%Acronym;Def;Index
+\newcommand{\URLs}{\KNEADdefineAcronym{URLs}{Universal Resource Locators}{Universal Resource Locator}}%Acronym;Def;Index
+\newcommand{\IVV}{\KNEADdefineAcronym{IVV}{Independent Verification and Validation}{Independent Verification and Validation}}%Acronym;Def;Index
+\newcommand{\SNR}{\KNEADdefineAcronym{SNR}{Signal to Noise Ratio}{Signal to Noise Ratio}}%Acronym;Def;Index
+
+
+\newcommand{\mutex}{\KNEADdefineAcronym{mutex}{Mutual Exclusion}{mutex}}%Acronym;Def;Index
+\newcommand{\VIS}{\KNEADdefineAcronym{VIS}{Visible Spectra}{Visible Spectra}}%Acronym;Def;Index
+\newcommand{\NIR}{\KNEADdefineAcronym{NIR}{Near Infra-Red}{Near InfraRed}}%Acronym;Def;Index
+\newcommand{\HD}{\KNEADdefineAcronym{HD}{High Definition}{High Definition}}%Acronym;Def;Index
+\newcommand{\InfraRed}{\KNEADdefineAcronym{IR}{Infra-Red}{Infra-Red}}%Acronym;Def;Index
+\newcommand{\ElecOpt}{\KNEADdefineAcronym{EO}{Electro-Optical}{Electro-Optical}}%Acronym;Def;Index
+
+\newcommand{\OML}{\KNEADdefineAcronym{OML}{Outer Mold Line}{Outer Mold Line}}%Acronym;Def;Index
+
+
+\newcommand{\NN}{\KNEADdefineAcronym{NN}{Neural Network}{Neural Network}}%Acronym;Def;Index
+\newcommand{\AI}{\KNEADdefineAcronym{AI}{Artificial Intelligence}{Artificial Intelligence}}%Acronym;Def;Index
+\newcommand{\ML}{\KNEADdefineAcronym{ML}{Machine Learning}{Machine Learning}}%Acronym;Def;Index
+
+
+\newcommand{\DFD}{\KNEADdefineAcronym{DFD}{Data Flow Diagram}{Data Flow Diagram}}%Acronym;Def;Index
+\newcommand{\DFDs}{\KNEADdefineAcronym{DFDs}{Data Flow Diagrams}{Data Flow Diagram}}%Acronym;Def;Index
+\newcommand{\AOA}{\KNEADdefineAcronym{AOA}{Analysis of Alternatives}{Analysis of Alternatives}}%Acronym;Def;Index
+\newcommand{\AOAs}{\KNEADdefineAcronym{AOAs}{Analyses of Alternatives}{Analysis of Alternatives}}%Acronym;Def;Index
+\newcommand{\SOW}{\KNEADdefineAcronym{SOW}{Statement Of Work}{Statement Of Work}}%Acronym;Def;Index
+\newcommand{\SOWs}{\KNEADdefineAcronym{SOWs}{Statements Of Work}{Statement Of Work}}%Acronym;Def;Index
+\newcommand{\SOO}{\KNEADdefineAcronym{SOO}{Statement Of Objectives}{Statement Of Objectives}}%Acronym;Def;Index
+\newcommand{\SOOs}{\KNEADdefineAcronym{SOOs}{Statements Of Objectives}{Statement Of Objectives}}%Acronym;Def;Index
+\newcommand{\SOP}{\KNEADdefineAcronym{SOP}{Standard Operating Procedure}{Standard Operating Procedure}}%Acronym;Def;Index
+\newcommand{\SOPs}{\KNEADdefineAcronym{SOPs}{Standard Operating Procedures}{Standard Operating Procedure}}%Acronym;Def;Index
+\newcommand{\JEON}{\KNEADdefineAcronym{JEON}{Joint Emergent Operational Need}{Joint Emergent Operational Need}}%Acronym;Def;Index
+\newcommand{\JEONs}{\KNEADdefineAcronym{JEONs}{Joint Emergent Operational Needs}{Joint Emergent Operational Need}}%Acronym;Def;Index
+\newcommand{\JUON}{\KNEADdefineAcronym{JUON}{Joint Urgent Operational Need}{Joint Urgent Operational Need}}%Acronym;Def;Index
+\newcommand{\JUONs}{\KNEADdefineAcronym{JUONs}{Joint Urgent Operational Needs}{Joint Urgent Operational Need}}%Acronym;Def;Index
+\newcommand{\JORD}{\KNEADdefineAcronym{JORD}{Joint Operational Requirements Document}{Joint Operational Requirements Document}}%Acronym;Def;Index
+\newcommand{\JORDs}{\KNEADdefineAcronym{JORDs}{Joint Operational Requirements Documents}{Joint Operational Requirements Document}}%Acronym;Def;Index
+\newcommand{\ORD}{\KNEADdefineAcronym{ORD}{Operational Requirements Document}{Operational Requirements Document}}%Acronym;Def;Index
+\newcommand{\ORDs}{\KNEADdefineAcronym{ORDs}{Operational Requirements Documents}{Operational Requirements Document}}%Acronym;Def;Index
+\newcommand{\CPD}{\KNEADdefineAcronym{CPD}{Capability Production Document}{Capability Production Document}}%Acronym;Def;Index
+\newcommand{\CPDs}{\KNEADdefineAcronym{CPDs}{Capability Production Documents}{Capability Production Document}}%Acronym;Def;Index
+\newcommand{\CONOP}{\KNEADdefineAcronym{CONOP}{Concept of Operations}{Concept of Operations}}%Acronym;Def;Index
+\newcommand{\CONOPs}{\KNEADdefineAcronym{CONOPs}{Concepts of Operations}{Concept of Operations}}%Acronym;Def;Index
+\newcommand{\MACC}{\KNEADdefineAcronym{MACC}{Modification Airworthiness Certification Criteria}{Modification Airworthiness Certification Criteria}}%Acronym;Def;Index
+\newcommand{\DoDAF}{\KNEADdefineAcronym{DoDAF}{Department of Defense Architecture Framework}{DoDAF}}%Acronym;Def;Index
+
+\newcommand{\OVone}{\KNEADdefineAcronym{OV-1}{DoDAF Operational Viewpoint 1}{DoDAF:OV-1}}%Acronym;Def;Index
+\newcommand{\OVtwo}{\KNEADdefineAcronym{OV-2}{DoDAF Operational Viewpoint 2}{DoDAF:OV-2}}%Acronym;Def;Index
+
+
+
+\newcommand{\MilStdNineSixtyOne}{\KNEADdefineAcronym{MIL-STD-961}{Military Standard 961}{MIL-STD-961}}%Acronym;Def;Index
+\newcommand{\MilStdFourNineEight}{\KNEADdefineAcronym{MIL-STD-498}{Military Standard 498}{MIL-STD-498}}%Acronym;Def;Index
+\newcommand{\DID}{\KNEADdefineAcronym{DID}{Data Item Description}{MIL-STD-498!DID}}%Acronym;Def;Index
+\newcommand{\DIDs}{\KNEADdefineAcronym{DIDs}{Data Item Descriptions}{MIL-STD-498!DID}}%Acronym;Def;Index
+\newcommand{\IRS}{\KNEADdefineAcronym{IRS}{Interface Requirements Specification}{MIL-STD-498!IRS}}%Acronym;Def;Index
+\newcommand{\IRSs}{\KNEADdefineAcronym{IRSs}{Interface Requirements Specifications}{MIL-STD-498!IRS}}%Acronym;Def;Index
+\newcommand{\IDD}{\KNEADdefineAcronym{IDD}{Interface Detailed Design}{MIL-STD-498!IDD}}%Acronym;Def;Index
+\newcommand{\IDDs}{\KNEADdefineAcronym{IDDs}{Interface Detailed Designs}{MIL-STD-498!IDD}}%Acronym;Def;Index
+\newcommand{\HRS}{\KNEADdefineAcronym{HRS}{Hardware Requirements Specification}{MIL-STD-498!HRS}}%Acronym;Def;Index
+\newcommand{\HRSs}{\KNEADdefineAcronym{HRSs}{Hardware Requirements Specifications}{MIL-STD-498!HRS}}%Acronym;Def;Index
+\newcommand{\HWDD}{\KNEADdefineAcronym{HDD}{Hardware Detailed Design}{MIL-STD-498!HDD}}%Acronym;Def;Index
+\newcommand{\HWDDs}{\KNEADdefineAcronym{HDDs}{Hardware Detailed Designs}{MIL-STD-498!HDD}}%Acronym;Def;Index
+\newcommand{\SDP}{\KNEADdefineAcronym{SDP}{System Development Plan}{MIL-STD-498!SDP}}%Acronym;Def;Index
+\newcommand{\SDPs}{\KNEADdefineAcronym{SDPs}{System Development Plans}{MIL-STD-498!SDP}}%Acronym;Def;Index
+\newcommand{\OCD}{\KNEADdefineAcronym{OCD}{Operational Concept Description}{MIL-STD-498!OCD}}%Acronym;Def;Index
+\newcommand{\OCDs}{\KNEADdefineAcronym{OCDs}{Operational Concept Descriptions}{MIL-STD-498!OCD}}%Acronym;Def;Index
+\newcommand{\SPS}{\KNEADdefineAcronym{SPS}{System Performance Specification}{MIL-STD-498!SPS}}%Acronym;Def;Index
+\newcommand{\SPSs}{\KNEADdefineAcronym{SPSs}{System Performance Specifications}{MIL-STD-498!SPS}}%Acronym;Def;Index
+\newcommand{\SSS}{\KNEADdefineAcronym{SSS}{System / Subsystem Specification}{MIL-STD-498!SSS}}%Acronym;Def;Index
+\newcommand{\SSSs}{\KNEADdefineAcronym{SSSs}{System / Subsystem Specifications}{MIL-STD-498!SSS}}%Acronym;Def;Index
+\newcommand{\SUM}{\KNEADdefineAcronym{SUM}{System Usage Manual}{MIL-STD-498!SUM}}%Acronym;Def;Index
+\newcommand{\SUMs}{\KNEADdefineAcronym{SUMs}{System Usage Manuals}{MIL-STD-498!SUM}}%Acronym;Def;Index
+\newcommand{\SRS}{\KNEADdefineAcronym{SRS}{System Requirements Specification}{MIL-STD-498!SRS}}%Acronym;Def;Index
+\newcommand{\SRSs}{\KNEADdefineAcronym{SRSs}{System Requirements Specifications}{MIL-STD-498!SRS}}%Acronym;Def;Index
+\newcommand{\SDD}{\KNEADdefineAcronym{SDD}{System Detailed Design}{MIL-STD-498!SDD}}%Acronym;Def;Index
+\newcommand{\SDDs}{\KNEADdefineAcronym{SDDs}{System Detailed Designs}{MIL-STD-498!SDD}}%Acronym;Def;Index
+\newcommand{\STD}{\KNEADdefineAcronym{STS}{System Test (Description) Specification}{MIL-STD-498!STD}}%Acronym;Def;Index
+\newcommand{\STS}{\KNEADdefineAcronym{STS}{System Test Specification}{MIL-STD-498!STD}}%Acronym;Def;Index
+\newcommand{\STDs}{\KNEADdefineAcronym{STSs}{System Test (Description) Specifications}{MIL-STD-498!STD}}%Acronym;Def;Index
+\newcommand{\STSs}{\KNEADdefineAcronym{STSs}{System Test Specifications}{MIL-STD-498!STD}}%Acronym;Def;Index
+\newcommand{\SVD}{\KNEADdefineAcronym{SVD}{System Version Description}{MIL-STD-498!SVD}}%Acronym;Def;Index
+\newcommand{\SVDs}{\KNEADdefineAcronym{SVDs}{System Version Descriptions}{MIL-STD-498!SVD}}%Acronym;Def;Index
+\newcommand{\SIP}{\KNEADdefineAcronym{SIP}{System Installation Plan}{MIL-STD-498!SIP}}%Acronym;Def;Index
+\newcommand{\SIPs}{\KNEADdefineAcronym{SIPs}{System Installation Plans}{MIL-STD-498!SIP}}%Acronym;Def;Index
+\newcommand{\ATP}{\KNEADdefineAcronym{ATP}{Acceptance Test Procedure}{MIL-STD-498!ATP}}%Acronym;Def;Index
+\newcommand{\ATPs}{\KNEADdefineAcronym{ATPs}{Acceptance Test Procedures}{MIL-STD-498!ATP}}%Acronym;Def;Index
+\newcommand{\VID}{\KNEADdefineAcronym{VID}{Vendor Item Description}{MIL-STD-498!VID}}%Acronym;Def;Index
+\newcommand{\VIDs}{\KNEADdefineAcronym{VIDs}{Vendor Item Descriptions}{MIL-STD-498!VID}}%Acronym;Def;Index
+\newcommand{\STP}{\KNEADdefineAcronym{STP}{System Test Plan}{MIL-STD-498!STP}}%Acronym;Def;Index
+\newcommand{\STPs}{\KNEADdefineAcronym{STPs}{System Test Plans}{MIL-STD-498!STP}}%Acronym;Def;Index
+\newcommand{\ETP}{\KNEADdefineAcronym{ETP}{Engineering Test Plan}{MIL-STD-498!ETP}}%Acronym;Def;Index
+\newcommand{\ETPs}{\KNEADdefineAcronym{ETPs}{Engineering Test Plans}{MIL-STD-498!ETP}}%Acronym;Def;Index
+\newcommand{\ITP}{\KNEADdefineAcronym{ITP}{Inspection and Test Plan}{MIL-STD-498!ITP}}%Acronym;Def;Index
+\newcommand{\ITPs}{\KNEADdefineAcronym{ITPs}{Inspection and Test Plans}{MIL-STD-498!ITP}}%Acronym;Def;Index
+\newcommand{\EITP}{\KNEADdefineAcronym{EITP}{Engineering and Integration Test Plan}{MIL-STD-498!EITP}}%Acronym;Def;Index
+\newcommand{\EITPs}{\KNEADdefineAcronym{EITPs}{Engineering and Integration Test Plans}{MIL-STD-498!EITP}}%Acronym;Def;Index
+\newcommand{\STR}{\KNEADdefineAcronym{STR}{System Test Report}{MIL-STD-498!STR}}%Acronym;Def;Index
+\newcommand{\STRs}{\KNEADdefineAcronym{STRs}{System Test Reports}{MIL-STD-498!STR}}%Acronym;Def;Index
+\newcommand{\SSDD}{\KNEADdefineAcronym{SSDD}{System/Subsystem Design Description}{MIL-STD-498!SSDD}}%Acronym;Def;Index
+\newcommand{\SSDDs}{\KNEADdefineAcronym{SSDDs}{System/Subsystem Design Descriptions}{MIL-STD-498!SSDD}}%Acronym;Def;Index
+\newcommand{\DBDD}{\KNEADdefineAcronym{DBDD}{Database Design Description}{MIL-STD-498!DBDD}}%Acronym;Def;Index
+\newcommand{\DBDDs}{\KNEADdefineAcronym{DBDDs}{Database Design Descriptions}{MIL-STD-498!DBDD}}%Acronym;Def;Index
+\newcommand{\FTR}{\KNEADdefineAcronym{FTR}{Final Technical Report}{MIL-STD-498!FTR}}%Acronym;Def;Index
+\newcommand{\FTRs}{\KNEADdefineAcronym{FTRs}{Final Technical Reports}{MIL-STD-498!FTR}}%Acronym;Def;Index
+
+\newcommand{\FCD}{\KNEADdefineAcronym{FCD}{Functional Capabilities Document}{MIL-HDBK-520!Functional Capabilities Document}}%Acronym;Def;Index
+\newcommand{\FCDs}{\KNEADdefineAcronym{FCDs}{Functional Capabilities Documents}{MIL-HDBK-520!Functional Capabilities Document}}%Acronym;Def;Index
+\newcommand{\SCD}{\KNEADdefineAcronym{SCD}{System Capabilities Document}{MIL-HDBK-520!System Capabilities Document}}%Acronym;Def;Index
+\newcommand{\SCDs}{\KNEADdefineAcronym{SCDs}{System Capabilities Documents}{MIL-HDBK-520!System Capabilities Document}}%Acronym;Def;Index
+
+\newcommand{\SRD}{\KNEADdefineAcronym{SRD}{System Requirements Document}{MIL-HDBK-520!System Requirements Document}}%Acronym;Def;Index
+\newcommand{\SRDs}{\KNEADdefineAcronym{SRDs}{System Requirements Documents}{MIL-HDBK-520!System Requirements Document}}%Acronym;Def;Index
+
+
+\newcommand{\TRD}{\KNEADdefineAcronym{TRD}{Technical Requirements Document}{Technical Requirements Document}}%Acronym;Def;Index
+\newcommand{\TRDs}{\KNEADdefineAcronym{TRDs}{Technical Requirements Documents}{Technical Requirements Document}}%Acronym;Def;Index
+
+\newcommand{\RTM}{\KNEADdefineAcronym{RTM}{Requirements Traceability Matrix}{Requirements Traceability Matrix}}%Acronym;Def;Index
+\newcommand{\RTMs}{\KNEADdefineAcronym{RTMs}{Requirements Traceability Matrices}{Requirements Traceability Matrix}}%Acronym;Def;Index
+\newcommand{\RTVM}{\KNEADdefineAcronym{RTVM}{Requirements Traceability Verification Matrix}{Requirements Traceability Matrix}}%Acronym;Def;Index
+\newcommand{\RTVMs}{\KNEADdefineAcronym{RTVMs}{Requirements Traceability Verification Matrices}{Requirements Traceability Matrix}}%Acronym;Def;Index
+\newcommand{\TEMP}{\KNEADdefineAcronym{TEMP}{Test and Evaluation Master Plan}{Test and Evaluation Master Plan}}%Acronym;Def;Index
+\newcommand{\TEMPs}{\KNEADdefineAcronym{TEMPs}{Test and Evaluation Master Plans}{Test and Evaluation Master Plan}}%Acronym;Def;Index
+
+\newcommand{\QIP}{\KNEADdefineAcronym{QIP}{Quality Inspection Plan}{Quality Inspection Plan}}%Acronym;Def;Index
+\newcommand{\QIPs}{\KNEADdefineAcronym{QIPs}{Quality Inspection Plans}{Quality Inspection Plan}}%Acronym;Def;Index
+\newcommand{\QMS}{\KNEADdefineAcronym{QMS}{Quality Management System}{Quality Management System}}%Acronym;Def;Index
+\newcommand{\QMSs}{\KNEADdefineAcronym{QMSs}{Quality Management Systems}{Quality Management System}}%Acronym;Def;Index
+
+\newcommand{\QAM}{\KNEADdefineAcronym{QAM}{Quality Assurance Manual}{Quality Assurance Manual}}%Acronym;Def;Index
+\newcommand{\QAMs}{\KNEADdefineAcronym{QAMs}{Quality Assurance Manuals}{Quality Assurance Manual}}%Acronym;Def;Index
+\newcommand{\QA}{\KNEADdefineAcronym{QA}{Quality Assurance}{Quality Assurance}}%Acronym;Def;Index
+
+\newcommand{\ICD}{\KNEADdefineAcronym{ICD}{Interface Control Drawing}{Interface Control Drawing}}%Acronym;Def;Index
+\newcommand{\ICDs}{\KNEADdefineAcronym{ICDs}{Interface Control Drawings}{Interface Control Drawing}}%Acronym;Def;Index
+\newcommand{\CDD}{\KNEADdefineAcronym{CDD}{Capability Development Document}{Capability Development Document}}%Acronym;Def;Index
+\newcommand{\CDDs}{\KNEADdefineAcronym{CDDs}{Capability Development Documents}{Capability Development Document}}%Acronym;Def;Index
+
+\newcommand{\CMPLAN}{\KNEADdefineAcronym{CMPLAN}{Configuration Management Plan}{Configuration Management Plan}}%Acronym;Def;Index
+\newcommand{\CMPLANs}{\KNEADdefineAcronym{CMPLANs}{Configuration Management Plans}{Configuration Management Plan}}%Acronym;Def;Index
+
+
+\newcommand{\IOC}{\KNEADdefineAcronym{IOC}{Initial Operational Capability}{Operational Capability!Initial}}%Acronym;Def;Index
+\newcommand{\FOC}{\KNEADdefineAcronym{FOC}{Final Operational Capability}{Operational Capability!Final}}%Acronym;Def;Index
+
+
+%-%
+% A/V stuff 
+%
+\newcommand{\AV}{\KNEADdefineAcronym{AV}{Audio / Visual}{Audio / Visual}}%Acronym;Def;Index
+
+%https://www.l-com.com/frequently-asked-questions/what-is-the-difference-between-vga-svga-and-uxga-and-does-l-com-sell-cables-for-each
+\newcommand{\CGA}{\KNEADdefineAcronym{CGA}{Color Graphics Adapter (320x240)}{Video Sizes!CGA}}%Acronym;Def;Index
+\newcommand{\EGA}{\KNEADdefineAcronym{EGA}{Extended Graphics Adapter (640x350)}{Video Sizes!EGA}}%Acronym;Def;Index
+\newcommand{\VGA}{\KNEADdefineAcronym{VGA}{Video Graphics Array (640x480)}{Video Sizes!VGA}}%Acronym;Def;Index
+\newcommand{\SVGA}{\KNEADdefineAcronym{SVGA}{Super Video Graphics Array (800x600)}{Video Sizes!SVGA}}%Acronym;Def;Index
+\newcommand{\XGA}{\KNEADdefineAcronym{XGA}{Extended Graphics Array (1024x768)}{Video Sizes!XGA}}%Acronym;Def;Index
+\newcommand{\HDTVL}{\KNEADdefineAcronym{HDTVL}{High Definition Television (1280x720)}{Video Sizes!HDTVL}}%Acronym;Def;Index
+\newcommand{\SXGA}{\KNEADdefineAcronym{SXGA}{Super Extended Graphics Array (1280x1024)}{Video Sizes!SXGA}}%Acronym;Def;Index
+\newcommand{\UXGA}{\KNEADdefineAcronym{UXGA}{Ultra Extended Graphics Array (1600x1200)}{Video Sizes!UXGA}}%Acronym;Def;Index
+\newcommand{\HDTV}{\KNEADdefineAcronym{HDTV}{High Definition Television (1920x1080)}{Video Sizes!HDTV}}%Acronym;Def;Index
+\newcommand{\WUXGA}{\KNEADdefineAcronym{WUXGA}{Wide Ultra Extended Graphics Array (1920x1200)}{Video Sizes!WUXGA}}%Acronym;Def;Index
+
+\newcommand{\HDMI}{\KNEADdefineAcronym{HDMI}{High-Definition Multimedia Interface}{Video Connectors!HDMI}}%Acronym;Def;Index
+
+%-%
+% RCDD stuff 
+%
+\newcommand{\RCDDISP}{\KNEADdefineAcronym{ISP}{RCDD - Inside Plant}{RCDD!Inside Plant}}%Acronym;Def;Index
+\newcommand{\ISP}{\KNEADdefineAcronym{ISP}{RCDD - Inside Plant}{RCDD!Inside Plant}}%Acronym;Def;Index
+\newcommand{\RCDDOSP}{\KNEADdefineAcronym{OSP}{RCDD - Outside Plant}{RCDD!Outside Plant}}%Acronym;Def;Index
+\newcommand{\OSP}{\KNEADdefineAcronym{OSP}{RCDD - Outside Plant}{RCDD!Outside Plant}}%Acronym;Def;Index
+\newcommand{\RCDDDCDC}{\KNEADdefineAcronym{DCDC}{RCDD - Data Center Design Consultant}{RCDD!Data Center Design Consultant}}%Acronym;Def;Index
+
+
+%-%
+% TV and Radio Broadcast 
+%
+
+\newcommand{\SW}{\KNEADdefineAcronym{SW}{Shortwave}{RF Band:Shortwave}}%Acronym;Def;Index
+\newcommand{\MedF}{\KNEADdefineAcronym{MF}{Medium Frequency}{RF Band:Medium Freq}}%Acronym;Def;Index
+\newcommand{\HF}{\KNEADdefineAcronym{HF}{High Frequency}{RF Band:HF}}%Acronym;Def;Index
+\newcommand{\HFALE}{\KNEADdefineAcronym{ALE}{HF Automatic Link Establishment}{RF Band:HF ALE}}%Acronym;Def;Index
+\newcommand{\VHFAM}{\KNEADdefineAcronym{VHF-AM}{VHF Amplitude Modulation}{RF Band:VHF-AM}}%Acronym;Def;Index
+\newcommand{\TVVHFLow}{\KNEADdefineAcronym{VHF-Lo}{TV VHF Low}{RF Band:VHF-Low(TV)}}%Acronym;Def;Index
+\newcommand{\TVVHFHigh}{\KNEADdefineAcronym{VHF-Hi}{TV VHF High}{RF Band:VHF-High(TV)}}%Acronym;Def;Index
+\newcommand{\VHF}{\KNEADdefineAcronym{VHF}{Very-High Frequency Radio}{RF Band:VHF-Low}}%Acronym;Def;Index
+\newcommand{\VHFlo}{\KNEADdefineAcronym{VHF-Low}{Very-High Frequency Radio, Low Band}{RF Band:VHF-Low}}%Acronym;Def;Index
+\newcommand{\VHFhi}{\KNEADdefineAcronym{VHF-High}{Very-High Frequency Radio, High Band}{RF Band:VHF-High}}%Acronym;Def;Index
+\newcommand{\UHF}{\KNEADdefineAcronym{UHF}{Ultra-High Frequency Radio}{RF Band:UHF}}%Acronym;Def;Index
+\newcommand{\UHFLOS}{\KNEADdefineAcronym{UHF-LOS}{Ultra-High Frequency Radio, Line of Sight}{RF Band:UHF LOS}}%Acronym;Def;Index
+\newcommand{\UHFLOSLS}{\KNEADdefineAcronym{UHF-LOS-LS}{Ultra-High Frequency Radio, Line of Sight, LS Band}{RF Band:UHF-LOS-LS}}%Acronym;Def;Index
+\newcommand{\UHFFO}{\KNEADdefineAcronym{UFO}{Ultra-High Frequency Follow-On}{RF Band:UFO}}%Acronym;Def;Index
+\newcommand{\UHFSATCOM}{\KNEADdefineAcronym{UHF-SATCOM}{Ultra-High Frequency Radio, Satellite Communications}{RF Band:SATCOM}}%Acronym;Def;Index
+\newcommand{\MUOS}{\KNEADdefineAcronym{MUOS}{Mobile User Objective System}{RF Band:MUOS}}%Acronym;Def;Index
+\newcommand{\RFSATURN}{\KNEADdefineAcronym{SATURN}{Second generation Anti-jam Tactical Ultra high frequency Radio for \NATO}{RF Band:SATURN}}%Acronym;Def;Index
+
+\newcommand{\DAMA}{\KNEADdefineAcronym{DAMA}{Demand Assigned Multiple Access}{RF Band:DAMA}}%Acronym;Def;Index
+\newcommand{\MODASK}{\KNEADdefineAcronym{ASK}{Amplitude Shift Keying Modulation}{Modulation:ASK}}%Acronym;Def;Index
+\newcommand{\MODFSK}{\KNEADdefineAcronym{FSK}{Frequency Shift Keying Modulation}{Modulation:FSK}}%Acronym;Def;Index
+\newcommand{\BandWidth}{\KNEADdefineAcronym{BW}{Bandwidth}{Bandwidth}}%Acronym;Def;Index
+\newcommand{\TX}{\KNEADdefineAcronym{TX}{Transmit}{Transmit}}%Acronym;Def;Index
+\newcommand{\RX}{\KNEADdefineAcronym{RX}{Receive}{Receive}}%Acronym;Def;Index
+\newcommand{\NB}{\KNEADdefineAcronym{NB}{Narrow-band}{RF Band:NB}}%Acronym;Def;Index
+\newcommand{\WB}{\KNEADdefineAcronym{WB}{Wide-band}{RF Band:WB}}%Acronym;Def;Index
+
+
+%Modulations
+\newcommand{\AM}{\KNEADdefineAcronym{AM}{Amplitude Modulation}{RF Waveform:AM}}%Acronym;Def;Index
+\newcommand{\FM}{\KNEADdefineAcronym{FM}{Frequency Modulation}{RF Waveform:FM}}%Acronym;Def;Index
+\newcommand{\MANET}{\KNEADdefineAcronym{MANET}{Mobile Ad Hoc Network}{RF Waveform:MANET}}%Acronym;Def;Index
+\newcommand{\SSB}{\KNEADdefineAcronym{SSB}{Single Side Band}{RF Waveform:SSB}}%Acronym;Def;Index
+\newcommand{\VULOS}{\KNEADdefineAcronym{VULOS}{Very-High/Ultra-High Frequency Line of Sight}{RF Waveform:VULOS}}%Acronym;Def;Index
+\newcommand{\SINCGARS}{\KNEADdefineAcronym{SINCGARS}{Single Channel Ground and Airborne Radio System}{RF Waveform:SINCGARS}}%Acronym;Def;Index
+\newcommand{\HAVEQUICK}{\KNEADdefineAcronym{HAVEQUICK}{HAVEQUICK}{RF Waveform:HAVEQUICK}}%Acronym;Def;Index
+\newcommand{\WRENB}{\KNEADdefineAcronym{WRENB}{Warrior Robust Enhanced Network}{RF Waveform:WRENNB}}%Acronym;Def;Index
+\newcommand{\TSM}{\KNEADdefineAcronym{TSM}{Trellisware Scalable MANET}{RF Waveform:TSM}}%Acronym;Def;Index
+\newcommand{\WRENTSM}{\KNEADdefineAcronym{WREN-TSM}{Warrior Robust Enhanced Network Trellisware WREN-SM}{RF Waveform:WREN-TSM}}%Acronym;Def;Index
+\newcommand{\TSMX}{\KNEADdefineAcronym{TSM-X}{Warrior Robust Enhanced Network Trellisware SMX}{RF Waveform:TSM-X}}%Acronym;Def;Index
+\newcommand{\WRENTSMX}{\KNEADdefineAcronym{WREN-TSM-X}{Trellisware WREN-SMX}{RF Waveform:WREN-TSM-X}}%Acronym;Def;Index
+\newcommand{\IW}{\KNEADdefineAcronym{IW}{Integrated Waveform}{RF Waveform:IW}}%Acronym;Def;Index
+
+
+\newcommand{\TVUHF}{\KNEADdefineAcronym{UHF}{Ultra-High Frequency}{RF Band:UHF(TV)}}%Acronym;Def;Index
+
+\newcommand{\CellFull}{\KNEADdefineAcronym{Cellular Full-Band}{Cellular Full-Band}{Cellular Full-Band}}%Acronym;Def;Index
+\newcommand{\CellLow}{\KNEADdefineAcronym{Cellular Low-Band}{Cellular Low-Band}{Cellular Low-Band}}%Acronym;Def;Index
+\newcommand{\CellHigh}{\KNEADdefineAcronym{Cellular High-Band}{Cellular High-Band}{Cellular High-Band}}%Acronym;Def;Index
+
+\newcommand{\VSWR}{\KNEADdefineAcronym{VSWR}{Voltage Standing Wave Ratio}{Voltage Standing Wave Ratio}}%Acronym;Def;Index
+
+
+
+\newcommand{\ATV}{\KNEADdefineAcronym{ATV}{Analog TV}{Analog TV}}%Acronym;Def;Index
+\newcommand{\DAB}{\KNEADdefineAcronym{DAB}{Digital Audio Broadcast}{Digital Audio Broadcast}}%Acronym;Def;Index
+\newcommand{\LMR}{\KNEADdefineAcronym{LMR}{Land Mobile Radio}{Land Mobile Radio}}%Acronym;Def;Index
+\newcommand{\SATCOM}{\KNEADdefineAcronym{SATCOM}{Satellite Communications}{Satellite Communications}}%Acronym;Def;Index
+\newcommand{\CBS}{\KNEADdefineAcronym{CBS}{Cellular Broadcast Messaging}{Cellular Broadcast Messaging}}%Acronym;Def;Index
+\newcommand{\SMS}{\KNEADdefineAcronym{SMS}{Short Message Service}{Short Message Service}}%Acronym;Def;Index
+\newcommand{\MMS}{\KNEADdefineAcronym{MMS}{Multimedia Messaging Service}{Multimedia Messaging Service}}%Acronym;Def;Index
+\newcommand{\RDS}{\KNEADdefineAcronym{RDS}{Radio Data System}{Radio Data System}}%Acronym;Def;Index
+\newcommand{\RBDS}{\KNEADdefineAcronym{RBDS}{Radio Broadcast Data System}{Radio Broadcast Data System}}%Acronym;Def;Index
+\newcommand{\TV}{\KNEADdefineAcronym{TV}{Television}{Television}}%Acronym;Def;Index
+\newcommand{\DTV}{\KNEADdefineAcronym{DTV}{Digital Television}{Digital Television}}%Acronym;Def;Index
+\newcommand{\NTSC}{\KNEADdefineAcronym{NTSC}{National Television System Committee}{National Television System Committee}}%Acronym;Def;Index
+\newcommand{\SECAM}{\KNEADdefineAcronym{SECAM}{Sequential Colour with Memory}{Sequential Colour with Memory}}%Acronym;Def;Index
+\newcommand{\PAL}{\KNEADdefineAcronym{PAL}{Phase Alternating Line}{Phase Alternating Line}}%Acronym;Def;Index
+\newcommand{\ATSC}{\KNEADdefineAcronym{ATSC}{Advanced Television Systems Committee}{Advanced Television Systems Committee}}%Acronym;Def;Index
+\newcommand{\DVBT}{\KNEADdefineAcronym{DVBT}{Digital Video Broadcasting — Terrestrial}{Digital Video Broadcasting — Terrestrial}}%Acronym;Def;Index
+\newcommand{\DVBTTWO}{\KNEADdefineAcronym{DVBTTWO}{Digital Video Broadcasting — Terrestrial (2nd Gen)}{Digital Video Broadcasting — Terrestrial}}%Acronym;Def;Index
+\newcommand{\ISDB}{\KNEADdefineAcronym{ISDB}{Integrated Services Digital Broadcasting}{Integrated Services Digital Broadcasting}}%Acronym;Def;Index
+\newcommand{\ISDBT}{\KNEADdefineAcronym{ISDBT}{Integrated Services Digital Broadcasting - Terrestrial}{Integrated Services Digital Broadcasting - Terrestrial}}%Acronym;Def;Index
+\newcommand{\DTMB}{\KNEADdefineAcronym{DTMB}{Digital Terrestrial Multimedia Broadcast}{Digital Terrestrial Multimedia Broadcast}}%Acronym;Def;Index
+
+\newcommand{\PTTALK}{\KNEADdefineAcronym{PTT}{Push-To-Talk}{Push-To-Talk}}%Acronym;Def;Index
+\newcommand{\EA}{\KNEADdefineAcronym{EA}{EA}{EA}}%Acronym;Def;Index
+\newcommand{\EM}{\KNEADdefineAcronym{EM}{Electro-Magnetic}{Electro-Magnetic}}%Acronym;Def;Index
+\newcommand{\DSBSC}{\KNEADdefineAcronym{DSB-SC}{DSB-SC}{DSB-SC}}%Acronym;Def;Index
+
+
+
+\newcommand{\CSCI}{\KNEADdefineAcronym{CSCI}{Computer Software Configuration Item}{Computer Software Configuration Item}}%Acronym;Def;Index
+\newcommand{\CSC}{\KNEADdefineAcronym{CSC}{Computer Software Component}{Computer Software Component}}%Acronym;Def;Index
+\newcommand{\CSU}{\KNEADdefineAcronym{CSU}{Computer Software Unit}{Computer Software Unit}}%Acronym;Def;Index
+
+\newcommand{\HWCI}{\KNEADdefineAcronym{HWCI}{Hardware Configuration Item}{Hardware Configuration Item}}%Acronym;Def;Index
+\newcommand{\HWC}{\KNEADdefineAcronym{HWC}{Hardware Component}{Hardware Component}}%Acronym;Def;Index
+\newcommand{\HWU}{\KNEADdefineAcronym{HWU}{Hardware Unit}{Hardware Unit}}%Acronym;Def;Index
+
+\newcommand{\SWaP}{\KNEADdefineAcronym{SWaP}{Space, Weight, and Power}{Space, Weight, and Power}}%Acronym;Def;Index
+\newcommand{\SWaPC}{\KNEADdefineAcronym{SWaPC}{Space, Weight, and Power/Cost}{Space, Weight, and Power}}%Acronym;Def;Index
+
+\newcommand{\VAC}{\KNEADdefineAcronym{VAC}{Voltage - Alternating Current}{Voltage!Alternating Current}}%Acronym;Def;Index
+\newcommand{\AC}{\KNEADdefineAcronym{AC}{Alternating Current}{Voltage!Alternating Current}}%Acronym;Def;Index
+\newcommand{\VDC}{\KNEADdefineAcronym{VDC}{Voltage - Direct Current}{Voltage!Direct Current}}%Acronym;Def;Index
+\newcommand{\DC}{\KNEADdefineAcronym{DC}{Direct Current}{Voltage!Direct Current}}%Acronym;Def;Index
+
+\newcommand{\MEPS}{\KNEADdefineAcronym{MEPS}{Mobile Electric Power System}{Mobile Electric Power System}}%Acronym;Def;Index
+
+\newcommand{\RMS}{\KNEADdefineAcronym{RMS}{Root Mean Square}{Root Mean Square}}%Acronym;Def;Index
+\newcommand{\PDU}{\KNEADdefineAcronym{PDU}{Power Distribution Unit}{Power Distribution Unit}}%Acronym;Def;Index
+\newcommand{\ELA}{\KNEADdefineAcronym{ELA}{Electrical Load Analysis}{Electrical Load Analysis}}%Acronym;Def;Index
+\newcommand{\TRU}{\KNEADdefineAcronym{TRU}{Transformer Rectifier Unit}{Transformer Rectifier Unit}}%Acronym;Def;Index
+\newcommand{\SCIF}{\KNEADdefineAcronym{SCIF}{Sensitive Compartmented Information Facility}{Sensitive Compartmented Information Facility}}%Acronym;Def;Index
+
+
+%-%
+%%% languages
+%
+\newcommand{\CCpp}{\KNEADdefineAcronym{CCpp}{$C/C++$}{Programming!$C/C++$}}%Acronym;Def;Index
+\newcommand{\Cpp}{\KNEADdefineAcronym{Cpp}{$C++$}{Programming!$C++$}}%Acronym;Def;Index
+\newcommand{\Csharp}{\KNEADdefineAcronym{C\#}{C Sharp}{Programming!C\#}}%Acronym;Def;Index
+\newcommand{\Java}{\KNEADdefineAcronym{Java}{Java}{Programming!Java}}%Acronym;Def;Index
+\newcommand{\Python}{\KNEADdefineAcronym{Python}{Python}{Programming!Python}}%Acronym;Def;Index
+\newcommand{\Rust}{\KNEADdefineAcronym{Rust}{Rust}{Programming!Rust}}%Acronym;Def;Index
+\newcommand{\IDE}{\KNEADdefineAcronym{IDE}{Integrated Programming Environment}{Programming!IDE}}%Acronym;Def;Index
+
+
+
+%-%
+%%% Search Engines, other web sites, and trdemarked names
+%
+\newcommand{\Bing}{\KNEADdefineAcronym{Bing\texttrademark}{\Microsoft Bing}{Bing\texttrademark}}%Acronym;Def;Index
+\newcommand{\CAMEO}{\KNEADdefineAcronym{CAMEO\texttrademark}{CAMEO Systems Modeler Application}{CAMEO\texttrademark}}%Acronym;Def;Index
+\newcommand{\DOORS}{\KNEADdefineAcronym{DOORS\texttrademark}{Dynamic Object-Oriented Requirements System}{DOORS\texttrademark}}%Acronym;Def;Index
+\newcommand{\Google}{\KNEADdefineAcronym{Google\texttrademark}{Google Corporation}{Google\texttrademark}}%Acronym;Def;Index
+\newcommand{\iMessage}{\KNEADdefineAcronym{iMessage\texttrademark}{iMessage}{iMessage\texttrademark}}%Acronym;Def;Index
+\newcommand{\LiveLeak}{\KNEADdefineAcronym{LiveLeak\texttrademark}{LiveLeak}{LiveLeak\texttrademark}}%Acronym;Def;Index
+\newcommand{\Rhapsody}{\KNEADdefineAcronym{Rhapsody\texttrademark}{Rhapsody}{Rhapsody\texttrademark}}%Acronym;Def;Index
+\newcommand{\Vine}{\KNEADdefineAcronym{Vine\texttrademark}{Vine}{Vine\texttrademark}}%Acronym;Def;Index
+\newcommand{\WhatsApp}{\KNEADdefineAcronym{WhatsApp\texttrademark}{WhatsApp}{WhatsApp\texttrademark}}%Acronym;Def;Index
+\newcommand{\Xilinx}{\KNEADdefineAcronym{Xilinx\texttrademark}{Xilinx}{Xilinx\texttrademark}}%Acronym;Def;Index
+\newcommand{\Yahoo}{\KNEADdefineAcronym{Yahoo\texttrademark}{Yahoo}{Yahoo\texttrademark}}%Acronym;Def;Index
+\newcommand{\YouTube}{\KNEADdefineAcronym{YouTube\texttrademark}{YouTube}{YouTube\texttrademark}}%Acronym;Def;Index
+
+%-%
+% Specialty data types
+%
+\newcommand{\FMV}{\KNEADdefineAcronym{FMV}{Full Motion Video}{Full Motion Video}}%Acronym;Def;Index
+\newcommand{\KLV}{\KNEADdefineAcronym{KLV}{Key Length Value}{Key Length Value}}%Acronym;Def;Index
+\newcommand{\AIS}{\KNEADdefineAcronym{AIS}{Automatic Identification System}{Automatic Identification System}}%Acronym;Def;Index
+\newcommand{\NSIF}{\KNEADdefineAcronym{NSIF}{NATO Secondary Imagery Format}{NATO Secondary Imagery Format}}%Acronym;Def;Index
+\newcommand{\GMTIF}{\KNEADdefineAcronym{GMTIF}{Ground Moving Target Indicator Format}{Ground Moving Target Indicator Format}}%Acronym;Def;Index
+\newcommand{\MPEG}{\KNEADdefineAcronym{MPEG}{Motion Picture Experts Group}{MPEG}}%Acronym;Def;Index
+\newcommand{\MPEGtwo}{\KNEADdefineAcronym{MPEG-2}{Motion Picture Experts Group}{MPEG:2}}%Acronym;Def;Index
+\newcommand{\MPEGthree}{\KNEADdefineAcronym{MPEG-2}{Motion Picture Experts Group}{MPEG:3}}%Acronym;Def;Index
+\newcommand{\MPEGfour}{\KNEADdefineAcronym{MPEG-2}{Motion Picture Experts Group}{MPEG:4}}%Acronym;Def;Index
+\newcommand{\PacketID}{\KNEADdefineAcronym{PID}{PacketID}{MPEG:PID}}%Acronym;Def;Index
+
+
+%-%
+% file extension types
+%
+\newcommand{\dotAUX}{\KNEADdefineAcronym{.AUX}{LaTeX Auxiliary Files}{Files!LaTeX.AUX}}%Acronym;Def;Index
+\newcommand{\dotCSV}{\KNEADdefineAcronym{.CSV}{Excel Comma Separated Variable}{Files!Excel.csv}}%Acronym;Def;Index
+\newcommand{\CSV}{\KNEADdefineAcronym{.CSV}{Excel Comma Separated Variable}{Files!Excel.csv}}%Acronym;Def;Index
+\newcommand{\dotPNG}{\KNEADdefineAcronym{.PNG}{Portable Network Graphics}{Files!.png}}%Acronym;Def;Index
+\newcommand{\PNG}{\KNEADdefineAcronym{.PNG}{Portable Network Graphics}{Files!.png}}%Acronym;Def;Index
+\newcommand{\dotGIF}{\KNEADdefineAcronym{.GIF}{Graphics Interchange Format}{Files!.gif}}%Acronym;Def;Index
+\newcommand{\GIF}{\KNEADdefineAcronym{.GIF}{Graphics Interchange Format}{Files!.gif}}%Acronym;Def;Index
+\newcommand{\dotBMP}{\KNEADdefineAcronym{.BMP}{Bitmap File Format}{Files!.bmp}}%Acronym;Def;Index
+\newcommand{\BMP}{\KNEADdefineAcronym{.BMP}{Bitmap File Format}{Files!.bmp}}%Acronym;Def;Index
+\newcommand{\dotTIFF}{\KNEADdefineAcronym{.TIF}{Tagged Interchange File Format}{Files!.tiff}}%Acronym;Def;Index
+\newcommand{\TIFF}{\KNEADdefineAcronym{.TIF}{Tagged Interchange File Format}{Files!.tiff}}%Acronym;Def;Index
+\newcommand{\dotJPEG}{\KNEADdefineAcronym{.JPeG}{Joint Photographics Experts Group}{Files!.jpeg}}%Acronym;Def;Index
+\newcommand{\JPEG}{\KNEADdefineAcronym{.JPeG}{Joint Photographics Experts Group}{Files!.jpeg}}%Acronym;Def;Index
+\newcommand{\dotMPTHREE}{\KNEADdefineAcronym{.MP3}{Joint Photographics Experts Group}{Files!.mp3}}%Acronym;Def;Index
+\newcommand{\MPTHREE}{\KNEADdefineAcronym{.MP3}{Joint Photographics Experts Group}{Files!.mp3}}%Acronym;Def;Index
+\newcommand{\dotMPFOUR}{\KNEADdefineAcronym{.MP4}{Joint Photographics Experts Group}{Files!.mp4}}%Acronym;Def;Index
+\newcommand{\MPFOUR}{\KNEADdefineAcronym{.MP4}{Joint Photographics Experts Group}{Files!.mp4}}%Acronym;Def;Index
+\newcommand{\dotMPMPV}{\KNEADdefineAcronym{.MPV}{Joint Photographics Experts Group}{Files!.mpv}}%Acronym;Def;Index
+\newcommand{\MPMPV}{\KNEADdefineAcronym{.MPV}{Joint Photographics Experts Group}{Files!.mpv}}%Acronym;Def;Index
+\newcommand{\dotMPEG}{\KNEADdefineAcronym{.MPEG}{Joint Photographics Experts Group}{Files!.mpeg}}%Acronym;Def;Index
+\newcommand{\dotMPG}{\KNEADdefineAcronym{.MPG}{Joint Photographics Experts Group}{Files!.mpg}}%Acronym;Def;Index
+\newcommand{\MPG}{\KNEADdefineAcronym{.MPG}{Joint Photographics Experts Group}{Files!.mpg}}%Acronym;Def;Index
+\newcommand{\dotWAV}{\KNEADdefineAcronym{.WAV}{Waveform Audio File}{Files!.wav}}%Acronym;Def;Index
+\newcommand{\WAV}{\KNEADdefineAcronym{.WAV}{Waveform Audio File}{Files!.wav}}%Acronym;Def;Index
+\newcommand{\dotTSF}{\KNEADdefineAcronym{.TS}{Transport Stream File}{Files!.ts}}%Acronym;Def;Index
+\newcommand{\TSF}{\KNEADdefineAcronym{.TS}{Transport Stream File}{Files!.ts}}%Acronym;Def;Index
+\newcommand{\dotPDF}{\KNEADdefineAcronym{.PDF}{Portable Document Format}{Files!.pdf}}%Acronym;Def;Index
+\newcommand{\PDF}{\KNEADdefineAcronym{.PDF}{Portable Document Format}{Files!.pdf}}%Acronym;Def;Index
+\newcommand{\dotPS}{\KNEADdefineAcronym{.PS}{Post Script Format}{Files!.ps}}%Acronym;Def;Index
+\newcommand{\dotDOC}{\KNEADdefineAcronym{.DOC}{Microsoft Word Format}{Files!.doc}}%Acronym;Def;Index
+\newcommand{\DOC}{\KNEADdefineAcronym{.DOC}{Microsoft Word Format}{Files!.doc}}%Acronym;Def;Index
+\newcommand{\dotDOCX}{\KNEADdefineAcronym{.DOCX}{Microsoft Word Format}{Files!.docx}}%Acronym;Def;Index
+\newcommand{\DOCX}{\KNEADdefineAcronym{.DOCX}{Microsoft Word Format}{Files!.docx}}%Acronym;Def;Index
+\newcommand{\dotPPT}{\KNEADdefineAcronym{.PPT}{Microsoft PowerPoint Format}{Files!.ppt}}%Acronym;Def;Index
+\newcommand{\PPT}{\KNEADdefineAcronym{.PPT}{Microsoft PowerPoint Format}{Files!.ppt}}%Acronym;Def;Index
+\newcommand{\dotPPTX}{\KNEADdefineAcronym{.PPTX}{Microsoft PowerPoint Format}{Files!.pptx}}%Acronym;Def;Index
+\newcommand{\PPTX}{\KNEADdefineAcronym{.PPTX}{Microsoft PowerPoint Format}{Files!.pptx}}%Acronym;Def;Index
+\newcommand{\dotXLS}{\KNEADdefineAcronym{.XLS}{Microsoft Excel Format}{Files!.xls}}%Acronym;Def;Index
+\newcommand{\XLS}{\KNEADdefineAcronym{.XLS}{Microsoft Excel Format}{Files!.xls}}%Acronym;Def;Index
+\newcommand{\dotXLSX}{\KNEADdefineAcronym{.XLSX}{Microsoft Excel Format}{Files!.xlsx}}%Acronym;Def;Index
+\newcommand{\dotXLSM}{\KNEADdefineAcronym{.XLSM}{Microsoft Excel Format}{Files!.xlsm}}%Acronym;Def;Index
+\newcommand{\XLSM}{\KNEADdefineAcronym{.XLSM}{Microsoft Excel Format}{Files!.xlsm}}%Acronym;Def;Index
+
+
+%-%
+% Physical Media 
+%
+\newcommand{\CD}{\KNEADdefineAcronym{CD}{Compact Disc}{Media!CD}}%Acronym;Def;Index
+\newcommand{\DVD}{\KNEADdefineAcronym{DVD}{Digital Video Disc}{Media!DVD}}%Acronym;Def;Index
+\newcommand{\VHS}{\KNEADdefineAcronym{VHS}{Video Home System}{Media!VHS}}%Acronym;Def;Index
+\newcommand{\BetaMAX}{\KNEADdefineAcronym{BetaMAX}{Japanese Recording, Maximum}{Media!BetaMAX}}%Acronym;Def;Index
+\newcommand{\HDD}{\KNEADdefineAcronym{HDD}{Hard Disk Drive}{Media!HDD}}%Acronym;Def;Index
+\newcommand{\HDDs}{\KNEADdefineAcronym{HDDs}{Hard Disk Drives}{Media!HDD}}%Acronym;Def;Index
+\newcommand{\SSD}{\KNEADdefineAcronym{SSD}{Solid State Drive}{Media!SSD}}%Acronym;Def;Index
+\newcommand{\SSDs}{\KNEADdefineAcronym{SSDs}{Solid State Drives}{Media!SSD}}%Acronym;Def;Index
+
+
+%-%
+% Wiring types 
+%
+\newcommand{\TwistedPair}{\KNEADdefineAcronym{TP}{Twisted Pair}{TP!TwistedPair}}%Acronym;Def;Index
+\newcommand{\CATthree}{\KNEADdefineAcronym{Cat-3}{Twisted Pair Category 3}{TP!Cat-3}}%Acronym;Def;Index
+\newcommand{\CATfour}{\KNEADdefineAcronym{Cat-4}{Twisted Pair Category 4}{TP!Cat-4}}%Acronym;Def;Index
+\newcommand{\CATfive}{\KNEADdefineAcronym{Cat-5}{Twisted Pair Category 5}{TP!Cat-5}}%Acronym;Def;Index
+\newcommand{\CATsix}{\KNEADdefineAcronym{Cat-6}{Twisted Pair Category 6}{TP!Cat-6}}%Acronym;Def;Index
+\newcommand{\CATseven}{\KNEADdefineAcronym{Cat-7}{Twisted Pair Category 7}{TP!Cat-7}}%Acronym;Def;Index
+
+%-%
+%% misc BIOMETRIC keywords used often
+%
+\newcommand{\recognition}{\KNEADdefineAcronym{recognition}{Biometric recognition}{Biometrics!recognition}}%Acronym;Def;Index
+\newcommand{\Recognition}{\KNEADdefineAcronym{Recognition}{Biometric recognition}{Biometrics!recognition}}%Acronym;Def;Index
+\newcommand{\identification}{\KNEADdefineAcronym{identification}{Biometric identification}{Biometrics!identification}}%Acronym;Def;Index
+\newcommand{\Identification}{\KNEADdefineAcronym{Identification}{Biometric identification}{Biometrics!identification}}%Acronym;Def;Index
+\newcommand{\verification}{\KNEADdefineAcronym{verification}{Biometric verification}{Biometrics!verification}}%Acronym;Def;Index
+\newcommand{\Verification}{\KNEADdefineAcronym{Verification}{Biometric verification}{Biometrics!Verification}}%Acronym;Def;Index
+\newcommand{\FTA}{\KNEADdefineAcronym{FTA}{Biometric Failure To Acquire}{Biometrics!Failure To Acquire}}%Acronym;Def;Index
+\newcommand{\FTE}{\KNEADdefineAcronym{FTE}{Biometric Failure To Enroll}{Biometrics!Failure To Enroll}}%Acronym;Def;Index
+\newcommand{\MostAppropriate}{\KNEADdefineAcronym{Most-Appropriate}{Most Appropriate Biometric Sample}{Most Appropriate Biometric Sample}}%Acronym;Def;Index
+
+
+%-%
+%% misc Test and verification types
+%
+\newcommand{\LRIP}{\KNEADdefineAcronym{LRIP}{Low-Rate Initial Production}{Low-Rate Initial Production}}%Acronym;Def;Index
+\newcommand{\DVT}{\KNEADdefineAcronym{DVT}{Design Verification Test}{Design Verification Test}}%Acronym;Def;Index
+\newcommand{\FAI}{\KNEADdefineAcronym{FAI}{First Article Inspection}{First Article Inspection}}%Acronym;Def;Index
+\newcommand{\FAT}{\KNEADdefineAcronym{FAT}{Factory Acceptance Test}{Factory Acceptance Test}}%Acronym;Def;Index
+\newcommand{\FVT}{\KNEADdefineAcronym{FVT}{Factory Verification Test}{Factory Verification Test}}%Acronym;Def;Index
+\newcommand{\BIT}{\KNEADdefineAcronym{BIT}{Built-In Test}{Built-In Test}}%Acronym;Def;Index
+\newcommand{\MTBF}{\KNEADdefineAcronym{MTBF}{Mean Time Between Failures}{Mean Time Between Failures}}%Acronym;Def;Index
+\newcommand{\MTTR}{\KNEADdefineAcronym{MTTR}{Mean Time To Repair}{Mean Time To Repair}}%Acronym;Def;Index
+\newcommand{\AsubO}{\KNEADdefineAcronym{Ao}{Operational Availability}{Operational Availability}}%Acronym;Def;Index
+\newcommand{\MDT}{\KNEADdefineAcronym{MDT}{Mission Down Time}{Mission Down Time}}%Acronym;Def;Index
+\newcommand{\ALDT}{\KNEADdefineAcronym{ALDT}{Administrative and Logistics Delay Time}{Administrative and Logistics Delay Time}}%Acronym;Def;Index
+\newcommand{\MTBCF}{\KNEADdefineAcronym{MTBCF}{Mean Time Between Critical Failures}{Mean Time Between Critical Failures}}%Acronym;Def;Index
+\newcommand{\MRT}{\KNEADdefineAcronym{MRT}{Mean Repair Time}{Mean Repair Time}}%Acronym;Def;Index
+
+%-%
+%% Books and other seminal artifact acronyms
+%
+\newcommand{\MMM}{\KNEADdefineAcronym{Mythical Man Month}{Mythical Man Month}{Seminal Artifacts!Mythical Man Month}}%Acronym;Def;Index
+\newcommand{\PMBOK}{\KNEADdefineAcronym{Project Management Book of Knowledge}{Project Management Book of Knowledge}{Seminal Artifacts!Project Management Book of Knowledge}}%Acronym;Def;Index
+\newcommand{\SOANM}{\KNEADdefineAcronym{Soul of a New Machine}{Project Management Book of Knowledge}{Seminal Artifacts!Soul of a New Machine}}%Acronym;Def;Index
+
+
+%-%
+%% misc SAFETY types (ain't safety always last :( )
+%
+\newcommand{\PFD}{\KNEADdefineAcronym{PFD}{Personal Floatation Device}{Safety!PFD}}%Acronym;Def;Index
+\newcommand{\PPE}{\KNEADdefineAcronym{PPE}{Personal Protection Equipment}{Safety!PPE}}%Acronym;Def;Index
+\newcommand{\MOPP}{\KNEADdefineAcronym{MOPP}{Mission-Oriented Protective Posture}{Safety!MOPP}}%Acronym;Def;Index
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Defintion of globally used glossary definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{KNEAD_ThisAgencySpecifics.tex}%resides in $TEXINPUTS folder
+
+\input{KNEAD_GlobalAddinRefs.tex}%resides in $TEXINPUTS folder, captures stuff added in to be merged into this file in right place

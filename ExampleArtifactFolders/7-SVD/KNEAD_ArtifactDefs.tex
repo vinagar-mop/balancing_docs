@@ -1,0 +1,38 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_ArtifactDefs.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+%
+% Artifact variables
+% Used to set report number for use in footers, etc.
+%
+%%% 
+%%% set this to the report number for use in footers
+\renewcommand{\KNEADdocumentRevision}{P1:\svnfilerev}
+\renewcommand{\KNEADdocumentNum}{SVD20231222}% used in right footer
+\renewcommand{\KNEADeffectiveDate}{22 Aug 2025}% usually a fixed data, often date of first approved release, mainly for QMS documents
+\renewcommand{\KNEADrevisionDate}{\today}%{\today or formatted as 16 Nov 2020}
+\renewcommand{\KNEADreleasedBy}{Vinay Agarwal}% used in right footer
+\renewcommand{\KNEADdocumentCopyRightYear}{2025}
+
+%Set title in  ``TitlePage''.tex using this document title              
+\renewcommand{\KNEADartifactTitle}{%can't use variable with an index for some reason
+{\Large System Version Description}\break
+for the\break
+{\Large The Balance Project}}
+
+
+% comment out the following lines to force newpages at major section divisions
+\renewcommand{\KNEADSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADSUBSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADSUBSUBSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADPARAGRAPHNEWPAGE}{} 
+\renewcommand{\KNEADSUBPARAGRAPHNEWPAGE}{} 
+
+%%%
+%%% Change tocdepth to override default of showing all 5 levels in TOC
+%%% (to avoid all the subpara repeated section names \in {items, inputs, performance, outputs})
+%%%
+%%% %part,ch,sec,ssec,sssec,para,subpara
+%%%   -1,  0,  1,  2,    3,   4,    5
+\setcounter{tocdepth}{3}
+

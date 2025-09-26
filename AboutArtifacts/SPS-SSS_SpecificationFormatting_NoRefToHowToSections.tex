@@ -1,0 +1,48 @@
+%%% SVN stuff
+\svnid{$Id: SPS-SSS_SpecificationFormatting_NoRefToHowToSections.tex 139 2025-06-13 20:26:50Z KneadProject $}
+
+%%%subsection{Specification Formatting}
+%%%\label{loc:Intro_SpecFormattingNoRef}
+
+The specifications are listed and numbered by document sections. 
+The fully qualified specification numbers include the sub-section in which it is contained. 
+These specification numbers are tied to the document level thus they are numbered from 1 to N for each sub-section of the requirements section. 
+This is done to allow for additions within a sub-sections without affecting the numbering in other sub-sections. 
+
+Once a specification has been added, it cannot be deleted, only its status may be changed to ``inactive'' or ``deleted'' to preserve numbering.
+The table format also allows for grouping of related specifications.
+These grouped specification are also numbered sequentially and are also not removed if made inactive. 
+Rather, they are marked in a ``strike-though'' font to denote that they are inactive.
+
+This document allows for marking changes to specifications.
+All specifications may be marked with a change bar.
+This generally implies that one or more parts of a specification changed from the prior revision.
+A note should be provided to indicate the reason for the change, and when, so that future versions of the document, which do not include the change bar, still have rationale included for the current value.
+
+\input{AboutArtifacts/SPS-SSS_SpecificationExample.tex}
+
+The status designations for each specification Status $\in$ \{(T)hreshold, (O)bjective, (I)nactive, (D)eleted\} are based on the following criteria.
+\begin{my_description}
+{
+\item [\OneRqmtThreshold] Items marked ``\OneRqmtThreshold'' are driven by the project threshold needs that must be met in the specified phase.
+
+\item [\OneRqmtObjective] Items marked ``\OneRqmtObjective'' are objective goals of the system in the specified phase. These requirements may stay (O) for all listed phases or may transition from (O) to (T) in future phases. This provides hints as to future expansion of system capabilities so the design can account for the feature without significant later rework.
+
+\item [\OneRqmtInactive] Items marked ``\OneRqmtInactive'' are requirements that are not currently to be met by the system in the specified phase. Unlike `\OneRqmtObjective'' requirements, (I) requirements may be in limbo in terms of certain details but their inclusion may also provide hints as to future expansion of system capabilities. 
+
+\item [\OneRqmtDeleted] Requirements that are not to be met by the system are marked by ``\OneRqmtDeleted''. Use of this status, vice removal of the requirement text, preserves the numbering of subsequent requirements and notes that the requirement once was invoked.
+The rationale for the deletion should be included in the notes section. 
+}
+\end{my_description}
+
+The status may include the applicable versions in which the required feature is supported.
+For example, when a phased development approach is used, a format of [Phase-X] Status can be employed, with multiple phases listed, to indicate when the requirement is to be included in the system.
+
+\if@showreqnotes
+Another major advantage of the table format is the ``Notes" section.
+As specifications are developed, there will be many issues to be resolved.
+And, once issues are clarified, tracking the rationale for the decision is just as important as recording the answer~\cite{ref__Brooks_MMM}.
+Thus the notes section helps the reader and the writer.
+The writer has a logically grouped place to put notes for a specification set and the reader can easily find them without having to refer to footnotes, separated sections, or external documentation.
+A side benefit of the \LaTeX{} formatting is that the notes can be easily omitted in document generation for presentation of the specifications to customers and other external readers, thus protecting possibly sensitive information.
+\fi% end show notes

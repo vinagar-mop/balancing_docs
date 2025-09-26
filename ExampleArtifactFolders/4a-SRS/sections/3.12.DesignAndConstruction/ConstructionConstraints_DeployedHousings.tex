@@ -1,0 +1,64 @@
+%%% \ONERQMT[8] is macro for consistently formatted requirements
+\ONERQMT
+% #1 is requirement Number
+{\RqtNumberBase.1}
+% #2 is Title
+{Water Sensors}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:WaterSensors}
+% #4 is Text of the specification
+{
+This system shall provide water sensors in all deployed electronics housings.
+}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [\TBD] 4.2.4.3.4
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item These will tell if there are ``small'' leaks but failure of electronics will most like be the more telling tell.
+}
+%%%%% end \ONERQMT[8] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.2}
+% #2 is Title
+{Nitrogen Filled}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:Nitrogen Filled}
+% #4 is Text of the specification
+{
+This system shall provide appropriate fittings to either fill all deployed electronics housings with dry nitrogen gas or to remove all air so as to create a vacuum.%Av5
+%This system shall provide appropriate fittings to fill all deployed electronics housings with dry nitrogen gas.
+}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item This specification was updated in version Av5 to include the possibility of simply leaving the vacuum in the deployed electronics enclosures rather than filling with dry N2.
+	\item The goal is to evacuate the normal air and possible replace with dry N2 to prevent corrosion or other issues in the electronics housings (e.g. array electronics and surface float electronics).
+	\item This specification, of course, means that the housings will need connections to evacuate the possible wet air and leave in a vacuum state or to refill with dry nitrogen.
+	\item All electronic housings need to use the same connectors so that only one system is required for any housing, especially when repair is needed at sea.
+}
+% #9 is version for changebars
+{Av5}
+%%%%% end \ONERQMTV[9] macro
+
+

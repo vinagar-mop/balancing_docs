@@ -1,0 +1,32 @@
+%%% SVN stuff
+\svnidlong
+{$HeadURL: https://svn.riouxsvn.com/kneadlatxinputs/ExampleArtifactFolders/zProjectWideData/TestPrepProcs/TestCasePrep_OtherInformation.tex $}
+{$LastChangedDate: 2024-05-21 20:41:47 -0400 (Tue, 21 May 2024) $}
+{$LastChangedRevision: 111 $}
+{$LastChangedBy: KneadProject $}
+\svnid{$Id: TestCasePrep_OtherInformation.tex 111 2024-05-22 00:41:47Z KneadProject $}
+
+\TestProcedure  %\TestProcedure[6] test description container
+% #1 is the test description number, usually built from section number + description within the section
+{\TestProcNumber.4}
+% #2 is the test description name
+{\StdTestNameX Other Information}
+% #3 is the test description LaTeX label
+{lab:tproc_\StdTestName_OtherPreparation_\TestProcNumber}
+% #4 is the list of requirements covered by this test
+{
+\tpRqmt{N/A}
+}
+% #5 is the list of test steps
+{
+\tpStep{Record the user accounts used for this test case.}{User accounts are recorded.}{120pt}
+\tpStep{Record the data sets used (images, media, and data files) for this test case.}{Data sets are recorded.}{120pt}
+\tpStep{If applicable, record the communications method between users during the test case.}{Communications method is recorded.}{36pt}
+\tpStep{If applicable, record any other pertinent information regarding the test case.}{Other pertinent is recorded.}{36pt}
+}
+% #6 is the list notes
+{
+\tpNote{Mark any sections that do not apply to this test as ``N/A'' and add a short note as to why.}
+\tpNote{Feel free to add information as needed on blank pages with numbers followed by letters (e.g. 79-A, 79-B, etc.).}
+}
+%%% end \TestProcedure[6] test description container

@@ -1,0 +1,72 @@
+%%% SVN stuff
+\svnid{$Id: Section_1.3_SpecificationTraceability.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Specification Traceability}
+\label{ssec:Intro_SpecTrace}% must be labeled this since it is referenced above
+
+A project typically has several levels of statements of what needs to be done.
+Often an Operational Concept Description (\OCD) is developed to provide a high level description of the system to be developed and its expected uses.
+A set of documents that follows the MIL-STD-498~\cite{ref__MIL_STD_498} \DID formats is often developed for a project.
+A Statement of Work (\SOW) or a Statement of Objectives (\SOO) is often developed to direct contractors on a project.
+While a \SOW or \SOO is supposed to be more contractual statements of tasks and objectives rather than actually trying to specify what needs to be built, these documents often, however, do include system requirements.
+A better method is to have the \SOW or \SOO reference a formal \SPS so that the full scope of the system can be defined.
+Situations for every project differ so the main thing to understand is that there will be many documents and that their contents need to be related to each other.
+
+
+Given the number of specifications for a system, and all the levels at which the specifications may be written, understanding if all needs of a system are being met is critical.
+Different documents have different levels of specifications and design materials.
+A mapping between the specifications at all of the different levels is essential to make sure that the design meets all of the stated needs of the system and that the system does not include capabilities that are not required.
+
+
+As a system performance specification, the \SPS is the highest level of specification of systems requirements.
+This document defines {\em what} the system needs to do without saying {\em how}.
+Thus, in general, there should be nothing higher to which the requirements in a \SPS can be traced.
+In practice, however, some document such as an \OCD for the system, informal customer requirements documents, or a \SOW or \SOO for the project may be provided that indicates some of the system needs.
+If the specifications in the \SPS meet all the use cases in the \OCD then the system meets the needs but only if the use cases are all inclusive.
+Likewise, if the \SOW or \SOO tries to list things the system needs to do, these needs must be tracked.
+And, of course, statements of need in any straw-man requirements documents need to be met.
+Once the fully developed \SPS specifications are captured then the higher level document(s) be examined to make sure that, at a minimum, all of those things listed are captured in the \SPS.
+This process ensures that the \SPS is compliant with the other ``defining'' stakeholder documents.
+
+
+To ensure coverage compliance, each of the higher level needs, whether implied or explicitly stated, needs to be mapped to the \SPS specification(s) that cover each given need.
+This is expected to result in a one-to-many relationship where many of the \SPS specifications are mapped to a single upper level need.
+And, each specification in the \SPS can be mapped to multiple needs depending on the independence of the needs.
+The details of how to do this mapping, which is best handled through some relational database tool (e.g. \DOORS), are beyond the scope of this introduction.
+The important thing to note is that this traceability determines if the \SPS covers the known needs of the system.
+Since a well-formed \SPS includes many more facets than an \OCD or \SOW / \SOO, there may be orphan \SPS requirements that do not map directly to the higher level documents.
+However, there can be no orphan needs from the stakeholder documents that do not map to the \SPS.
+The key here is to perform a mapping between the \SPS and any higher level stakeholder documents to ensure that the specifications of the \SPS provide compliance to the higher document(s).
+
+
+Another way of saying this is to summarize the overall design philosophy as follows: a level of design should be carried out and mapped to higher level artifacts rather than simply ``deriving'' requirements from the higher level documents.
+This mapping process, thus, is {\em not} a way to derive a fully defining set of requirements for the \SPS.
+The act of ``deriving'' specifications of system from a non-specification document such as a \OCD, \SOW, or \SOO does {\em not} ensure that all the true system needs are captured.
+In fact if this approach is followed then often many requirements are missed because of the incomplete nature of the \OCD, \SOW, or \SOO list of system needs.
+
+
+An \SPS, just like any level document, needs to be developed using domain knowledge and by following best practices and a well-defined documentation format.
+All of the things that must be considered for defining a successful system need to be included in the \SPS.
+Note that, obviously, if the \SOW did all of this then the \SOW would be the \SPS.
+But, in practice, this rarely ever happens, nor should it.
+The \SOW or \SOO are programmatic level documents that list things to do to build the system; they are not supposed to define the system.
+This is the job of the \SPS.
+
+
+The system / sub-system segmentation specification (\SSS) is the second level of specification of systems requirements.
+The \SSS starts to define {\em how} the system will meet the needs and should include a top-level system decomposition (or segmentation) of capabilities from the \SPS to the sub-systems of the system.
+In a typical documentation set, there should be a higher-level document (i.e. the \SPS) to which the specifications in the \SSS can be traced.
+The goal here is to ensure compliance with the higher level document much as was done with the \SPS and higher level programmatic documents.
+If the design specifications in the \SSS cover all the performance specifications in the \SPS then the system design covers the documented system needs.
+This does not mean that the system {\em will} meet the performance specifications, it just means that there are no obvious holes.
+And, of course, if some \SPS specifications are not covered in the \SSS then those specifications obviously cannot be met by the system design.
+
+
+Since the \SPS and \SSS documents are all explicit statements of requirements, there can be no gaps between the specifications in them.
+If there is no mapping from at least one \SSS requirement to each of the \SPS requirements then the system cannot meet the stated requirements of the \SPS.
+While the goal here is to ensure that the specifications of the \SSS provide coverage to the higher document, true compliance can only be determined through design analysis and testing efforts.
+And, if there is an orphan \SSS requirement then the questions must be asked: ``Why is this requirement included?'' and ``Can this requirement be deleted?''.
+Taken together, the \SPS and \SSS documents can form the basis for a well-formed design artifact set: 
+References to higher-level artifacts document where the system goals came from and the code (and hardware) level artifacts (source code and CAD models) should describe the final product details. 
+Coupled with appropriate test documents, this level of design process and documentation generation should adequately allow for successful development while preserving the architectural aspects for future revisions and modifications.
+

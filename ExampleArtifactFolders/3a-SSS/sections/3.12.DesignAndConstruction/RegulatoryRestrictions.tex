@@ -1,0 +1,30 @@
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.2}
+% #2 is Title
+{Proprietary Components}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:ProprietaryComponents}
+% #4 is Text of the specification
+{
+All \ThisSystem variants shall include only software components that are open source or to which the developer has unlimited rights.
+}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by inspection.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The inspection is of the software design documents and build scripts to ensure that all code meets this requirement.
+}
+% #9 is changebar
+{P1}
+%%%%% end \ONERQMT[8] macro

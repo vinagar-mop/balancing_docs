@@ -1,0 +1,926 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: KNEAD GLOBAL DEFINITIONS
+%          MUST BE FIRST
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\GlobalAcnyFont}{}
+\newcommand{\GlobalAcnyFontHRL}{\bf}% for acronyms with HyperRef links added in
+%
+\newcommand{\KNEADfirstUse}{\index{Kneadable Nimble Engineering Artifact Design}{{\GlobalAcnyFont Kneadable Nimble Engineering Artifact Design ({\GlobalAcnyFontHRL KNEAD})}}\xspace}
+\newcommand{\KNEAD}{\index{Kneadable Nimble Engineering Artifact Design}{{\GlobalAcnyFontHRL KNEAD}}\xspace}
+%
+\newcommand{\KNEADtm}{$^{TM}$}
+\newcommand{\LaTeXx}{\LaTeX\xspace}%adds \xpsace to do nice spacing after the fancy LaTeX logo.
+\newcommand{\Biberx}{{\em BibLaTeX/Biber}\xspace}%adds \xpsace to do nice spacing after the ``fancy'' Biber logo.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: KNEAD GLOBAL DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: System full and short names
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\ThisSystem}{\index{This UNDEFINED System}{\GlobalAcnyFont This UNDEFINED System}\xspace}
+\newcommand{\ThisSys}{\index{This System}{\BdpFosAcnyFont This-Sys}\xspace}
+\newcommand{\ThisSysUC}{THIS-SYSTEM} % used for title, etc. where name may need to be capitalized
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: System full and short names
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Generally used artifact name, number, and status definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\KNEADdocumentRevision}{KNEAD-Px}
+\newcommand{\KNEADdocumentNum}{KNEAD-DCN}
+\newcommand{\KNEADrevisionDate}{KNEAD REV DATE}% set to {\today}to get Auto dating for preliminary releases
+\newcommand{\KNEADeffectiveDate}{KNEAD Effective DATE}% usually a fixed data, often date of first approved release, mainly for QMS documents
+\newcommand{\KNEADreleasedBy}{KNEAD RELEASED BY}% Author list or agency, as needed
+\newcommand{\KNEADrevisionStatus}{KNEAD UNDEF REV STATUS}
+\newcommand{\KNEADdocumentCopyRightYear}{YYYY}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: page header and footer definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: ALL page base header and footer definitions
+% (to be mostly overridden by user in the main file, or a common file for a set of artifacts for a project
+% use phantom spaces to align top and bottom lines of each section
+%
+% left segments are expected to be left justified so space is to the right
+% right segments are expected to be right justified so space is to the left
+% both sides have phantom spaces in template since either line could need to move either way based on content
+% no space is needed in centers since they are centered, except for bottom with page number as noted below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\KNEADleftHeader}  {\phantom{\hspace{8.0pt}}KNEAD TOP\phantom{\hspace{0.0pt}}\\ \phantom{\hspace{0.0pt}}LEFT HEADER  \phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADcenterHeader}{KNEAD TOP\\CENTER HEADER}
+\newcommand{\KNEADrightHeader} {\phantom{\hspace{0.0pt}}KNEAD TOP\phantom{\hspace{9.0pt}}\\ \phantom{\hspace{0.0pt}}RIGHT HEADER\phantom{\hspace{0.0pt}}}
+%
+\newcommand{\KNEADleftFooter}  {\phantom{\hspace{8.0pt}}BALANCE BTM\\LEFT FOOTER\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADcenterFooter}{\thepage\phantom{\hspace{0.0pt}}\\KNEAD BTM CENTER} %phantom needed to prevent error on title pg when pg# is gobbled
+\newcommand{\KNEADrightFooter} {\phantom{\hspace{0.0pt}}KNEAD BTM\phantom{\hspace{8.0pt}}\\ \phantom{\hspace{0.0pt}}RIGHT FOOTER\phantom{\hspace{0.0pt}}}
+%
+% example of how to include an image in a header section
+%
+%%%\KNEADleftHeader{\setlength{\unitlength}{.01in}
+%%%\begin{picture}(0,0)
+%%%\put(0,0){\includegraphics[height=.5in]{KNEAD_UnderConstruction_300dpi_6.5inchesWide.eps}}
+%%%\end{picture}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%
+%%%%% macros to define headers for Standard artifacts (e.g. MIL-STD-498 DIDs), etc.
+%%%%%
+\newcommand{\KNEADHDRSDP}{System\phantom{\hspace{30.0pt}}\\Development Plan\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADRHDROCD}{Operational Concept\phantom{\hspace{0.0pt}}\\Description\phantom{\hspace{22pt}}}
+\newcommand{\KNEADRHDRSPS}{System Performance\phantom{\hspace{0.0pt}}\\Specification\phantom{\hspace{18.0pt}}}
+\newcommand{\KNEADRHDRSSS}{System / Subsystem\phantom{\hspace{0.0pt}}\\Specification\phantom{\hspace{20.0pt}}}
+\newcommand{\KNEADRHDRSSDD}{System / Subsystem\phantom{\hspace{0.0pt}}\\Design Description\phantom{\hspace{4.0pt}}}
+\newcommand{\KNEADRHDRSUM}{System\phantom{\hspace{16.0pt}}\\Usage Manual\phantom{\hspace{0.0pt}}}
+\newcommand{\KNEADRHDRSRS}{Software\phantom{\hspace{0.0pt}}\\Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRHRS}{Hardware\phantom{\hspace{0.0pt}}\\Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTP}{System\phantom{\hspace{6.0pt}}\\Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRETP}{Engineering\phantom{\hspace{0.0pt}}\\Test Plan\phantom{\hspace{6pt}}}
+\newcommand{\KNEADRHDREITP}{Engineering and\phantom{\hspace{15.0pt}}\\Integration Test Plan\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTD}{System\phantom{\hspace{27.0pt}}\\Test Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRSTS}{System\phantom{\hspace{27.0pt}}\\Test Specification\phantom{\hspace{0pt}}}
+\newcommand{\KNEADRHDRATP}{System Acceptance\phantom{\hspace{0pt}}\\Test Procedure\phantom{\hspace{9.5pt}}}
+\newcommand{\KNEADRHDRSTR}{System\phantom{\hspace{12.0pt}}\\Test Report\phantom{\hspace{0pt}}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: page header and footer definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Title page base definitions
+% (to be mostly overridden by user in the main file, or, by convention, in a file named zPROJECTtitlepageInfo.tex
+% which is so named to list at the bottom of the directory listing below the important artifact files.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\KNEADagencyName}{MIL Corporation, REPS Sector}
+
+
+\ifpdf
+\renewcommand{\KNEADtitlepageLogoFile}{images/KNEADlogo_Image.pdf}
+\else
+\renewcommand{\KNEADtitlepageLogoFile}{images/KNEADlogo_300dpi_6000milsWide.eps}
+\fi
+\newcommand{\KNEADtitlepageLogoWidth}{6.5in}
+%
+\newcommand{\KNEADartifactTitle}{Undefined\break Title\break Page\break Title}%can't use variable with an index for some reason
+%
+\newcommand{\KNEADtitlePageTitle}
+{
+\KNEADartifactTitle\break
+DCN: \KNEADdocumentNum-\KNEADdocumentRevision\break
+Revision Date: \KNEADrevisionDate
+}
+
+%
+\newcommand{\KNEADtitlepageCompanyHeader}{Prepared by:}
+\newcommand{\KNEADtitlepageCompanyInfo}
+	{
+		The Undefined Corporation\\
+		Unknown Address\\
+		Unknown City, State, Zip, and Country\\
+		Unknown Contact Info\\
+		CAGE : Unknown \hspace{6pt} DUNS : Unknown
+	}
+%
+\newcommand{\KNEADtitlepageDistributionStatement}{Distribution is not limited but is governed by the under the conditions of the \LaTeXx Project Public License.}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Title page base definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Force each Section level to start on a newpage
+%          Comment out at lower levels to NOT force new pages
+%          Override at project, or most probably at the artifact level, as applicable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\KNEADSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBSUBSECTIONNEWPAGE}{\newpage} 
+\newcommand{\KNEADPARAGRAPHNEWPAGE}{\newpage} 
+\newcommand{\KNEADSUBPARAGRAPHNEWPAGE}{\newpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Force each Section level to start on a newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Defintion of globally used glossary definitions
+%          Define globally for consistency, override as needed at lower levels
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%% Glossary terms
+%
+\newcommand{\Customer}{\index{Glossary!Customer}{\GlobalAcnyFont Customer}\xspace}
+\newcommand{\Customers}{\index{Glossary!Customer}{\GlobalAcnyFont Customers}\xspace}
+\newcommand{\Operator}{\index{Glossary!Operator}{\GlobalAcnyFont Operator}\xspace}
+\newcommand{\Operators}{\index{Glossary!Operator}{\GlobalAcnyFont Operators}\xspace}
+\newcommand{\Sponsor}{\index{Glossary!Sponsor}{\GlobalAcnyFont Sponsor}\xspace}
+\newcommand{\Sponsors}{\index{Glossary!Sponsor}{\GlobalAcnyFont Sponsors}\xspace}
+\newcommand{\Stakeholder}{\index{Glossary!Stakeholder}{\GlobalAcnyFont Stakeholder}\xspace}
+\newcommand{\Stakeholders}{\index{Glossary!Stakeholder}{\GlobalAcnyFont Stakeholders}\xspace}
+
+
+\newcommand{\OurCorporateName}{Our Corporate Name\xspace}
+
+
+\newcommand{\LaTeXcmd}[1]{\textcolor{blue}{\textbackslash{#1}}}
+
+\newcommand{\MT}{{\textsc{Intentionally Left Blank}}\xspace}
+\newcommand{\NoNotes}{{\textsc{There Are No Notes for This Item}}\xspace}
+
+%command to put cookie crumbs in text and in index for things to be checked
+\newcommand{\CHECKME}{\index{All Check Me Items}{\em --CHECK-ME--}\xspace}
+%commands for standard TBD/TBD items with index key near top of list
+\newcommand{\TBD}{\index{All To Be Determined Items}{\GlobalAcnyFont \textcolor{red}{...TBD...}}\xspace}
+\newcommand{\TBS}{\index{All To Be Specified Items}{\em TBS\line(1,0){50} }\xspace}
+%command for generic overcome by events acronym
+\newcommand{\OBE}{\index{Overcome By Events}{\GlobalAcnyFont Overcome By Events}\xspace}
+
+% \newcommand{\TWIX}{\GlobalAcnyFont TWIX}\xspace}
+\newcommand{\MBSS}{{\GlobalAcnyFont MBSS}\xspace}
+\newcommand{\ABIS}{\index{Automated Biometric Identification System}{\GlobalAcnyFont ABIS}\xspace}
+\newcommand{\BEWL}{\index{Biometric Enabled Watch List}{\GlobalAcnyFont BEWL}\xspace}
+\newcommand{\TCN}{\index{Transaction Control Number}{\GlobalAcnyFont TCN}\xspace}
+\newcommand{\NMEC}{\index{National Media Exploitation Center}{\GlobalAcnyFont NMEC}\xspace}
+\newcommand{\EBTS}{\index{Electronic Biometric Transmission Specification}{\GlobalAcnyFont EBTS}\xspace}
+\newcommand{\FbiAppendixF}{\index{FBI Appendix F}{\GlobalAcnyFont FBI Appendix F}\xspace}
+\newcommand{\BioAPI}{\index{BioAPI}{\GlobalAcnyFont BioAPI}\xspace}
+\newcommand{\BIP}{\index{Biometric Interworking Protocol}{\GlobalAcnyFont BIP}\xspace}
+\newcommand{\BFP}{\index{Biometric Function Providers}{\GlobalAcnyFont BFP}\xspace}
+\newcommand{\BSP}{\index{Biometric Service Providers}{\GlobalAcnyFont BSP}\xspace}
+\newcommand{\WSBD}{\index{Web Services Biometric Devices}{\GlobalAcnyFont WS-BD}\xspace}
+\newcommand{\MISO}{\index{Military Information Support Operations}{\GlobalAcnyFont MISO}\xspace}
+\newcommand{\MPC}{\index{Media Production Center}{\GlobalAcnyFont MPC}\xspace}
+\newcommand{\IPD}{\index{InterPupillary Distance}{\GlobalAcnyFont IPD}\xspace}
+\newcommand{\PittPatt}{\index{Pitt Patt Facial Recognition}{\GlobalAcnyFont Pitt Patt\texttrademark}\xspace}
+
+%
+% CM tools
+%
+\newcommand{\Git}{\index{CM:Git}{\GlobalAcnyFont Git\texttrademark}\xspace}
+\newcommand{\Jira}{\index{CM:Jira}{\GlobalAcnyFont Jira\texttrademark}\xspace}
+\newcommand{\Subversion}{\index{CM:Subversion}{\GlobalAcnyFont Subversion\texttrademark}\xspace}
+
+
+%
+% Agencies and Companies 
+%
+\newcommand{\Garmin}{\index{Garmin}{\GlobalAcnyFont Garmin}\xspace}
+\newcommand{\JIDA}{\index{Joint Improvized-threat Detection Agency}{\GlobalAcnyFont JIDA}\xspace}
+\newcommand{\JHUAPL}{\index{Johns Hopkins University Applied Physics Laboratory}{\GlobalAcnyFont JHUAPL}\xspace}
+\newcommand{\APLJHU}{\JHUAPL}
+\newcommand{\LANL}{\index{Los Alamos National Laboratory}{\GlobalAcnyFont LANL}\xspace}
+\newcommand{\NASC}{\index{NAVMAR Applied Sciences Corporation}{\GlobalAcnyFont NASC}\xspace}
+\newcommand{\NRL}{\index{Navy Research Lab}{\GlobalAcnyFont NRL}\xspace}
+\newcommand{\FCC}{\index{Federal Communications Commission}{\GlobalAcnyFont FCC}\xspace}
+\newcommand{\SNL}{\index{Sandia National Laboratory}{\GlobalAcnyFont SNL}\xspace}
+\newcommand{\SRI}{\index{Stanford Research Institute}{\GlobalAcnyFont SRI}\xspace}
+\newcommand{\RDA}{\index{Richard Dator Associates}{\GlobalAcnyFont RDA}\xspace}
+\newcommand{\SLAt}{\index{Sea Land Aire Technologies}{\GlobalAcnyFont SLAt}\xspace}
+\newcommand{\DHS}{\index{Department of Homeland Security}{\GlobalAcnyFont DHS}\xspace}
+\newcommand{\DoD}{\index{Department of Defense}{\GlobalAcnyFont DoD}\xspace}
+\newcommand{\FBI}{\index{Federal Bureau of Investigation}{\GlobalAcnyFont FBI}\xspace}
+\newcommand{\NGA}{\index{National Geospatial Intelligence Agency}{\GlobalAcnyFont NGA}\xspace}
+\newcommand{\NIST}{\index{National Institute of Standards and Technology}{\GlobalAcnyFont NIST}\xspace}
+\newcommand{\ISO}{\index{International Organization for Standardization}{\GlobalAcnyFont ISO}\xspace}
+\newcommand{\DISA}{\index{Defense Information Systems Agency}{\GlobalAcnyFont DISA}\xspace}
+\newcommand{\IEEE}{\index{Institute of Electrical and Electronic Engineers}{\GlobalAcnyFont IEEE}\xspace}
+\newcommand{\ACM}{\index{Association of Computing Machinery}{\GlobalAcnyFont ACM}\xspace}
+
+\newcommand{\NAWC}{\index{Naval Air Warfare Center}{\GlobalAcnyFont NAWC}\xspace}
+\newcommand{\NAWCAD}{\index{Naval Air Warfare Center - Aircraft Division}{\GlobalAcnyFont NAWCAD}\xspace}
+\newcommand{\NAWCADWOLF}{\index{Naval Air Warfare Center - Aircraft Division, Webster Outlying Field}{\GlobalAcnyFont NAWCAD-WOLF}\xspace}
+\newcommand{\NIWC}{\index{Naval Information Warfare Center}{\GlobalAcnyFont NIWC}\xspace}
+\newcommand{\NUWC}{\index{Naval Undersea Warfare Center}{\GlobalAcnyFont NUWC}\xspace}
+\newcommand{\NSWC}{\index{Naval Surface Warfare Center}{\GlobalAcnyFont NSWC}\xspace}
+\newcommand{\SOCOM}{\index{Special Operations Command}{\GlobalAcnyFont SOCOM}\xspace}
+
+% General Design Acronyms
+
+\newcommand{\BOM}{\index{Bill Of Materials}{\GlobalAcnyFont BOM}\xspace}
+\newcommand{\MEL}{\index{Master Equipment List}{\GlobalAcnyFont MEL}\xspace}
+\newcommand{\MPL}{\index{Master Parts List}{\GlobalAcnyFont MPL}\xspace}
+\newcommand{\TDP}{\index{Technical Data Package}{\GlobalAcnyFont TDP}\xspace}
+\newcommand{\PKO}{\index{Project Kick-Off}{\GlobalAcnyFont PKO}\xspace}
+\newcommand{\PWU}{\index{Project Wrap-Up}{\GlobalAcnyFont PWU}\xspace}
+\newcommand{\ECO}{\index{Engineering Change Order}{\GlobalAcnyFont ECO}\xspace}
+\newcommand{\ECOs}{\index{Engineering Change Order}{\GlobalAcnyFont ECOs}\xspace}
+\newcommand{\ECP}{\index{Engineering Change Proposal}{\GlobalAcnyFont ECP}\xspace}
+\newcommand{\ECPs}{\index{Engineering Change Proposal}{\GlobalAcnyFont ECPs}\xspace}
+\newcommand{\SME}{\index{Subject Matter Expert}{\GlobalAcnyFont SME}\xspace}
+\newcommand{\SMEs}{\index{Subject Matter Expert}{\GlobalAcnyFont SMEs}\xspace}
+\newcommand{\FoS}{\index{Family of Systems}{\GlobalAcnyFont FoS}\xspace}
+
+%
+% Agile, SAFe, and Nimble
+%
+\newcommand{\Agile}{\index{Agile Development}{\GlobalAcnyFont Agile}\xspace}
+\newcommand{\AGILE}{\index{Agile Development}{\GlobalAcnyFont Agile}\xspace}
+
+\newcommand{\SAFe}{\index{Scaled Agile Framework!SAFe}{\GlobalAcnyFont SAFe}\xspace}
+\newcommand{\SAFePI}{\index{Scaled Agile Framework!Program Increment}{\GlobalAcnyFont SAFePI}\xspace}
+\newcommand{\SAFePIs}{\index{Scaled Agile Framework!Program Increment}{\GlobalAcnyFont SAFePIs}\xspace}
+\newcommand{\SAFeART}{\index{Scaled Agile Framework!Agile Release Train}{\GlobalAcnyFont SAFeART}\xspace}
+\newcommand{\SAFeARTs}{\index{Scaled Agile Framework!Agile Release Train}{\GlobalAcnyFont SAFeARTs}\xspace}
+
+\newcommand{\Nimble}{\index{Nimble Development}{\GlobalAcnyFont Nimble}\xspace}
+\newcommand{\NimblePI}{\index{Nimble Development!Project Increment}{\GlobalAcnyFont NimblePI}\xspace}
+\newcommand{\NimblePIs}{\index{Nimble Development!Project Increment}{\GlobalAcnyFont NimblePIs}\xspace}
+\newcommand{\NimbleRT}{\index{Nimble Development!Nimble Release Train}{\GlobalAcnyFont NRT}\xspace}
+\newcommand{\NimbleRTs}{\index{Nimble Development!Nimble Release Train}{\GlobalAcnyFont NRTs}\xspace}
+
+\newcommand{\SysML}{\index{System Modeling Language}{\GlobalAcnyFont SysML}\xspace}
+
+%
+% general process-related 
+%
+\newcommand{\CMMI}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI}\xspace}
+\newcommand{\CMMIONE}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI-1}\xspace}
+\newcommand{\CMMITWO}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI-2}\xspace}
+\newcommand{\CMMITHREE}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI-3}\xspace}
+\newcommand{\CMMIFOUR}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI-4}\xspace}
+\newcommand{\CMMIFIVE}{\index{Capability Model Maturity Index}{\GlobalAcnyFont CMMI-5}\xspace}
+\newcommand{\OPEXP}{\index{Operational Experimentation}{\GlobalAcnyFont Operational Experimentation}\xspace}
+%\newcommand{\EXSPEC}{\index{Executable Specification}{\GlobalAcnyFont Executable Specification}\xspace}
+\newcommand{\EXECSPEC}{\index{Executable Specification}{\GlobalAcnyFont Executable Specification}\xspace}
+\newcommand{\KPP}{\index{Key Performance Parameter}{\GlobalAcnyFont KPP}\xspace}
+\newcommand{\KSA}{\index{Key System Attribute}{\GlobalAcnyFont KSA}\xspace}
+\newcommand{\SDLC}{\index{System Development Life Cycle}{\GlobalAcnyFont SDLC}\xspace}
+\newcommand{\DigitalEngineering}{\index{Digital Engineering}{\GlobalAcnyFont Digital Engineering}\xspace}
+\newcommand{\MBSE}{\index{Model-Based Systems Engineering}{\GlobalAcnyFont MBSE}\xspace}
+\newcommand{\UPM}{\index{Unified Process Model}{\GlobalAcnyFont UPM}\xspace}
+\newcommand{\YSM}{\index{Yordon's Structured Method}{\GlobalAcnyFont YSM}\xspace}
+\newcommand{\Waterfall}{\index{Waterfall Model}{\GlobalAcnyFont Waterfall}\xspace}
+\newcommand{\Kanban}{\index{Kanban}{\GlobalAcnyFont Kanban}\xspace}
+\newcommand{\SE}{\index{Systems Engineering}{\GlobalAcnyFont SE}\xspace}
+
+\newcommand{\WBS}{\index{Work Breakdown Structure}{\GlobalAcnyFont WBS}\xspace}
+\newcommand{\IMS}{\index{Integrated Master Schedule}{\GlobalAcnyFont IMS}\xspace}
+
+\newcommand{\SETR}{\index{Process Review!Systems Engineering Technical Review}{\GlobalAcnyFont SETR}\xspace}
+\newcommand{\SRR}{\index{Process Review!System Requirements Review}{\GlobalAcnyFont SRR}\xspace}
+\newcommand{\PDR}{\index{Process Review!Preliminary Design Review}{\GlobalAcnyFont PDR}\xspace}
+\newcommand{\CDR}{\index{Process Review!Comprehensive Design Review}{\GlobalAcnyFont CDR}\xspace}
+\newcommand{\ERR}{\index{Process Review!Engineering Release Review}{\GlobalAcnyFont ERR}\xspace}
+\newcommand{\IRR}{\index{Process Review!Integration Readiness Review}{\GlobalAcnyFont IRR}\xspace}
+\newcommand{\TRR}{\index{Process Review!Test Readiness Review}{\GlobalAcnyFont TRR}\xspace}
+\newcommand{\PRR}{\index{Process Review!Production Readiness Review}{\GlobalAcnyFont PRR}\xspace}
+\newcommand{\DRR}{\index{Process Review!Delivery Readiness Review}{\GlobalAcnyFont DRR}\xspace}
+\newcommand{\NRR}{\index{Process Review!iNstallation Readiness Review}{\GlobalAcnyFont NRR}\xspace}
+
+\newcommand{\PCA}{\index{Physical Configuration Audit}{\GlobalAcnyFont PCA}\xspace}
+\newcommand{\PCAs}{\index{Physical Configuration Audit}{\GlobalAcnyFont PCAs}\xspace}
+\newcommand{\FCA}{\index{Functional Configuration Audit}{\GlobalAcnyFont FCA}\xspace}
+\newcommand{\FCAs}{\index{Functional Configuration Audit}{\GlobalAcnyFont FCAs}\xspace}
+
+\newcommand{\TIM}{\index{Technical Interchange Meeting}{\GlobalAcnyFont TIM}\xspace}
+\newcommand{\TIMs}{\index{Technical Interchange Meeting}{\GlobalAcnyFont TIMs}\xspace}
+\newcommand{\SOVAT}{\index{System Operational Verification Acceptance Test}{\GlobalAcnyFont SOVAT}\xspace}
+
+\newcommand{\CM}{\index{Process Review!Configuration Management}{\GlobalAcnyFont CM}\xspace}
+\newcommand{\CCB}{\index{Process Review!Configuration Control Board}{\GlobalAcnyFont CCB}\xspace}
+\newcommand{\CCBlong}{\index{Process Review!Configuration Control Board}{Configuration Control Board}\xspace}
+
+
+\newcommand{\FMS}{\index{Foreign Military Sales}{\GlobalAcnyFont FMS}\xspace}
+
+\newcommand{\ISONINEKONE}{\index{ISO-9001}{\GlobalAcnyFont ISO-9001}\xspace}
+\newcommand{\NATO}{\index{North Atlantic Treaty Organization}{\GlobalAcnyFont NATO}\xspace}
+\newcommand{\GFE}{\index{Government Furnished Equipment}{\GlobalAcnyFont GFE}\xspace}
+\newcommand{\EntryControlPoint}{\index{Entry Control Point}{\GlobalAcnyFont Entry Control Point}\xspace}
+\newcommand{\FOB}{\index{Forward Operating Base}{\GlobalAcnyFont FOB}\xspace}
+\newcommand{\ISR}{\index{Intelligence, Surveillance, and Reconnaissance}{\GlobalAcnyFont ISR}\xspace}
+\newcommand{\LEP}{\index{Locally Employed Person}{\GlobalAcnyFont LEP}\xspace}
+
+
+\newcommand{\Ctwo}{\index{Cn!C2}{\GlobalAcnyFont C2}\xspace}
+%\newcommand{\Cthree}{\index{C5!C3}{\GlobalAcnyFont C3}\xspace}
+\newcommand{\Cfour}{\index{Cn!C4}{\GlobalAcnyFont C4}\xspace}
+\newcommand{\Cfive}{\index{Cn!C5}{\GlobalAcnyFont C5}\xspace}
+\newcommand{\Csix}{\index{Cn!C6}{\GlobalAcnyFont C6}\xspace}
+\newcommand{\CfourISR}{\index{Cn!C4ISR}{\GlobalAcnyFont C4ISR}\xspace}
+\newcommand{\CfiveISR}{\index{Cn!C5ISR}{\GlobalAcnyFont C5ISR}\xspace}
+\newcommand{\CsixISR}{\index{Cn!C6ISR}{\GlobalAcnyFont C6ISR}\xspace}
+
+%
+% ILS acronyms
+%
+\newcommand{\ILS}{\index{Integrated Logistics Support}{\GlobalAcnyFont ILS}\xspace}
+\newcommand{\CPSR}{\index{Contractor Purchasing System Review}{\GlobalAcnyFont CPSR}\xspace}
+\newcommand{\PALT}{\index{Procurement Action Lead Time}{\GlobalAcnyFont PALT}\xspace}
+\newcommand{\PHST}{\index{Packaging, Handling, Storage, and Transportation}{\GlobalAcnyFont PHS\&T}\xspace}
+\newcommand{\MICS}{\index{Material Inventory Control System}{\GlobalAcnyFont MICS}\xspace}
+\newcommand{\RMA}{\index{Return Material Authorization}{\GlobalAcnyFont RMA}\xspace}
+
+
+%
+% C/C++/Java Keywords
+%
+
+\newcommand{\keypublic}{\index{public}{\GlobalAcnyFont public}\xspace}
+\newcommand{\keyprotected}{\index{protected}{\GlobalAcnyFont protected}\xspace}
+\newcommand{\keyprivate}{\index{private}{\GlobalAcnyFont private}\xspace}
+\newcommand{\keyvirtual}{\index{virtual}{\GlobalAcnyFont virtual}\xspace}
+\newcommand{\keyconst}{\index{const}{\GlobalAcnyFont const}\xspace}
+\newcommand{\keytypedef}{\index{typedef}{\GlobalAcnyFont typedef}\xspace}
+
+\newcommand{\doxygen}{\index{Doxygen}{\GlobalAcnyFont doxygen}\xspace}
+\newcommand{\Doxygen}{\index{Doxygen}{\GlobalAcnyFont Doxygen}\xspace}
+
+\newcommand{\Xml}{\index{eXtensible Markup Language}{\GlobalAcnyFont XML}\xspace}
+\newcommand{\XML}{\index{eXtensible Markup Language}{\GlobalAcnyFont XML}\xspace}
+\newcommand{\DHCP}{\index{Dynamic Host Configuration Protocol}{\GlobalAcnyFont DHCP}\xspace}
+\newcommand{\Tcp}{\index{Transmission Control Protocol}{\GlobalAcnyFont TCP}\xspace}
+\newcommand{\TCP}{\index{Transmission Control Protocol}{\GlobalAcnyFont TCP}\xspace}
+\newcommand{\IP}{\index{Internet Protocol}{\GlobalAcnyFont IP}\xspace}
+\newcommand{\IPTV}{\index{Internet Protocol Television}{\GlobalAcnyFont IPTV}\xspace}
+\newcommand{\TCPIP}{\index{Transmission Control Protocol / Internet Protocol}{\GlobalAcnyFont TCP/IP}\xspace}
+\newcommand{\Udp}{\index{User Datagram Protocol }{\GlobalAcnyFont UDP}\xspace}
+\newcommand{\UDP}{\index{User Datagram Protocol }{\GlobalAcnyFont UDP}\xspace}
+\newcommand{\Icmp}{\index{Internet Control Message Protocol }{\GlobalAcnyFont ICMP}\xspace}
+\newcommand{\ICMP}{\index{Internet Control Message Protocol }{\GlobalAcnyFont ICMP}\xspace}
+\newcommand{\Snmp}{\index{Simple Network Management Protocol }{\GlobalAcnyFont SNMP}\xspace}
+\newcommand{\SNMP}{\index{Simple Network Management Protocol }{\GlobalAcnyFont SNMP}\xspace}
+\newcommand{\Ack}{\index{ACKnowledge}{\GlobalAcnyFont ACK}\xspace}
+\newcommand{\ACK}{\index{ACKnowledge}{\GlobalAcnyFont ACK}\xspace}
+\newcommand{\Nack}{\index{Negative ACKnowledge}{\GlobalAcnyFont NACK}\xspace}
+\newcommand{\NACK}{\index{Negative ACKnowledge}{\GlobalAcnyFont NACK}\xspace}
+\newcommand{\ASNone}{\index{Abstract Syntax Notation One}{\GlobalAcnyFont ASN.1}\xspace}
+\newcommand{\ROI}{\index{Region of Interest}{\GlobalAcnyFont ROI}\xspace}
+\newcommand{\DMM}{\index{Digital Multi-Meter}{\GlobalAcnyFont DMM}\xspace}
+\newcommand{\POTS}{\index{Plain Old Telephone System}{\GlobalAcnyFont POTS}\xspace}
+\newcommand{\DSS}{\index{Digital Spread Spectrum}{\GlobalAcnyFont DSS}\xspace}
+\newcommand{\HVAC}{\index{Heating, Ventilation, and Cooling}{\GlobalAcnyFont HVAC}\xspace}
+\newcommand{\VTC}{\index{Video Tele-Conference}{\GlobalAcnyFont VTC}\xspace}
+\newcommand{\KVM}{\index{Keyboard, Video monitor, and Mouse}{\GlobalAcnyFont KVM}\xspace}
+\newcommand{\NTP}{\index{Network Time Protocol}{\GlobalAcnyFont NTP}\xspace}
+\newcommand{\VM}{\index{Virtual Machine}{\GlobalAcnyFont VM}\xspace}
+\newcommand{\VMs}{\index{Virtual Machine}{\GlobalAcnyFont VMs}\xspace}
+\newcommand{\RU}{\index{Rack Unit}{\GlobalAcnyFont RU}\xspace}
+\newcommand{\RUs}{\index{Rack Unit}{\GlobalAcnyFont RUs}\xspace}
+\newcommand{\EIA}{\index{Electronic Industries Association}{\GlobalAcnyFont EIA}\xspace}
+\newcommand{\CG}{\index{Center of Gravity}{\GlobalAcnyFont CG}\xspace}
+
+
+
+%
+% RMF and IA acronyms
+%
+\newcommand{\RMF}{\index{Risk Management Framework}{\GlobalAcnyFont RMF}\xspace}
+\newcommand{\PIT}{\index{Risk Management Framework!Platform Information Technology}{\GlobalAcnyFont PIT}\xspace}
+\newcommand{\ATO}{\index{Risk Management Framework!Authority to Operate}{\GlobalAcnyFont ATO}\xspace}
+\newcommand{\IATO}{\index{Risk Management Framework!Interim Authority to Operate}{\GlobalAcnyFont IATO}\xspace}
+\newcommand{\IA}{\index{Risk Management Framework!Information Assurance}{\GlobalAcnyFont IA}\xspace}
+\newcommand{\IATT}{\index{Risk Management Framework!Interim Authority To Test}{\GlobalAcnyFont IA}\xspace}
+\newcommand{\CDS}{\index{Risk Management Framework!Cross Domain Solution}{\GlobalAcnyFont CDS}\xspace}
+\newcommand{\STIG}{\index{Risk Management Framework!Security Technical Implementation Guide}{\GlobalAcnyFont STIG}\xspace}
+\newcommand{\STIGs}{{\STIG}s\xspace}
+
+
+\newcommand{\HTML}{\index{Hyper Text Markup Language}{\GlobalAcnyFont HTML}\xspace}
+\newcommand{\HTMLFIVE}{\index{Hyper Text Markup Language}{\GlobalAcnyFont HTML5}\xspace}
+
+
+%
+% RF terms
+%
+\newcommand{\RF}{\index{Radio Frequency}{\GlobalAcnyFont RF}\xspace}
+\newcommand{\ERP}{\index{Effective Radiated Power}{\GlobalAcnyFont ERP}\xspace}
+\newcommand{\PA}{\index{Power Amplifier}{\GlobalAcnyFont PA}\xspace}
+\newcommand{\RFPA}{\index{Radio Frequency Power Amplifier}{\GlobalAcnyFont RFPA}\xspace}
+\newcommand{\HERP}{\index{Hazards of Radiation to Personnel}{\GlobalAcnyFont HERP}\xspace}
+\newcommand{\HERO}{\index{Hazards of Radiation to Ordinance}{\GlobalAcnyFont HERO}\xspace}
+\newcommand{\HERF}{\index{Hazard of Electromagnetic Radiation to Fuel}{\GlobalAcnyFont HERF}\xspace}
+\newcommand{\LNA}{\index{Low Noise Amplifier}{\GlobalAcnyFont LNA}\xspace}
+
+
+
+\newcommand{\SDR}{\index{Software Defined Radio}{\GlobalAcnyFont SDR}\xspace}
+\newcommand{\LRU}{\index{Line Replaceable Unit}{\GlobalAcnyFont LRU}\xspace}
+\newcommand{\LRUs}{\index{Line Replaceable Unit}{\GlobalAcnyFont LRUs}\xspace}
+
+\newcommand{\WiFi}{\index{Wi-Fi}{\GlobalAcnyFont Wi-Fi}\xspace}
+\newcommand{\Ethernet}{\index{Ethernet}{\GlobalAcnyFont Ethernet}\xspace}
+\newcommand{\POE}{\index{Power Over Ethernet}{\GlobalAcnyFont POE}\xspace}
+\newcommand{\WSDL}{\index{Web Services Description Language}{\GlobalAcnyFont WSDL}\xspace}
+\newcommand{\HTTP}{\index{Hyper-Text Transfer Protocol}{\GlobalAcnyFont HTTP}\xspace}
+\newcommand{\RoHS}{\index{Reduction of Hazardous Substances}{\GlobalAcnyFont RoHS}\xspace}
+\newcommand{\ITAR}{\index{International Traffic in Arms Regulations}{\GlobalAcnyFont ITAR}\xspace}
+\newcommand{\BitLocker}{\index{BitLocker\texttrademark}{\GlobalAcnyFont BitLocker\texttrademark}\xspace}
+\newcommand{\LTE}{\index{Long Term Evolution}{\GlobalAcnyFont LTE}\xspace}
+\newcommand{\Bluetooth}{\index{Bluetooth}{\GlobalAcnyFont Bluetooth}\xspace}
+
+
+\newcommand{\consumer}{\index{Consumer Task}{\GlobalAcnyFont consumer}\xspace}
+\newcommand{\Consumer}{\index{Consumer Task}{\GlobalAcnyFont Consumer}\xspace}
+\newcommand{\producer}{\index{Producer Task}{\GlobalAcnyFont producer}\xspace}
+\newcommand{\Producer}{\index{Producer Task}{\GlobalAcnyFont Producer}\xspace}
+
+\newcommand{\CmdLine}{\index{Command Line Arguments}{\GlobalAcnyFont Command Line Arguments}\xspace}
+\newcommand{\EventMsg}{\index{Event Message}{\GlobalAcnyFont Event Message}\xspace}
+\newcommand{\PubSub}{\index{Publish-Subscribe}{\GlobalAcnyFont Publish-Subscribe}\xspace}
+\newcommand{\ReqRep}{\index{Request-Reply}{\GlobalAcnyFont Request-Reply}\xspace}
+\newcommand{\ReqIng}{\index{Request-Ingest}{\GlobalAcnyFont CHANGE TO SERVICE-RESPONSE}\xspace}
+\newcommand{\SvcRes}{\index{Service-Response}{\GlobalAcnyFont Service-Response}\xspace}
+\newcommand{\SOA}{\index{Service Oriented Architecture}{\GlobalAcnyFont SOA}\xspace}
+\newcommand{\MOSA}{\index{Modular Open Systems Approach}{\GlobalAcnyFont MOSA}\xspace}
+
+\newcommand{\Android}{\index{Android\texttrademark}{\GlobalAcnyFont Android\texttrademark}\xspace}
+\newcommand{\Linux}{\index{Linux\texttrademark}{\GlobalAcnyFont Linux\texttrademark}\xspace}
+\newcommand{\MacOS}{\index{MacOS\texttrademark}{\GlobalAcnyFont MacOS\texttrademark}\xspace}
+\newcommand{\Matlab}{\index{Matlab\texttrademark}{\GlobalAcnyFont Matlab}\xspace}
+\newcommand{\Windows}{\index{Windows\texttrademark}{\GlobalAcnyFont Windows\texttrademark}\xspace}
+\newcommand{\IE}{\index{Internet Explorer\texttrademark}{\GlobalAcnyFont Internet Explorer\texttrademark}\xspace}
+\newcommand{\Chrome}{\index{Chrome\texttrademark}{\GlobalAcnyFont Chrome\texttrademark}\xspace}
+\newcommand{\WebEx}{\index{WebEx\texttrademark}{\GlobalAcnyFont WebEx\texttrademark}\xspace}
+\newcommand{\CNTK}{\index{Computational Network ToolKit}{\GlobalAcnyFont CNTK}\xspace}
+\newcommand{\Zip}{\index{Zip\texttrademark}{\GlobalAcnyFont Zip\texttrademark}\xspace}
+\newcommand{\SevenZip}{\index{SevenZip\texttrademark}{\GlobalAcnyFont 7-Zip\texttrademark}\xspace}
+\newcommand{\ARM}{\index{ARM\texttrademark}{\GlobalAcnyFont ARM\texttrademark}\xspace}
+\newcommand{\xEightySix}{\index{x86\texttrademark}{\GlobalAcnyFont x86\texttrademark}\xspace}
+\newcommand{\FPGA}{\index{FPGA}{\GlobalAcnyFont FPGA\xspace}}
+
+%
+% Microsoft TM stuff
+%
+\newcommand{\MicroSoft}{\index{MicroSoft\texttrademark}{\GlobalAcnyFont MicroSoft\texttrademark}\xspace}
+\newcommand{\PowerPoint}{\index{MicroSoft!PowerPoint\texttrademark}{\GlobalAcnyFont MS-PowerPoint\texttrademark}\xspace}
+\newcommand{\Excel}{\index{MicroSoft!Excel\texttrademark}{\GlobalAcnyFont MS-Excel\texttrademark}\xspace}
+\newcommand{\Visio}{\index{MicroSoft!Visio\texttrademark}{\GlobalAcnyFont MS-Visio\texttrademark}\xspace}
+\newcommand{\Word}{\index{MicroSoft!Word\texttrademark}{\GlobalAcnyFont MS-Word\texttrademark}\xspace}
+
+\newcommand{\SharePoint}{\index{MicroSoft:SharePoint}{\GlobalAcnyFont SharePoint\texttrademark}\xspace}
+\newcommand{\FileExplorer}{\index{MicroSoft:FileExplorer}{\GlobalAcnyFont FileExplorer\texttrademark}\xspace}
+
+
+\newcommand{\API}{\index{Application Programmer's Interface}{\GlobalAcnyFont API}\xspace}
+\newcommand{\IPC}{\index{Inter Process Communication}{\GlobalAcnyFont IPC}\xspace}
+% \newcommand{\YMM}{{\GlobalAcnyFont YMM}\xspace}
+% \newcommand{\HMT}{\index{Hybrid Messaging Transport}{\GlobalAcnyFont HMT}\xspace}
+%%% how to format index entries. BUT, it makes this show up first
+%%%\newcommand{\IPM}{\index{{Inter Process Messaging}@\texttt{Inter Process Messaging}}{\GlobalAcnyFont IPM}\xspace}
+% \newcommand{\IPM}{\index{Inter Process Messaging}{\GlobalAcnyFont IPM}\xspace}
+% \newcommand{\LPB}{{\GlobalAcnyFont LPB}\xspace}
+\newcommand{\SDK}{\index{Software Development Kit}{\GlobalAcnyFont SDK}\xspace}
+\newcommand{\GPS}{\index{Global Positioning System }{\GlobalAcnyFont GPS}\xspace}
+\newcommand{\RADAR}{\index{Radio Detection and Ranging}{\GlobalAcnyFont RADAR}\xspace}
+
+\newcommand{\Iridium}{\index{Iridium}{\GlobalAcnyFont Iridium}\xspace}
+\newcommand{\BT}{\index{Bathythermograph}{\GlobalAcnyFont BT}\xspace}
+\newcommand{\OTAR}{\index{Over The Air Re-keying}{\GlobalAcnyFont OTAR}\xspace}
+
+\newcommand{\SQL}{\index{Structured Query Language}{\GlobalAcnyFont SQL}\xspace}
+\newcommand{\GUI}{\index{Graphical User Interface}{\GlobalAcnyFont GUI}\xspace}
+\newcommand{\PMFL}{\index{Performance Monitoring and Fault Localization}{\GlobalAcnyFont PM/FL}\xspace}
+\newcommand{\CRUD}{\index{Create, Replace, Update, and Delete}{\GlobalAcnyFont CRUD}\xspace}
+\newcommand{\UI}{\index{User Interface}{\GlobalAcnyFont UI}\xspace}
+\newcommand{\UX}{\index{User Experience}{\GlobalAcnyFont UX}\xspace}
+\newcommand{\CPU}{\index{Central Processor Unit}{\GlobalAcnyFont CPU}\xspace}
+\newcommand{\GPU}{\index{Graphics Processor Unit}{\GlobalAcnyFont GPU}\xspace}
+\newcommand{\CAD}{\index{Computer Aided Design}{\GlobalAcnyFont CAD}\xspace}
+\newcommand{\ADC}{\index{Analog to Digital Conversion}{\GlobalAcnyFont ADC}\xspace}
+\newcommand{\DAC}{\index{Digital to Analog Conversion}{\GlobalAcnyFont DAC}\xspace}
+
+%
+%%% Network stuff
+%
+\newcommand{\LAN}{\index{Local Area Network}{\GlobalAcnyFont LAN}\xspace}
+\newcommand{\WAN}{\index{Wide Area Network}{\GlobalAcnyFont WAN}\xspace}
+\newcommand{\VLAN}{\index{Virtual Local Area Network}{\GlobalAcnyFont VLAN}\xspace}
+\newcommand{\NIPR}{\index{Non-Classified Internet Protocol Router}{\GlobalAcnyFont NIPR}\xspace}
+\newcommand{\SIPR}{\index{Secret Internet Protocol Router}{\GlobalAcnyFont SIPR}\xspace}
+\newcommand{\JWICS}{\index{Joint Worldwide Intelligence Communications System}{\GlobalAcnyFont JWICS}\xspace}
+
+
+%
+%%% Classification stuff
+%
+\newcommand{\TSSCI}{\index{Classification Level!Top Secret Sensitive Compartmentalized Information}{\GlobalAcnyFont TS-SCI}\xspace}
+\newcommand{\TS}{\index{Classification Level!Top Secret}{\GlobalAcnyFont TS}\xspace}
+\newcommand{\Secret}{\index{Classification Level!Secret}{\GlobalAcnyFont Secret}\xspace}
+\newcommand{\Confidential}{\index{Classification Level!Confidential}{\GlobalAcnyFont Confidential}\xspace}
+\newcommand{\CUI}{\index{Classification Level!Controlled Unclassified Information}{\GlobalAcnyFont CUI}\xspace}
+\newcommand{\FOUO}{\index{Classification Level!For Official Use Only}{\GlobalAcnyFont FOUO}\xspace}
+
+\newcommand{\COMSEC}{\index{COMSEC}{\GlobalAcnyFont \textcolor{red}{COMSEC}}\xspace}
+
+%
+%%% units and such
+%
+\newcommand{\CPA}{\index{Closest Point of Approach}{\GlobalAcnyFont CPA}\xspace}
+\newcommand{\MRA}{\index{Main Response Axis}{\GlobalAcnyFont MRA}\xspace}
+\newcommand{\PSI}{\index{Pounds per Square Inch}{\GlobalAcnyFont PSI}\xspace}
+\newcommand{\nmi}{\index{Nautical Mile}{\GlobalAcnyFont nmi}\xspace}
+\newcommand{\kbps}{\index{Data Speeds!kbps}{\GlobalAcnyFont kbps}\xspace}
+\newcommand{\kBps}{\index{Data Speeds!kBps}{\GlobalAcnyFont kBps}\xspace}
+\newcommand{\Mbps}{\index{Data Speeds!Mbps}{\GlobalAcnyFont Mbps}\xspace}
+\newcommand{\MBps}{\index{Data Speeds!MBps}{\GlobalAcnyFont MBps}\xspace}
+\newcommand{\nm}{\index{nanometer}{\GlobalAcnyFont nm}\xspace}
+
+
+%
+% misc standard term macros
+%
+\newcommand{\AWG}{\index{Average Wire Gauge}{\GlobalAcnyFont AWG}\xspace}
+\newcommand{\BestOfBreed}{\index{Best-Of-Breed}{\GlobalAcnyFont Best-Of-Breed}\xspace}
+\newcommand{\JSON}{\index{JavaScript Object Notation}{\GlobalAcnyFont JSON}\xspace}
+\newcommand{\FTP}{\index{File Transfer Protocol}{\GlobalAcnyFont FTP}\xspace}
+\newcommand{\DAQ}{\index{Data AcQuisition}{\GlobalAcnyFont DAQ}\xspace}
+\newcommand{\KVP}{\index{Key Value Pairs}{\GlobalAcnyFont KVP}\xspace}
+\newcommand{\APR}{\index{Apache Portable Runtime}{\GlobalAcnyFont APR}\xspace}
+\newcommand{\LCD}{\index{Liquid Crystal Display}{\GlobalAcnyFont LCD}\xspace}
+\newcommand{\POSIX}{\index{Portable Operating System Interface }{\GlobalAcnyFont POSIX}\xspace}
+\newcommand{\COTS}{\index{Commercial-Off-The-Shelf}{\GlobalAcnyFont COTS}\xspace}
+\newcommand{\SITSUM}{\index{Situational Summary}{\GlobalAcnyFont SITSUM}\xspace}
+\newcommand{\SEI}{\index{Software Engineering Institute (SEI)}{\GlobalAcnyFont SEI}\xspace}
+\newcommand{\CMU}{\index{Carnegie Mellon University (CMU)}{\GlobalAcnyFont CMU}\xspace}
+\newcommand{\OSJTF}{\index{Open Systems Joint Task Force}{\GlobalAcnyFont OSJTF}\xspace}
+\newcommand{\ARCI}{\index{Acoustic Rapid COTS Insertion}{\GlobalAcnyFont ARCI}\xspace}
+\newcommand{\IIPL}{\index{Iris Image Processing Library}{\GlobalAcnyFont IIPL}\xspace}
+\newcommand{\POC}{\index{Proof of Concept}{\GlobalAcnyFont POC}\xspace}
+\newcommand{\Proto}{\index{Prototype}{\GlobalAcnyFont Proto}\xspace}
+\newcommand{\Demo}{\index{Demonstration}{\GlobalAcnyFont Demo}\xspace}
+\newcommand{\RHIB}{\index{Rigid-Hull Inflatable Boat}{\GlobalAcnyFont RHIB}\xspace}
+\newcommand{\CONUS}{\index{CONUS}{\GlobalAcnyFont CONUS}\xspace}
+\newcommand{\OCONUS}{\index{OCONUS}{\GlobalAcnyFont OCONUS}\xspace}
+\newcommand{\HMI}{\index{Human-Machine Interface}{\GlobalAcnyFont HMI}\xspace}
+\newcommand{\EUD}{\index{End-User Device}{\GlobalAcnyFont EUD}\xspace}
+
+%
+% RS-xxx terms
+%
+\newcommand{\RSTwoThreeTwo}{\index{RS!RS232}{\GlobalAcnyFont RS-232}\xspace}
+\newcommand{\RSFourTwoTwo}{\index{RS!RS422}{\GlobalAcnyFont RS-422}\xspace}
+\newcommand{\RSFourEightFive}{\index{RS!R485}{\GlobalAcnyFont RS-485}\xspace}
+\newcommand{\UART}{\index{RS!UART}{\GlobalAcnyFont UART}\xspace}
+
+%
+% Connector terms
+%
+\newcommand{\RJeleven}{\index{RJ!RJ11}{\GlobalAcnyFont RJ11}\xspace}
+\newcommand{\RJfortyfive}{\index{RJ!RJ45}{\GlobalAcnyFont RJ45}\xspace}
+
+%
+% Battery technology terms
+%
+\newcommand{\LiFePOFour}{\index{Batteries!LiFePO4}{\GlobalAcnyFont LiFePO4}\xspace}
+\newcommand{\LiION}{\index{Batteries!Li-ion}{\GlobalAcnyFont Li-ion}\xspace}
+\newcommand{\LiIon}{\LiION}
+
+%
+% Printed Circuit Board terms
+%
+\newcommand{\PCB}{\index{Printed Circuit Board}{\GlobalAcnyFont PCB}\xspace}
+
+
+%
+% Circled Number and Letter Icons
+%
+% \usepackage{tikz}
+% \usetikzlibrary{calc}
+% \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    % \node[shape=circle, draw, inner sep=1pt, 
+        % minimum height={\f@size*1.6},] (char) {\vphantom{WAH1g}#1};}}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height=12pt] (char) {\vphantom{1g}#1};}}
+
+%
+% Contracting terms
+%
+\newcommand{\ARO}{\index{After Receipt of Order}{\GlobalAcnyFont ARO}\xspace}
+\newcommand{\DARO}{\index{Days After Receipt of Order}{\GlobalAcnyFont DARO}\xspace}
+\newcommand{\FOIA}{\index{Freedom Of Information Act}{\GlobalAcnyFont FOIA}\xspace}
+\newcommand{\RFI}{\index{Request For Information}{\GlobalAcnyFont RFI}\xspace}
+\newcommand{\RFQ}{\index{Request For Quotation}{\GlobalAcnyFont RFQ}\xspace}
+\newcommand{\CDRL}{\index{Contract Deliverable Requirements List}{\GlobalAcnyFont CDRL}\xspace}
+\newcommand{\CDRLs}{\index{Contract Deliverable Requirements List}{\GlobalAcnyFont CDRLs}\xspace}
+\newcommand{\CPM}{\index{Contract Program Manager}{\GlobalAcnyFont CPM}\xspace}
+\newcommand{\PM}{\index{Project Manager}{\GlobalAcnyFont PM}\xspace}
+\newcommand{\MSR}{\index{Monthly Status Report}{\GlobalAcnyFont MSR}\xspace}
+\newcommand{\MSRs}{\index{Monthly Status Report}{\GlobalAcnyFont MSRs}\xspace}
+
+
+\newcommand{\CAC}{\index{Common Access Card}{\GlobalAcnyFont CAC}\xspace}
+\newcommand{\EMI}{\index{Electro-Magnetic Interference}{\GlobalAcnyFont EMI}\xspace}
+\newcommand{\EMC}{\index{Electro-Magnetic Compatibility}{\GlobalAcnyFont EMC}\xspace}
+\newcommand{\FFT}{\index{Fast Fourier Transform}{\GlobalAcnyFont FFT}\xspace}
+\newcommand{\PPS}{\index{Pulse Per Second}{\GlobalAcnyFont PPS}\xspace}
+\newcommand{\Hz}{\index{Hertz}{\GlobalAcnyFont Hz}\xspace}
+\newcommand{\kHz}{\index{KiloHertz}{\GlobalAcnyFont kHz}\xspace}
+\newcommand{\MHz}{\index{Mega-Hertz}{\GlobalAcnyFont MHz}\xspace}
+\newcommand{\dB}{\index{Decibels}{\GlobalAcnyFont dB}\xspace}
+\newcommand{\dBm}{\index{Decibel-Milliwatts}{\GlobalAcnyFont dBm}\xspace}
+\newcommand{\dBV}{\index{Decibels Voltage(RMS)}{\GlobalAcnyFont dBV}\xspace}
+\newcommand{\IREMS}{\index{IREMS}{\GlobalAcnyFont IREMS}\xspace}
+\newcommand{\USB}{\index{USB}{\GlobalAcnyFont USB}\xspace}
+\newcommand{\UPS}{\index{Uninterrupted Power Supply}{\GlobalAcnyFont UPS}\xspace}
+\newcommand{\URL}{\index{Universal Resource Locator}{\GlobalAcnyFont URL}\xspace}
+\newcommand{\URLs}{\index{Universal Resource Locator}{\GlobalAcnyFont URLs}\xspace}
+\newcommand{\IVV}{\index{Independent Verification and Validation}{\GlobalAcnyFont IV\&V}\xspace}
+
+\newcommand{\SNR}{\index{Signal to Noise Ratio}{\GlobalAcnyFont SNR}\xspace}
+
+
+\newcommand{\mutex}{\index{mutex}{\GlobalAcnyFont mutex}\xspace}
+
+\newcommand{\VIS}{\index{Visible Spectra}{\GlobalAcnyFont VIS}\xspace}
+\newcommand{\NIR}{\index{Near InfraRed}{\GlobalAcnyFont NIR}\xspace}
+\newcommand{\LED}{\index{Light Emitting Diode}{\GlobalAcnyFont LED}\xspace}
+\newcommand{\HD}{\index{High Definition}{\GlobalAcnyFont HD}\xspace}
+\newcommand{\NN}{\index{Neural Network}{\GlobalAcnyFont NN}\xspace}
+\newcommand{\OML}{\index{Outer Mold Line}{\GlobalAcnyFont OML}\xspace}
+
+
+\newcommand{\DFD}{\index{Data Flow Diagram}{\GlobalAcnyFont DFD}\xspace}
+\newcommand{\AOA}{\index{Analysis of Alternatives}{\GlobalAcnyFont AOA}\xspace}
+\newcommand{\AOAs}{\index{Analysis of Alternatives}{\GlobalAcnyFont AOAs}\xspace}
+\newcommand{\SOW}{\index{Statement Of Work}{\GlobalAcnyFont SOW}\xspace}
+\newcommand{\SOO}{\index{Statement Of Objectives}{\GlobalAcnyFont SOO}\xspace}
+\newcommand{\SOP}{\index{Standard Operating Procedure}{\GlobalAcnyFont SOP}\xspace}
+\newcommand{\SOPs}{\index{Standard Operating Procedure}{\GlobalAcnyFont SOPs}\xspace}
+\newcommand{\JEON}{\index{Joint Emergent Operational Need}{\GlobalAcnyFont JEON}\xspace}
+\newcommand{\JUON}{\index{Joint Urgent Operational Need}{\GlobalAcnyFont JUON}\xspace}
+\newcommand{\JORD}{\index{Joint Operational Requirements Document}{\GlobalAcnyFont JORD}\xspace}
+\newcommand{\ORD}{\index{Operational Requirements Document}{\GlobalAcnyFont ORD}\xspace}
+\newcommand{\CPD}{\index{Capability Production Document}{\GlobalAcnyFont CPD}\xspace}
+\newcommand{\CONOP}{\index{Concept of Operations}{\GlobalAcnyFont CONOP}\xspace}
+\newcommand{\MACC}{\index{Modification Airworthiness Certification Criteria}{\GlobalAcnyFont MACC}\xspace}
+\newcommand{\DoDAF}{\index{Department of Defense Architecture Framework}{\GlobalAcnyFont DoDAF}\xspace}
+
+
+\newcommand{\MilStdNineSixtyOne}{\index{MIL-STD-961}{\GlobalAcnyFont MIL-STD-961}\xspace}
+
+\newcommand{\MilStdFourNineEight}{\index{MIL-STD-498}{\GlobalAcnyFont MIL-STD-498}\xspace}
+\newcommand{\DID}{\index{MIL-STD-498!Data Item Description}{\GlobalAcnyFont DID}\xspace}
+\newcommand{\DIDs}{\index{MIL-STD-498!Data Item Description}{\GlobalAcnyFont DIDs}\xspace}
+\newcommand{\IRS}{\index{MIL-STD-498!Interface Requirements Specification}{\GlobalAcnyFont IRS}\xspace}
+\newcommand{\HRS}{\index{MIL-STD-498!Hardware Requirements Specification}{\GlobalAcnyFont HRS}\xspace}
+\newcommand{\SDP}{\index{MIL-STD-498!System Development Plan}{\GlobalAcnyFont SDP}\xspace}
+\newcommand{\OCD}{\index{MIL-STD-498!Operational Concept Description}{\GlobalAcnyFont OCD}\xspace}
+\newcommand{\SPS}{\index{MIL-STD-498!System Performance Specification}{\GlobalAcnyFont SPS}\xspace}
+\newcommand{\SSS}{\index{MIL-STD-498!System / Subsystem Specification}{\GlobalAcnyFont SSS}\xspace}
+\newcommand{\SUM}{\index{MIL-STD-498!System Usage Manual}{\GlobalAcnyFont SUM}\xspace}
+\newcommand{\SRS}{\index{MIL-STD-498!System Requirements Specification}{\GlobalAcnyFont SRS}\xspace}
+\newcommand{\SDD}{\index{MIL-STD-498!System Detailed Design}{\GlobalAcnyFont SDD}\xspace}
+\newcommand{\STD}{\index{MIL-STD-498!System Test Specification}{\GlobalAcnyFont STD}\xspace}
+\newcommand{\STS}{\index{MIL-STD-498!System Test Specification}{\GlobalAcnyFont STS}\xspace}
+\newcommand{\SVD}{\index{MIL-STD-498!System Version Description}{\GlobalAcnyFont SVD}\xspace}
+\newcommand{\SIP}{\index{MIL-STD-498!System Installation Plan}{\GlobalAcnyFont SIP}\xspace}
+\newcommand{\ATP}{\index{MIL-STD-498!Acceptance Test Procedure}{\GlobalAcnyFont ATP}\xspace}
+\newcommand{\VID}{\index{MIL-STD-498!Vendor Item Description}{\GlobalAcnyFont VID}\xspace}
+\newcommand{\STP}{\index{MIL-STD-498!System Test Plan}{\GlobalAcnyFont STP}\xspace}
+\newcommand{\ETP}{\index{MIL-STD-498!Engineering Test Plan}{\GlobalAcnyFont ETP}\xspace}
+\newcommand{\ITP}{\index{MIL-STD-498!Inspection and Test Plan}{\GlobalAcnyFont EITP}\xspace}
+\newcommand{\EITP}{\index{MIL-STD-498!Engineering and Integration Test Plan}{\GlobalAcnyFont EITP}\xspace}
+\newcommand{\STR}{\index{MIL-STD-498!System Test Report}{\GlobalAcnyFont STR}\xspace}
+\newcommand{\SSDD}{\index{MIL-STD-498!Sub-System Detailed Design}{\GlobalAcnyFont SSDD}\xspace}
+\newcommand{\DBDD}{\index{MIL-STD-498!Database Detailed Design}{\GlobalAcnyFont DBDD}\xspace}
+\newcommand{\FTR}{\index{MIL-STD-498!Final Technical Report}{\GlobalAcnyFont FTR}\xspace}
+\newcommand{\SRD}{\index{MIL-HDBK-520!System Requirements Document}{\GlobalAcnyFont SRD}\xspace}
+\newcommand{\TRD}{\index{Technical Requirements Document}{\GlobalAcnyFont TRD}\xspace}
+\newcommand{\RTM}{\index{Requirements Traceability Matrix}{\GlobalAcnyFont RTM}\xspace}
+\newcommand{\RTVM}{\index{Requirements Traceability Verification Matrix}{\GlobalAcnyFont RTVM}\xspace}
+\newcommand{\TEMP}{\index{Test and Evaluation Master Plan}{\GlobalAcnyFont TEMP}\xspace}
+\newcommand{\QIP}{\index{Quality Inspection Plan}{\GlobalAcnyFont QIP}\xspace}
+\newcommand{\QMS}{\index{Quality Management System}{\GlobalAcnyFont QMS}\xspace}
+\newcommand{\QAM}{\index{Quality Assurance Manual}{\GlobalAcnyFont QAM}\xspace}
+\newcommand{\QA}{\index{Quality Assurance}{\GlobalAcnyFont QA}\xspace}
+\newcommand{\ICD}{\index{Interface Control Drawing}{\GlobalAcnyFont ICD}\xspace}
+\newcommand{\CDD}{\index{Capability Development Document}{\GlobalAcnyFont CDD}\xspace}
+
+%
+% A/V stuff 
+%
+\newcommand{\AV}{\index{Audio / Visual}{\GlobalAcnyFont A/V}\xspace}
+\newcommand{\VGA}{\index{Video Sizes!VGA}{\GlobalAcnyFont VGA}\xspace}
+\newcommand{\SVGA}{\index{Video Sizes!SVGA}{\GlobalAcnyFont SVGA}\xspace}
+\newcommand{\XGA}{\index{Video Sizes!XGA}{\GlobalAcnyFont XGA}\xspace}
+\newcommand{\HDTV}{\index{Video Sizes!HDTV}{\GlobalAcnyFont HDTV}\xspace}
+
+\newcommand{\HDMI}{\index{Video Connectors!HDMI}{\GlobalAcnyFont HDMI}\xspace}
+
+%
+% TV and Radio Broadcast 
+%
+\newcommand{\AM}{\index{Amplitude Modulation}{\GlobalAcnyFont AM}\xspace}
+\newcommand{\FM}{\index{Frequency Modulation}{\GlobalAcnyFont FM}\xspace}
+\newcommand{\SW}{\index{Shortwave}{\GlobalAcnyFont SW}\xspace}
+%\newcommand{\VHF}{\index{Very-High Frequency Radio}{\GlobalAcnyFont VHF}\xspace}
+\newcommand{\TVVHFLow}{\index{TV VHF Low}{\GlobalAcnyFont VHF-L}\xspace}
+\newcommand{\TVVHFHigh}{\index{TV VHF High}{\GlobalAcnyFont VHF-H}\xspace}
+\newcommand{\VHF}{\index{Very-High Frequency Radio}{\GlobalAcnyFont VHF}\xspace}
+\newcommand{\UHF}{\index{Ultra-High Frequency Radio}{\GlobalAcnyFont UHF}\xspace}
+\newcommand{\TVUHF}{\index{TV UHF}{\GlobalAcnyFont TV UHF}\xspace}
+\newcommand{\CellLow}{\index{Cellular Low-Band}{\GlobalAcnyFont Cellular Low-Band}\xspace}
+\newcommand{\CellHigh}{\index{Cellular High-Band}{\GlobalAcnyFont Cellular High-Band}\xspace}
+\newcommand{\VSWR}{\index{VSWR}{\BdpFosAcnyFont VSWR}\xspace}
+
+
+\newcommand{\ATV}{\index{Analog TV}{\GlobalAcnyFont ATV}\xspace}
+\newcommand{\DAB}{\index{Digital Audio Broadcast}{\GlobalAcnyFont DAB}\xspace}
+\newcommand{\LMR}{\index{Land Mobile Radio}{\GlobalAcnyFont LMR}\xspace}
+\newcommand{\CBS}{\index{Cellular Broadcast Messaging}{\BdpFosAcnyFont CBS}\xspace}
+\newcommand{\SMS}{\index{Short Message Service}{\GlobalAcnyFont SMS}\xspace}
+\newcommand{\MMS}{\index{Multimedia Messaging Service}{\BdpFosAcnyFont MMS}\xspace}
+\newcommand{\RDS}{\index{Radio Data System}{\GlobalAcnyFont RDS}\xspace}
+\newcommand{\RBDS}{\index{Radio Broadcast Data System}{\BdpFosAcnyFont RBDS}\xspace}
+\newcommand{\TV}{\index{TV}{\GlobalAcnyFont TV}\xspace}
+\newcommand{\DTV}{\index{Digital TV}{\GlobalAcnyFont DTV}\xspace}
+\newcommand{\NTSC}{\index{National Television System Committee}{\GlobalAcnyFont NTSC}\xspace}
+\newcommand{\SECAM}{\index{Sequential Colour with Memory}{\GlobalAcnyFont SECAM}\xspace}
+\newcommand{\PAL}{\index{Phase Alternating Line}{\GlobalAcnyFont PAL}\xspace}
+\newcommand{\ATSC}{\index{Advanced Television Systems Committee}{\GlobalAcnyFont ATSC}\xspace}
+\newcommand{\DVBT}{\index{Digital Video Broadcasting — Terrestrial}{\GlobalAcnyFont DVBT}\xspace}
+\newcommand{\DVBTTWO}{\index{DVB-T2}{\GlobalAcnyFont DVB-T2}\xspace}
+\newcommand{\ISDB}{\index{Integrated Services Digital Broadcasting}{\BdpFosAcnyFont ISDB}\xspace}
+\newcommand{\ISDBT}{\index{Integrated Services Digital Broadcasting - Terrestrial}{\GlobalAcnyFont ISDBT}\xspace}
+\newcommand{\DTMB}{\index{Digital Terrestrial Multimedia Broadcast}{\GlobalAcnyFont DTMB}\xspace}
+\newcommand{\PTT}{\index{Push-To-Talk}{\GlobalAcnyFont PTT}\xspace}
+\newcommand{\EA}{\index{EA}{\GlobalAcnyFont EA}\xspace}
+\newcommand{\EM}{\index{Electro-Magnetic}{\GlobalAcnyFont EM}\xspace}
+\newcommand{\DSBSC}{\index{DSB-SC}{\GlobalAcnyFont DSB-SC}\xspace}
+
+
+\newcommand{\GSM}{\index{Global System for Mobile Communications}{\BdpFosAcnyFont GSM}\xspace}
+
+
+\newcommand{\CSCI}{\index{Computer Software Configuration Item}{\GlobalAcnyFont CSCI}\xspace}
+\newcommand{\CSC}{\index{Computer Software Component}{\GlobalAcnyFont CSC}\xspace}
+\newcommand{\CSU}{\index{Computer Software Unit}{\GlobalAcnyFont CSU}\xspace}
+\newcommand{\HWCI}{\index{Hardware Configuration Item}{\GlobalAcnyFont HWCI}\xspace}
+\newcommand{\HWC}{\index{Hardware Component}{\GlobalAcnyFont HWC}\xspace}
+\newcommand{\HWU}{\index{Hardware Unit}{\GlobalAcnyFont HWU}\xspace}
+\newcommand{\SWaP}{\index{Space, Weight, and Power}{\GlobalAcnyFont SWaP}\xspace}
+\newcommand{\VAC}{\index{Voltage!Alternating Current}{\GlobalAcnyFont VAC}\xspace}
+\newcommand{\AC}{\index{Voltage!Alternating Current}{\GlobalAcnyFont AC}\xspace}
+\newcommand{\VDC}{\index{Voltage!Direct Current}{\GlobalAcnyFont VDC}\xspace}
+\newcommand{\DC}{\index{Voltage!Direct Current}{\GlobalAcnyFont DC}\xspace}
+\newcommand{\RMS}{\index{Root Mean Square}{\GlobalAcnyFont RMS}\xspace}
+\newcommand{\PDU}{\index{Power Distribution Unit}{\GlobalAcnyFont PDU}\xspace}
+\newcommand{\ELA}{\index{Electrical Load Analysis}{\GlobalAcnyFont ELA}\xspace}
+\newcommand{\TRU}{\index{Transformer Rectifier Unit}{\GlobalAcnyFont TRU}\xspace}
+\newcommand{\SCIF}{\index{Sensitive Compartmented Information Facility}{\GlobalAcnyFont SCIF}\xspace}
+
+%
+%%% languages
+%
+\newcommand{\CCpp}{\index{C/C++}{\GlobalAcnyFont C/C++}\xspace}
+\newcommand{\Cpp}{\index{C++}{\GlobalAcnyFont C++}\xspace}
+\newcommand{\Csharp}{\index{C\#}{\GlobalAcnyFont C\#}\xspace}
+\newcommand{\Java}{\index{Java}{\GlobalAcnyFont Java}\xspace}
+\newcommand{\Python}{\index{Python}{\GlobalAcnyFont Python}\xspace}
+
+%
+%%% Search Engines, other web sites, and trdemarked names
+%
+\newcommand{\CAMEO}{\index{CAMEO\texttrademark}{\GlobalAcnyFont CAMEO\texttrademark}\xspace}
+\newcommand{\Google}{\index{Google\texttrademark}{\GlobalAcnyFont Google\texttrademark}\xspace}
+\newcommand{\Bing}{\index{Bing\texttrademark}{\GlobalAcnyFont Bing\texttrademark}\xspace}
+\newcommand{\Yahoo}{\index{Yahoo\texttrademark}{\GlobalAcnyFont Yahoo\texttrademark}\xspace}
+\newcommand{\YouTube}{\index{YouTube\texttrademark}{\GlobalAcnyFont YouTube\texttrademark}\xspace}
+\newcommand{\Vine}{\index{Vine\texttrademark}{\GlobalAcnyFont Vine\texttrademark}\xspace}
+\newcommand{\LiveLeak}{\index{LiveLeak\texttrademark}{\GlobalAcnyFont LiveLeak\texttrademark}\xspace}
+\newcommand{\DOORS}{\index{DOORS\texttrademark}{\GlobalAcnyFont DOORS\texttrademark}\xspace}
+\newcommand{\Rhapsody}{\index{Rhapsody\texttrademark}{\GlobalAcnyFont Rhapsody\texttrademark}\xspace}
+\newcommand{\Xilinx}{\index{Xilinx\texttrademark}{\GlobalAcnyFont Xilinx\texttrademark}\xspace}
+
+%
+% file extension types
+%
+\newcommand{\CSV}{\index{Comma Separated Variable}{\GlobalAcnyFont .CSV}\xspace}
+\newcommand{\PNG}{\index{Portable Network Graphics}{\GlobalAcnyFont .PNG}\xspace}
+\newcommand{\GIF}{\index{Graphics Interchange Format}{\GlobalAcnyFont .GIF}\xspace}
+\newcommand{\BMP}{\index{Bitmap File Format}{\GlobalAcnyFont .BMP}\xspace}
+\newcommand{\TIFF}{\index{Tagged Interchange File Format}{\GlobalAcnyFont .TIFF}\xspace}
+\newcommand{\JPEG}{\index{Joint Photographics Experts Group}{\GlobalAcnyFont .JPEG}\xspace}
+\newcommand{\MPTHREE}{\index{Motion Picture Experts Group!MP3}{\GlobalAcnyFont .MP3}\xspace}
+\newcommand{\MPFOUR}{\index{Motion Picture Experts Group!MP4}{\GlobalAcnyFont .MP4}\xspace}
+\newcommand{\MPV}{\index{Motion Picture Experts Group!MPV}{\GlobalAcnyFont .MPV}\xspace}
+\newcommand{\MPEG}{\index{Motion Picture Experts Group!MPEG}{\GlobalAcnyFont .MPEG}\xspace}
+\newcommand{\MPG}{\index{Motion Picture Experts Group!MPG}{\GlobalAcnyFont .MPG}\xspace}
+\newcommand{\WAV}{\index{Waveform Audio File}{\GlobalAcnyFont .WAV}\xspace}
+\newcommand{\TSF}{\index{Transport Stream File}{\GlobalAcnyFont .TS}\xspace}
+\newcommand{\PDF}{\index{Portable Document Format}{\GlobalAcnyFont .PDF}\xspace}
+\newcommand{\DOC}{\index{Microsoft!Word}{\GlobalAcnyFont .DOC}\xspace}
+\newcommand{\DOCX}{\index{Microsoft!Word}{\GlobalAcnyFont .DOCX}\xspace}
+\newcommand{\PPT}{\index{Microsoft!PowerPoint}{\GlobalAcnyFont .PPT}\xspace}
+\newcommand{\PPTX}{\index{Microsoft!PowerPoint}{\GlobalAcnyFont .PPTX}\xspace}
+\newcommand{\XLS}{\index{Microsoft!Excel}{\GlobalAcnyFont .XLS}\xspace}
+\newcommand{\XLSX}{\index{Microsoft!Excel}{\GlobalAcnyFont .XLSX}\xspace}
+
+
+%
+% Physical Media 
+%
+\newcommand{\CD}{\index{Compact Disc}{\GlobalAcnyFont CD}\xspace}
+\newcommand{\DVD}{\index{Digital Video Disc}{\GlobalAcnyFont DVD}\xspace}
+\newcommand{\VHS}{\index{Video Home System}{\GlobalAcnyFont VHS}\xspace}
+\newcommand{\BetaMAX}{\index{BetaMAX}{\GlobalAcnyFont BetaMAX}\xspace}
+\newcommand{\HDD}{\index{Hard Disk Drive}{\GlobalAcnyFont HDD}\xspace}
+\newcommand{\HDDs}{\index{Hard Disk Drive}{\GlobalAcnyFont HDDs}\xspace}
+
+%
+% Wiring types 
+%
+\newcommand{\CATthree}{\index{TP!Cat-3}{\GlobalAcnyFont Cat-3}\xspace}
+\newcommand{\CATfour}{\index{TP!Cat-4}{\GlobalAcnyFont Cat-4}\xspace}
+\newcommand{\CATfive}{\index{TP!Cat-5}{\GlobalAcnyFont Cat-5}\xspace}
+\newcommand{\CATsix}{\index{TP!Cat-6}{\GlobalAcnyFont Cat-6}\xspace}
+
+%
+%% misc BIOMETRIC keywords used often
+%
+\newcommand{\recognition}{\index{Recognition}{\GlobalAcnyFont recognition}\xspace}
+\newcommand{\Recognition}{\index{Recognition}{\GlobalAcnyFont Recognition}\xspace}
+\newcommand{\identification}{\index{Identification}{\GlobalAcnyFont identification}\xspace}
+\newcommand{\Identification}{\index{Identification}{\GlobalAcnyFont Identification}\xspace}
+\newcommand{\verification}{\index{Verification}{\GlobalAcnyFont verification}\xspace}
+\newcommand{\Verification}{\index{Verification}{\GlobalAcnyFont Verification}\xspace}
+\newcommand{\FTA}{\index{Failure To Acquire}{\GlobalAcnyFont Failure To Acquire}\xspace}
+\newcommand{\FTE}{\index{Failure To Enroll}{\GlobalAcnyFont Failure To Enroll}\xspace}
+\newcommand{\MostAppropriate}{\index{Most Appropriate Biometric Sample}{\em Most Appropriate}\xspace}
+
+%
+%% misc Test and verification types
+%
+\newcommand{\LRIP}{\index{Low Rate Initial Production}{\GlobalAcnyFont LRIP}\xspace}
+\newcommand{\DVT}{\index{Design Verification Test}{\GlobalAcnyFont DVT}\xspace}
+\newcommand{\FAI}{\index{First Article Inspection}{\GlobalAcnyFont FAI}\xspace}
+\newcommand{\FAT}{\index{Factory Acceptance Test}{\GlobalAcnyFont FAT}\xspace}
+\newcommand{\FVT}{\index{Functional Verification Test}{\GlobalAcnyFont FVT}\xspace}
+\newcommand{\BIT}{\index{Built-In Test}{\BdpFosAcnyFont BIT}\xspace}
+\newcommand{\MTBF}{\index{Mean Time Between Failures}{\GlobalAcnyFont MTBF}\xspace}
+\newcommand{\MTTR}{\index{Mean Time To Repair}{\GlobalAcnyFont MTTR}\xspace}
+
+%
+%% Books and other seminal artifact acronyms
+%
+\newcommand{\MMM}{\index{Seminal Artifacts!Mythical Man Month}{\GlobalAcnyFont MMM}\xspace}
+\newcommand{\SOANM}{\index{Seminal Artifacts!Soul of a New Machine}{\GlobalAcnyFont SOANM}\xspace}
+
+
+%
+%% misc SAFETY types (ain't safety always last :( )
+%
+\newcommand{\PFD}{\index{Safety!PFD}{\GlobalAcnyFont PFD}\xspace}
+\newcommand{\PPE}{\index{Safety!PPE}{\GlobalAcnyFont PPE}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END :: Defintion of globally used glossary definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

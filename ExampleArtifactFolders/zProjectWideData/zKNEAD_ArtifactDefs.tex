@@ -1,0 +1,45 @@
+%
+% Artifact variables
+% Used to set report number for use in footers, etc.
+%
+%%% 
+%%% set this to the report number for use in footers
+\renewcommand{\KNEADdocumentRevision}{P1}
+\renewcommand{\KNEADdocumentNum}{MILREPSSPS20250913}% used in right footer
+\renewcommand{\KNEADeffectiveDate}{13 September 2025}% usually a fixed data, often date of first approved release, mainly for QMS documents
+\renewcommand{\KNEADrevisionDate}{\today}%{\today or formatted as 16 Nov 2020}
+\renewcommand{\KNEADreleasedBy}{Vinay Agarwal}% used in right footer
+\renewcommand{\KNEADdocumentCopyRightYear}{2025}
+
+
+%Set title in  ``TitlePage''.tex using this document title              
+\renewcommand{\KNEADartifactTitle}{%can't use variable with an index for some reason
+{\Large System Performance Specification}\break
+for the\break
+{\Large Broadcast Dissemination Platform\break
+Family of Systems}\break
+{\Large Cellular Broadcast Subsystem}}
+
+% comment out the following lines to force newpages at major section divisions
+\renewcommand{\KNEADSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADSUBSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADSUBSUBSECTIONNEWPAGE}{} 
+\renewcommand{\KNEADPARAGRAPHNEWPAGE}{} 
+\renewcommand{\KNEADSUBPARAGRAPHNEWPAGE}{} 
+
+%%%
+%%% packages used
+%%%
+
+\usepackage[nodayofweek]{datetime}
+
+\usepackage{titlesec}
+
+%\usepackage{soul}
+
+%https://mirror.las.iastate.edu/tex-archive/macros/latex/contrib/circledsteps/circledsteps-manual.pdf
+% circles for SE diagram in text
+\usepackage{circledsteps}
+\pgfkeys{/csteps/inner color=white}
+\pgfkeys{/csteps/outer color=orange}
+\pgfkeys{/csteps/fill color=blue}

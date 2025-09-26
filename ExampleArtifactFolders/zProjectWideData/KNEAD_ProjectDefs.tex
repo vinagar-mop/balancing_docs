@@ -1,0 +1,42 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_ProjectDefs.tex 128 2024-07-14 20:00:16Z KneadProject $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN :: Title page base definitions
+% (to be mostly overridden by user in the main file, or, by convention, in a file named zPROJECTtitlepageInfo.tex
+% which is so named to list at the bottom of the directory listing below the important artifact files.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\KNEADagencyName}{The Balance Project}
+
+
+%%% 
+%%% CUI STATUS, uncomment if not CUI
+% \renewcommand{\KNEADcuiStatus}{CUI}
+%%% CUI Dissemination Block info, DO NOT INCLUDE Lables, just the info
+\renewcommand{\KNEADcuiCOMPONENT}{AGENCY}
+\renewcommand{\KNEADcuiOFFICE}{OFFICE}
+\renewcommand{\KNEADcuiCATEGORIES}{WILL-BE}
+\renewcommand{\KNEADcuiDISTRIBUTION}{TBD}
+\renewcommand{\KNEADcuiPOC}{Undefined Gpl, undefined.l.gpl.civ@us.navy.mil}
+
+
+% here is example of putting a logo in the left header
+\renewcommand{\KNEADleftHeader}{\setlength{\unitlength}{.01in}
+\begin{picture}(0,0)
+\ifpdf
+\put(0,0){\includegraphics[height=.5in]{../zProjectWideData/images/44-448485_collection-of-scales-balance-clipart-black-and-white.pdf}}
+\else
+\put(0,0){\includegraphics[height=.5in]{../zProjectWideData/images/KNEADlogo_100dpi_1000milsHigh.eps}}
+\fi
+%\put(0,0){\includegraphics[height=.5in]{../zProjectWideData/images/KNEADlogo_100dpi_1000milsHigh.eps}}
+\end{picture}}
+
+%
+% define project wide title page stuff here
+%
+\ifpdf
+\renewcommand{\KNEADtitlepageLogoFile}{../zProjectWideData/images/44-448485_collection-of-scales-balance-clipart-black-and-white.pdf}
+\else
+\renewcommand{\KNEADtitlepageLogoFile}{../zProjectWideData/images/KNEADlogo_100dpi_6000milsWide.eps}
+\fi
+\renewcommand{\KNEADtitlepageLogoWidth}{3.0in}

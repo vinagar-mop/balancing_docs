@@ -1,0 +1,31 @@
+%%% SVN stuff
+\svnid{$Id: SPS-SSS_SpecificationFormatting.tex 139 2025-06-13 20:26:50Z KneadProject $}
+
+\subsection{Specification Formatting}
+\label{loc:Intro_SpecFormatting}
+
+\input{AboutArtifacts/SPS-SSS_SpecificationFormatting_NoRefToHowToSections.tex}
+
+
+External tools have been written that allow for automatic generation of other documentation.
+Specially, data for chapters and appendices that follow the requirement specifications, can be gleaned automatically to ensure integrity between the sections of the documents.
+In addition, the listing of \KPP and \KSA values into a ``B-spec'' can be automated.
+Finally, the full set of requirements, and the associated attributes, are exported to a comprehensive \CSV file for import into \MBSE tools such as \DOORS or \CAMEO.
+
+
+This table approach offers other advantages besides automated parsing for import into tools.
+As can be seen in Table~\ref{rqt:TableFormat}, and in all the specifications, this format groups all information for each specification into a separable and easily viewed structure.
+The document sections and subsections provide a logical grouping of the specifications but the table allows all pertinent information to be grouped, vice being split across major sections of the document.
+This grouping allows for easier presentation since each grouping is similar to a ``PowerPoint'' presentation slide.
+And, as will be seen in Section~\ref{loc:Intro_HowToReadSpecifications}, it can help the writer organize specifications.
+The approach also allows for a ``List of Specifications'' to be generated.
+Each table is listed in the list of specifications so that each high level grouping can be quickly located from the list.
+Of course, the tables are located in the appropriate sections as noted in Section~\ref{loc:DocOverview_ArtifactFormat} so they can be found in that manner as well.
+
+
+Another major advantage of the table format is the ``Notes'' section.
+As specifications are developed, there will be many issues to be resolved.
+And, once issues are clarified, tracking the rationale for the decision is just as important as recording the answer~\cite{ref__Brooks_MMM}.
+Thus the notes section helps the reader and the writer.
+The writer has a logically grouped place to put notes for each specification and the reader can easily find them without having to refer to footnotes, separated sections, or external documentation.
+

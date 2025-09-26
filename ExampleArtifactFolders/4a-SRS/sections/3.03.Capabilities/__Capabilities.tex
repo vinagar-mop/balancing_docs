@@ -1,0 +1,69 @@
+\KNEADSECTIONNEWPAGE
+\section{Capabilities}
+\label{lab:sec_Capabilities}
+\RequirementNumberAM{section}{3.3}
+\input{DIDINFO_Snippets/SPS-SSS/SPS-SSS_3.3.0_DIDINFO.tex}
+
+%\newcommand{\ThisCapability}{Capabilities UNDEFINED}
+
+This section defines the capability areas for the \ThisSys.
+The segment design is structured to meet the requirements as specified in the \TBD artifacts.
+Each area provides a subset of the overall capabilities for the \ThisSys segments.
+These segments are shown in Figure~\ref{fig:DFD-0}, are summarized below, and are more fully specified in the following subsections.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=6.5in]{../zProjectWideData/images/DFD-0_300dpi_6.5inchesWide.eps}
+	\caption[System Top-Level Diagram]{System Top-Level Diagram (DFD-0)}
+	\label{fig:DFD-0}
+\end{figure}
+ 
+The capability requirements for these segments are described in more detail in the following sections:
+\begin{description}
+	\item[Operator Processing] handles the \HMI interface to the operator and provides overall control and configuration to the \ThisSys, \S~\ref{loc:Capability_Operator}.
+	\item[Network Processing] handles the network interface, \S~\ref{loc:Capability_Network}.
+	\item[Power Processing] handles the power input and conversions as necessary, \S~\ref{loc:Capability_Power}.
+	\item[Control Processing] handles all major capability control, \S~\ref{loc:Capability_Control}.
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\KNEADSUBSECTIONNEWPAGE
+\newpage
+\subsection{Operator Processing}
+\label{loc:Capability_Operator}
+\RequirementNumberAM{subsection}{3.3.1}
+
+\input{sections/3.03.Capabilities/Operator.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\KNEADSUBSECTIONNEWPAGE
+\newpage
+\subsection{Network Processing}
+\label{loc:Capability_Network}
+\RequirementNumberAM{subsection}{3.3.2}
+
+\input{sections/3.03.Capabilities/Network.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\KNEADSUBSECTIONNEWPAGE
+\newpage
+\subsection{Power Processing}
+\label{loc:Capability_Power}
+\RequirementNumberAM{subsection}{3.3.3}
+
+\input{sections/3.03.Capabilities/Power.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\KNEADSUBSECTIONNEWPAGE
+\newpage
+\subsection{Control Processing}
+\label{loc:Capability_Control}
+\RequirementNumberAM{subsection}{3.3.4}
+
+\input{sections/3.03.Capabilities/Control.tex}

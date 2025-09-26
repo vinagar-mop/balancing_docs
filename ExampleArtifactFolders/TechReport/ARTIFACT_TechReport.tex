@@ -1,0 +1,70 @@
+\documentclass[letterpaper,makeoneptfivespace]{KNEADdocument}
+%\documentclass[letterpaper,showtpg,showtoc,showlof,showlot,makeoneptfivespace]{KNEADdocument}
+%%% SVN stuff
+\svnid{$Id: ARTIFACT_OCD.tex 116 2024-05-24 15:30:54Z KneadProject $}
+
+%\usepackage{cooltooltips}
+
+%%% include acronyms and other definitions
+\input{KNEAD_GlobalDefs.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectDefs.tex} % from project's zProjectWide common folder
+\input{./KNEAD_ArtifactDefs.tex} % from local folder for this artifact
+
+%%%%% include formatting stuff used in artifact layouts, not ``definitions''
+\input{KNEAD_GlobalFormatting.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectFormatting.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactFormatting.tex}% from local folder for this artifact
+
+%include stuff for multi-part bibliographies using Biber
+\input{KNEAD_GlobalBiber.tex}% from $TEXINPUTS folder
+\input{../zProjectWideData/KNEAD_ProjectBiber.tex}% from project's zProjectWide common folder
+\input{./KNEAD_ArtifactBiber.tex}% from local folder for this artifact, rarely used; maybe for seprated appendicies maybe?
+
+\begin{document}
+%[<popup color>]
+%[<link color>]
+%{<subject>}
+%{<message>}
+%{<url>}
+%{<tooltip>}
+%{<text>}
+%%%This is a cooltooltip nothing burger 
+%%%\cooltooltip
+%%%[1 1 1]
+%%%[1 1 1]
+%%%{}
+%%%{}
+%%%{}
+%%%{Technical Report}
+%%%{TR}.
+
+This is a pdfcomment \pdftooltip{TR}{Technical Report}.
+
+This is a \KNEAD defined acronym \KNEADdefineAcronym{TR}{Technical Report}{JunkNDX}.
+
+This is a \TBD at some point \KNEADdefineAcronym{TR}{Technical Report}{JunkNDX}.
+
+This is \TBS parameter that is \OBE, or maybe an \SSN.
+
+
+%%%\KNEADtitlepage{KNEAD_DefaultTitlePage.tex}% from $TEXINPUTS folder, copy locally and roll your own if needed
+%%%
+%%%%Approval page for this document, format as needed
+%%%%\docapprovalpage{../zSystemWideData/ApprovalPage.tex}% copy from $TEXINPUTS folder and edit as needed
+%%%
+%%%\dochistory{SVD_doc_history}
+%%%
+%%%%Chapters for this document
+%%%\newchapter{SVD_Chapter_01}
+%%%\newchapter{SVD_Chapter_02}
+%%%\newchapter{SVD_Chapter_03}
+%%%\newchapter{SVD_Chapter_04}
+%%%
+%%%
+%%%% Appendice for this document
+%%%\newappendix{SVD_Appendix_A}
+%%%
+%%%%Index for this document
+\KNEADPrintTheIndexHere
+ 
+\end{document}

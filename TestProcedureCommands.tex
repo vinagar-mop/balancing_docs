@@ -1,0 +1,290 @@
+%%% SVN stuff
+\svnid{$Id: TestProcedureCommands.tex 127 2024-07-14 14:42:50Z KneadProject $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% beginning of Test Procedure Macro, and auxillary commands %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 20210913WLC added this toggle (uses etoolbox package) to allow for not starting a test on a new page
+\newtoggle{toggleTestProcStartOnNewPage}
+\settoggle{toggleTestProcStartOnNewPage}{false}% it should be set in \newtoggle by default to false, but this shows how to set the variable by example
+\settoggle{toggleTestProcStartOnNewPage}{true}%  it should be set in \newtoggle by default to false, but this shows how to set the variable by example
+
+%WLC 20211017 added command so user an change pass/fail text if desired
+\newcommand{\tpPassFailText}{PASS \hfil FAIL}
+%\renewcommand{\tpPassFailText}{Verified}
+
+%WLC 20211019 added command so user can change the test in the notes section
+\newcommand{\tpResultsText}{Results~:}%~ used to keep spacing clean
+%\renewcommand{\tpResultsText}{Notes/Initials~:}%~ used to keep spacing clean
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands to define an \hline that won't allow a page break, ala \\* in longtable
+% http://tex.stackexchange.com/questions/6350/how-to-disable-pagebreak-on-hline-in-longtable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\makeatletter
+\def\nobreakhline{%
+\noalign{\ifnum0=`}\fi
+ \penalty\@M
+\futurelet\@let@token\LT@@nobreakhline}
+\def\LT@@nobreakhline{%
+\ifx\LT@next\hline
+  \global\let\LT@next\@gobble
+ \ifx\CT@drsc@\relax
+   \gdef\CT@LT@sep{%
+     \noalign{\penalty\@M\vskip\doublerulesep}}%
+ \else
+   \gdef\CT@LT@sep{%
+     \multispan\LT@cols{%
+       \CT@drsc@\leaders\hrule\@height\doublerulesep\hfill}\cr}%
+ \fi
+\else
+ \global\let\LT@next\empty
+ \gdef\CT@LT@sep{%
+   \noalign{\penalty\@M\vskip-\arrayrulewidth}}%
+\fi
+\ifnum0=`{\fi}%
+\multispan\LT@cols
+ {\CT@arc@\leaders\hrule\@height\arrayrulewidth\hfill}\cr
+\CT@LT@sep
+\multispan\LT@cols
+ {\CT@arc@\leaders\hrule\@height\arrayrulewidth\hfill}\cr
+\noalign{\penalty\@M}%
+\LT@next}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end \nobreakhline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{NTPRC}
+\newlistof[NTPRC]{testprocedure}{aux_tproc}{\listtestproceduresname}
+\newcounter{NTPS}
+\newlistof[NTPS]{testprocstep}{aux_tstep}{\listtestprocstepsname}
+
+\newcommand{\numberedtestprocstep}[2]{%
+\refstepcounter{testprocstep}
+\par\noindent\textbf{S-{#1}}
+\addcontentsline{tss}{testprocstep}{\protect\numberline{#1}#2}\par}%use tss to avoid confusion with texnic .tps files
+
+
+\newcommand{\numberedtestprocedure}[2]{%
+\refstepcounter{testprocedure}
+\addcontentsline{aux_tproc}{testprocedure}{\protect\numberline{#1}#2}\par}
+%%%\par\noindent\textbf{\begin{center} Test Procedure {#1} \end{center} \newline \begin{center} {#2}\end{center}}
+
+
+% length for total width of the test proc table, this subtracts off space for the column edge bars
+\newlength{\TestProcWidth}%
+%\setlength{\TestProcWidth}{6.35in}% adds in a smidge to account for the | at the ends
+\setlength{\TestProcWidth}{\textwidth}
+\addtolength{\TestProcWidth}{-0.15in}% subtracts a smidge to account for the | at the ends
+%
+\newlength{\TestProcRightWidth}%
+%\setlength{\TestProcRightWidth}{4.93in}% emperical length determined from trial and error
+%                               6.5 - 0.15 - 4.93 = 1.42
+\setlength{\TestProcRightWidth}{\textwidth}% emperical length delta determined from trial and error
+\addtolength{\TestProcRightWidth}{-1.6in}%wlc20210909 increased from 1.42 since right columns were running wide
+\newlength{\TestProcIconOffset}%
+\setlength{\TestProcIconOffset}{20pt}% emperical length determined from trial and error
+\newlength{\TestProcIconWidth}
+\setlength{\TestProcIconWidth}{0.5in}
+\newlength{\TestProcFigureWidth}%
+\setlength{\TestProcFigureWidth}{\TestProcRightWidth}% adds in a smidge to account for the | at the ends
+%
+\newcommand{\ThisTestProcStepLabel}{?!?ThisTestProcStepLabel?!?} %this gets set and reset in \tpStepLabeled[4]
+%
+\newcounter{TestProcItemCounter}
+%
+\newcommand{\ThisTestProcNum}{?!?ThisTestProcNum?!?} %this gets set and reset in \TestProc[6]
+\newcommand{\ThisTestProcName}{?!?ThisTestProcName?!?} %this gets set and reset in \TestProc[6]
+\newcommand{\ThisTestProcLabel}{?!?ThisTestProcLabel?!?} %this gets set and reset in \TestProc[6]
+
+%
+% command to provide single line TestProc steps with an ICON in the left side
+%
+\newcommand{\tpStepICONBASE}[3]{\hspace{\TestProcIconOffset}\includegraphics[width=\TestProcIconWidth]{#3}&\parbox[bottom][][c]{\TestProcRightWidth}{\vspace{2pt}\bf#1\vspace{#2}}\\*
+\hline \hline%
+}
+%\newcommand{\tpStepICONBASE}[4]{\hspace{\TestProcIconOffset}\pageref{#4}\includegraphics[width=\TestProcIconWidth]{#3}&\parbox[bottom][][c]{\TestProcRightWidth}{\vspace{2pt}\bf#1\vspace{#2}}\\*
+%\hline \hline%
+%}
+%
+%\newcommand{\tpStepBANG}[2]{\tpStepICONBASE{#1}{#2}{MarginIcons/BANG.eps}{I-\ThisTestProcNum-\theTestProcItemCounter}}
+\ifpdf
+\newcommand{\tpStepCLOCK}[1]{\tpStepICONBASE{#1}{MarginIcons/CLOCK_Icon.pdf}}
+\newcommand{\tpStepHAND}[1]{\tpStepICONBASE{#1}{MarginIcons/HAND_Icon.pdf}}
+\newcommand{\tpStepINFO}[1]{\tpStepICONBASE{#1}{MarginIcons/INFO_Icon.pdf}}
+\newcommand{\tpStepKEY}[1]{\tpStepICONBASE{#1}{MarginIcons/KEY_Icon.pdf}}
+\newcommand{\tpStepMAGNIFY}[1]{\tpStepICONBASE{#1}{MarginIcons/MAGNIFY_Icon.pdf}}
+\newcommand{\tpStepPLAYARROW}[1]{\tpStepICONBASE{#1}{MarginIcons/PLAYARROW_Icon.pdf}}
+\newcommand{\tpStepBANG}[1]{\tpStepICONBASE{#1}{MarginIcons/BANG_Icon.pdf}}
+\newcommand{\tpStepSHOCK}[1]{\tpStepICONBASE{#1}{MarginIcons/SHOCK_Icon.pdf}}
+\newcommand{\tpStepRADIATION}[1]{\tpStepICONBASE{#1}{MarginIcons/RADIATION_Icon.pdf}}
+\newcommand{\tpStepQUESTION}[1]{\tpStepICONBASE{#1}{MarginIcons/QUESTION_Icon.pdf}}
+\newcommand{\tpStepBULLSEYE}[1]{\tpStepICONBASE{#1}{MarginIcons/BULLSEYE_Icon.pdf}}
+\else
+\newcommand{\tpStepCLOCK}[1]{\tpStepICONBASE{#1}{MarginIcons/CLOCK.eps}}
+\newcommand{\tpStepHAND}[1]{\tpStepICONBASE{#1}{MarginIcons/HAND.eps}}
+\newcommand{\tpStepINFO}[1]{\tpStepICONBASE{#1}{MarginIcons/INFO.eps}}
+\newcommand{\tpStepKEY}[1]{\tpStepICONBASE{#1}{MarginIcons/KEY.eps}}
+\newcommand{\tpStepMAGNIFY}[1]{\tpStepICONBASE{#1}{MarginIcons/MAGNIFY.eps}}
+\newcommand{\tpStepPLAYARROW}[1]{\tpStepICONBASE{#1}{MarginIcons/PLAYARROW.eps}}
+\newcommand{\tpStepBANG}[1]{\tpStepICONBASE{#1}{MarginIcons/BANG.eps}}
+\newcommand{\tpStepSHOCK}[1]{\tpStepICONBASE{#1}{MarginIcons/SHOCK.eps}}
+\newcommand{\tpStepRADIATION}[1]{\tpStepICONBASE{#1}{MarginIcons/RADIATION.eps}}
+\newcommand{\tpStepQUESTION}[1]{\tpStepICONBASE{#1}{MarginIcons/QUESTION.eps}}
+\newcommand{\tpStepBULLSEYE}[1]{\tpStepICONBASE{#1}{MarginIcons/BULLSEYE.eps}}
+\fi
+
+%
+\newcommand{\tpStepFigure}[2]
+{%
+	\par
+	{
+	\ifthenelse{\lengthtest{#2>\TestProcFigureWidth}}{\setlength{\TestProcFigureWidth}{\TestProcRightWidth}}{\setlength{\TestProcFigureWidth}{#2}}
+		\hfill\includegraphics[width=\TestProcFigureWidth]{#1}\hfill
+	}
+}
+%
+% the macros used within the \TestProcedure[6] macro to make things easier for test writers 
+%
+% \tpRqmt[1] - autonumbers requirements met by this test case
+%
+% #1 is the text of the requirement, usually something like SPS-1.2.3.4.5 or similar
+%
+\newcommand{\tpRqmt}[1]{\stepcounter{TestProcItemCounter}~R-\ThisTestProcNum-\theTestProcItemCounter & \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#1\vspace{2pt}} \\*
+\hline%
+}%
+%
+% \tpStep[3] - autonumbered test steps of this test case, adds in space for recording the answer and P/F indicators
+%
+% #1 is procedure step 
+% #2 is expected results
+% #3 is height of results / comment box
+%       usually some multiple of 12 pts, which is a normal line height, but not constrained to a multiple of 12 pt e.g. [42pt]
+%
+% \renewcommand{\ThisTestProcStepLabel}{#3}% store away the operation step label for use in the macros
+%
+% \newcommand{\tpStepBase}[4]{{\bf S-\ThisTestProcNum-\theTestProcItemCounter\label{#4}} & \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#1\vspace{2pt}} \\*
+% \nobreakhline%
+% Expected Result& \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#2\vspace{2pt}}\\*
+% \nobreakhline%
+% \tpPassFailText& \parbox[top][#3][t]{\TestProcRightWidth}{\vspace{2pt}\tpResultsText}\\*
+% \hline \hline%
+% }%
+
+\newcommand{\tpStepBase}[5]{\renewcommand{\thetestprocstep}{#5}
+{\bf \numberedtestprocstep{#5}{#4}\label{#4}} & \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#1\vspace{2pt}} \\*
+\nobreakhline%
+Expected Result& \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#2\vspace{2pt}}\\*
+\nobreakhline%
+\tpPassFailText& \parbox[top][#3][t]{\TestProcRightWidth}{\vspace{2pt}\tpResultsText}\\*
+\hline \hline%
+}%
+
+
+%
+\newcommand{\tpStep}[3]{\stepcounter{TestProcItemCounter}~\tpStepBase{#1}{#2}{#3}{S-\ThisTestProcNum-\theTestProcItemCounter}{\ThisTestProcNum-\theTestProcItemCounter}}
+\newcommand{\tpStepLabeled}[4]{\stepcounter{TestProcItemCounter}~\tpStepBase{#1}{#2}{#3}{#4}{\ThisTestProcNum-\theTestProcItemCounter}}
+%
+% \tpStepLevel[3] - autonumbered test warning for this test case
+%
+% #1 is procedure step level (Info, warning, danger, etc.) 
+% #2 is Warning message
+% #3 is height of comment box
+%       usually some multiple of 12 pts, which is a normal line height, but not constrained to a multiple of 12 pt e.g. [42pt]
+%
+\newcommand{\tpStepLevel}[3]{\stepcounter{TestProcItemCounter}~{\bf S-\ThisTestProcNum-\theTestProcItemCounter} & \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}\centering{#1}\vspace{2pt}} \\*
+\nobreakhline%
+!!! Attention !!!& \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#2\vspace{2pt}}\\*
+\nobreakhline%
+Comments& \parbox[top][#3][t]{\TestProcRightWidth}{\vspace{2pt}}\\*
+\hline \hline%
+}%
+%
+% \tpStep[1] - autonumbered notes for this test case
+%
+% #1 is the text of the note
+%
+\newcommand{\tpNote}[1]{\stepcounter{TestProcItemCounter}~N-\ThisTestProcNum-\theTestProcItemCounter & \parbox[top][][c]{\TestProcRightWidth}{\vspace{2pt}#1\vspace{2pt}} \\*
+\hline%
+}%
+%
+% the actual \TestProcedure[6] command definition
+%
+\newcommand{\TestProcedureBase}[6]{%
+%\newpage% force all test procs to start a new page for cleanliness in the document.
+\singlespace
+% variables to avoid confusion between the #1, #2, and #3 args to \TestProcedure[6], which is also needed in \tpRqmt[1], \tpStep[2], and \tpNote[1]
+
+\renewcommand{\thetestprocedure}{#1}
+\renewcommand{\ThisTestProcNum}{#1}% store away the test description number for use in the macro
+\renewcommand{\ThisTestProcName}{#2}% store away the test description name for use in the macros
+\renewcommand{\ThisTestProcLabel}{#3}% store away the test description label for use in the macros
+
+\renewcommand{\thetestprocstep}{1}
+%
+% may need to run LaTeX three (3) times to get column widths correct, per LongTable documentation !
+%
+\begin{longtable}[c]{|c|l|}% base table has two columns <item number & item text>
+%
+\nobreakhline \nobreakhline%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{{\centering \bf Test Procedure \ThisTestProcNum \numberedtestprocedure{\ThisTestProcNum}{\ThisTestProcName}\label{\ThisTestProcLabel}}}}\\*%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf \ThisTestProcName}}\\*%
+\nobreakhline \hline%
+\endfirsthead%
+%
+\hline \nobreakhline%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf Test Procedure \ThisTestProcNum~-- continued from previous page}}\\*%
+\nobreakhline\hline%
+\endhead%
+%
+\hline \nobreakhline%
+\multicolumn{2}{|r|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf Test Procedure \ThisTestProcNum~-- continues on the next page}}\\*%
+\nobreakhline \hline%
+\endfoot%
+%
+\hline \nobreakhline%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf End of Test Procedure \ThisTestProcNum}}\\*%
+\nobreakhline \hline%
+\endlastfoot%
+%
+% Requirements Validated in this Procedure
+%
+\hline \nobreakhline%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf Requirements Validated by Test Procedure \ThisTestProcNum\setcounter{TestProcItemCounter}{0}}}\\*%
+\nobreakhline \nobreakhline%le%
+%
+#4% can't use {#4} here, need just #4 so it expands, per tex.stackexchange.com answer
+%
+%%%%%
+%
+% Notes About This Procedure
+%
+\hline \nobreakhline%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf Notes About Test Procedure \ThisTestProcNum\setcounter{TestProcItemCounter}{0}}}\\*%
+\nobreakhline \nobreakhline%
+%
+#6% can't use {#6} here, need just #6 so it expands, per tex.stackexchange.com answer
+%
+%%%%%
+%
+% Steps Performed in this Procedure
+%
+\hline \nobreakhline%%
+\multicolumn{2}{|c|}{\parbox[top][12pt][c]{\TestProcWidth}{\centering \bf Steps to be Performed for Test Procedure \ThisTestProcNum\setcounter{TestProcItemCounter}{0}}}\\*%
+\nobreakhline \nobreakhline%
+#5% can't use {#5} here, need just #5 so it expands, per tex.stackexchange.com answer
+
+\end{longtable}%
+}%
+
+\newcommand{\TestProcedure}[6]{%
+	\iftoggle{toggleTestProcStartOnNewPage}{\newpage}{}% force all test procs to start a new page for cleanliness in the document, iff not overridden.
+	\TestProcedureBase{#1}{#2}{#3}{#4}{#5}{#6}
+}% end of macro \TestProcedure[6]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of Test Procedure Macro, and auxillary commands %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

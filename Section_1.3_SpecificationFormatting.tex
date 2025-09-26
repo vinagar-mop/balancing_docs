@@ -1,0 +1,107 @@
+%%% SVN stuff
+\svnid{$Id: Section_1.3_SpecificationFormatting.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\subsection{Specification Formatting}
+\label{ssec:Intro_SpecFormatting}
+
+The specifications are listed and numbered by document sections. 
+The fully qualified specification numbers include the sub-section in which it is contained. 
+These specification numbers are tied to the document level thus they are numbered from 1 to N for each sub-section of the requirements section. 
+This is done to allow for additions within a sub-system without affecting the numbering in other sub-systems. 
+Once a specification has been added, it cannot be deleted, only its status may be changed to ``inactive'' or ``deleted'' to preserve numbering.
+
+This document allows for marking changes to specifications.
+All specifications may be marked with a change bar.
+This generally implies that one or more parts of a specification changed from the prior revision.
+A note should be provided to indicate the reason for the change, and when, so that future versions of the document, which do not include the change bar, still have rationale included for the current value.
+
+%The table format also allows for grouping of related specifications.
+%These grouped specification are also numbered sequentially and are also not removed if made inactive. 
+%Rather, they are marked in a ``strike-though'' font to denote that they are inactive or deleted.
+
+The system specifications are listed in a common table format as shown in Requirement~\ref{rqt:TableFormat}.
+%%% \ONERQTM[8] is macro for consistently formatted requirements
+\ONERQMT
+% #1 is the requirement number
+{1.3.1}
+% #2 is title
+{Specification Table Format}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:TableFormat}
+% #4 is the requirement text
+{
+\begin{my_enumerate}
+	%1,2,3
+	\item The first row of a table provides a unique number and a title for the requirement or expectation. This row is generated from the first 3 arguments.
+
+	%4
+	\item The second row of the table provides the specification text of the requirement. Normally this is a single sentence with a single testable requirement (shall) statement. This example uses an enumerated list in order to describe all the rows in a single table.
+
+	%5
+	\item The next row of the table provides the status for the specification listed in the table. This includes the applicable phases or release versions in which the required feature is supported, where S $\in$ \{(T)hreshold, (O)bjective, (I)nactive, (D)eleted\}.
+  
+	%6
+	\item The next row of the table provides the acceptance criteria. This row follows the form of ``This requirement shall be verified by V $\in$ \{inspection, demonstration, test, analysis\}.'' Additional information regarding testing can be provided in the notes section.
+
+	%7
+	\item The next row of the table provides the traceability of the requirement. The traceability connects the requirement to a higher level document that calls out the need for a requirement. The structure of traceability is expected to be of the form ``This requirement traces to MIL-STD-498~\cite{ref__MIL_STD_498} and ISO-12207~\cite{ref__ISO_12207}.'' Note that the source is expected to be listed in the reference documents section.
+
+	%8
+	\item The final row of the table provides, if applicable, notes for the specification. Notes are not a formal part of the requirement or expectation but provide supporting information regarding the feature.
+ \end{my_enumerate}
+}
+% #5 is status (active, inactive, etc.)
+{
+	\item [All phases] This format is active for all specifications in this document.
+}
+% #6 is Acceptance
+{This specification is not a testable requirement for the system; it is for demonstration purposes only.}
+% #7 is traceability
+{
+	\item [N/A] There is no traceability for this requirement.
+}
+% #8 is notes
+{
+   \item This table is generated using a \LaTeX{} command.
+   \item This formatting is not a testable requirement on the system, but rather, shows how each requirement is depicted in this document.
+}
+% #9 is last version in which this specification was changed, to create a changebar.
+{P1}
+%%%%% end \ONERQTM[9] macro
+
+The status designations for each specification S $\in$ \{(T)hreshold, (O)bjective, (I)nactive, (D)eleted\} are based on the following criteria.
+\begin{my_description}
+{
+\item [\OneRqmtThreshold] Items marked ``\OneRqmtThreshold'' are driven by the project threshold needs that must be met in the specified phase.
+
+\item [\OneRqmtObjective] Items marked ``\OneRqmtObjective'' are objective goals of the system in the specified phase. These requirements may stay (O) for all listed phases or may transition from (O) to (T) in future phases. This provides hints as to future expansion of system capabilities so the design can account for the feature without significant later rework.
+
+\item [\OneRqmtInactive] Items marked ``\OneRqmtInactive'' are requirements that are not currently to be met by the system in the specified phase. Unlike `\OneRqmtObjective'' requirements, (I) requirements may be in limbo in terms of certain details but their inclusion may also provide hints as to future expansion of system capabilities. 
+
+\item [\OneRqmtDeleted] Requirements that are not to be met by the system are marked by ``\OneRqmtDeleted''. Use of this status, vice removal of the requirement text, preserves the numbering of subsequent requirements and notes that the requirement once was invoked.
+The rationale for the deletion should be included in the notes section. 
+}
+\end{my_description}
+
+External tools have been written that allow for automatic generation of other documentation.
+Specially, data for chapters and appendices that follow the requirement specifications, can be gleaned automatically to ensure integrity between the sections of the documents.
+In addition, the listing of \KPP and \KSA values into a ``B-spec'' can be automated.
+Finally, the full set of requirements, and the associated attributes, are exported to a comprehensive \CSV file for import into external tools such as \DOORS.
+
+
+This table approach offers other advantages besides automated parsing for import into tools.
+As can be seen in Table~\ref{rqt:TableFormat}, and in all the specifications, this format groups all information for each specification into a separable and easily viewed structure.
+The document sections and subsections provide a logical grouping of the specifications but the table allows all pertinent information to be grouped, vice being split across major sections of the document.
+This grouping allows for easier presentation since each grouping is similar to a ``PowerPoint'' presentation slide.
+And, as will be seen in Section~\ref{ssec:Intro_HowToRead}, it can help the writer organize specifications.
+The approach also allows for a ``List of Specifications'' to be generated.
+Each table is listed in the list of specifications so that each high level grouping can be quickly located from the list.
+Of course, the tables are located in the appropriate sections as noted in Section~\ref{ssec:Intro_DocSections} so they can be found in that manner as well.
+
+
+Another major advantage of the table format is the ``Notes'' section.
+As specifications are developed, there will be many issues to be resolved.
+And, once issues are clarified, tracking the rationale for the decision is just as important as recording the answer~\cite{ref__Brooks_MMM}.
+Thus the notes section helps the reader and the writer.
+The writer has a logically grouped place to put notes for each specification and the reader can easily find them without having to refer to footnotes, separated sections, or external documentation.
+

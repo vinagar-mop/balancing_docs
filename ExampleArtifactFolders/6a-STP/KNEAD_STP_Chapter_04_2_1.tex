@@ -1,0 +1,68 @@
+%%% SVN stuff
+\svnid{$Id: KNEAD_STP_Chapter_04_2_1.tex 153 2025-03-24 15:02:14Z Lewis $}
+
+\input{DIDINFO_Snippets/STP/STP_4.2.0_DIDINFO.tex}
+
+This section defines the plans for the \TestIdNameX validation efforts.
+
+\subsubsection{Test Objective}
+\label{loc:TestObjective\TestIdName}
+
+The test objective for \TestIdNameX is to demonstrate that the received material meets the specifications defined for the material.
+For equipment items, this means checking part numbers against purchase requisitions and purchase orders to ensure that the correct item, and all expected components of the items, are received.
+Once items, part numbers, and quantities are verified, the items are checked for any observable damage that may have occurred during shipping.
+For custom parts, such as machined items or cables, inspections are made to ensure that the parts match appropriate mechanical or electrical characteristics are as defined in the reference design documentation.
+
+Test procedures for these tests may be generic or customized, depending upon the items.
+Standard parts or equipment, such as \COTS items, may follow a standardized inspection procedure, with discrepancies noted as needed for the specific parts.
+Custom items may also use a standardized inspection form, with discrepancies noted against a specific drawing number or other specification artifact.
+If needed, however, the \TestIdNameX may utilize custom inspection procedures to facilitate the necessary level of incoming inspection to ensure quality in the final \ThisSys.
+
+\subsubsection{Test Level}
+\label{loc:TestLevels\TestIdName}
+
+The test level for \TestIdNameX is \StageOne as defined by~\citeStageTestingSTD.
+
+\subsubsection{Test Type or Class}
+\label{loc:TestType\TestIdName}
+
+The test type or class for \TestIdNameX is development testing.
+
+\subsubsection{Qualification Method}
+\label{loc:TestQualificationMethod\TestIdName}
+
+The test qualification method for \TestIdNameX generally is performed via inspection of the received items, but detailed measurements (tests) may be made as necessary for items such as custom machined parts or cable assemblies to ensure they meet the design specifications.
+
+\subsubsection{Traceability}
+\label{loc:TestTraceability\TestIdName}
+
+The test traceability for \TestIdNameX often is not included in the overall \RTVM.
+Some artifacts of the \TestIdNameX inspections may, however, be utilized in higher-level tests.
+For example, the data sheets for radios may be inspected to complete validation of system-level requirements to meet frequency ranges.
+
+\subsubsection{Special Requirements}
+\label{loc:TestSpecialRequirements\TestIdName}
+
+The test special requirements for \TestIdNameX are defined as necessary in custom inspection or test procedures.
+
+\subsubsection{Data Recoding}
+\label{loc:TestDataRecoding\TestIdName}
+
+The test data recoding for \TestIdNameX is to record all inspection results in hard copy or electronic form.
+Electronic form (e.g., a database application with bar code scanning capability) is preferred, but not required, to minimize labor effort and data entry errors.
+
+\subsubsection{Assumptions or Constraints}
+\label{loc:TestAssumptionsOrConstraints\TestIdName}
+
+The test assumptions or constraints for \TestIdNameX are defined in the associated inspection or test procedures.
+
+\subsubsection{Safety, Security, and Privacy}
+\label{loc:TestSafetySecurityPrivacy\TestIdName}
+
+The test safety, security, and privacy for \TestIdNameX are defined in the associated inspection or test procedures.
+Special care must be taken when test results indicate issues with security measured for the system.
+
+\subsubsection{Tests and Test Cases}
+\label{loc:TestsAndTestCases\TestIdName}
+\input{KNEAD_STP_Stage1and2_TestsAndTestCases.tex}% same list for both stage 1 and 2, just different activities (PO check vs bench power on test)
+

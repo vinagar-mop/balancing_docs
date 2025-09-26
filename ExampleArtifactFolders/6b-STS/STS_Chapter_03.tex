@@ -1,0 +1,19 @@
+%%% SVN stuff
+\svnid{$Id: STS_Chapter_03.tex 126 2024-07-14 03:51:40Z KneadProject $}
+
+\chapter{Test Preparations}
+\label{loc:TestPreparations}
+\input{DIDINFO_Snippets/STS/STS_3.0.0_DIDINFO.tex}
+
+This section describes the test preparations to be performed for each test.
+
+
+\newcommand{\StsTestID}{Test1}% used in file for unique labels
+\input{STS_Chapter_03.x_TestPrepBase}%Copy this file, rename, and update for each test.
+
+\DIDINFOOFF% turn them off since we've seen them all by now
+
+\renewcommand{\StsTestID}{Test2}% used in file for unique labels
+\input{STS_Chapter_03.x_TestPrepBase}%Copy this file, rename, and update for each test.
+
+\DIDINFOON%turn them back on since they were turned off after first test prep
