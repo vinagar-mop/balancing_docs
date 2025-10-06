@@ -1,0 +1,14 @@
+Requirment Title ,Text,Status,Acceptance,Tracability
+Specification 1.1: Board bringup,"{T} 1: All perifials must be intialize when start of the pogram to communicate across the system.
+{T} 2: The program should have start of calibration when start up for the following:
+       - MEMs set to absolute zero
+       - LTDC screen set up with the intial page
+",Threshold,The debugger must read out that the system as passed its calibration,This could be found in the YSM documentation.
+Specification 1.2: Information screen,"{T} 1: The program shall have an information page explaining how the game should be played. 
+{T} 2: The progam shall also have a reset button. To reset the program back to its initial state.",Threshold,The Screen should be updating with new corrdinates,This could be found in the YSM documentation.
+Specification 1.3: Screen update,"{T} 1: The screen shall updated as the MEMs unit updates gets new readings.
+{T} 2: After one frame of reading the system will update the screen graphics based of MEM contoller output.",Threshold,There should be a screen that displays angle of the system.,The screen must have a sperate page to place information like that.
+Specifactions 2.1: Level complete,"{T}: one level is once a circle reached the goal posistion.
+{T} each level must have a new random posistion where the ball should be placed by the user.
+{T}: A timer must display on the top right to show postion of the system.",Threshold,Every level should place the goal circle in a different location,This could be found in the YSM documentation.
+Specifactions 2.2: tilting system ,{T}: Every round resets the circle in the center if the the ltdc screen.,Threshold,Every level should place the goal circle in a different location,This could be found in the YSM documentation.

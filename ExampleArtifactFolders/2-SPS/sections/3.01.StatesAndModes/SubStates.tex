@@ -11,9 +11,14 @@ See the formal specifications, if applicable, in the following sections for form
 				{\bf Sub-State Name} & {\bf Summary} & {\bf Valid States} \\ 
 			\hline
 			\hline
-Sub State A & summary & State 1 \\ \hline
-Sub State B & summary & State 2 \\ \hline
-Sub State C & summary & State 3 \\ 
+Sub State A & MEM init & State 1 \\ \hline
+Sub State B & LCTD init & State 1 \\ \hline
+Sub State C & Main Menu Screen & State 2 \\ \hline
+Sub State D & Help Screen & State 3 \\ \hline
+Sub State E & Starting Level Screen & State 4 \\ \hline
+Sub State F & Randomizer & State 4 \\ \hline
+Sub State G & Level Loader & State 4 \\ \hline
+Sub State H & Reach End Goal & State 4 \\ 
 			\hline
 			\hline
 		\end{tabular}
@@ -35,7 +40,7 @@ Sub State C & summary & State 3 \\
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:SubStateA}
 % #4 is Text of the specification
-{The system shall provide the SubState-A substate.}
+{The Subsystems MEMS shall indicate they are fully configured.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
 	\item [Phase 1] Threshold
@@ -44,7 +49,35 @@ Sub State C & summary & State 3 \\
 {This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [N/A] This requirement is a base requirement.
+	\item [1] The log file shall report that those systems have gone through there appropriate startup sequence.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-A substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.1}
+% #2 is Title
+{SubState B}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateB}
+% #4 is Text of the specification
+{The Subsystems LTDC shall indicate they are fully configured.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [1] The log file shall report that those systems have gone through there appropriate startup sequence.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
@@ -59,40 +92,11 @@ Sub State C & summary & State 3 \\
 % #1 is requirement Number
 {\RqtNumberBase.2}
 % #2 is Title
-{SubState B}
-% #3 is requirement label (expected to be of form rqt:XXX)
-{rqt:SubStateB}
-% #4 is Text of the specification
-{The system shall provide the SubState-B substate.}
-% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
-{
-	\item [Phase 1] Threshold
-}
-% #6 is Acceptance
-{This requirement shall be verified by demonstration.}
-% #7 is Traceability
-{
-	\item [N/A] This requirement is a base requirement.
-}
-% #8 is Notes; listed as enumeration \item ...
-{
-	\item The SubState-B substate generalizes the case where the system is \TBD.
-}
-% #9 is changebar version
-{P1}
-%%%%% end \ONERQMTV[9] macro
-
-
-%%% \ONERQMTV[9] is macro for consistently formatted requirements
-\ONERQMTV
-% #1 is requirement Number
-{\RqtNumberBase.3}
-% #2 is Title
 {SubState C}
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:SubStateC}
 % #4 is Text of the specification
-{The system shall provide the SubState-C substate.}
+{The game would have a start screen that would have options that the person would have.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
 	\item [Phase 1] Threshold
@@ -106,6 +110,147 @@ Sub State C & summary & State 3 \\
 % #8 is Notes; listed as enumeration \item ...
 {
 	\item The SubState-C substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.3}
+% #2 is Title
+{SubState D}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateD}
+% #4 is Text of the specification
+{The help screen contains information about what the system contains.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-D substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.3}
+% #2 is Title
+{SubState E}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateE}
+% #4 is Text of the specification
+{The Game starts with Level 1. All data such as position and orientation of the boards data is reset.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-E substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.3}
+% #2 is Title
+{SubState F}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateF}
+% #4 is Text of the specification
+{The Randomizer give a random location were user should place the ball as an end goal.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-F substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.3}
+% #2 is Title
+{SubState G}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateG}
+% #4 is Text of the specification
+{The ball in place in the center of the screen. }
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-G substate generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.3}
+% #2 is Title
+{SubState H}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:SubStateH}
+% #4 is Text of the specification
+{User win page shows on screen. The level is incremented and ball is restarted in the middle.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [N/A] This requirement is a base requirement.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The SubState-H substate generalizes the case where the system is \TBD.
 }
 % #9 is changebar version
 {P1}

@@ -3,39 +3,37 @@
 
 \chapter{Current system or situation}
 \label{loc:Current System or Situation}
-\input{DIDINFO_Snippets/OCD/OCD_3.0_DIDINFO.tex}
-
-The current situation of the system is bare bones. Debugging the system is easier when pieces are setup.
-
+% \input{DIDINFO_Snippets/OCD/OCD_3.0_DIDINFO.tex}
 
 \section{Background, objectives, and scope}
 \label{loc:Background, Objectives, and Scope}
-\input{DIDINFO_Snippets/OCD/OCD_3.1_DIDINFO.tex}
+% \input{DIDINFO_Snippets/OCD/OCD_3.1_DIDINFO.tex}
 
 % This section is \TBD.
-The system should be able to balance itself based off of how the system is leveled. The objectives are test each system seperatly.
-
+\ThisSystem is a user friendly game. The objective is for the user to move a ball from an initial position to a new position. 
 
 \section{Operational policies and constraints}
 \label{loc:Operational Policies and Constraints}
-\input{DIDINFO_Snippets/OCD/OCD_3.2_DIDINFO.tex}
+% \input{DIDINFO_Snippets/OCD/OCD_3.2_DIDINFO.tex}
 
 % This section is \TBD.
-Currently there are not policies and constraints.
+The limitations of the system are the speed of sampling from the MEMs chip and speed of displaying position of the ball.
 
 
 \section{Description of current system or situation}
 \label{loc:Description of current system or situation}
-\input{DIDINFO_Snippets/OCD/OCD_3.3_DIDINFO.tex}
+% \input{DIDINFO_Snippets/OCD/OCD_3.3_DIDINFO.tex}
 
 % This section is \TBD.
-The current screen for the system contains information that is needed for movement of the embedded system.
-This allows users to have different types of approaches to balance the system.
+Moving the ball would require the user to tilt the board at a certain angle. This angle should be calculated based on the MEM existing on the board.
+Once the board goes through a startup states the system shall show main menu. If the users wants to improve there understanding of how to game works, there is a help tab.
+If the user would like to start the game, they can click the "Start Game". Once the user starts the game the user would increase every level sequentially.
+If the user wants to reset the game, they can select the "Reset Game" option from the main menu. This will return the ball to its initial position and reset all game levels and scores to their default state. The system will prompt the user for confirmation before performing the reset to prevent accidental loss of progress.
 
 
 \section{Users or involved personnel}
 \label{loc:Users or involved personnel}
-\input{DIDINFO_Snippets/OCD/OCD_3.4_DIDINFO.tex}
+% \input{DIDINFO_Snippets/OCD/OCD_3.4_DIDINFO.tex}
 
 % This section is \TBD.
 Currently, there is only one user that is involved with this project.
@@ -43,6 +41,7 @@ Currently, there is only one user that is involved with this project.
 
 \section{Support concept}
 \label{loc:Support concept}
-\input{DIDINFO_Snippets/OCD/OCD_3.5_DIDINFO.tex}
+% \input{DIDINFO_Snippets/OCD/OCD_3.5_DIDINFO.tex}
 
-This section is \TBD.
+% This section is \TBD.
+The support for this system should be set as a minimal. Maintenance team shall look for release updates and follow installation instructions with the procedure documentations.

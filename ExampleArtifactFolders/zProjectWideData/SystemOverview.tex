@@ -15,8 +15,7 @@ Figure~\ref{fig:SystemOverview} shows the high-level architecture for the \ThisS
 	\label{fig:SystemOverview}
 \end{figure}
 This diagram shows the major external interfaces that provide the capabilities of \ThisSys.
-As are shown, the \ThisSys can provide \TBD.
 
-This system would be a game where the user would have to balance a ball on a LCD screen that is builtin on the STM32 board. We shall read data from an MEM every single frame.
-\ThisSys would keep track of the current position of the ball and where the next updated move is. This helps keep track of the system of where the ball is until a movment occure.
+This system would be a game where the user would have to balance a ball on a LCD screen that is builtin on the STM32 board. The objective of the game is to balance the ball on the screen based on the way the board was tilted.
+\ThisSys would keep track of the current position of the ball and where the next updated move is. This helps keep track of the system of where the ball is until a movement has occurred.
 \ThisSys shall process at a maximum 180 Hz. This would give the user enough time to process the current angle of the ball and be able to present on the LCD-TFT screen.
