@@ -5,4 +5,12 @@
 \label{loc:SystemWideDesignDecisions}
 \input{DIDINFO_Snippets/SSDD/SSDD_3.0.0_DIDINFO.tex}
 
-This section provides an overview of the system wide design decisions for \ThisSys.
+% This section provides an overview of the system wide design decisions for \ThisSys.
+The system will always start at the initial state. The initial state would run through all initialize steps to do reading for the system. That means that the Gyroscode will state doing reading and the data structure will be stored in memory.
+Once the initialization begins then the user should be able to view the main screen that is used for the system. This Main screen is where the user can select 2 buttons on the screen. The user would have 2 options to be able to select the buttons on the main screen. One being touch screen and the other with a scroll button. Both options are located on the board.
+The Main screen is where the user would select to start the game or read the helpful guide. 
+If the user select the help screen, then a new page would appear. This new page will descriptions of how to play the game. The page will have symbol descriptions and what the users' should be looking for while playing the game. To return to the main screen the users should click the 'X' on the top right.
+If the user selects the run game button, the game would begin. When the game begins from the main page it always starts at level one. Reach levels page would have the same setup. This setup allows the user how much time they have left at the level and the level there are on. This allows the user to see what then current state of the level they are play that they are at.
+Every single level that the user is playing the game the ball is place in a random location. The goal where the user should place the ball whould also be placed in a random location. This allows every level to be unique.
+If the user does not meet the goal at the end of the round then then user losses the game and is taken back to main menu.
+If the user moves the ball into the goal line then the level is complete and the game is continued.
