@@ -14,33 +14,45 @@ This chapter describes the system architectural design.
 
 % This section lists and describes the system components.
 The System components compose of the following:
-GYRO scope : reads angular volocities 
-LTDC
-
+GYRO scope : reads angular velocities 
+LTDC       : screen and touch screen to display angles.
+SDRAM      : hold memory displaying and updating the screen.
 
 
 \section{Concept of Execution}
 \label{loc:ConceptOfEExecution}
 \input{DIDINFO_Snippets/SSDD/SSDD_4.2.0_DIDINFO.tex}
 
-This section describes the concept of execution based on the system components.
+% This section describes the concept of execution based on the system components.
+First reads the the gyroscope value. Calculates what angles the ball should rotate to. Determain if there is match with the posistion of the ball and the goal.
 
 
 \section{Interface Design}
 \label{loc:InterfaceDesign}
 \input{DIDINFO_Snippets/SSDD/SSDD_4.3.0_DIDINFO.tex}
 
-This section describes the internal and external interface design based on the system components.
-
+% This section describes the internal and external interface design based on the system components.
+3 external interfaces. Gyroscope, SDRAM, and LTDC screen. Then are all interfacing with the STM32ZIT chip on the board.
 
 \subsection{Interface One}
 \label{loc:InterfaceOne}
-%\input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
+\input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
 
-This section describes the internal and external interface design based on the system components.
+% This section describes the internal and external interface design based on the system components.
+The Gyroscope Interface.  
+\TODO Add more descriptions
 
 \subsection{Interface Two}
 \label{loc:InterfaceTwo}
-%\input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
+\input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
 
-This section describes the internal and external interface design based on the system components.
+SDRAM Interface
+\TODO Add more descriptions
+
+
+\subsection{Interface Three}
+\label{loc:InterfaceTwo}
+\input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
+
+LTDC Interface
+\TODO Add more descriptions
