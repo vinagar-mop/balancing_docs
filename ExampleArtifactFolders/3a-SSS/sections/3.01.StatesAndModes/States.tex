@@ -12,10 +12,16 @@ See the formal specifications, if applicable, in the following sections for form
 				{\bf State Name} & {\bf Summary} \\
 			\hline
 			\hline
-State 1 & Board bringup        \\ \hline
-State 2 & Information screen   \\ \hline
-State 3 & Help Screen          \\ \hline
-State 4 & Game Play            \\
+State 1  &  Main Page 3111  \\ \hline
+State 2  &  Help Page 3112  \\ \hline
+State 3  &  Main Game Mode 3121  \\ \hline
+State 4  &  Balls movement 3131  \\ \hline
+State 5  &  Ball matches target 3132  \\ \hline
+State 6  &  Displaying level 3133  \\ \hline
+State 7  &  Displaying time 3134  \\ \hline
+State 8  &  Changing levels 3141  \\ \hline
+State 9  &  Failed level 3142  \\ \hline
+State 10 &  Hard turns 3143 \\ \hline
 			\hline
 			\hline
 		\end{tabular}
@@ -37,16 +43,16 @@ State 4 & Game Play            \\
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateOne}
 % #4 is Text of the specification
-{The system shall provide the State-1 state.}
+{The \ThisSys will have an opening screen that the game should also start with.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [T] Threshold
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [\cite{ref__KNEAD_Manual}] KPP-1
+	\item [N/A] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
@@ -66,7 +72,7 @@ State 4 & Game Play            \\
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateTwo}
 % #4 is Text of the specification
-{The system shall provide the State-2 state.}
+{The \ThisSys shall have a separate page that give clear indication on how the game shall be played. This page shall take the whole lCD screen to display.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
 	\item [Phase 1] Threshold
@@ -79,7 +85,7 @@ State 4 & Game Play            \\
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-2 state generalizes the case where the system is \TBD.
+	\item [N/A] This requirement is referenced in the SPS sheet.
 }
 % #9 is changebar version
 {P1}
@@ -95,7 +101,7 @@ State 4 & Game Play            \\
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateThree}
 % #4 is Text of the specification
-{The system shall provide the State-3 state.}
+{The \ThisSys shall have a consistent location where the ball within eat level will have the ball placed. This place will be noticeable and be accessible for any player to move the ball in the correct location..}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
 	\item [Phase 1] Threshold
@@ -115,5 +121,206 @@ State 4 & Game Play            \\
 %%%%% end \ONERQMTV[9] macro
 
 
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.4}
+% #2 is Title
+{State Four}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateFour}
+% #4 is Text of the specification
+{"The \ThisSys shall have a transitional model that would change the 
+\item Reading from the Mem control should describe the movement of the ball"}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
 
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.5}
+% #2 is Title
+{State Five}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateFive}
+% #4 is Text of the specification
+{The \ThisSys shall a win page once the user matched the write location for where the ball should be landing.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.6}
+% #2 is Title
+{State Six}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateSix}
+% #4 is Text of the specification
+{The \ThisSys shall have a level score with the game is running. This would be a running counter that is displayed once the user starts the game.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.7}
+% #2 is Title
+{State Seven}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateSeven}
+% #4 is Text of the specification
+{The \ThisSys shall provide a timer on the top left of the game to keep track of level to keep track of time per level. This is an ideal location for the user see there time limit.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.8}
+% #2 is Title
+{State Eight}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateEight}
+% #4 is Text of the specification
+{The \ThisSys shall change levels once the user reached a certain level.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.9}
+% #2 is Title
+{State Three}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateThree}
+% #4 is Text of the specification
+{The \ThisSys shall go back main menu once the user does not make the mark of the user.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
+
+
+%%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.10}
+% #2 is Title
+{State Ten}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateTen}
+% #4 is Text of the specification
+{The \ThisSys shall discard sharp changes while the microcontroller is being tilted.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] Threshold
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [\cite{ref__KNEAD_Manual}] Single-3
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is \TBD.
+}
+% #9 is changebar version
+{P1}
+%%%%% end \ONERQMTV[9] macro
 
