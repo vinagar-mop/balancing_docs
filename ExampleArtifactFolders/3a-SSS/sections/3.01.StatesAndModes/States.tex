@@ -34,7 +34,7 @@ State 10 &  Hard turns 3143 \\ \hline
 %%% include subsections and/or files with requirements for the states as needed
 %%%
 
-%%% \ONERQMTV[9] is macro for consistently formatted requirements
+%%% %\ONERQMTV[9] is macro for consistently formatted requirements
 \ONERQMTVKPP
 % #1 is requirement Number
 {\RqtNumberBase.1}
@@ -43,27 +43,27 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateOne}
 % #4 is Text of the specification
-{The \ThisSys will have an opening screen that the game should also start with.}
+{The \ThisSys will have an opening screen that the game should also start with. This will allow the user to select viewing details of how to play the game or just to play the game.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [T] Threshold
+	\item [Phase 1] Currently being worked on.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [N/A] This requirement is referenced in the SPS sheet.
+	\item [SPS] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-1 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % #9 is changebar version
 {P1}
-%%%%% end \ONERQMTV[9] macro
+%%%%% end %\ONERQMTV[9] macro
 
 
-%%% \ONERQMTV[9] is macro for consistently formatted requirements
+%%% %\ONERQMTV[9] is macro for consistently formatted requirements
 \ONERQMTVKSA
 % #1 is requirement Number
 {\RqtNumberBase.2}
@@ -75,13 +75,13 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall have a separate page that give clear indication on how the game shall be played. This page shall take the whole lCD screen to display.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [\cite{ref__KNEAD_Manual}] KSA-1
+	\item [SPS] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
@@ -89,11 +89,11 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #9 is changebar version
 {P1}
-%%%%% end \ONERQMTV[9] macro
+%%%%% end %\ONERQMTV[9] macro
 
 
-%%% \ONERQMTV[9] is macro for consistently formatted requirements
-\ONERQMTV
+%%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.3}
 % #2 is Title
@@ -101,10 +101,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateThree}
 % #4 is Text of the specification
-{The \ThisSys shall have a consistent location where the ball within eat level will have the ball placed. This place will be noticeable and be accessible for any player to move the ball in the correct location..}
+{The \ThisSys shall have a consistent location where the ball within each level will have the ball placed. This place will be noticeable and be accessible for any player to move the ball in the correct location..}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Levels must transition to the next live after every win.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -114,15 +114,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % % #1 is requirement Number
 {\RqtNumberBase.4}
 % #2 is Title
@@ -133,7 +133,7 @@ State 10 &  Hard turns 3143 \\ \hline
 {"The \ThisSys shall have a transitional model that would change the \item Reading from the Mem control should describe the movement of the ball"}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -143,15 +143,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.5}
 % #2 is Title
@@ -162,7 +162,8 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall a win page once the user matched the write location for where the ball should be landing.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
+
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -172,15 +173,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.6}
 % #2 is Title
@@ -188,10 +189,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateSix}
 % #4 is Text of the specification
-{The \ThisSys shall have a level score with the game is running. This would be a running counter that is displayed once the user starts the game.}
+{The \ThisSys shall have a level score while the game is running. This would be a running counter that is displayed once the user starts the game.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -201,15 +202,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.7}
 % #2 is Title
@@ -220,7 +221,8 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall provide a timer on the top left of the game to keep track of level to keep track of time per level. This is an ideal location for the user see there time limit.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
+
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -230,15 +232,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.8}
 % #2 is Title
@@ -249,7 +251,8 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall change levels once the user reached a certain level.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
+
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -259,15 +262,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.9}
 % #2 is Title
@@ -278,7 +281,8 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall go back main menu once the user does not make the mark of the user.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
+
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -288,15 +292,15 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % % #9 is changebar version
 % {P1}
-% %%%%% end \ONERQMTV[9] macro
+% %%%%% end %\ONERQMTV[9] macro
 
 
-% %%% \ONERQMTV[9] is macro for consistently formatted requirements
-% \ONERQMTV
+% %%% %\ONERQMTV[9] is macro for consistently formatted requirements
+%\ONERQMTV
 % #1 is requirement Number
 {\RqtNumberBase.10}
 % #2 is Title
@@ -307,7 +311,8 @@ State 10 &  Hard turns 3143 \\ \hline
 {The \ThisSys shall discard sharp changes while the microcontroller is being tilted.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] Currently being worked on.
+
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -317,9 +322,9 @@ State 10 &  Hard turns 3143 \\ \hline
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is \TBD.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % #9 is changebar version
 {P1}
-%%%%% end \ONERQMTV[9] macro
+%%%%% end %\ONERQMTV[9] macro
 
