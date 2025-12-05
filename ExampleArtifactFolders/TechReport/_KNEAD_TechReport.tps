@@ -14,7 +14,7 @@ NormalPos.top=26
 NormalPos.right=1451
 NormalPos.bottom=488
 Class=LaTeXView
-Document=ARTIFACT_TechReport.tex
+Document=Agarwal_Vinay_ARTIFACT_TechReport.tex
 
 [Frame0_View0,0]
 TopLine=33

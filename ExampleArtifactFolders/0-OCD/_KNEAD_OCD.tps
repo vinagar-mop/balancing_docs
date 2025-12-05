@@ -14,7 +14,7 @@ NormalPos.top=26
 NormalPos.right=1535
 NormalPos.bottom=530
 Class=LaTeXView
-Document=ARTIFACT_OCD.tex
+Document=Agarwal_Vinay_ARTIFACT_OCD.tex
 
 [Frame0_View0,0]
 TopLine=2

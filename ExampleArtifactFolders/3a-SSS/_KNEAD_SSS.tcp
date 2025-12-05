@@ -3,7 +3,7 @@ Type=TeXnicCenterProjectInformation
 Version=4
 
 [ProjectInfo]
-MainFile=ARTIFACT_SSS.tex
+MainFile=Agarwal_Vinay_ARTIFACT_SSS.tex
 UseBibTeX=1
 UseMakeIndex=1
 ActiveProfile=(Biber) LaTeX ⇨ PDF

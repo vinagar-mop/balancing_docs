@@ -3,7 +3,7 @@ Type=TeXnicCenterProjectInformation
 Version=4
 
 [ProjectInfo]
-MainFile=ARTIFACT_IRS.tex
+MainFile=Agarwal_Vinay_ARTIFACT_IRS.tex
 UseBibTeX=1
 UseMakeIndex=1
 ActiveProfile=(Biber) LaTeX ⇨ PS ⇨ PDF

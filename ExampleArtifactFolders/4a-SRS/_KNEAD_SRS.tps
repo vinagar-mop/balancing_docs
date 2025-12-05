@@ -14,7 +14,7 @@ NormalPos.top=26
 NormalPos.right=1322
 NormalPos.bottom=556
 Class=LaTeXView
-Document=ARTIFACT_SRS.tex
+Document=Agarwal_Vinay_ARTIFACT_SRS.tex
 
 [Frame0_View0,0]
 TopLine=0
