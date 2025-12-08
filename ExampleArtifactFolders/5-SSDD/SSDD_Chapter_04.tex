@@ -40,19 +40,17 @@ First reads the the gyroscope value. Calculates what angles the ball should rota
 
 % This section describes the internal and external interface design based on the system components.
 The Gyroscope Interface.  
-Add more descriptions
-
+The gyroscope in face is an L3GD20. This will be our main source of gyroscopic information that is used to understand accelerations based off a role pitch and y'all we will be only using roll and pitch for this project.
 \subsection{Interface Two}
 \label{loc:InterfaceTwo}
 % \input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
 
 SDRAM Interface
-Add more descriptions
-
+An STM32F49i likely refers to the STM32F429 or a similar high-performance F4 series MCU, which offers internal SRAM (e.g., 256KB on some F429s) and an extensive Flexible Memory Controller (FMC) to interface with external RAM like SDRAM, PSRAM, or NOR/NAND Flash for massive memory expansion, crucial for graphics and complex applications
 
 \subsection{Interface Three}
 \label{loc:InterfaceTwo}
 % \input{DIDINFO_Snippets/SSDD/SSDD_4.3.1_DIDINFO.tex}
 
 LTDC Interface
- Add more descriptions
+This scenario describes how to configure the STM32 LTDC display controller and TouchGFX Generator when using a LCD-TFT parallel display interface.
