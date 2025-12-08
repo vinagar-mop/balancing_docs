@@ -12,16 +12,16 @@ See the formal specifications, if applicable, in the following sections for form
 				{\bf State Name} & {\bf Summary} \\
 			\hline
 			\hline
-State 1  &  Main Page 3111  \\ \hline
-State 2  &  Help Page 3112  \\ \hline
-State 3  &  Main Game Mode 3121  \\ \hline
-State 4  &  Balls movement 3131  \\ \hline
-State 5  &  Ball matches target 3132  \\ \hline
-State 6  &  Displaying level 3133  \\ \hline
-State 7  &  Displaying time 3134  \\ \hline
-State 8  &  Changing levels 3141  \\ \hline
-State 9  &  Failed level 3142  \\ \hline
-State 10 &  Hard turns 3143 \\ \hline
+State 1  &  Main Page  \\ \hline
+State 2  &  Help Page  \\ \hline
+State 3  &  Main Game Mode   \\ \hline
+State 4  &  Balls movement  \\ \hline
+State 5  &  Ball matches target  \\ \hline
+State 6  &  Displaying level  \\ \hline
+State 7  &  Displaying time  \\ \hline
+State 8  &  Changing levels  \\ \hline
+State 9  &  Failed level   \\ \hline
+State 10 &  Hard turns \\ \hline
 			\hline
 			\hline
 		\end{tabular}
@@ -43,10 +43,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateOne}
 % #4 is Text of the specification
-{The \ThisSys will have an opening screen that the game should also start with. This will allow the user to select viewing details of how to play the game or just to play the game.}
+{The \ThisSys will have an opening screen that the game should also start with. This shall be the first screen that the user will see upon turing on the game.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -72,10 +72,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateTwo}
 % #4 is Text of the specification
-{The \ThisSys shall have a separate page that give clear indication on how the game shall be played. This page shall take the whole lCD screen to display.}
+{TThe display will be driven by Touchgfx's main screen page feature. The whole system initialization would be done upon power on.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -101,7 +101,7 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateThree}
 % #4 is Text of the specification
-{The \ThisSys shall have a consistent location where the ball within each level will have the ball placed. This place will be noticeable and be accessible for any player to move the ball in the correct location..}
+{The \ThisSys shall have a state machine that would keep track of the balls location}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
 	\item [Phase 1] Levels must transition to the next live after every win.
@@ -130,10 +130,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateFour}
 % #4 is Text of the specification
-{"The \ThisSys shall have a transitional model that would change the position on the ball based off the MEMs reading. The reading from the Mem control should describe the movement of the ball"}
+{"The \ThisSys shall have a transitional model that would change the position on the ball based off the MEMs reading. The reading from the Mem control should describe the movement of the ball}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -159,10 +159,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateFive}
 % #4 is Text of the specification
-{The \ThisSys shall a win page once the user matched the write location for where the ball should be landing.}
+{The \ThisSys shall a win page trigger an interrupt once the game is completed.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 
 }
 % #6 is Acceptance
@@ -189,10 +189,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateSix}
 % #4 is Text of the specification
-{The \ThisSys shall have a level score while the game is running. This would be a running counter that is displayed once the user starts the game.}
+{The \ThisSys shall have a dynamic global level value where every level would have a new updated value based on the counter index.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -218,10 +218,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateSeven}
 % #4 is Text of the specification
-{The \ThisSys shall provide a timer on the top left of the game to keep track of level to keep track of time per level. This is an ideal location for the user see there time limit.}
+{The \ThisSys shall provide a artificial timer that you decrease based off of clock timer within the embedded system.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 
 }
 % #6 is Acceptance
@@ -248,11 +248,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateEight}
 % #4 is Text of the specification
-{The \ThisSys shall change levels once the user reached a certain level.}
+{The \ThisSys shall have a stated machine that would change level based on a win/loss situation.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
-
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
 {This requirement shall be verified by demonstration.}
@@ -274,14 +273,14 @@ State 10 &  Hard turns 3143 \\ \hline
 % #1 is requirement Number
 {\RqtNumberBase.9}
 % #2 is Title
-{State Three}
+{State Nine}
 % #3 is requirement label (expected to be of form rqt:XXX)
-{rqt:StateThree}
+{rqt:StateNine}
 % #4 is Text of the specification
-{The \ThisSys shall go back main menu once the user does not make the mark of the user.}
+{The \ThisSys shall have an abrupt stop once the user doesn't achieve his or hers goals.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 
 }
 % #6 is Acceptance
@@ -308,10 +307,10 @@ State 10 &  Hard turns 3143 \\ \hline
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateTen}
 % #4 is Text of the specification
-{The \ThisSys shall discard sharp changes while the microcontroller is being tilted.}
+{The \ThisSys shall have a data flow from the gyroscope to the display. To ensure that there is transparency between the screen and the gyro reading, we would reduce the speed in which we would read the system.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Currently being worked on.
+	\item [Phase 1] DONE.
 
 }
 % #6 is Acceptance

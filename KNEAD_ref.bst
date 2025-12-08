@@ -845,8 +845,8 @@ FUNCTION {bibinfo.warn}
 FUNCTION {large.number.trigger}{ #5 }
 
 % For numbers longer than the trigger, this is the blocksize of the groups.
-% The blocksize must be less than the trigger threshold, and 2 * blocksize
-% must be greater than the trigger threshold (can't do more than one
+% The blocksize must be less than the trigger Must past demonstration, and 2 * blocksize
+% must be greater than the trigger Must past demonstration (can't do more than one
 % separation on the initial trigger).
 FUNCTION {large.number.blocksize}{ #3 }
 

@@ -1,6 +1,7 @@
 A summary of the states is provided in Table~\ref{tab:States}.
 See the formal specifications, if applicable, in the following sections for formal statement of the state requirements, and accompanying notes that provide further clarification on the meanings of the states.
 
+
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{|p{1.0in}|p{5.0in}|}
@@ -11,10 +12,16 @@ See the formal specifications, if applicable, in the following sections for form
 				{\bf State Name} & {\bf Summary} \\
 			\hline
 			\hline
-State 1 & Board bringup        \\ \hline
-State 2 & Information screen   \\ \hline
-State 3 & Help Screen          \\ \hline
-State 4 & Game Play            \\
+State 1  &  Main Page  \\ \hline
+State 2  &  Help Page  \\ \hline
+State 3  &  Main Game Mode   \\ \hline
+State 4  &  Balls movement  \\ \hline
+State 5  &  Ball matches target  \\ \hline
+State 6  &  Displaying level  \\ \hline
+State 7  &  Displaying time  \\ \hline
+State 8  &  Changing levels  \\ \hline
+State 9  &  Failed level   \\ \hline
+State 10 &  Hard turns \\ \hline
 			\hline
 			\hline
 		\end{tabular}
@@ -28,32 +35,28 @@ State 4 & Game Play            \\
 %%%
 
 %%% \ONERQMTV[9] is macro for consistently formatted requirements
-\ONERQMTV
+\ONERQMTVKPP
 % #1 is requirement Number
 {\RqtNumberBase.1}
 % #2 is Title
-{Specifications 1.1: Board Bringup}
+{State One}
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateOne}
 % #4 is Text of the specification
-{
-	When the system is turned on, all subsystem that are associated with the system must be initialized. Both the Sensor and Actuator should be communicating with the CPU.
-}
+{The \ThisSys will have an opening screen that the game should also start with. This will allow the user to select viewing details of how to play the game or just to play the game.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] Threshold
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
-{
-	The debugger must read out that the system as passed its calibration
-}
+{This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [1] This could be found in the YSM documentation.
+	\item [SPS] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-1 state generalizes the case where the system is in a good state.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % #9 is changebar version
 {P1}
@@ -61,34 +64,28 @@ State 4 & Game Play            \\
 
 
 %%% \ONERQMTV[9] is macro for consistently formatted requirements
-\ONERQMTV
+\ONERQMTVKSA
 % #1 is requirement Number
 {\RqtNumberBase.2}
 % #2 is Title
-{Specification 1.2: Main Menu}
+{State Two}
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateTwo}
 % #4 is Text of the specification
-{	
-	Once all subsystems are initialized the LTDC screen shall display a main menu. The main menu shall display 2 tabs. The 2 tabs should be labeled as
-		- A Help Screen
-		- A Play Game 
-}
+{The \ThisSys shall have a separate page that give clear indication on how the game shall be played. This page shall take the whole lCD screen to display.}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 1] There must be a screen representation where the user can click each button.
+	\item [Phase 1] DONE.
 }
 % #6 is Acceptance
-{
-	Then Main Menu screen should be the first screen that pops up when the system is turned on.
-}
+{This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [1] This could be found in the YSM documentation.
+	\item [SPS] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-2 state generalizes the case where the system is in a good state.
+	\item [N/A] This requirement is referenced in the SPS sheet.
 }
 % #9 is changebar version
 {P1}
@@ -100,61 +97,234 @@ State 4 & Game Play            \\
 % #1 is requirement Number
 {\RqtNumberBase.3}
 % #2 is Title
-{Specification 1.3: Help Screen}
+{State Three}
 % #3 is requirement label (expected to be of form rqt:XXX)
 {rqt:StateThree}
 % #4 is Text of the specification
-{
-	Contains all of the information that is needed for playing the game.
-}
+{The \ThisSys shall have a consistent location where the ball within each level will have the ball placed. This place will be noticeable and be accessible for any player to move the ball in the correct location..}
 % #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
 {
-	\item [Phase 2] The screen must show as described.
+	\item [Phase 1] Levels must transition to the next live after every win.
 }
 % #6 is Acceptance
-{
-	The help screen should popup once the system option is selected from the main page is selected.
-}
+{This requirement shall be verified by demonstration.}
 % #7 is Traceability
 {
-	\item [1] The screen must have a separate page to place information like that.
+	\item [SPS] This requirement is referenced in the SPS sheet.
 }
 % #8 is Notes; listed as enumeration \item ...
 {
-	\item The State-3 state generalizes the case where the system is in a good state.
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% % #1 is requirement Number
+{\RqtNumberBase.4}
+% #2 is Title
+{State Four}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateFour}
+% #4 is Text of the specification
+{"The \ThisSys shall have a transitional model that would change the position on the ball based off the MEMs reading. The reading from the Mem control should describe the movement of the ball"}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.5}
+% #2 is Title
+{State Five}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateFive}
+% #4 is Text of the specification
+{The \ThisSys shall a win page once the user matched the write location for where the ball should be landing.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.6}
+% #2 is Title
+{State Six}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateSix}
+% #4 is Text of the specification
+{The \ThisSys shall have a level score while the game is running. This would be a running counter that is displayed once the user starts the game.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.7}
+% #2 is Title
+{State Seven}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateSeven}
+% #4 is Text of the specification
+{The \ThisSys shall provide a timer on the top left of the game to keep track of level to keep track of time per level. This is an ideal location for the user see there time limit.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.8}
+% #2 is Title
+{State Eight}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateEight}
+% #4 is Text of the specification
+{The \ThisSys shall change levels once the user reached a certain level.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.9}
+% #2 is Title
+{State Nine}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateNine}
+% #4 is Text of the specification
+{The \ThisSys shall go back main menu once the user does not make the mark of the user.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
+}
+% % #9 is changebar version
+% {P1}
+% %%%%% end \ONERQMTV[9] macro
+
+
+% %%% \ONERQMTV[9] is macro for consistently formatted requirements
+\ONERQMTV
+% #1 is requirement Number
+{\RqtNumberBase.10}
+% #2 is Title
+{State Ten}
+% #3 is requirement label (expected to be of form rqt:XXX)
+{rqt:StateTen}
+% #4 is Text of the specification
+{The \ThisSys shall discard sharp changes while the microcontroller is being tilted.}
+% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
+{
+	\item [Phase 1] DONE.
+
+}
+% #6 is Acceptance
+{This requirement shall be verified by demonstration.}
+% #7 is Traceability
+{
+	\item [SPS] This requirement is referenced in the SPS sheet.
+}
+% #8 is Notes; listed as enumeration \item ...
+{
+	\item The State-3 state generalizes the case where the system is working with the requirement.
 }
 % #9 is changebar version
 {P1}
 %%%%% end \ONERQMTV[9] macro
 
-%%% \ONERQMTV[9] is macro for consistently formatted requirements
-\ONERQMTV
-% #1 is requirement Number
-{\RqtNumberBase.4}
-% #2 is Title
-{Specification 1.4: Game Play Screen}
-% #3 is requirement label (expected to be of form rqt:XXX)
-{rqt:StateThree}
-% #4 is Text of the specification
-{
-	Once the button is pressed the system should reset the ball in the middle of the screen. From the menu page, the game screen should always start at level 0.
-}
-% #5 is Status (S in {(T), (O), (I), (D)} listed by phase as \item [] S)
-{
-	\item [Phase 1] The screen must show as described.
-}
-% #6 is Acceptance
-{
-	The game screen should popup once the systems option is selected from the main page.
-}
-% #7 is Traceability
-{
-	\item [1] The screen must have a separate page to place information like that.
-}
-% #8 is Notes; listed as enumeration \item ...
-{
-	\item The State-3 state generalizes the case where the system is in a good state.
-}
-% #9 is changebar version
-{P1}
-%%%%% end \ONERQMTV[9] macro
